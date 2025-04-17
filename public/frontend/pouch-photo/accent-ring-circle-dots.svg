@@ -1,0 +1,16 @@
+<svg height="300" width="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<defs>
+    <pattern id="Pattern" x="0" y="0" width=".03" height=".03">
+      <circle
+        cx="1.5"
+        cy="1.5"
+        r="1.5"
+        fill="rgb(250,250,250)" />
+    </pattern>
+</defs>
+<g transform="translate(150,2.5) scale(1.5)">
+<circle cx="55" cy="45" r="50" stroke="white" stroke-width="1" fill="none" />
+</g>
+
+  <circle r="110" cx="230" cy="180" fill="url(#Pattern)" opacity="0.9" />
+</svg>

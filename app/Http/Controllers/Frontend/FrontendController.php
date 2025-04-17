@@ -16,4 +16,9 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.about');
     }
+
+    public function pouch()
+    {
+        return view('frontend.pages.pouch');
+    }
 }

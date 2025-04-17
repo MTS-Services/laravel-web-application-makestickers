@@ -10,7 +10,28 @@ export default {
         './resources/**/*.vue',
     ],
     theme: {
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1rem',
+            },
+            screens: {
+                xs: '480px',
+                sm: '640px',
+                md: '768px',
+                lg: '1024px',
+                xl: '1280px',
+            },
+        },
         extend: {
+            screens: {
+                'xs': '480px',
+                'sm': '640px',
+                'md': '768px',
+                'lg': '1024px',
+                'xl': '1280px',
+            },
             fontFamily: {
                 "Lato": ["Lato", 'sans-serif'],
                 "Montserrat": ["Montserrat", 'sans-serif'],

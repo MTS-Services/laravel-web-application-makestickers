@@ -55,14 +55,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-
-        <div class="text-center  text-lg  mt-8 mb-10">
-            <p class="mb-1">Don't see anything for you? Send your resume to:</p>
-            <a href="mailto:careers@graphicisland.com" class="text-blue-500 hover:underline ">careers@graphicisland.com</a>
-        </div>
-        </div>
+            <div class="text-center bg-white text-lg  mt-4 mb-10">
+                <p class="mb-1">Don't see anything for you? Send your resume to:</p>
+                <a href="mailto:careers@graphicisland.com" class="text-blue-500 hover:underline ">careers@graphicisland.com</a>
+            </div>
         </div>
         <!-- Values Section -->
         <div class="bg-white py-16 px-4 border-t border-gray-300">
@@ -74,14 +70,14 @@
                 looking for good people to <a href="#" class="text-blue-500 hover:underline">join our team</a>.
             </p>
 
-            <section class="bg-gray-100 py-24 px-6"> <!-- Increased vertical padding -->
+            <section class=" py-24 px-6"> <!-- Increased vertical padding -->
                 <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-12">
 
                     <!-- Left: Values -->
                     <div class="w-full lg:w-[50%]">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-10 relative text-center lg:text-left">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-10 relative text-center ">
                             Our Values
-                            <span class="block h-1 w-16 bg-blue-500 mt-3 mx-auto lg:mx-0"></span>
+                            <span class="block h-1 w-16 bg-blue-500 mt-3 mx-auto "></span>
                         </h2>
 
                         <div class="space-y-8"> <!-- More spacing between cards -->
@@ -96,7 +92,7 @@
                                     stressful situations when we need to rush.</p>
                             </div>
                             <div class="border-l-4 border-blue-500 bg-white p-6 shadow-md rounded">
-                                <h3 class="text-blue-600 font-bold mb-3 text-lg">Have a growth mindset</h3>
+                                <h3 class="text-primary-hover font-bold mb-3 text-lg">Have a growth mindset</h3>
                                 <p class="text-base text-gray-700">We understand that through effort, learning, and practice
                                     we can improve over time.</p>
                             </div>
@@ -136,26 +132,27 @@
             {{-- {{asset('frondend/Career Opportunities_image/repair.jpg')}} --}}
 
             <div class="bg-gray-800 py-10 text-center">
-                <h3 class="text-2xl font-semibold text-white mb-6">Get to know us better</h3>
-                <div class="flex items-center justify-center space-x-60">
-                    <a href="#" class="text-gray-300 hover:text-white flex items-center">
-                        <i class="fa-brands fa-instagram mr-2 text-3xl "></i>
-                        <span class="text-2xl">Instagram</span>
+                <h3 class="text-2xl sm:text-3xl font-semibold text-white mb-6">Get to know us better</h3>
+                <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-20">
+                    <a href="#" class="text-gray-300 hover:text-white flex items-center space-x-2">
+                        <i class="fa-brands fa-instagram text-2xl sm:text-3xl"></i>
+                        <span class="text-lg sm:text-xl md:text-2xl">Instagram</span>
                     </a>
-                    <a href="#" class="text-gray-300 hover:text-white flex items-center">
-                        <i class="fa-brands fa-facebook mr-2 text-3xl "></i>
-                        <span class="text-2xl">Facebook</span>
+                    <a href="#" class="text-gray-300 hover:text-white flex items-center space-x-2">
+                        <i class="fa-brands fa-facebook text-2xl sm:text-3xl"></i>
+                        <span class="text-lg sm:text-xl md:text-2xl">Facebook</span>
                     </a>
-                    <a href="#" class="text-gray-300 hover:text-white flex items-center">
-                        <i class="fa-brands fa-x-twitter mr-2 text-3xl "></i>
-                        <span class="text-2xl">Twitter</span>
+                    <a href="#" class="text-gray-300 hover:text-white flex items-center space-x-2">
+                        <i class="fa-brands fa-x-twitter text-2xl sm:text-3xl"></i>
+                        <span class="text-lg sm:text-xl md:text-2xl">Twitter</span>
                     </a>
-                    <a href="#" class="text-gray-300 hover:text-white flex items-center">
-                        <i class="fa-brands fa-tiktok mr-2 text-3xl"></i>
-                        <span class="text-2xl">TikTok</span>
+                    <a href="#" class="text-gray-300 hover:text-white flex items-center space-x-2">
+                        <i class="fa-brands fa-tiktok text-2xl sm:text-3xl"></i>
+                        <span class="text-lg sm:text-xl md:text-2xl">TikTok</span>
                     </a>
                 </div>
             </div>
+
 
             <section class="bg-gray-50 py-16">
                 <div class="max-w-7xl mx-auto px-4 text-center">
@@ -258,7 +255,7 @@
                             <div class=" border-l-4 border-blue-600  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
                                     <div class="flex items-center mb-2 text-yellow-500 text-3xl">★★★★★</div>
-                                    <p class="text-blue-600 font-light text-2xl">"A company that values its employees"</p>
+                                    <p class="text-primary-hover font-light text-2xl">"A company that values its employees"</p>
                                     <p class="text-gray-600 text-sm mt-1">Current Employee, 3+ years</p>
                                 </div>
                             </div>
@@ -267,7 +264,7 @@
                             <div class=" border-l-4 border-blue-600  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
                                     <div class="flex items-center mb-2 text-yellow-500 text-3xl">★★★★★</div>
-                                    <p class="text-blue-600 font-light  text-2xl">"Amazing company to work for!"</p>
+                                    <p class="text-primary-hover font-light  text-2xl">"Amazing company to work for!"</p>
                                     <p class="text-gray-600 text-sm mt-1">Current Employee, 3+ years</p>
                                 </div>
                             </div>
@@ -276,7 +273,7 @@
                             <div class=" border-l-4 border-blue-600  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
                                     <div class="flex items-center mb-2 text-yellow-500 text-3xl">★★★★★</div>
-                                    <p class="text-blue-600 font-light text-2xl">"Simply the best!"</p>
+                                    <p class="text-primary-hover font-light text-2xl">"Simply the best!"</p>
                                     <p class="text-gray-600 text-sm mt-1">Current Employee, 5+ years</p>
                                 </div>
                             </div>

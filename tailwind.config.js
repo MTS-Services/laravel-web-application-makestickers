@@ -46,11 +46,17 @@ export default {
                 'heading-5': ['1.25rem', '1.75rem'],
                 'heading-6': ['1rem', '1.5rem'],
 
-                'font-extra-large': ['1.5rem', '2rem'],
-                'font-large': ['1.25rem', '1.75rem'],
-                'font-primary': ['1rem', '1.5rem'],
-                'font-small': ['0.875rem', '1.25rem'],
-                'font-tiny': ['0.75rem', '1rem'],
+                'font-48px': ['3rem', '3.5rem'],
+                'font-40px': ['2.5rem', '3rem'],
+                'font-32px': ['2rem', '2.5rem'],
+                'font-28px': ['1.75rem', '2.25rem'],
+                'font-24px': ['1.5rem', '2rem'],
+                'font-22px': ['1.375rem', '1.75rem'],
+                'font-20px': ['1.25rem', '1.75rem'],
+                'font-18px': ['1.125rem', '1.5rem'],
+                'font-16px': ['1rem', '1.5rem'],
+                'font-14px': ['0.875rem', '1.25rem'],
+                'font-12px': ['0.75rem', '1rem'],
             },
 
             colors: {

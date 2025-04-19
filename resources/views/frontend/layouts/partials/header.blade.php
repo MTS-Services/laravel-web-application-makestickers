@@ -48,7 +48,7 @@
                 <a href="#" class="hover:text-red-500">CUSTOM LABELS</a>
                 <a href="#" class="hover:text-red-500">POUCHES</a>
                 <a href="#" class="hover:text-red-500">DESIGNS</a>
-                <a href="#" class="hover:text-red-500">🛒 CART</a>
+                <a href="#" class="hover:text-red-500"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>
         </div>
 

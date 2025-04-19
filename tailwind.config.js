@@ -10,7 +10,7 @@ export default {
         './resources/**/*.vue',
     ],
     theme: {
-        extend: {
+        extend: { 
             fontFamily: {
                 "Lato": ["Lato", 'sans-serif'],
                 "Montserrat": ["Montserrat", 'sans-serif'],
@@ -47,6 +47,8 @@ export default {
                 'light-gray': '#F6F6F8',
                 'dark': '#333333',
                 'gray': '#737373',
+                'amber': '#f7b9296e',
+                'amber-light': '#92400E',
             },
 
             boxShadow: {

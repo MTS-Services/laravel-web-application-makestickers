@@ -21,4 +21,9 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.faq');
     }
+
+    public function shipping()
+    {
+        return view('frontend.pages.shipping');
+    }
 }

@@ -9,8 +9,8 @@
     {{-- Hero Area --}}
     <div class="bg-gray/30 w-full border-t-2 border-primary">
         <div class="container mx-auto py-16 text-center">
-            <h4 class="text-heading-4 font-semibold text-primary uppercase">Common Questions</h4>
-            <h2 class="text-heading-2 font-bold text-gray mt-5">How can we help?</h2>
+            <h4 class="text-font-24px font-semibold text-primary uppercase">Common Questions</h4>
+            <h2 class="text-font-32px font-bold text-gray mt-5">How can we help?</h2>
         </div>
     </div>
 
@@ -34,42 +34,66 @@
 
                         {{-- Accordions --}}
                         <div class="flex flex-col gap-4 mt-5 w-full md:w-4/5">
-                            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+                            <div class="collapse collapse-arrow bg-light-gray/10 border border-dark/10">
                                 <input type="radio" name="my-accordion-3" checked="checked" />
                                 <div class="collapse-title font-semibold">Question 1</div>
                                 <div class="collapse-content text-sm">
                                     <ul class="list pl-5">
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+
+                            <div class="collapse collapse-arrow bg-light-gray/10 border border-dark/10">
                                 <input type="radio" name="my-accordion-3" />
                                 <div class="collapse-title font-semibold">I forgot my password. What should I do?</div>
                                 <div class="collapse-content text-sm">
                                     <ul class="list pl-5">
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+                            <div class="collapse collapse-arrow bg-light-gray/10 border border-dark/10">
                                 <input type="radio" name="my-accordion-3" />
                                 <div class="collapse-title font-semibold">How do I update my profile information?</div>
                                 <div class="collapse-content text-sm">
                                     <ul class="list pl-5">
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
-                                        <li><a href="" class="text-primary text-font-large">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
+                                        <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="basis-1/3 bg-red-900 py-5"></div>
+                    <div class="basis-1/3 card w-full bg-light-gray/10 shadow-sm border border-dark/10 h-fit">
+                        <div class="card-body">
+                            <h4 class="text-font-24px font-bold text-gray uppercase">STILL NEED ANSWERS?</h4>
+                            <div class="flex items-center justify-between mt-5">
+                                <p class="text-font-20px"><i class="fa-solid fa-mobile-retro"></i> Call:</p>
+                                <a href="tel:+1-800-123-4567" class="text-dark text-font-20px">+1-800-123-4567</a>
+                            </div>
+                            <div class="flex items-center justify-between mt-5">
+                                <p class="text-font-20px"><i class="fa-solid fa-fax"></i> Fax:</p>
+                                <a href="fax:+1-800-123-4567" class="text-dark text-font-20px">+1-800-123-4567</a>
+                            </div>
+                            <div class="flex items-center justify-between mt-5">
+                                <p class="text-font-20px"><i class="fa-solid fa-headset"></i> Chat:</p>
+                                <button class="btn text-white bg-tertiary btn-sm hover:bg-tertiary-hover">Start Chat</button>
+                            </div>
+
+                            <div class="divider"></div>
+
+                           <p class="text-font-14px text-gray">Our customer support hours are</p>
+                           <p class="text-font-20px text-primary">Monday to Friday: 8:00 AM to 5:00 PM</p>
+                           <h4 class="text-font-24px font-bold text-gray">Our Location</h4>
+                           <p class="text-gray">123 Main Street, Anytown, USA</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

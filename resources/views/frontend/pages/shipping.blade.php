@@ -17,12 +17,12 @@
     <div class="container py-5">
         <div class="card bg-white max-w-screen-xl mx-auto shadow-sm border border-gray/30">
             <div class="card-body">
-                <div class="flex">
-                    <div class="basis-2/3">
+                <div class="flex flex-col md:flex-row space-y-5 md:space-y-0">
+                    <div class="w-full md:basis-2/3">
                         <h4 class="text-font-24px font-medium capitalize">Shipping Options</h4>
-                        <div class="card card-md shadow-sm w-full lg:w-11/12 bg-light-gray/10 border border-dark/10 mt-5">
+                        <div class="card card-md shadow-sm w-full md:w-11/12 bg-light-gray/10 border border-dark/10 mt-5">
                             <div class="card-body">
-                                <div class="flex items-center justify-between">
+                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 items-center justify-between">
                                     <p class="text-font-20px text"><i class="fa-solid fa-calendar-days pr-2"></i>
                                         <span class="text-primary font-semibold uppercase">Free</span> Standard Shipping
                                     </p>
@@ -32,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="divider"></div>
-                                <div class="flex items-center justify-between">
+                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 items-center justify-between">
                                     <p class="text-font-20px text"><i class="fa-solid fa-calendar-days pr-2"></i>
                                         Overnight Shipping
                                     </p>
@@ -43,9 +43,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card card-md shadow-sm w-full lg:w-11/12 bg-light-gray/10 border border-dark/10 mt-5">
+                        <div class="card card-md shadow-sm w-full md:w-11/12 bg-light-gray/10 border border-dark/10 mt-5">
                             <div class="card-body">
-                                <div class="flex items-center justify-between">
+                                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 items-center justify-between">
                                     <p class="text-font-20px text"><i class="fa-solid fa-calendar-days pr-2"></i>
                                         International Shipping
                                     </p>
@@ -57,11 +57,11 @@
                             </div>
                         </div>
 
-                        <p class="mt-5">Specific delivery dates and costs will be shown during checkout and will be based
+                        <p class="mt-5 md:w-11/12">Specific delivery dates and costs will be shown during checkout and will be based
                             on your order
                             and shipping address.</p>
                     </div>
-                    <div class="basis-1/3">
+                    <div class="w-full md:basis-1/3">
                         <img src="{{ asset('frontend/images/stickers-group.png') }}" alt="Stickers" class="w-full h-auto" />
                         <div class="card bg-primary/40 shadow-sm mt-5 border border-primary">
                             <div class="card-body text-center">

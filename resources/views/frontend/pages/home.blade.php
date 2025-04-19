@@ -1,4 +1,5 @@
-@extends('frontend.layouts.app', ['title' => 'Home'])
+@extends('frontend.layouts.app', ['page_slug' => 'home'])
+@section('title', 'Home Page')
 
 @push('styles')
 @endpush

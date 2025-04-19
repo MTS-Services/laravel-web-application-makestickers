@@ -17,7 +17,7 @@
 
     <body>
         <div class="bg-gray-100 py-8 text-center">
-            <p class="text-orange-hover-500 uppercase tracking-widest mb-1">Careers</p>
+            <p class=" text-orange font-bold uppercase tracking-widest mb-1">Careers</p>
             <h2 class="text-3xl font-bold text-gray-700 uppercase tracking-tight mb-4">JOIN THE TEAM</h2>
             <div class="w-12 h-1 bg-yellow-500 mx-auto"></div>
         </div>
@@ -33,7 +33,7 @@
                     <div class="p-6 md:p-8 border-l-4 border-blue-600 bg-white shadow rounded-md">
                         <h3 class="text-xl font-bold text-gray-900 mb-1">Customer Care Specialist</h3>
                         <p class="text-sm text-gray-600 mb-2"><span class="font-bold">Location:</span> Remote</p>
-                        <a href="#" class="text-lg font-bold text-primary-hover-800">+ View details</a>
+                        <a href="#" class="text-lg font-bold text-primary-hover">+ View details</a>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                     <div class="p-6 md:p-8 border-l-4 border-blue-600 bg-white shadow rounded-md">
                         <h3 class="text-xl font-bold text-gray-900 mb-1">Laser Finishing Operator</h3>
                         <p class="text-sm text-gray-600 mb-2"><span class="font-bold">Location:</span> Tinley Park, IL</p>
-                        <a href="#" class="text-lg font-bold text-primary-hover-800">+ View details</a>
+                        <a href="#" class="text-lg font-bold text-primary-hover">+ View details</a>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@
                     <div class="p-6 md:p-8 border-l-4 border-blue-600 bg-white shadow rounded-md">
                         <h3 class="text-xl font-bold text-gray-900 mb-1">Sticker Production Assistant</h3>
                         <p class="text-sm text-gray-600 mb-2"><span class="font-bold">Location:</span> Tinley Park, IL</p>
-                        <a href="#" class="text-lg font-bold text-primary-hover-800">+ View details</a>
+                        <a href="#" class="text-lg text-primary-hover font-bold text-primary-hover-800">+ View details</a>
                     </div>
                 </div>
             </div>
@@ -64,11 +64,11 @@
         <!-- Values Section -->
         <div class="bg-white py-16 px-4 border-t border-gray-300">
             <p class="text-center text-2xl text-gray-700 mb-10">
-                We’re a <span class="font-semiboldorange-400">technology-focused</span> printing company that’s
+                We’re a <span class="font-semibold text-orange">technology-focused</span> printing company that’s
                 growing
                 quickly and (almost) always
                 <br>
-                looking for good people to <a href="#" class="text-primary-hover-500 hover:underline">join our team</a>.
+                looking for good people to <a href="#" class="text-orange hover:underline">join our team</a>.
             </p>
 
             <section class=" py-24 px-6"> <!-- Increased vertical padding -->
@@ -76,7 +76,7 @@
 
                     <!-- Left: Values -->
                     <div class="w-full lg:w-[50%]">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-10 relative text-center ">
+                        <h2 class="text-3xl  text-gray-800 mb-10 relative text-center ">
                             Our Values
                             <span class="block h-1 w-16 bg-blue-500 mt-3 mx-auto "></span>
                         </h2>
@@ -124,7 +124,7 @@
 
                             <!-- Third image -->
                             <div
-                                class="relative w-full after:content-[''] after:absolute after:inset-0 after:-rotate-6 after:bg-orange z-10 mt-4 lg:-mt-20">
+                                class="relative w-full after:content-[''] after:absolute after:inset-0 after:-rotate-6 after:bg text-orange z-10 mt-4 lg:-mt-20">
                                 <img src="{{ asset('frontend/Career Opportunities_image/keyboard.jpg') }}"
                                     class="w-full object-cover relative z-10 rounded-lg" alt="Image 3" />
                             </div>
@@ -259,7 +259,7 @@
                             <!-- Testimonial 1 -->
                             <div class=" border-l-4 border-blue-600  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
-                                    <div class="flex items-center mb-2orange-500 text-3xl">★★★★★</div>
+                                    <div class="flex items-center mb-2 text-orange text-3xl">★★★★★</div>
                                     <p class="text-primary-hover font-light text-2xl">"A company that values its employees"
                                     </p>
                                     <p class="text-gray-600 text-sm mt-1">Current Employee, 3+ years</p>
@@ -269,7 +269,7 @@
                             <!-- Testimonial 2 -->
                             <div class=" border-l-4 border-blue-600  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
-                                    <div class="flex items-center mb-2orange-500 text-3xl">★★★★★</div>
+                                    <div class="flex items-center mb-2 text-orange text-3xl">★★★★★</div>
                                     <p class="text-primary-hover font-light  text-2xl">"Amazing company to work for!"</p>
                                     <p class="text-gray-600 text-sm mt-1">Current Employee, 3+ years</p>
                                 </div>
@@ -278,7 +278,7 @@
                             <!-- Testimonial 3 -->
                             <div class=" border-l-4 border-blue-600  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
-                                    <div class="flex items-center mb-2orange-500 text-3xl">★★★★★</div>
+                                    <div class="flex items-center mb-2 text-orange text-3xl">★★★★★</div>
                                     <p class="text-primary-hover font-light text-2xl">"Simply the best!"</p>
                                     <p class="text-gray-600 text-sm mt-1">Current Employee, 5+ years</p>
                                 </div>
@@ -291,15 +291,15 @@
             <div class="bg-gray-800 py-8 text-center">
                 <h3 class="text-2xl font-semibold text-white mb-6">Interested?</h3>
                 <div class="flex flex-col items-center justify-center space-y-4">
-                    <a href="#" class="text-gray-300 hover:text-white">
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Apply Now</button>
+                    <a href="#" class="text-gray-300 hover:text-white-bold">
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-md font-bold">Apply Now</button>
                     </a>
 
                     <!-- Additional Lines -->
-                    <p class="text-gray-300">Don’t see any openings?
-                    <span class="text-gray-300 mb-0">Send your resume to</span></p>
+                    <p class="text-white">Don’t see any openings?
+                    <span class="text-white mb-0">Send your resume to</span></p>
                         <a href="mailto:careers@graphicsland.com"
-                            class="text-gray-400 hover:underline">careers@graphicsland.com</a>
+                            class="text-white hover:underline">careers@graphicsland.com</a>
                     </p>
                 </div>
             </div>

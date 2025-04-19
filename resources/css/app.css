@@ -22,17 +22,17 @@
 
 @layer components {
     .btn-primary {
-        @apply bg-primary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-primary font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
+        @apply bg-primary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
         @apply hover:bg-primary-hover;
         @apply focus:shadow-btn-secondary;
     }
     .btn-secondary {
-        @apply bg-secondary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-primary font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
+        @apply bg-secondary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px  font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
         @apply hover:bg-secondary-hover;
         @apply focus:shadow-btn-secondary;
     }
     .btn-tertiary {
-        @apply bg-orange text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-primary font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
+        @apply bg-orange text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px  font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
         @apply hover:bg-orange-hover;
         @apply focus:shadow-btn-secondary;
     }

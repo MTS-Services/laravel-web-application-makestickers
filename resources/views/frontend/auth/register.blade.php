@@ -8,7 +8,7 @@
             <div class="card w-full bg-white shadow-sm max-w-xl">
                 <div class="card-body">
                     <div class="flex justify-between mb-2">
-                        <h2 class="text-3xl font-bold">Register to your account</h2>
+                        <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Register to your account</h2>
                     </div>
                     <form action="">
                         <div class="flex flex-col gap-2">
@@ -72,17 +72,17 @@
                     <div class="divider"></div>
 
                     <p>When you create a <strong class="text-gray">FREE</strong> account, you can enjoy these features:</p>
-                    <div class="grid grid-cols-3 gap-2">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                         <div>
-                            <h3 class="text-heading-6 font-semibold">Address Book</h3>
+                            <h3 class="text-font-16px font-semibold">Address Book</h3>
                             <p>Store addresses for quick and easy checkout</p>
                         </div>
                         <div>
-                            <h3 class="text-heading-6 font-semibold">Order History</h3>
+                            <h3 class="text-font-16px font-semibold">Order History</h3>
                             <p>See your past orders and reorder designs easily</p>
                         </div>
                         <div>
-                            <h3 class="text-heading-6 font-semibold">Favorite Designs</h3>
+                            <h3 class="text-font-16px font-semibold">Favorite Designs</h3>
                             <p>Save design progress to finish later or use a design as a base for different versions.
                                 (Previously design library)</p>
                         </div>

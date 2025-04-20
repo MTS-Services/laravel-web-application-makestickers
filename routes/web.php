@@ -5,11 +5,15 @@ use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return Redirect::route('frontend.home');
-    // return view('welcome');
+// Route::get('/', function () {
+//     return Redirect::route('frontend.home');
+//     // return view('welcome');
+// });
+
+Route::group(['middleware' => 'Auth', 'prefix' => 'home','as' => 'frontend'], function () {
+    Route::get('/', [FrontendController::class, 'home'])->name('home');
+    Route::get('/about', [FrontendController::class, 'return'])->name('returns');
 });
-Route::get('/reruns', [FrontendController::class, 'return'])->name('frontend.returns');
 
 // Auth Routes
 Route::get('/login', [TemporaryAuthController::class, 'login'])->name('login');

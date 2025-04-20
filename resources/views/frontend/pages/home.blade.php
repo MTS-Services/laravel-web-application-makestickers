@@ -228,7 +228,7 @@
         <section class="mt-14 sm:mt-20">
             <h2 class="text-heading-2 sm:text-heading-3 md:text-heading-2 font-bold text-center">Stand Up Pouch Features
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 sm:mt-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8 sm:mt-10">
                 <!-- Feature cards-->
                 <div class="p-2 sm:p-4">
                     <div class="flex flex-col md:flex-row bg-white rounded-heading-2 shadow-lg overflow-hidden">

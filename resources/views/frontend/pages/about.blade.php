@@ -31,15 +31,18 @@
 
 @section('content')
     <section>
-        <div class="container mx-auto p-4">
+        <div class="container mx-auto">
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-2 items-center justify-center ">
                 <div class="p-4 sm:order-2 lg:order-1">
-                    <h1 class="text-heading-2 md:text-heading-1 text-dark font-semibold font-Montserrat mb-5">Hi, We Are MakeStickers</h1>
+                    <h1 class="text-heading-2 md:text-heading-1 text-dark font-semibold font-Montserrat mb-5">Hi, We Are
+                        MakeStickers</h1>
                     <div class="me-[50px]">
                         <p class="text-heading-5 text-dark mb-3">We're enthusiastic about making custom printing simple,
-                            affordable, and fast. Our expertise with technology enables us to make ordering simple, and allows
+                            affordable, and fast. Our expertise with technology enables us to make ordering simple, and
+                            allows
                             us to process orders much more quickly and efficiently than other companies.</p>
-                        <p class="text-heading-5 text-dark">Our dedication to offering live support from knowledgeable customer
+                        <p class="text-heading-5 text-dark">Our dedication to offering live support from knowledgeable
+                            customer
                             service representatives ensures that our customers will get the help they need.</p>
                     </div>
                 </div>
@@ -52,7 +55,7 @@
 
     {{-- Midwest Printing --}}
     <section>
-        <div class="container mx-auto p-4 mt-5">
+        <div class="container mx-auto mt-5">
             <h2 class="text-heading-3 md:text-heading-2 text-dark font-semibold font-Montserrat mb-10 text-center">Midwest
                 Printing, Nationwide Support</h2>
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-3 items-center justify-center">
@@ -88,7 +91,7 @@
     </section>
     {{-- Custom stickers --}}
     <section>
-        <div class="container mx-auto p-4 mt-5">
+        <div class="container mx-auto mt-10">
             <div class="grid gap-5 grid-cols-1 lg:grid-cols-2 items-center justify-between">
                 <div class=" p-4 flex flex-col justify-start">
                     <h2 class="text-heading-4 md:text-heading-3 text-dark font-semibold font-Montserrat mb-5">The
@@ -103,13 +106,15 @@
                             our customers and they're the reason we
                             continue to be in business. MakeStickers is committed to customer satisfaction and exceeding
                             customers expectations.</p>
-                        <svg width="380" height="36" viewBox="0 0 351 33" fill="none"
-                            xmlns="http://www.w3.org/2000/svg" class="mt-3 mb-4 mb-lg-0 d-none d-lg-block">
-                            <path d="M3 3H207.5L38 14H348.5" stroke="#A4D233" stroke-width="5" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path d="M111 30.5H274.5" stroke="#A4D233" stroke-width="5" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                        </svg>
+                        <div class="hidden lg:block">
+                            <svg width="380" height="36" viewBox="0 0 351 33" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="mt-3 mb-4 mb-lg-0 d-none d-lg-block">
+                                <path d="M3 3H207.5L38 14H348.5" stroke="#A4D233" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M111 30.5H274.5" stroke="#A4D233" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 <div class=" flex justify-center items-center">
@@ -124,7 +129,7 @@
     </section>
     {{-- Our Customers --}}
     <section class="mt-[50px]">
-        <div class="container mx-auto p-4 mt-5">
+        <div class="container mx-auto mt-5">
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-2 items-center justify-center">
                 <div class="flex flex-col justify-start p-2">
                     <h2 class="text-heading-4 md:text-heading-3 text-dark font-semibold font-Montserrat mb-5">Our
@@ -173,18 +178,17 @@
     </section>
     {{-- Reviews section --}}
     <section class="mt-[70px]">
-        <div class="container mx-auto p-4">
+        <div class="container mx-auto">
             <hr class="border border-[#44444456] border-t-0">
-            <div class="grid gap-3 grid-cols-1 lg:grid-cols-3 items-center justify-between p-3">
+            <div class="grid gap-10 lg:gap-4 grid-cols-1 lg:grid-cols-3 items-center justify-between py-10">
                 <div class="google-review flex flex-col lg:flex-row lg:gap-3 gap-5 justify-center items-center text-center">
                     <div>
                         <img src="{{ asset('frontend/about-us/logo-google.svg') }}" alt="">
                     </div>
                     <div>
-                        <h2
-                            class="text-heading-6 md:text-heading-5 font-semibold text-dark font-semibold font-Montserrat mb-2">
+                        <h2 class="text-heading-6 md:text-heading-5 font-semibold text-dark font-Montserrat mb-2">
                             Google Customer Reviews</h2>
-                        <div class="flex justify-start lg:justify-center items-center">
+                        <div class="flex justify-center lg:justify-start items-center">
                             <span class="text-heading-2 font-semibold me-3">4.9</span>
                             <span class="text-orange">
                                 <i class="fa-solid fa-star"></i>
@@ -200,16 +204,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="make-sticker-review flex gap-3 justify-center items-center relative">
+                <div
+                    class="make-sticker-review flex flex-col lg:flex-row lg:gap-3 justify-center items-center text-center relative">
                     <div>
                         <img src="{{ asset('frontend/about-us/logo-makestickers-imageonly.svg') }}" alt="">
                     </div>
                     <div>
-                        <h2
-                            class="text-heading-6 md:text-heading-5 font-semibold text-dark font-semibold font-Montserrat mb-2">
+                        <h2 class="text-heading-6 md:text-heading-5 font-semibold text-dark font-Montserrat mb-2">
                             MakeStickers Product Reviews
                         </h2>
-                        <div class="flex justify-start items-center">
+                        <div class="flex justify-center lg:justify-start items-center">
                             <span class="text-heading-2 font-semibold me-3">4.9</span>
                             <span class="text-orange">
                                 <i class="fa-solid fa-star"></i>
@@ -225,7 +229,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="facebook-review flex gap-3 justify-center items-center">
+                <div
+                    class="facebook-review flex flex-col lg:flex-row lg:gap-3 gap-3 justify-center items-center text-center">
                     <div>
                         <img src="{{ asset('frontend/about-us/logo-facebook.svg') }}" alt="facebook" width="120">
                     </div>
@@ -250,7 +255,7 @@
     </section>
     {{-- Printing Company --}}
     <section class="mt-[50px]">
-        <div class="container mx-auto p-4">
+        <div class="container mx-auto">
             <div class="grid gap-5 grid-cols-1 lg:grid-cols-2 justify-center py-10">
                 <div class="flex justify-center items-center p-2">
                     <img class="img-fluid" src="{{ asset('frontend/about-us/about-technology.webp') }}" alt="">
@@ -289,11 +294,11 @@
         </div>
     </section>
     {{-- Top Footer  --}}
-    <div class="container mx-auto p-4">
+    <div class="lg:container mx-auto">
         <div class="flex gap-5 lg:gap-0 flex-col lg:flex-row justify-center items-center py-3 my-5">
             <h2 class="text-heading-4 md:text-heading-3 text-dark font-semibold me-4">Get to know us more on social media
             </h2>
-            <p class="text-heading-4 md:text-heading-3 text-gray me-4">@MakeStickers</p>
+            <p class="text-heading-4 md:text-heading-3 text-gray me-4"><span>@</span>MakeStickers</p>
             <div class="flex items-center justify-between text-heading-3">
                 <a href="#" class="block px-1" target="_blank">
                     <span><i class="fa-brands fa-facebook"></i></span>
@@ -327,8 +332,10 @@
         <hr class="border border-[#44444456] border-t-0">
 
         <div class="text-center my-10">
-            <h2 class="text-heading-3 md:text-heading-2 text-dark font-semibold font-Montserrat mb-5">Join the MakeStickers Team</h2>
-            <p class="text-heading-6 text-gray mx-5 lg:mx-[350px]">We're a technology-focused printing company that's growing quickly and (almost) always looking for good people to join our team.</p>
+            <h2 class="text-heading-3 md:text-heading-2 text-dark font-semibold font-Montserrat mb-5">Join the MakeStickers
+                Team</h2>
+            <p class="text-heading-6 text-gray mx-5 lg:mx-[350px]">We're a technology-focused printing company that's
+                growing quickly and (almost) always looking for good people to join our team.</p>
             <button class="btn-primary mt-5 text-white capitalize">View Open Positions</button>
         </div>
         <div class="flex justify-center items-center my-10">

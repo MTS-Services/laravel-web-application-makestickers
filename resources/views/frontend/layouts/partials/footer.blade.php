@@ -59,7 +59,7 @@
     <div class="max-w-5xl mx-auto px-6 text-center text-xs text-gray-300 space-y-2">
       <div class="flex justify-center items-center space-x-2">
         <!-- Add your payment icons here -->
-        <img src="{{ asset('build/assets/images/footer_icons.png') }}" alt="Visa" class="h-5">
+        <img src="{{ asset('build/assets/images/footer_icons.png') }}" alt="Visa" class="h-6">
         <!-- Add others -->
       </div>
       <p>Makestickers.com is a registered trademark of Graphicsland, Inc. 

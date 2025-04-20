@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
     body {
         @apply font-Lato bg-light-gray text-dark;
@@ -22,18 +21,23 @@
 
 @layer components {
     .btn-primary {
-        @apply bg-primary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
+        @apply bg-primary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px font-bold text-center align-middle transition duration-200 ease-in-out capitalize;
         @apply hover:bg-primary-hover;
         @apply focus:shadow-btn-secondary;
     }
     .btn-secondary {
-        @apply bg-secondary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px  font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
+        @apply bg-secondary text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px  font-bold text-center align-middle transition duration-200 ease-in-out capitalize;;
         @apply hover:bg-secondary-hover;
         @apply focus:shadow-btn-secondary;
     }
     .btn-tertiary {
-        @apply bg-orange text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px  font-bold text-center align-middle transition duration-200 ease-in-out uppercase;
+        @apply bg-orange text-white py-2 px-6 rounded-[4px] shadow-btn-primary text-font-16px  font-bold text-center align-middle transition duration-200 ease-in-out capitalize;
         @apply hover:bg-orange-hover;
         @apply focus:shadow-btn-secondary;
+    }
+
+    .input {
+        @apply focus:outline-0 focus:border-0 focus:ring-0 focus:shadow-none;
+        @apply focus-within:outline-0 focus-within:border-gray/50 focus-within:ring-0 focus-within:shadow-none;
     }
 }

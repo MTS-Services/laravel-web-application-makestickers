@@ -9,6 +9,7 @@ export default {
         './resources/**/*.js',
         './resources/**/*.vue',
     ],
+
     theme: {
         container: {
             center: true,

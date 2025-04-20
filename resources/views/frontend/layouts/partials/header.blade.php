@@ -4,7 +4,7 @@
         <!-- Logo -->
         <div>
             <div class="flex items-center space-x-2">
-                <img src="{{ asset('build/assets/images/makestickers-logo.png') }}" alt="Make Stickers" class="">
+                <img src="{{ asset('build/assets/images/makestickers-logo.png') }}" alt="Make Stickers" class="h-10">
 
             </div>
 
@@ -12,7 +12,7 @@
         </div>
 
         <!-- Right Buttons -->
-        <div class="text-right hidden md:block">
+        <div class="text-right hidden xl:block">
             <!-- change popover-1 and --anchor-1 names. Use unique names for each dropdown -->
             <button popovertarget="popover-1" class="py-2 px-4 hover:text-tertiary" style="anchor-name:--anchor-1">
                 ACCOUNT <i class="fas fa-caret-down"></i>
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <div class="text-center md:hidden">
+        <div class="text-center xl:hidden">
             <button type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -74,7 +74,7 @@
         <div class="py-4 overflow-y-auto">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray transition duration-75 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700" aria-controls="account" data-collapse-toggle="account">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray transition duration-75 rounded-lg group hover:bg-gray-100 " aria-controls="account" data-collapse-toggle="account">
                         <i class="fa-solid fa-user"></i>
                         <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap hover:text-tertiary">ACCOUNT</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -149,7 +149,7 @@
 
                 <!-- mobile -->
 
-                <div class=" flex flex-col text-light   text-sm font-semibold my-4">
+                <div class=" flex flex-col text-light  text-sm font-semibold my-4">
                     <a href="#" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
                     <a href="#" class="hover:text-tertiary py-3">CUSTOM LABELS</a>
                     <a href="#" class="hover:text-tertiary py-3">POUCHES</a>

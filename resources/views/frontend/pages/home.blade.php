@@ -1,34 +1,49 @@
-@extends('frontend.layouts.app', ['page_slug' => 'home'])
-@section('title', 'Home Page')
+@extends('frontend.layouts.app', ['page_slug' => 'pouch'])
+@section('page_title', 'Pouches')
+@section('title', 'Pouches')
 
 @push('styles')
     <style>
-        html,
+        .swiper-slide-thumb-active {
+            opacity: 1 !important;
+        }
 
+        .main-border {
+            position: relative;
+        }
 
-
-        .swiper {
-            width: 100%;
+        .main-border::before {
+            content: "";
+            position: absolute;
+            right: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: red;
             height: 100%;
-            padding: 0 20px;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: #fff;
+            width: 3px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
         }
 
-        .swiper-slide img {
-            display: block !important;
-            width: 100% !important;
-            height: 200px !important;
-            object-fit: cover !important;
-
-
+        .main-border::after {
+            content: "\f105";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            background-color: rgb(255, 238, 0);
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            z-index: 2;
         }
     </style>
 @endpush

@@ -22,7 +22,7 @@ class FrontendController extends Controller
     }
     public function faq()
     {
-        return view('frontend.pages.returns');
+        return view('frontend.pages.faq');
     }
     public function return(){
         return view('frontend.pages.returns');

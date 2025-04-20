@@ -10,4 +10,6 @@ Route::group(['as' => 'frontend.', 'middleware' => 'guest'], function () {
     Route::get('/faq', [FrontendController::class, 'faq'])->name('faq');
     Route::get('/shipping', [FrontendController::class, 'shipping'])->name('shipping');
     Route::get('/return', [FrontendController::class, 'return'])->name('returns'); 
+    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+
 });

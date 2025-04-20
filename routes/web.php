@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\AuthController as TemporaryAuthController;
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
@@ -8,6 +9,7 @@ Route::get('/', function () {
     return Redirect::route('frontend.home');
     // return view('welcome');
 });
+Route::get('/reruns', [FrontendController::class, 'return'])->name('frontend.returns');
 
 // Auth Routes
 Route::get('/login', [TemporaryAuthController::class, 'login'])->name('login');

@@ -9,8 +9,31 @@ export default {
         './resources/**/*.js',
         './resources/**/*.vue',
     ],
+
     theme: {
-        extend: { 
+        container: {
+            center: true,
+            padding: '1rem',
+            screens: {
+                'sm': '480px',
+                'md': '640px',
+                'lg': '768px',
+                'xl': '1024px',
+                '2xl': '1280px',
+                '3xl': '1536px',
+            },
+        },
+        extend: {
+
+            screens: {
+                'xs': '480px',
+                'sm': '640px',
+                'md': '768px',
+                'lg': '1024px',
+                'xl': '1280px',
+                '2xl': '1536px',
+                '3xl': '1600px',
+            },
             fontFamily: {
                 "Lato": ["Lato", 'sans-serif'],
                 "Montserrat": ["Montserrat", 'sans-serif'],

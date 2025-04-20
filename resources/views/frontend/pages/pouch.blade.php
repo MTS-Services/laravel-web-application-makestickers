@@ -153,13 +153,13 @@
             <!-- Right side: content -->
             <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
                 <div class="border border-gray p-4 sm:p-6 rounded-lg">
-                    <h2 class="text-xl font-bold mb-3">Printing Options</h2>
+                    <h2 class="text-xl font-semibold mb-3">Printing Options</h2>
                     <div class="flex justify-between gap-2">
                         <div class="flex items-center gap-2">
                             <p>Size</p>
                             <a href="#" class="text-primary text-sm">View help</a>
                         </div>
-                        <p class="font-bold">Quantity</p>
+                        <p class="font-semibold">Quantity</p>
                     </div>
 
                     <div class="flex flex-col sm:flex-row justify-between gap-2 mt-3">
@@ -214,7 +214,7 @@
                     <div
                         class="relative z-10 text-center border border-gray p-4 sm:p-6 rounded-lg bg-white bg-opacity-90 ps-6 sm:ps-12">
                         <h2 class="text-lg italic">Order today and get your pouches by</h2>
-                        <h2 class="text-xl sm:text-font-32px py-2 font-bold text-dark">Wednesday, April 30</h2>
+                        <h2 class="text-xl sm:text-font-32px py-2 font-semibold text-dark">Wednesday, April 30</h2>
                         <hr class="my-4" />
                         <p class="font-bold text-gray">Need them sooner?</p>
                         <p>
@@ -231,7 +231,7 @@
 
         <!-- Stand Up Pouch Features -->
         <section class="mt-14 sm:mt-20">
-            <h2 class="text-font-32px sm:text-font-28px md:text-font-32px font-bold text-center">Stand Up Pouch Features
+            <h2 class="text-font-24px sm:text-font-28px md:text-font-32px font-medium text-center text-dark">Stand Up Pouch Features
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 sm:mt-10">
                 <!-- Feature cards-->
@@ -246,7 +246,7 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">Matte Finish, Metallized
+                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
                             <p class="text-gray-600 text-sm sm:text-base">
@@ -268,7 +268,7 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">Matte Finish, Metallized
+                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
                             <p class="text-gray-600 text-sm sm:text-base">
@@ -290,7 +290,7 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">Matte Finish, Metallized
+                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
                             <p class="text-gray-600 text-sm sm:text-base">
@@ -312,7 +312,7 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">Matte Finish, Metallized
+                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
                             <p class="text-gray-600 text-sm sm:text-base">
@@ -334,7 +334,7 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">Matte Finish, Metallized
+                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
                             <p class="text-gray-600 text-sm sm:text-base">
@@ -356,7 +356,7 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-4">Matte Finish, Metallized
+                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
                             <p class="text-gray-600 text-sm sm:text-base">
@@ -372,7 +372,7 @@
 
         <!-- How We Bring Your Pouches to Life -->
         <section class="mt-14 sm:mt-20">
-            <h2 class="text-font-24px sm:text-font-28px md:text-font-32px font-bold text-center">How We Bring Your Pouches
+            <h2 class="text-font-24px sm:text-font-28px md:text-font-32px font-medium text-dark text-center">How We Bring Your Pouches
                 to Life</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 sm:mt-10">
                 <!-- Process steps -->
@@ -385,7 +385,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h2 class="text-lg font-bold mb-2">Order Your Custom Pouches</h2>
+                            <h2 class="text-lg font-semibold mb-2">Order Your Custom Pouches</h2>
                             <p class="text-gray-600 text-sm">
                                 Upload your own design or use our downloadable templates for easy designing and ordering
                             </p>
@@ -401,7 +401,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h2 class="text-lg font-bold mb-2">Order Your Custom Pouches</h2>
+                            <h2 class="text-lg font-semibold mb-2">Order Your Custom Pouches</h2>
                             <p class="text-gray-600 text-sm">
                                 Upload your own design or use our downloadable templates for easy designing and ordering
                             </p>
@@ -417,7 +417,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h2 class="text-lg font-bold mb-2">Order Your Custom Pouches</h2>
+                            <h2 class="text-lg font-semibold mb-2">Order Your Custom Pouches</h2>
                             <p class="text-gray-600 text-sm">
                                 Upload your own design or use our downloadable templates for easy designing and ordering
                             </p>
@@ -484,7 +484,7 @@
                 <!-- Trust Section -->
                 <div class="flex flex-col gap-6 p-2">
                     <div>
-                        <h2 class="text-xl sm:text-font-32px md:text-font-28px font-semibold mb-4">
+                        <h2 class="text-xl sm:text-font-32px md:text-font-28px font-medium text-dark mb-4">
                             Thousands of Customers Trust Us With Their Printing
                         </h2>
                         <p class="text-gray mb-6">
@@ -520,7 +520,7 @@
             <!-- Reviews Section -->
             <div class="flex flex-col md:flex-row gap-8 mb-12 p-2">
                 <div class="md:w-1/2">
-                    <h2 class="text-lg sm:text-xl font-medium text-gray-800 mb-6">
+                    <h2 class="text-lg sm:text-xl font-medium text-gray mb-6">
                         Discover What Our Customers Have to Say
                     </h2>
 
@@ -587,7 +587,7 @@
                         </div>
                     </div>
 
-                    <h3 class="text-lg sm:text-xl font-medium text-gray-800 mb-4">
+                    <h3 class="text-lg sm:text-xl font-medium text-gray mb-4">
                         The top 5 things our customers say about us:
                     </h3>
 
@@ -598,7 +598,7 @@
                                 1
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">High quality products</h4>
+                                <h4 class="font-medium text-gray">High quality products</h4>
                                 <p class="text-gray">Clear printing, vibrant colors and sturdy materials</p>
                             </div>
                         </div>
@@ -609,7 +609,7 @@
                                 2
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Fast and reliable</h4>
+                                <h4 class="font-medium text-gray">Fast and reliable</h4>
                                 <p class="text-gray">Quick turnaround and often delivered earlier than expected</p>
                             </div>
                         </div>
@@ -620,7 +620,7 @@
                                 3
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Excellent customer service</h4>
+                                <h4 class="font-medium text-gray">Excellent customer service</h4>
                                 <p class="text-gray">Helpful and accommodating staff throughout the entire
                                     experience</p>
                             </div>
@@ -632,7 +632,7 @@
                                 4
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Easy to make changes</h4>
+                                <h4 class="font-medium text-gray">Easy to make changes</h4>
                                 <p class="text-gray">Review and revise orders in seconds with digital proofs</p>
                             </div>
                         </div>
@@ -643,7 +643,7 @@
                                 5
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Affordable pricing</h4>
+                                <h4 class="font-medium text-gray">Affordable pricing</h4>
                                 <p class="text-gray">Great value without compromising quality</p>
                             </div>
                         </div>
@@ -651,7 +651,7 @@
                 </div>
 
                 <div class="md:w-1/2 mt-8 md:mt-0">
-                    <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">The most recent reviews</h2>
+                    <h2 class="text-lg sm:text-xl font-medium text-dark mb-6">The most recent reviews</h2>
 
                     <div class="border rounded-lg p-6 mb-4 text-center">
                         <div class="mb-2">

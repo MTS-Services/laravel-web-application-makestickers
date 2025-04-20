@@ -40,7 +40,7 @@
         <div class="container mx-auto">
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-2 items-center justify-center ">
                 <div class="p-4 sm:order-2 lg:order-1">
-                    <h1 class="text-font-40px md:text-font-48px text-dark font-semibold font-Montserrat mb-5">Hi, We Are
+                    <h1 class="text-font-32px md:text-font-32px text-dark font-semibold font-Montserrat mb-5">Hi, We Are
                         MakeStickers</h1>
                     <div class="me-[50px]">
                         <p class="text-font-20px text-dark mb-3">We're enthusiastic about making custom printing simple,
@@ -62,7 +62,7 @@
     {{-- Midwest Printing --}}
     <section>
         <div class="container mx-auto mt-5">
-            <h2 class="text-font-28px md:text-font-40px text-dark font-semibold font-Montserrat mb-10 text-center">Midwest
+            <h2 class="text-font-28px md:text-font-32px text-dark font-semibold font-Montserrat mb-10 text-center">Midwest
                 Printing, Nationwide Support</h2>
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-3 items-center justify-center">
                 <div class="card text-center p-2">
@@ -195,7 +195,7 @@
                         <h2 class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
                             Google Customer Reviews</h2>
                         <div class="flex justify-center lg:justify-start items-center">
-                            <span class="text-font-40px font-semibold me-3">4.9</span>
+                            <span class="text-font-32px font-semibold me-3">4.9</span>
                             <span class="text-orange">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -220,7 +220,7 @@
                             MakeStickers Product Reviews
                         </h2>
                         <div class="flex justify-center lg:justify-start items-center">
-                            <span class="text-font-40px font-semibold me-3">4.9</span>
+                            <span class="text-font-32px font-semibold me-3">4.9</span>
                             <span class="text-orange">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -245,7 +245,7 @@
                             class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
                             Facebook Reviews</h2>
                         <div class="flex justify-start items-center">
-                            <span class="text-font-40px font-semibold me-3">98%</span>
+                            <span class="text-font-32px font-semibold me-3">98%</span>
                             <span class="text-font-20px font-semibold">
                                 Recommended</span>
                         </div>
@@ -338,7 +338,7 @@
         <hr class="border border-[#44444456] border-t-0">
 
         <div class="text-center my-10">
-            <h2 class="text-font-28px md:text-font-40px text-dark font-semibold font-Montserrat mb-5">Join the MakeStickers
+            <h2 class="text-font-28px md:text-font-32px text-dark font-semibold font-Montserrat mb-5">Join the MakeStickers
                 Team</h2>
             <p class="text-font-16px text-gray mx-5 lg:mx-[350px]">We're a technology-focused printing company that's
                 growing quickly and (almost) always looking for good people to join our team.</p>

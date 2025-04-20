@@ -3,7 +3,7 @@
 
         <!-- Column 1 -->
         <div>
-            <h4 class="font-bold mb-2">Who We Are</h4>
+            <h4 class="font-bold mb-3">Who We Are</h4>
             <ul class="space-y-1">
                 <li><a href="#" class="hover:underline">Custom Stickers</a></li>
                 <li><a href="#" class="hover:underline">Custom Labels</a></li>
@@ -14,7 +14,7 @@
 
         <!-- Column 2 -->
         <div>
-            <h4 class="font-bold mb-2">Customer Service</h4>
+            <h4 class="font-bold mb-3">Customer Service</h4>
             <ul class="space-y-1">
                 <li><a href="#" class="hover:underline">Shipping & Turnaround</a></li>
                 <li><a href="#" class="hover:underline">Common Questions</a></li>
@@ -24,8 +24,8 @@
         </div>
 
         <!-- Column 3 -->
-        <div class=" text-center">
-            <h4 class="font-bold mb-2">Follow Us</h4>
+        <div class=" text-center sm:text-left">
+            <h4 class="font-bold mb-4">Follow Us</h4>
             <div class="flex space-x-4 text-xl ps-24 sm:ps-0">
                 <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="hover:text-gray-300"><i class="fab fa-x-twitter"></i></a>
@@ -42,7 +42,7 @@
 
         <!-- Column 4 -->
         <div>
-            <h4 class="font-bold mb-2">Contact Us</h4>
+            <h4 class="font-bold mb-3">Contact Us</h4>
             <p class="text-sm mb-1">Our offices are open Mon–Fri 8am–4:30pm (CT)</p>
             <p class="font-semibold">Call Us</p>
             <p class="mb-2">1-800-347-2744</p>

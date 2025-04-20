@@ -91,7 +91,7 @@
 
             {{-- middel point --}}
             <div class="middel_point pt-8 sm:pt-10 md:pt-12">
-              <div class="middel_header text-center px-4">
+              <div class="middel_header text-center  px-4">
                   <h6 class="uppercase text-font-12px sm:text-sm md:text-heading-6 text-primary font-bold">
                       MakeStickers Advantages
                   </h6>
@@ -163,8 +163,8 @@
                 <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-10">
 
                     <!-- Text Section -->
-                    <div class="max-w-xl text-center md:text-left pr-24">
-                        <h2 class="text-heading-5 font-bold uppercase text-gray-700 mb-2">Makestickers Newsletter</h2>
+                    <div class="max-w-xl text-center md:text-left md:pr-24">
+                        <h2 class="text-heading-5  font-bold uppercase text-gray-700 mb-2">Makestickers Newsletter</h2>
                         <h1 class="text-heading-3 md:text-4xl font-light text-gray-800 mb-4">
                             Come for the content, stay for the stickers
                         </h1>

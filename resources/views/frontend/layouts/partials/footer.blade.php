@@ -7,7 +7,7 @@
             <ul class="space-y-1">
                 <li><a href="#" class="hover:underline">Custom Stickers</a></li>
                 <li><a href="#" class="hover:underline">Custom Labels</a></li>
-                <li><a href="#" class="hover:underline">About Us</a></li>
+                <li><a href="{{route('frontend.about')}}" class="hover:underline">About Us</a></li>
                 <li><a href="#" class="hover:underline">Careers</a></li>
             </ul>
         </div>
@@ -16,10 +16,10 @@
         <div>
             <h4 class="font-bold mb-3">Customer Service</h4>
             <ul class="space-y-1">
-                <li><a href="#" class="hover:underline">Shipping & Turnaround</a></li>
+                <li><a href="{{route('frontend.shipping')}}" class="hover:underline">Shipping & Turnaround</a></li>
                 <li><a href="{{route('frontend.faq')}}" class="hover:underline">Common Questions</a></li>
                 <li><a href="{{route('frontend.returns')}}" class="hover:underline">Return Policy</a></li>
-                <li><a href="#" class="hover:underline">Contact Us</a></li>
+                <li><a href="{{route('frontend.contact')}}" class="hover:underline">Contact Us</a></li>
             </ul>
         </div>
 
@@ -59,7 +59,7 @@
     <div class="max-w-5xl mx-auto px-6 text-center text-xs text-light-gray space-y-2">
       <div class="flex justify-center items-center space-x-2">
         <!-- Add your payment icons here -->
-        <img src="{{ asset('build/assets/images/footer_icons.png') }}" alt="Visa" class="h-6">
+        <img src="{{ asset('Frontend/images/footer_icons_color.png') }}" alt="Visa" class="h-6">
         <!-- Add others -->
       </div>
       <p>Makestickers.com is a registered trademark of Graphicsland, Inc. 

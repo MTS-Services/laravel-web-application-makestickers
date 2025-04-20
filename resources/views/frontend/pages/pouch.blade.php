@@ -45,6 +45,11 @@
             font-size: 14px;
             z-index: 2;
         }
+        @media (min-width: 480px ) and (max-width: 1023px) {
+            .main-border::after, .main-border::before{
+                display: none;
+            } 
+        }
     </style>
 @endpush
 
@@ -53,7 +58,7 @@
         <!-- Header Section -->
         <section class="py-6">
             <div>
-                <h1 class="text-heading-4 sm:text-heading-3 md:text-heading-2 font-bold">Custom Printed Stand-Up Pouches
+                <h1 class="text-font-24px sm:text-font-28px md:text-font-32px font-bold">Custom Printed Stand-Up Pouches
                 </h1>
                 <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5 mt-2">
                     <div class="flex items-center gap-4 border border-gray p-2 rounded-full w-fit">
@@ -209,7 +214,7 @@
                     <div
                         class="relative z-10 text-center border border-gray p-4 sm:p-6 rounded-lg bg-white bg-opacity-90 ps-6 sm:ps-12">
                         <h2 class="text-lg italic">Order today and get your pouches by</h2>
-                        <h2 class="text-xl sm:text-heading-2 py-2 font-bold text-dark">Wednesday, April 30</h2>
+                        <h2 class="text-xl sm:text-font-32px py-2 font-bold text-dark">Wednesday, April 30</h2>
                         <hr class="my-4" />
                         <p class="font-bold text-gray">Need them sooner?</p>
                         <p>
@@ -226,12 +231,12 @@
 
         <!-- Stand Up Pouch Features -->
         <section class="mt-14 sm:mt-20">
-            <h2 class="text-heading-2 sm:text-heading-3 md:text-heading-2 font-bold text-center">Stand Up Pouch Features
+            <h2 class="text-font-32px sm:text-font-28px md:text-font-32px font-bold text-center">Stand Up Pouch Features
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 sm:mt-10">
                 <!-- Feature cards-->
                 <div class="p-2 sm:p-4">
-                    <div class="flex flex-col md:flex-row bg-white rounded-heading-2 shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row bg-white rounded-font-32px shadow-lg overflow-hidden">
                         <!-- Image -->
                         <div class="md:w-[40%]">
                             <div class="bg-gray-200 w-full h-48 md:h-full">
@@ -253,7 +258,7 @@
                     </div>
                 </div>
                 <div class="p-2 sm:p-4">
-                    <div class="flex flex-col md:flex-row bg-white rounded-heading-2 shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row bg-white rounded-font-32px shadow-lg overflow-hidden">
                         <!-- Image -->
                         <div class="md:w-[40%]">
                             <div class="bg-gray-200 w-full h-48 md:h-full">
@@ -275,7 +280,7 @@
                     </div>
                 </div>
                 <div class="p-2 sm:p-4">
-                    <div class="flex flex-col md:flex-row bg-white rounded-heading-2 shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row bg-white rounded-font-32px shadow-lg overflow-hidden">
                         <!-- Image -->
                         <div class="md:w-[40%]">
                             <div class="bg-gray-200 w-full h-48 md:h-full">
@@ -297,7 +302,7 @@
                     </div>
                 </div>
                 <div class="p-2 sm:p-4">
-                    <div class="flex flex-col md:flex-row bg-white rounded-heading-2 shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row bg-white rounded-font-32px shadow-lg overflow-hidden">
                         <!-- Image -->
                         <div class="md:w-[40%]">
                             <div class="bg-gray-200 w-full h-48 md:h-full">
@@ -319,7 +324,7 @@
                     </div>
                 </div>
                 <div class="p-2 sm:p-4">
-                    <div class="flex flex-col md:flex-row bg-white rounded-heading-2 shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row bg-white rounded-font-32px shadow-lg overflow-hidden">
                         <!-- Image -->
                         <div class="md:w-[40%]">
                             <div class="bg-gray-200 w-full h-48 md:h-full">
@@ -341,7 +346,7 @@
                     </div>
                 </div>
                 <div class="p-2 sm:p-4">
-                    <div class="flex flex-col md:flex-row bg-white rounded-heading-2 shadow-lg overflow-hidden">
+                    <div class="flex flex-col md:flex-row bg-white rounded-font-32px shadow-lg overflow-hidden">
                         <!-- Image -->
                         <div class="md:w-[40%]">
                             <div class="bg-gray-200 w-full h-48 md:h-full">
@@ -367,7 +372,7 @@
 
         <!-- How We Bring Your Pouches to Life -->
         <section class="mt-14 sm:mt-20">
-            <h2 class="text-heading-2 sm:text-heading-3 md:text-heading-2 font-bold text-center">How We Bring Your Pouches
+            <h2 class="text-font-24px sm:text-font-28px md:text-font-32px font-bold text-center">How We Bring Your Pouches
                 to Life</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 sm:mt-10">
                 <!-- Process steps -->
@@ -444,7 +449,7 @@
                 class="grid grid-cols-1 md:grid-cols-2 rounded-lg overflow-hidden relative bg-gradient-to-tr from-green-400 to-primary">
                 <div class="p-6 sm:p-10 md:p-16 text-white">
                     <p class="text-sm sm:text-base">Try Before You Buy</p>
-                    <h2 class="text-xl sm:text-heading-2 md:text-heading-3 py-4 font-bold">
+                    <h2 class="text-xl sm:text-font-32px md:text-font-28px py-4 font-bold">
                         Get a hands-on look at our stand-up pouches
                     </h2>
                     <p class="text-sm sm:text-base pb-8 sm:pb-16">
@@ -479,7 +484,7 @@
                 <!-- Trust Section -->
                 <div class="flex flex-col gap-6 p-2">
                     <div>
-                        <h2 class="text-xl sm:text-heading-2 md:text-heading-3 font-semibold mb-4">
+                        <h2 class="text-xl sm:text-font-32px md:text-font-28px font-semibold mb-4">
                             Thousands of Customers Trust Us With Their Printing
                         </h2>
                         <p class="text-gray mb-6">
@@ -522,7 +527,7 @@
                     <div class="flex flex-col sm:flex-row sm:items-center mb-8">
                         <div
                             class="flex flex-col items-center justify-center border p-4 text-center sm:mr-8 w-full sm:w-32 mb-4 sm:mb-0">
-                            <div class="text-heading-2 font-bold">5</div>
+                            <div class="text-font-32px font-bold">5</div>
                             <div class="text-orange flex py-2">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>

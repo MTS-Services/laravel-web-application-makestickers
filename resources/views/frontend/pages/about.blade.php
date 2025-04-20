@@ -26,6 +26,12 @@
             z-index: 1;
             border-radius: 50px;
         }
+        @media(min-width: 480px)and (max-width: 1280px) {
+            .make-sticker-review::before,
+            .make-sticker-review::after {
+                display: none
+            }
+        }
     </style>
 @endpush
 
@@ -180,7 +186,7 @@
     <section class="mt-[70px]">
         <div class="container mx-auto">
             <hr class="border border-[#44444456] border-t-0">
-            <div class="grid gap-10 lg:gap-4 grid-cols-1 lg:grid-cols-3 items-center justify-between py-10">
+            <div class="grid gap-10 lg:gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 items-center justify-between py-10">
                 <div class="google-review flex flex-col lg:flex-row lg:gap-3 gap-5 justify-center items-center text-center">
                     <div>
                         <img src="{{ asset('frontend/about-us/logo-google.svg') }}" alt="">
@@ -236,7 +242,7 @@
                     </div>
                     <div>
                         <h2
-                            class="text-font-16px md:text-font-20px font-semibold text-dark font-semibold font-Montserrat mb-2">
+                            class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
                             Facebook Reviews</h2>
                         <div class="flex justify-start items-center">
                             <span class="text-font-40px font-semibold me-3">98%</span>

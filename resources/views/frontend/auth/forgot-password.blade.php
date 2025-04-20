@@ -8,7 +8,7 @@
             <div class="card w-full bg-white shadow-sm max-w-xl">
                 <div class="card-body">
                     <div class="flex justify-between mb-2">
-                        <h2 class="text-3xl font-bold">Forgot your password?</h2>
+                        <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Forgot your password?</h2>
                     </div>
                     <form action="">
                         <div class="flex flex-col gap-2">
@@ -27,7 +27,7 @@
                             <button type="submit" class="btn-primary w-full mt-4">Send Reset Link</button>
                     </form>
                     <div class="flex flex-col gap-2">
-                        <div class="flex justify-between items-center mt-4">
+                        <div class="flex justify-between items-center mt-4 flex-wrap gap-2">
                             <p>Return to <a href="{{ route('login') }}" class="text-primary">Login</a></p>
                             <p class="text-end">Don't have an account? <a href="{{ route('register') }}" class="text-primary">Register</a>
                             </p>

@@ -8,7 +8,7 @@
             <div class="card w-full bg-white shadow-sm max-w-xl">
                 <div class="card-body">
                     <div class="flex justify-between mb-2">
-                        <h2 class="text-3xl font-bold">Login to your account</h2>
+                        <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Login to your account</h2>
                     </div>
                     <form action="">
                         <div class="flex flex-col gap-2">

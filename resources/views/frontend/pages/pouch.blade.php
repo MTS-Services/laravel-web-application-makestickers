@@ -184,11 +184,11 @@
 
                     <div class="flex flex-col sm:flex-row justify-around items-center gap-3 mt-4">
                         <button
-                            class="w-full sm:w-auto hover:bg-primary-hover hover:text-light p-3 rounded-md text-primary border border-primary transition-colors">
+                            class="w-full sm:w-auto hover:bg-primary-hover hover:text-white p-3 rounded-md text-primary border border-primary transition-colors">
                             CUSTOMIZE TEMPLATE
                         </button>
                         <button
-                            class="w-full sm:w-auto bg-primary text-light p-3 rounded-lg hover:bg-primary-hover transition-colors border border-primary">
+                            class="w-full sm:w-auto bg-primary text-white p-3 rounded-lg hover:bg-primary-hover transition-colors border border-primary">
                             <i class="fa-solid fa-upload mr-2"></i> UPLOAD FILE
                         </button>
                     </div>
@@ -442,7 +442,7 @@
         <section class="mt-14 sm:mt-20">
             <div
                 class="grid grid-cols-1 md:grid-cols-2 rounded-lg overflow-hidden relative bg-gradient-to-tr from-green-400 to-primary">
-                <div class="p-6 sm:p-10 md:p-16 text-light">
+                <div class="p-6 sm:p-10 md:p-16 text-white">
                     <p class="text-sm sm:text-base">Try Before You Buy</p>
                     <h2 class="text-xl sm:text-heading-2 md:text-heading-3 py-4 font-bold">
                         Get a hands-on look at our stand-up pouches
@@ -453,7 +453,7 @@
                         confidence.
                     </p>
                     <button
-                        class="bg-[#B2D952] text-light px-4 py-2 rounded-md uppercase font-medium hover:bg-[#9fc33e] transition-colors">
+                        class="bg-[#B2D952] text-white px-4 py-2 rounded-md uppercase font-medium hover:bg-[#9fc33e] transition-colors">
                         Add to cart <span class="font-bold ps-3">$1.00</span>
                     </button>
                 </div>
@@ -589,7 +589,7 @@
                     <div class="space-y-6">
                         <div class="flex">
                             <div
-                                class="bg-orange text-light font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                class="bg-orange text-white font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
                                 1
                             </div>
                             <div>
@@ -600,7 +600,7 @@
 
                         <div class="flex">
                             <div
-                                class="bg-orange text-light font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                class="bg-orange text-white font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
                                 2
                             </div>
                             <div>
@@ -611,7 +611,7 @@
 
                         <div class="flex">
                             <div
-                                class="bg-orange text-light font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                class="bg-orange text-white font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
                                 3
                             </div>
                             <div>
@@ -623,7 +623,7 @@
 
                         <div class="flex">
                             <div
-                                class="bg-orange text-light font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                class="bg-orange text-white font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
                                 4
                             </div>
                             <div>
@@ -634,7 +634,7 @@
 
                         <div class="flex">
                             <div
-                                class="bg-orange text-light font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
+                                class="bg-orange text-white font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">
                                 5
                             </div>
                             <div>
@@ -683,7 +683,7 @@
 
                     <div class="text-center mt-6">
                         <button
-                            class="border border-primary text-primary px-4 py-2 rounded-md hover:bg-primary-hover hover:text-light transition-colors">
+                            class="border border-primary text-primary px-4 py-2 rounded-md hover:bg-primary-hover hover:text-white transition-colors">
                             See all reviews
                         </button>
                     </div>

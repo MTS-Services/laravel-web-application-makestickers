@@ -16,8 +16,3 @@ Route::get('/register', [TemporaryAuthController::class, 'register'])->name('reg
 Route::get('/forgot-password', [TemporaryAuthController::class, 'forgotPassword'])->name('password.request');
 
 require __DIR__ . '/frontend.php';
-
-//Frontend Routes
-Route::group(['as' => 'frontend.', 'middleware' => 'guest'], function () {
-});
-Route::get('/pouches' , [FrontendController::class, 'pouch'])->name('pouch');

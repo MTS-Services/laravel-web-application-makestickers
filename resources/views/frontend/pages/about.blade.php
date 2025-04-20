@@ -34,14 +34,14 @@
         <div class="container mx-auto">
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-2 items-center justify-center ">
                 <div class="p-4 sm:order-2 lg:order-1">
-                    <h1 class="text-heading-2 md:text-heading-1 text-dark font-semibold font-Montserrat mb-5">Hi, We Are
+                    <h1 class="text-font-40px md:text-font-48px text-dark font-semibold font-Montserrat mb-5">Hi, We Are
                         MakeStickers</h1>
                     <div class="me-[50px]">
-                        <p class="text-heading-5 text-dark mb-3">We're enthusiastic about making custom printing simple,
+                        <p class="text-font-20px text-dark mb-3">We're enthusiastic about making custom printing simple,
                             affordable, and fast. Our expertise with technology enables us to make ordering simple, and
                             allows
                             us to process orders much more quickly and efficiently than other companies.</p>
-                        <p class="text-heading-5 text-dark">Our dedication to offering live support from knowledgeable
+                        <p class="text-font-20px text-dark">Our dedication to offering live support from knowledgeable
                             customer
                             service representatives ensures that our customers will get the help they need.</p>
                     </div>
@@ -56,15 +56,15 @@
     {{-- Midwest Printing --}}
     <section>
         <div class="container mx-auto mt-5">
-            <h2 class="text-heading-3 md:text-heading-2 text-dark font-semibold font-Montserrat mb-10 text-center">Midwest
+            <h2 class="text-font-28px md:text-font-40px text-dark font-semibold font-Montserrat mb-10 text-center">Midwest
                 Printing, Nationwide Support</h2>
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-3 items-center justify-center">
                 <div class="card text-center p-2">
                     <img class="img-fluid  mx-auto" src="{{ asset('frontend/about-us/icon-about-hands-grow.svg') }}"
                         alt="Independently Owned">
                     <div class="card-body p-2">
-                        <h3 class="text-heading-5 font-semibold font-Montserrat mb-2">Independently Owned</h3>
-                        <p class="text-heading-5 text-gray text-center">We have control over our business decisions, which
+                        <h3 class="text-font-20px font-semibold font-Montserrat mb-2">Independently Owned</h3>
+                        <p class="text-font-20px text-gray text-center">We have control over our business decisions, which
                             fosters a unique company culture and personal touch in customer service and quality</p>
                     </div>
                 </div>
@@ -72,8 +72,8 @@
                     <img class="img-fluid  mx-auto" src="{{ asset('frontend/about-us/icon-about-illinois-facillity.svg') }}"
                         alt="Independently Owned">
                     <div class="card-body p-2">
-                        <h3 class="text-heading-5 font-semibold font-Montserrat mb-2">Independently Owned</h3>
-                        <p class="text-heading-5 text-gray text-center">We have control over our business decisions, which
+                        <h3 class="text-font-20px font-semibold font-Montserrat mb-2">Independently Owned</h3>
+                        <p class="text-font-20px text-gray text-center">We have control over our business decisions, which
                             fosters a unique company culture and personal touch in customer service and quality</p>
                     </div>
                 </div>
@@ -81,8 +81,8 @@
                     <img class="img-fluid  mx-auto" src="{{ asset('frontend/about-us/icon-about-coast-to-coast.svg') }}"
                         alt="Independently Owned">
                     <div class="card-body p-2">
-                        <h3 class="text-heading-5 font-semibold font-Montserrat mb-2">Independently Owned</h3>
-                        <p class="text-heading-5 text-gray text-center">We have control over our business decisions, which
+                        <h3 class="text-font-20px font-semibold font-Montserrat mb-2">Independently Owned</h3>
+                        <p class="text-font-20px text-gray text-center">We have control over our business decisions, which
                             fosters a unique company culture and personal touch in customer service and quality</p>
                     </div>
                 </div>
@@ -94,15 +94,15 @@
         <div class="container mx-auto mt-10">
             <div class="grid gap-5 grid-cols-1 lg:grid-cols-2 items-center justify-between">
                 <div class=" p-4 flex flex-col justify-start">
-                    <h2 class="text-heading-4 md:text-heading-3 text-dark font-semibold font-Montserrat mb-5">The
+                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold font-Montserrat mb-5">The
                         MakeStickers Approach</h2>
-                    <h3 class="text-heading-6 md:text-heading-5 text-gray font-semibold font-Montserrat mb-5">Custom
+                    <h3 class="text-font-16px md:text-font-20px text-gray font-semibold font-Montserrat mb-5">Custom
                         stickers and labels made easy.</h3>
                     <div class="w-[100%] lg:w-[80%]">
-                        <p class="text-gray text-heading-6 mt-2">Our mission is to take the pain out of sticker printing and
+                        <p class="text-gray text-font-16px mt-2">Our mission is to take the pain out of sticker printing and
                             make it simple, fast, and affordable
                             without compromising quality.</p>
-                        <p class="text-gray text-heading-6 my-3">We are here to go above and beyond, because we care about
+                        <p class="text-gray text-font-16px my-3">We are here to go above and beyond, because we care about
                             our customers and they're the reason we
                             continue to be in business. MakeStickers is committed to customer satisfaction and exceeding
                             customers expectations.</p>
@@ -132,25 +132,25 @@
         <div class="container mx-auto mt-5">
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-2 items-center justify-center">
                 <div class="flex flex-col justify-start p-2">
-                    <h2 class="text-heading-4 md:text-heading-3 text-dark font-semibold font-Montserrat mb-5">Our
+                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold font-Montserrat mb-5">Our
                         Customers'
                         Happiness Is Our Priority</h2>
                     <div class="w-[80%]">
-                        <p class="text-gray text-heading-6">Whether it's catching a spelling mistake or improving a color,
+                        <p class="text-gray text-font-16px">Whether it's catching a spelling mistake or improving a color,
                             our
                             design, production, and customer support teams go the extra mile to ensure your final product is
                             perfect. We believe our success is built on your happiness, and we want you to proudly showcase
                             our
                             stickers and labels on your products.</p>
-                        <p class="text-gray text-heading-6 my-3">At MakeStickers, customer happiness and satisfaction are
+                        <p class="text-gray text-font-16px my-3">At MakeStickers, customer happiness and satisfaction are
                             our top
                             priorities. We don't just say it, we live it every day. Our team is dedicated to delivering the
                             highest quality products and exceptional experiences from start to finish.</p>
 
                         <div class="card bg-info text-light mt-4 mb-3">
                             <div class="card-body text-white position-relative">
-                                <h3 class="text-heading-6 font-bold">Meet Cultivated Coffee Co.</h3>
-                                <p class="text-heading-6 font-semibold"><em>"MakeStickers has provided us with EXCEPTIONAL
+                                <h3 class="text-font-16px font-bold">Meet Cultivated Coffee Co.</h3>
+                                <p class="text-font-16px font-semibold"><em>"MakeStickers has provided us with EXCEPTIONAL
                                         customer service as a
                                         customer by providing rapid proofs and easy contact when we need extra service
                                         needs."</em></p>
@@ -186,10 +186,10 @@
                         <img src="{{ asset('frontend/about-us/logo-google.svg') }}" alt="">
                     </div>
                     <div>
-                        <h2 class="text-heading-6 md:text-heading-5 font-semibold text-dark font-Montserrat mb-2">
+                        <h2 class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
                             Google Customer Reviews</h2>
                         <div class="flex justify-center lg:justify-start items-center">
-                            <span class="text-heading-2 font-semibold me-3">4.9</span>
+                            <span class="text-font-40px font-semibold me-3">4.9</span>
                             <span class="text-orange">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -199,7 +199,7 @@
                             </span>
                         </div>
                         <div>
-                            <p class="text-gray text-heading-6">100<span class="text-heading-6 text-gray">+ reviews</span>
+                            <p class="text-gray text-font-16px">100<span class="text-font-16px text-gray">+ reviews</span>
                             </p>
                         </div>
                     </div>
@@ -210,11 +210,11 @@
                         <img src="{{ asset('frontend/about-us/logo-makestickers-imageonly.svg') }}" alt="">
                     </div>
                     <div>
-                        <h2 class="text-heading-6 md:text-heading-5 font-semibold text-dark font-Montserrat mb-2">
+                        <h2 class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
                             MakeStickers Product Reviews
                         </h2>
                         <div class="flex justify-center lg:justify-start items-center">
-                            <span class="text-heading-2 font-semibold me-3">4.9</span>
+                            <span class="text-font-40px font-semibold me-3">4.9</span>
                             <span class="text-orange">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -224,7 +224,7 @@
                             </span>
                         </div>
                         <div>
-                            <p class="text-gray text-heading-6">100<span class="text-heading-6 text-gray">+ reviews</span>
+                            <p class="text-gray text-font-16px">100<span class="text-font-16px text-gray">+ reviews</span>
                             </p>
                         </div>
                     </div>
@@ -236,15 +236,15 @@
                     </div>
                     <div>
                         <h2
-                            class="text-heading-6 md:text-heading-5 font-semibold text-dark font-semibold font-Montserrat mb-2">
+                            class="text-font-16px md:text-font-20px font-semibold text-dark font-semibold font-Montserrat mb-2">
                             Facebook Reviews</h2>
                         <div class="flex justify-start items-center">
-                            <span class="text-heading-2 font-semibold me-3">98%</span>
-                            <span class="text-heading-5 font-semibold">
+                            <span class="text-font-40px font-semibold me-3">98%</span>
+                            <span class="text-font-20px font-semibold">
                                 Recommended</span>
                         </div>
                         <div>
-                            <p class="text-gray text-heading-6">100<span class="text-heading-6 text-gray">+ reviews</span>
+                            <p class="text-gray text-font-16px">100<span class="text-font-16px text-gray">+ reviews</span>
                             </p>
                         </div>
                     </div>
@@ -261,15 +261,15 @@
                     <img class="img-fluid" src="{{ asset('frontend/about-us/about-technology.webp') }}" alt="">
                 </div>
                 <div class="p-2 px-[30px]">
-                    <h2 class="text-heading-4 md:text-heading-3 text-dark font-semibold font-Montserrat mb-4">A Printing
+                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold font-Montserrat mb-4">A Printing
                         Company Driven By Technology</h2>
-                    <p class="text-heading-6 text-gray my-3">To deliver exceptional quality, speed, and affordability to
+                    <p class="text-font-16px text-gray my-3">To deliver exceptional quality, speed, and affordability to
                         our
                         customers, we prioritize the advancement and utilization of the latest printing technology. Our
                         journey to success began with innovative technology that enabled real-time template editing for
                         customers, and we have continued to build on this foundation by expanding our technological
                         capabilities.</p>
-                    <p class="text-heading-6 text-gray">Our cutting-edge presses and high-precision lasers ensure
+                    <p class="text-font-16px text-gray">Our cutting-edge presses and high-precision lasers ensure
                         high-resolution outputs and accurate cuts, while our custom tracking system guarantees rigorous
                         quality control and provides customers with timely updates. The seamless communication between our
                         tools enhances production speed, allowing us to offer a wide range of quantities at competitive
@@ -296,10 +296,10 @@
     {{-- Top Footer  --}}
     <div class="lg:container mx-auto">
         <div class="flex gap-5 lg:gap-0 flex-col lg:flex-row justify-center items-center py-3 my-5">
-            <h2 class="text-heading-4 md:text-heading-3 text-dark font-semibold me-4">Get to know us more on social media
+            <h2 class="text-font-24px md:text-font-28px text-dark font-semibold me-4">Get to know us more on social media
             </h2>
-            <p class="text-heading-4 md:text-heading-3 text-gray me-4"><span>@</span>MakeStickers</p>
-            <div class="flex items-center justify-between text-heading-3">
+            <p class="text-font-24px md:text-font-28px text-gray me-4"><span>@</span>MakeStickers</p>
+            <div class="flex items-center justify-between text-font-28px">
                 <a href="#" class="block px-1" target="_blank">
                     <span><i class="fa-brands fa-facebook"></i></span>
                 </a>
@@ -332,9 +332,9 @@
         <hr class="border border-[#44444456] border-t-0">
 
         <div class="text-center my-10">
-            <h2 class="text-heading-3 md:text-heading-2 text-dark font-semibold font-Montserrat mb-5">Join the MakeStickers
+            <h2 class="text-font-28px md:text-font-40px text-dark font-semibold font-Montserrat mb-5">Join the MakeStickers
                 Team</h2>
-            <p class="text-heading-6 text-gray mx-5 lg:mx-[350px]">We're a technology-focused printing company that's
+            <p class="text-font-16px text-gray mx-5 lg:mx-[350px]">We're a technology-focused printing company that's
                 growing quickly and (almost) always looking for good people to join our team.</p>
             <button class="btn-primary mt-5 text-white capitalize">View Open Positions</button>
         </div>

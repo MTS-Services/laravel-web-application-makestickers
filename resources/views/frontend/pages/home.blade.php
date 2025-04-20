@@ -1,6 +1,6 @@
-@extends('frontend.layouts.app', ['page_slug' => 'pouch'])
-@section('page_title', 'Pouches')
-@section('title', 'Pouches')
+@extends('frontend.layouts.app', ['page_slug' => 'home'])
+@section('page_title', 'home')
+@section('title', 'home')
 
 @push('styles')
     <style>
@@ -44,6 +44,12 @@
             justify-content: center;
             font-size: 14px;
             z-index: 2;
+        }
+
+        .swiper img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
     </style>
 @endpush
@@ -106,73 +112,76 @@
 
             {{-- middel point --}}
             <div class="middel_point pt-8 sm:pt-10 md:pt-12">
-              <div class="middel_header text-center  px-4">
-                  <h6 class="uppercase text-font-12px sm:text-sm md:text-heading-6 text-primary font-bold">
-                      MakeStickers Advantages
-                  </h6>
-                  <h2 class="text-heading-4 sm:text-heading-3 md:text-heading-2 font-bold uppercase">
-                      Why We're Special
-                  </h2>
-                  <span class="w-20 sm:w-24 h-0.5 bg-primary block mx-auto mb-4 mt-2 sm:mb-5 sm:mt-3"></span>
-              </div>
-          
-              <div class="flex flex-col md:flex-row items-center justify-center px-4 sm:px-6 py-8 sm:py-10 bg-white gap-10 md:gap-16">
-                  <!-- Left Column -->
-                  <div class="space-y-8 sm:space-y-10 max-w-xl w-full">
-                      <!-- Feature 1 -->
-                      <div class="flex items-start gap-4 ps-4 sm:ps-7">
-                          <div class="text-tertiary text-2xl sm:text-3xl">
-                              <i class="fas fa-clock"></i>
-                          </div>
-                          <div>
-                              <h3 class="text-tertiary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
-                                  On-Demand Printing
-                              </h3>
-                              <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
-                                  We've created a unique process that lets us print any quantity on the fly with little-to-no setup.
-                              </p>
-                          </div>
-                      </div>
-          
-                      <!-- Feature 2 -->
-                      <div class="flex items-start gap-4 ps-4 sm:ps-7">
-                          <div class="text-secondary text-2xl sm:text-3xl">
-                              <i class="fas fa-crop-alt"></i>
-                          </div>
-                          <div>
-                              <h3 class="text-secondary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
-                                  No Designer Needed
-                              </h3>
-                              <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
-                                  Our easy-to-use templates don't require a degree in Graphic Design to create something truly custom.
-                              </p>
-                          </div>
-                      </div>
-          
-                      <!-- Feature 3 -->
-                      <div class="flex items-start gap-4 ps-4 sm:ps-7">
-                          <div class="text-primary text-2xl sm:text-3xl">
-                              <i class="fas fa-comment-alt"></i>
-                          </div>
-                          <div>
-                              <h3 class="text-primary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
-                                  Reassuring at Every Step
-                              </h3>
-                              <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
-                                  You know what you're looking for, and we're here to help make sure you get it.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-          
-                  <!-- Right Column - Image -->
-                  <div class="w-full md:w-auto">
-                      <img src="{{ asset('Frontend/images/stickers-two-stacks-2.png') }}" alt="Stickers"
-                          class="w-2/3 sm:w-1/2 md:w-72 mx-auto md:mx-0">
-                  </div>
-              </div>
-          </div>
-          
+                <div class="middel_header text-center  px-4">
+                    <h6 class="uppercase text-font-12px sm:text-sm md:text-heading-6 text-primary font-bold">
+                        MakeStickers Advantages
+                    </h6>
+                    <h2 class="text-heading-4 sm:text-heading-3 md:text-heading-2 font-bold uppercase">
+                        Why We're Special
+                    </h2>
+                    <span class="w-20 sm:w-24 h-0.5 bg-primary block mx-auto mb-4 mt-2 sm:mb-5 sm:mt-3"></span>
+                </div>
+
+                <div
+                    class="flex flex-col md:flex-row items-center justify-center px-4 sm:px-6 py-8 sm:py-10 bg-white gap-10 md:gap-16">
+                    <!-- Left Column -->
+                    <div class="space-y-8 sm:space-y-10 max-w-xl w-full">
+                        <!-- Feature 1 -->
+                        <div class="flex items-start gap-4 ps-4 sm:ps-7">
+                            <div class="text-tertiary text-2xl sm:text-3xl">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-tertiary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
+                                    On-Demand Printing
+                                </h3>
+                                <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
+                                    We've created a unique process that lets us print any quantity on the fly with
+                                    little-to-no setup.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="flex items-start gap-4 ps-4 sm:ps-7">
+                            <div class="text-secondary text-2xl sm:text-3xl">
+                                <i class="fas fa-crop-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-secondary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
+                                    No Designer Needed
+                                </h3>
+                                <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
+                                    Our easy-to-use templates don't require a degree in Graphic Design to create something
+                                    truly custom.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="flex items-start gap-4 ps-4 sm:ps-7">
+                            <div class="text-primary text-2xl sm:text-3xl">
+                                <i class="fas fa-comment-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-primary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
+                                    Reassuring at Every Step
+                                </h3>
+                                <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
+                                    You know what you're looking for, and we're here to help make sure you get it.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Image -->
+                    <div class="w-full md:w-auto">
+                        <img src="{{ asset('Frontend/images/stickers-two-stacks-2.png') }}" alt="Stickers"
+                            class="w-2/3 sm:w-1/2 md:w-72 mx-auto md:mx-0">
+                    </div>
+                </div>
+            </div>
+
             {{-- MakeStickers Advantages --}}
             <div class="bg-white py-16  relative overflow-hidden">
                 <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-10">
@@ -220,8 +229,8 @@
                 <span class="w-24 h-0.5 bg-secondary block mx-auto mb-5 mt-3"></span>
             </div>
             <!-- Swiper -->
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
+            <div class="swiper mySwiper ">
+                <div class="swiper-wrapper ">
                     <div class="swiper-slide"><img
                             src="{{ asset('Frontend/images/485840734_18494317735054684_4029586844195738932_n.jpg') }}"
                             alt=""></div>

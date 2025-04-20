@@ -3,6 +3,8 @@
 
 use App\Http\Controllers\Frontend\AuthController as TemporaryAuthController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Frontend\FrontendController;
 
 // Route::get('/', function () {
 //     return Redirect::route('frontend.home');

@@ -24,4 +24,7 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.returns');
     }
+    public function return(){
+        return view('frontend.pages.returns');
+    }
 }

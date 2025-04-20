@@ -17,8 +17,8 @@
             <h4 class="font-bold mb-3">Customer Service</h4>
             <ul class="space-y-1">
                 <li><a href="#" class="hover:underline">Shipping & Turnaround</a></li>
-                <li><a href="#" class="hover:underline">Common Questions</a></li>
-                <li><a href="#" class="hover:underline">Return Policy</a></li>
+                <li><a href="{{route('frontend.faq')}}" class="hover:underline">Common Questions</a></li>
+                <li><a href="{{route('frontend.returns')}}" class="hover:underline">Return Policy</a></li>
                 <li><a href="#" class="hover:underline">Contact Us</a></li>
             </ul>
         </div>

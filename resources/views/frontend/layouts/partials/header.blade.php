@@ -4,7 +4,7 @@
         <!-- Logo -->
         <div>
             <div class="flex items-center space-x-2">
-                <img src="{{ asset('build/assets/images/makestickers-logo.png') }}" alt="Make Stickers" class="h-10">
+               <a href="{{route('frontend.home')}}"> <img src="{{ asset('Frontend/images/makestickers-logo.svg') }}" alt="Make Stickers" class="h-10"></a>
 
             </div>
 
@@ -29,16 +29,16 @@
                 <ul tabindex="0" class="dropdown-content menu  bg-base-100 rounded-box px-4 shadow-sm w-52 ">
                     <li><a href="#" class="px-5 my-1">Blog</a></li>
                     <li><a href="#" class="px-5 my-1">Sticker Trends</a></li>
-                    <li><a href="#" class="px-5 my-1">About Us</a></li>
+                    <li><a href="{{route('frontend.about')}}" class="px-5 my-1">About Us</a></li>
                     <li><a href="#" class="px-5 my-1 ">Careers</a></li>
                 </ul>
             </div>
             <div class="dropdown dropdown-end ">
                 <div tabindex="0 " class="py-2 px-4 hover:text-tertiary">HELP <i class="fas fa-caret-down"></i></div>
                 <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box px-4 shadow-sm w-52 ">
-                    <li><a href="#" class="px-5 my-1">FAQ</a></li>
-                    <li><a href="#" class="px-5 my-1">Shipping</a></li>
-                    <li><a href="#" class="px-5 my-1">Contact Us</a></li>
+                    <li><a href="{{route('frontend.faq')}}" class="px-5 my-1">FAQ</a></li>
+                    <li><a href="{{route('frontend.shipping')}}" class="px-5 my-1">Shipping</a></li>
+                    <li><a href="{{route('frontend.contact')}}" class="px-5 my-1">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -46,7 +46,7 @@
             <div class="hidden md:flex space-x-6 text-sm font-semibold my-4">
                 <a href="#" class="hover:text-tertiary">CUSTOM STICKERS</a>
                 <a href="#" class="hover:text-tertiary">CUSTOM LABELS</a>
-                <a href="#" class="hover:text-tertiary">POUCHES</a>
+                <a href="{{route('frontend.pouch')}}" class="hover:text-tertiary">POUCHES</a>
                 <a href="#" class="hover:text-tertiary">DESIGNS</a>
                 <a href="#" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>

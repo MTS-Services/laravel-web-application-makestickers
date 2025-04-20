@@ -79,7 +79,7 @@
 
     {{-- end hero section --}}
     {{-- Products section --}}
-    <section class="md:-mt-20 sm:-mt-10 z-30 mt-4 relative">
+    <section class="md:-mt-20 sm:-mt-10 md:-mb-8 z-30 mt-4 relative">
         <div class="container  bg-white border-1 border-gray mx-3 md:mx-auto px-0 md:py-16 shadow-lg">
             {{-- cards --}}
             <div class="heading text-center pt-4">

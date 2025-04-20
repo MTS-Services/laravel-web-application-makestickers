@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Frontend\AuthController as TemporaryAuthController;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Frontend\AuthController as TemporaryAuthController;
 
 Route::get('/', function () {
     return Redirect::route('frontend.home');
@@ -15,3 +16,7 @@ Route::get('/register', [TemporaryAuthController::class, 'register'])->name('reg
 Route::get('/forgot-password', [TemporaryAuthController::class, 'forgotPassword'])->name('password.request');
 
 require __DIR__ . '/frontend.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

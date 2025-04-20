@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Route;
 //     // return view('welcome');
 // });
 
-Route::group(['middleware' => 'Auth', 'prefix' => 'home','as' => 'frontend'], function () {
-    Route::get('/', [FrontendController::class, 'home'])->name('home');
-    Route::get('/about', [FrontendController::class, 'return'])->name('returns');
-});
 
 // Auth Routes
 Route::get('/login', [TemporaryAuthController::class, 'login'])->name('login');

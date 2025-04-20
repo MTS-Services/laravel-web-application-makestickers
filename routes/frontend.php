@@ -8,4 +8,5 @@ Route::group(['as' => 'frontend.', 'middleware' => 'guest'], function () {
     Route::get('/about', [FrontendController::class, 'about'])->name('about');
     Route::get('/faq', [FrontendController::class, 'faq'])->name('faq');
     Route::get('/shipping', [FrontendController::class, 'shipping'])->name('shipping');
+    Route::get('/return', [FrontendController::class, 'return'])->name('returns'); 
 });

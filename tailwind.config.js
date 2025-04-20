@@ -32,10 +32,16 @@ export default {
                 'md': '768px',
                 'lg': '1024px',
                 'xl': '1280px',
+                '2xl': '1536px',
+                '3xl': '1600px',
+
+                ...defaultTheme.screens,
             },
             fontFamily: {
                 "Lato": ["Lato", 'sans-serif'],
                 "Montserrat": ["Montserrat", 'sans-serif'],
+
+                ...defaultTheme.fontFamily,
             },
             fontSize: {
                 'heading-1': ['2.5rem', '3rem'],
@@ -75,11 +81,15 @@ export default {
                 'light-gray': '#F6F6F8',
                 'dark': '#333333',
                 'gray': '#737373',
+
+                ...defaultTheme.colors,
             },
 
             boxShadow: {
                 'btn-primary': 'inset 0 1px 0 hsla(0,0%,100%,.15),0 1px 1px rgba(0,0,0,.075)',
                 'btn-secondary': '0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb),.5)',
+
+                ...defaultTheme.boxShadow,
             }
         },
     },

@@ -16,4 +16,9 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.about');
     }
+
+    public function return()
+    {
+        return view('frontend.pages.returns');
+    }
 }

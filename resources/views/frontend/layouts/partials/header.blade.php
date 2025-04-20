@@ -66,7 +66,7 @@
         <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
 
 
-        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
@@ -74,7 +74,7 @@
         <div class="py-4 overflow-y-auto">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700" aria-controls="account" data-collapse-toggle="account">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray transition duration-75 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700" aria-controls="account" data-collapse-toggle="account">
                         <i class="fa-solid fa-user"></i>
                         <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap hover:text-tertiary">ACCOUNT</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -83,24 +83,24 @@
                     </button>
                     <ul id="account" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
                                 My Dashboard</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Order History</a>
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Order History</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
                                 My Favorites</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
                                 Log In</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700" aria-controls="aboutus" data-collapse-toggle="aboutus">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray transition duration-75 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700" aria-controls="aboutus" data-collapse-toggle="aboutus">
 
                         <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap hover:text-tertiary">ABOUT US</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -109,22 +109,22 @@
                     </button>
                     <ul id="aboutus" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Blog</a>
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Blog</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Sticker Trends</a>
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Sticker Trends</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">About Us</a>
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">About Us</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Careers</a>
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Careers</a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700" aria-controls="help" data-collapse-toggle="help">
+                    <button type="button" class="flex items-center w-full p-2 text-base text-gray transition duration-75 rounded-lg group hover:bg-gray-100 dark:hover:bg-gray-700" aria-controls="help" data-collapse-toggle="help">
 
                         <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap hover:text-tertiary">HELP</span>
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -133,15 +133,15 @@
                     </button>
                     <ul id="help" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">
                                 FAQ
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Shipping</a>
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Shipping</a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Contact Us</a>
+                            <a href="#" class="flex items-center w-full p-2 text-gray transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 hover:text-tertiary">Contact Us</a>
                         </li>
                     </ul>
                 </li>

@@ -67,8 +67,8 @@
     <section class="py-12 bg-white px-4">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="text-3xl font-semibold uppercase tracking-wide mb-4">Our Location</h2>
-        <p class="text-sm font-medium text-gray-700 uppercase mb-1">18621 81st Ave</p>
-        <p class="text-sm font-medium text-gray-700 uppercase">Tinley Park, IL 60487</p>
+        <p class="text-sm font-medium text-gray uppercase mb-1">18621 81st Ave</p>
+        <p class="text-sm font-medium text-gray uppercase">Tinley Park, IL 60487</p>
       </div>
     </section>
 

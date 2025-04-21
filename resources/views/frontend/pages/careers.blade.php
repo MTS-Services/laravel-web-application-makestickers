@@ -1,21 +1,19 @@
 @extends('frontend.layouts.app', ['title' => 'Career'])
 @section('title', 'Career')
-@push('styles')
+@push('head_link')
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Example: Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 @endpush
 
 @section('content')
 
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <!-- Example: Inter font from Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-        <link rel="icon" href="/favicon.ico" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 
-    </head>
-
-    <body>
+    <section>
         <div class="bg-light-gray py-8 text-center">
             <p class=" text-orange font-bold uppercase tracking-widest mb-1">Careers</p>
             <h2 class="text-font-28px font-bold text-black uppercase tracking-tight mb-4">JOIN THE TEAM</h2>
@@ -41,7 +39,8 @@
                 <div class="bg-white rounded-md shadow-lg border border-light-gray mb-6 max-w-3xl mx-auto">
                     <div class="p-6 md:p-8 border-l-4 border-primary-hover bg-white shadow rounded-md">
                         <h3 class="text-font-20px font-bold text-gray mb-1">Laser Finishing Operator</h3>
-                        <p class="text-font-14px text-gray mb-2"><span class="font-bold">Location:</span> Tinley Park, IL</p>
+                        <p class="text-font-14px text-gray mb-2"><span class="font-bold">Location:</span> Tinley Park, IL
+                        </p>
                         <a href="#" class="text-font-20px font-bold text-primary-hover">+ View details</a>
                     </div>
                 </div>
@@ -50,8 +49,10 @@
                 <div class="bg-white rounded-md shadow-lg border border-light-gray mb-6 max-w-3xl mx-auto">
                     <div class="p-6 md:p-8 border-l-4 border-primary-hover bg-white shadow rounded-md">
                         <h3 class="text-font-20px font-bold text-gray mb-1">Sticker Production Assistant</h3>
-                        <p class="text-font-14px text-gray mb-2"><span class="font-bold">Location:</span> Tinley Park, IL</p>
-                        <a href="#" class="text-font-20px text-primary-hover font-bold text-primary-hover">+ View details</a>
+                        <p class="text-font-14px text-gray mb-2"><span class="font-bold">Location:</span> Tinley Park, IL
+                        </p>
+                        <a href="#" class="text-font-20px text-primary-hover font-bold text-primary-hover">+ View
+                            details</a>
                     </div>
                 </div>
             </div>
@@ -82,12 +83,14 @@
 
                         <div class="space-y-8"> <!-- More spacing between cards -->
                             <div class="border-l-4 border-orange-hover bg-white p-6 shadow-md rounded">
-                                <h3 class="text-orange-hover font-bold mb-3 text-font-20px">We succeed and fail as a team</h3>
+                                <h3 class="text-orange-hover font-bold mb-3 text-font-20px">We succeed and fail as a team
+                                </h3>
                                 <p class="text-base text-gray">We do what we can to help co-workers and ultimately the
                                     company as a whole.</p>
                             </div>
                             <div class="border-l-4 border-secondary bg-white p-6 shadow-md rounded">
-                                <h3 class="text-secondary font-bold mb-3 text-font-20px">Do it before it needs to get done</h3>
+                                <h3 class="text-secondary font-bold mb-3 text-font-20px">Do it before it needs to get done
+                                </h3>
                                 <p class="text-base text-gray">We plan ahead and work ahead so that we’re not faced with
                                     stressful situations when we need to rush.</p>
                             </div>
@@ -259,7 +262,8 @@
                             <div class=" border-l-4 border-primary-hover  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
                                     <div class="flex items-center mb-2 text-orange text-font-28px">★★★★★</div>
-                                    <p class="text-primary-hover font-light text-font-24px">"A company that values its employees"
+                                    <p class="text-primary-hover font-light text-font-24px">"A company that values its
+                                        employees"
                                     </p>
                                     <p class="text-gray text-font-14px mt-1">Current Employee, 3+ years</p>
                                 </div>
@@ -269,7 +273,8 @@
                             <div class=" border-l-4 border-primary-hover  ">
                                 <div class="bg-white rounded-md shadow-lg rounded-md p-4 shadow-sm">
                                     <div class="flex items-center mb-2 text-orange text-font-28px">★★★★★</div>
-                                    <p class="text-primary-hover font-light  text-font-24px">"Amazing company to work for!"</p>
+                                    <p class="text-primary-hover font-light  text-font-24px">"Amazing company to work for!"
+                                    </p>
                                     <p class="text-gray text-font-14px mt-1">Current Employee, 3+ years</p>
                                 </div>
                             </div>
@@ -296,14 +301,15 @@
 
                     <!-- Additional Lines -->
                     <p class="text-white">Don’t see any openings?
-                    <span class="text-white">Send your resume to</span></p>
-                        <a href="mailto:careers@graphicsland.com"
-                            class="text-white hover:underline">careers@graphicsland.com</a>
+                        <span class="text-white">Send your resume to</span>
+                    </p>
+                    <a href="mailto:careers@graphicsland.com"
+                        class="text-white hover:underline">careers@graphicsland.com</a>
                     </p>
                 </div>
             </div>
 
-    </body>
+    </section>
 @endsection
 
 @push('scripts')

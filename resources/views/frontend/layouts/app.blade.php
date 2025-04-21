@@ -10,6 +10,7 @@
 
     {{-- Fontawesome Icons --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    @stack('head_link')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 

@@ -12,5 +12,5 @@ Route::group(['as' => 'frontend.', 'middleware' => 'guest'], function () {
     Route::get('/return', [FrontendController::class, 'return'])->name('returns'); 
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
 
-    Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
+   
 });

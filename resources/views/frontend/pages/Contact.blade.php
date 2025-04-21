@@ -1,23 +1,17 @@
-@extends('frontend.layouts.app', ['page_slug' => 'home'])
+@extends('frontend.layouts.app', ['page_slug' => 'contact'])
 @section('title', 'Contact US')
 
 @push('styles')
 @endpush
 
 @section('content')
-
-  <head>
-    <title>contact Us</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </head>
-  <body class="bg-gray-100 text-gray-800">
+  <section class="bg-gray-100 text-gray-800">
 
     <!-- Header Section -->
     <div class="w-full h-1 bg-tertiary mx-auto"></div>
     <section class="bg-primary py-10 text-center px-4">
-      <p class="text-xl text-tertiary font-bold uppercase tracking-widest mb-2">Careers</p>
-      <h2 class="text-3xl font-bold text-gray-700 uppercase tracking-tight mb-4">How can we help?</h2>
+      <p class="text-xl text-tertiary font-bold uppercase tracking-widest mb-2">Contact Us</p>
+      <h2 class="text-3xl font-bold text-gray uppercase tracking-tight mb-4">How can we help?</h2>
       <div class="w-12 h-1 bg-tertiary mx-auto"></div>
     </section>
 
@@ -72,7 +66,7 @@
       </div>
     </section>
 
-  </body>
+  </section>
 
 
 @endsection

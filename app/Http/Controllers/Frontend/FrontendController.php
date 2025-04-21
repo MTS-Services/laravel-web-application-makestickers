@@ -31,6 +31,7 @@ class FrontendController extends Controller
     public function return(){
         return view('frontend.pages.returns');
     }
+
     public function contact()
     {
         return view('frontend.pages.contact');

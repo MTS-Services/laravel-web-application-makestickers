@@ -8,7 +8,7 @@
   <section class="bg-gray-100 text-gray-800">
 
     <!-- Header Section -->
-    <div class="w-full h-1 bg-tertiary mx-auto"></div>
+    {{-- <div class="w-full h-1 bg-tertiary mx-auto"></div> --}}
     <section class="bg-primary py-10 text-center px-4">
       <p class="text-xl text-tertiary font-bold uppercase tracking-widest mb-2">Contact Us</p>
       <h2 class="text-3xl font-bold text-gray uppercase tracking-tight mb-4">How can we help?</h2>

@@ -30,7 +30,7 @@
                     <li><a href="#" class="px-5 my-1">Blog</a></li>
                     <li><a href="#" class="px-5 my-1">Sticker Trends</a></li>
                     <li><a href="{{route('frontend.about')}}" class="px-5 my-1">About Us</a></li>
-                    <li><a href="#" class="px-5 my-1 ">Careers</a></li>
+                    <li><a href="{{route('frontend.career')}}" class="px-5 my-1 ">Careers</a></li>
                 </ul>
             </div>
             <div class="dropdown dropdown-end ">

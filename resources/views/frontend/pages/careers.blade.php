@@ -111,21 +111,21 @@
                             <!-- First image -->
                             <div
                                 class="relative w-full after:content-[''] after:absolute after:inset-0 after:-rotate-6 after:bg-secondary z-10">
-                                <img src="{{ asset('frontend/Career Opportunities_image/printing.jpg') }}"
+                                <img src="{{ asset('frondend/Career Opportunities_image/printing.jpg') }}"
                                     class="w-full object-cover relative z-10 rounded-lg" alt="Image 1" />
                             </div>
 
                             <!-- Second image -->
                             <div
                                 class="relative w-full after:content-[''] after:absolute after:inset-0 after:-rotate-6 after:bg-primary z-10 mt-4 lg:-ml-20 lg:-mt-20">
-                                <img src="{{ asset('frontend/Career Opportunities_image/packing.jpg') }}"
+                                <img src="{{ asset('frondend/Career Opportunities_image/packing.jpg') }}"
                                     class="w-full object-cover relative z-10 rounded-lg" alt="Image 2" />
                             </div>
 
                             <!-- Third image -->
                             <div
                                 class="relative w-full after:content-[''] after:absolute after:inset-0 after:-rotate-6 after:bg text-orange z-10 mt-4 lg:-mt-20">
-                                <img src="{{ asset('frontend/Career Opportunities_image/keyboard.jpg') }}"
+                                <img src="{{ asset('frondend/Career Opportunities_image/keyboard.jpg') }}"
                                     class="w-full object-cover relative z-10 rounded-lg" alt="Image 3" />
                             </div>
                         </div>

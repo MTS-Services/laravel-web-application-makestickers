@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
-
+use App\Http\Controllers\Backend\Admin\ProductsManage\MainCategoryController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -16,7 +16,8 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 // Admin Dashboard Routes (Requires Admin Authentication)
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard'); // Admin Dashboard
-    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::group(['as' => 'admin.'], function () {
         Route::resource('/test', TestController::class);
+        Route::resource('/main-category', MainCategoryController::class);
     });
 });

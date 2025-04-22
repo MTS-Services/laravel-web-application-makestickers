@@ -16,6 +16,10 @@ return new class extends Migration
     {
         Schema::create('main_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug');
+            $table->string('description');
+            $table->string('image');
             $table->timestamps();
             $table->softDeletes();
         });

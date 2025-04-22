@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Traits\AuditColumnTraits;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -7,7 +8,7 @@ use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
-    use SoftDeletes;
+    use SoftDeletes, AuditColumnTraits;
     /**
      * Run the migrations.
      */
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
+            $this->addMorpheAuditColumns($table);
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

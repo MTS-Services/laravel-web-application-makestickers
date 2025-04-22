@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Http\Traits\AuditColumnTrait;
+use App\Http\Traits\AuditColumnTraits;
 
 return new class extends Migration
 {
-    use SoftDeletes, AuditColumnTrait;
+    use SoftDeletes, AuditColumnTraits;
     /**
      * Run the migrations.
      */

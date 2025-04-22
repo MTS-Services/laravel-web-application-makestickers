@@ -29,10 +29,10 @@
                     </a>
                 </li>
 
-                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'a') active @endif">
-                    <a href="">
+                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'test') active @endif">
+                    <a href="{{route('admin.test.index')}}">
                         <i class="icon-chart"></i>
-                        <p>{{ __('Single label') }}</p>
+                        <p>{{ __('Test') }}</p>
                     </a>
                 </li>
 

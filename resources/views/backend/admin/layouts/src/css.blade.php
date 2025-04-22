@@ -27,15 +27,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" />
 {{-- FontAwesome 6 CDN LINK --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+{{-- Bootstrap Icons --}}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
+{{-- Css Links --}}
+@stack('css_links')
 
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 <style>
-    .main-header {
-        background: none;
-    }
-
     .main-header .btn.btn-toggle.toggle-sidebar,
     .main-header .btn.btn-toggle.sidenav-toggler,
     .main-header .topbar-toggler.more {
@@ -44,5 +44,6 @@
 </style>
 
 {{-- Custom CSS   --}}
-@stack('css_links')
+{{-- FileUpload CSS --}}
+<link rel="stylesheet" href="{{ asset('backend/assets/custom_files/css/fileUpload.css') }}">
 @stack('css')

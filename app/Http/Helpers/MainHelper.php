@@ -107,6 +107,13 @@ function isVideo($path)
     return in_array($extension, $videoExtensions);
 }
 
+function isPdf($path)
+{
+    $pdfExtensions = ['pdf'];
+    $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+    return in_array($extension, $pdfExtensions);
+}
+
 // check is file not include image, video and pdf
 /**
  * Check if file is a document, archive, or other non-media file

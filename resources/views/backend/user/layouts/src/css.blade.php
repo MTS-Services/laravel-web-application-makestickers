@@ -32,10 +32,6 @@
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 <style>
-    .main-header {
-        background: none;
-    }
-
     .main-header .btn.btn-toggle.toggle-sidebar,
     .main-header .btn.btn-toggle.sidenav-toggler,
     .main-header .topbar-toggler.more {

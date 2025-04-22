@@ -36,23 +36,23 @@
                     </a>
                 </li>
 
-                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) active submenu @endif">
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#1"
-                        @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) aria-expanded="true" @endif>
+                        @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
-                        <p>{{ __('Dropdown') }}</p>
+                        <p>{{ __('Faq Management') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) show @endif" id="1">
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) show @endif" id="1">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'b') active @endif">
                                 <a href="">
                                     <span class="sub-item">{{ __('Sub item 1') }}</span>
                                 </a>
                             </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'c') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Sub item 2') }}</span>
+                            <li class="@if (isset($page_slug) && $page_slug == 'faq') active @endif">
+                                <a href="{{route('admin.faq.index')}}">
+                                    <span class="sub-item">{{ __('FAQ') }}</span>
                                 </a>
                             </li>
                         </ul>

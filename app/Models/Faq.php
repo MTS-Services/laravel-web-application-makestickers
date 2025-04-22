@@ -6,5 +6,5 @@ use App\Models\BaseModel;
 
 class Faq extends BaseModel
 {
-    //
+    protected $fillable = ['title', 'slug'];
 }

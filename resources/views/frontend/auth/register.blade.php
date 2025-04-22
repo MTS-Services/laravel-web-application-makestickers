@@ -8,7 +8,8 @@
             <div class="card w-full bg-white shadow-sm max-w-xl">
                 <div class="card-body">
                     <div class="flex justify-between mb-2">
-                        <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Register to your account</h2>
+                        <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Register to your account
+                        </h2>
                     </div>
                     <form action="">
                         <div class="flex flex-col gap-2">
@@ -21,8 +22,14 @@
                                         <circle cx="12" cy="7" r="4"></circle>
                                     </g>
                                 </svg>
-                                <input type="input" placeholder="Username" name="name" />
+                                <input type="input" placeholder="Username" name="name"
+                                    class="input @error('name') input-error @enderror" value="{{ old('name') }}" />
                             </label>
+                            @error('name')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
                             <label class="input w-full">
                                 <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -32,8 +39,14 @@
                                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                                     </g>
                                 </svg>
-                                <input type="email" placeholder="example@example.com" name="email" />
+                                <input type="email" placeholder="example@example.com" name="email"
+                                    class="input @error('email') input-error @enderror" value="{{ old('email') }}" />
                             </label>
+                            @error('email')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
 
                             <label class="input w-full">
@@ -46,8 +59,14 @@
                                         <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                                     </g>
                                 </svg>
-                                <input type="password" placeholder="Password" name="password" />
+                                <input type="password" placeholder="Password" name="password"
+                                    class="input @error('password') input-error @enderror" />
                             </label>
+                            @error('password')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
                             <label class="input w-full">
                                 <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -59,7 +78,8 @@
                                         <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                                     </g>
                                 </svg>
-                                <input type="password" placeholder="Confirm Password" name="password_confirmation" />
+                                <input type="password" placeholder="Confirm Password" name="password_confirmation"
+                                    class="input" />
                             </label>
                         </div>
 

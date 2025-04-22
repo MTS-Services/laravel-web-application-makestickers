@@ -1,77 +1,68 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app', ['page_slug' => 'login'])
+
+@section('title', 'Login')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+    <div class="container">
+        <div class="flex flex-col items-center justify-center min-h-[50vh] py-6 sm:py-12 lg:py-24">
+            <div class="card w-full bg-white shadow-sm max-w-xl">
                 <div class="card-body">
+                    <div class="flex justify-between mb-2">
+                        <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Admin Login</h2>
+                    </div>
                     <form method="POST" action="{{ route('admin.login.submit') }}">
                         @csrf
+                        <div class="flex flex-col gap-2">
+                            <label class="input w-full">
+                                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                        stroke="currentColor">
+                                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                    </g>
+                                </svg>
+                                <input type="email" placeholder="example@example.com" name="email" id="email"
+                                    class="input @error('email') input-error @enderror" />
+                            </label>
 
-                        <div class="mb-3 text-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF0080] to-[#7928CA]">
-                            {{__('Admin Login Form')}}
+                            @error('email')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+
+                            <label class="input w-full">
+                                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                        stroke="currentColor">
+                                        <path
+                                            d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z">
+                                        </path>
+                                        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                                <input type="password" placeholder="Password" name="password" id="password"
+                                    class="input @error('password') input-error @enderror" />
+                            </label>
+                            @error('password')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <label class="cursor-pointer label">
+                                <input type="checkbox" class="checkbox checkbox-xs" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}/>
+                                <span class="label-text">Remember me</span>
+                            </label>
+                            <a href="" class="text-primary">Forgot Password</a>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
+                        <button type="submit" class="btn-primary w-full mt-4">Login</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

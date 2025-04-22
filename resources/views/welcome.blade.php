@@ -630,7 +630,7 @@
                 border-width: 1px
             }
 
-            .border-gray-300 {
+            .border-gray/30 {
                 --tw-border-opacity: 1;
                 border-color: rgb(209 213 219 / var(--tw-border-opacity, 1))
             }
@@ -747,7 +747,7 @@
                 line-height: 1.625
             }
 
-            .text-xl {
+            .text-font-20px {
                 font-size: 1.25rem;
                 line-height: 1.75rem
             }
@@ -773,12 +773,12 @@
                 color: #00000080
             }
 
-            .text-gray-500 {
+            .text-gray {
                 --tw-text-opacity: 1;
                 color: rgb(107 114 128 / var(--tw-text-opacity, 1))
             }
 
-            .text-gray-700 {
+            .text-gray {
                 --tw-text-opacity: 1;
                 color: rgb(55 65 81 / var(--tw-text-opacity, 1))
             }
@@ -921,12 +921,12 @@
                 color: #000000b3
             }
 
-            .hover\:text-gray-400:hover {
+            .hover\:text-gray:hover {
                 --tw-text-opacity: 1;
                 color: rgb(156 163 175 / var(--tw-text-opacity, 1))
             }
 
-            .hover\:text-gray-500:hover {
+            .hover\:text-gray:hover {
                 --tw-text-opacity: 1;
                 color: rgb(107 114 128 / var(--tw-text-opacity, 1))
             }
@@ -971,12 +971,12 @@
                 background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1))
             }
 
-            .active\:text-gray-500:active {
+            .active\:text-gray:active {
                 --tw-text-opacity: 1;
                 color: rgb(107 114 128 / var(--tw-text-opacity, 1))
             }
 
-            .active\:text-gray-700:active {
+            .active\:text-gray:active {
                 --tw-text-opacity: 1;
                 color: rgb(55 65 81 / var(--tw-text-opacity, 1))
             }
@@ -1125,12 +1125,12 @@
                     color: rgb(209 213 219 / var(--tw-text-opacity, 1))
                 }
 
-                .dark\:text-gray-400 {
+                .dark\:text-gray {
                     --tw-text-opacity: 1;
                     color: rgb(156 163 175 / var(--tw-text-opacity, 1))
                 }
 
-                .dark\:text-gray-600 {
+                .dark\:text-gray {
                     --tw-text-opacity: 1;
                     color: rgb(75 85 99 / var(--tw-text-opacity, 1))
                 }
@@ -1292,7 +1292,7 @@
                                     </div>
 
                                     <div class="pt-3 sm:pt-5 lg:pt-0">
-                                        <h2 class="text-xl font-semibold text-black dark:text-white">Documentation</h2>
+                                        <h2 class="text-font-20px font-semibold text-black dark:text-white">Documentation</h2>
 
                                         <p class="mt-4 text-sm/relaxed">
                                             Laravel has wonderful documentation covering every aspect of the framework.
@@ -1324,7 +1324,7 @@
                             </div>
 
                             <div class="pt-3 sm:pt-5">
-                                <h2 class="text-xl font-semibold text-black dark:text-white">Laracasts</h2>
+                                <h2 class="text-font-20px font-semibold text-black dark:text-white">Laracasts</h2>
 
                                 <p class="mt-4 text-sm/relaxed">
                                     Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript
@@ -1358,7 +1358,7 @@
                             </div>
 
                             <div class="pt-3 sm:pt-5">
-                                <h2 class="text-xl font-semibold text-black dark:text-white">Laravel News</h2>
+                                <h2 class="text-font-20px font-semibold text-black dark:text-white">Laravel News</h2>
 
                                 <p class="mt-4 text-sm/relaxed">
                                     Laravel News is a community driven portal and newsletter aggregating all of the
@@ -1388,7 +1388,7 @@
                             </div>
 
                             <div class="pt-3 sm:pt-5">
-                                <h2 class="text-xl font-semibold text-black dark:text-white">Vibrant Ecosystem</h2>
+                                <h2 class="text-font-20px font-semibold text-black dark:text-white">Vibrant Ecosystem</h2>
 
                                 <p class="mt-4 text-sm/relaxed">
                                     Laravel's robust library of first-party tools and libraries, such as <a

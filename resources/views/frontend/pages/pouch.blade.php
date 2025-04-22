@@ -153,11 +153,11 @@
             <!-- Right side: content -->
             <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
                 <div class="border border-gray p-4 sm:p-6 rounded-lg">
-                    <h2 class="text-xl font-semibold mb-3">Printing Options</h2>
+                    <h2 class="text-font-20px font-semibold mb-3">Printing Options</h2>
                     <div class="flex justify-between gap-2">
                         <div class="flex items-center gap-2">
                             <p>Size</p>
-                            <a href="#" class="text-primary text-sm">View help</a>
+                            <a href="#" class="text-primary text-font-14px">View help</a>
                         </div>
                         <p class="font-semibold">Quantity</p>
                     </div>
@@ -179,11 +179,11 @@
 
                     <div class="flex justify-between my-8 sm:my-10">
                         <div>
-                            <h2 class="text-lg font-medium">Total Price:</h2>
+                            <h2 class="text-font-18px font-medium">Total Price:</h2>
                         </div>
                         <div class="text-right">
-                            <p class="text-xl font-bold">$125.55</p>
-                            <p class="text-sm text-gray-600">$125 each</p>
+                            <p class="text-font-20px font-bold">$125.55</p>
+                            <p class="text-font-14px text-gray">$125 each</p>
                         </div>
                     </div>
 
@@ -213,14 +213,14 @@
                     <!-- Foreground content -->
                     <div
                         class="relative z-10 text-center border border-gray p-4 sm:p-6 rounded-lg bg-white bg-opacity-90 ps-6 sm:ps-12">
-                        <h2 class="text-lg italic">Order today and get your pouches by</h2>
-                        <h2 class="text-xl sm:text-font-32px py-2 font-semibold text-dark">Wednesday, April 30</h2>
+                        <h2 class="text-font-18px italic">Order today and get your pouches by</h2>
+                        <h2 class="text-font-20px sm:text-font-32px py-2 font-semibold text-dark">Wednesday, April 30</h2>
                         <hr class="my-4" />
                         <p class="font-bold text-gray">Need them sooner?</p>
                         <p>
                             With
-                            <span class="font-bold text-red-500 italic mx-1">
-                                <i class="fa-solid fa-bolt text-red-500"></i> Rush Service
+                            <span class="font-bold text-tertiary italic mx-1">
+                                <i class="fa-solid fa-bolt text-tertiary"></i> Rush Service
                             </span>
                             get them Wednesday, April 23
                         </p>
@@ -246,10 +246,10 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
+                            <h2 class="text-font-18px sm:text-font-20px font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
-                            <p class="text-gray-600 text-sm sm:text-base">
+                            <p class="text-gray text-font-14px sm:text-base">
                                 Pouches have a metallized interior and a matte exterior. The metallized material
                                 provides a barrier
                                 for oxygen and moisture.
@@ -268,10 +268,10 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
+                            <h2 class="text-font-18px sm:text-font-20px font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
-                            <p class="text-gray-600 text-sm sm:text-base">
+                            <p class="text-gray text-font-14px sm:text-base">
                                 Pouches have a metallized interior and a matte exterior. The metallized material
                                 provides a barrier
                                 for oxygen and moisture.
@@ -290,10 +290,10 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
+                            <h2 class="text-font-18px sm:text-font-20px font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
-                            <p class="text-gray-600 text-sm sm:text-base">
+                            <p class="text-gray text-font-14px sm:text-base">
                                 Pouches have a metallized interior and a matte exterior. The metallized material
                                 provides a barrier
                                 for oxygen and moisture.
@@ -312,10 +312,10 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
+                            <h2 class="text-font-18px sm:text-font-20px font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
-                            <p class="text-gray-600 text-sm sm:text-base">
+                            <p class="text-gray text-font-14px sm:text-base">
                                 Pouches have a metallized interior and a matte exterior. The metallized material
                                 provides a barrier
                                 for oxygen and moisture.
@@ -334,10 +334,10 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
+                            <h2 class="text-font-18px sm:text-font-20px font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
-                            <p class="text-gray-600 text-sm sm:text-base">
+                            <p class="text-gray text-font-14px sm:text-base">
                                 Pouches have a metallized interior and a matte exterior. The metallized material
                                 provides a barrier
                                 for oxygen and moisture.
@@ -356,10 +356,10 @@
                         </div>
                         <!-- Content -->
                         <div class="md:w-[60%] p-4 sm:p-6 flex flex-col justify-center">
-                            <h2 class="text-lg sm:text-xl font-medium text-gray mb-4">Matte Finish, Metallized
+                            <h2 class="text-font-18px sm:text-font-20px font-medium text-gray mb-4">Matte Finish, Metallized
                                 Material</h2>
                             <hr class="border-t border-gray mb-4" />
-                            <p class="text-gray-600 text-sm sm:text-base">
+                            <p class="text-gray text-font-14px sm:text-base">
                                 Pouches have a metallized interior and a matte exterior. The metallized material
                                 provides a barrier
                                 for oxygen and moisture.
@@ -385,8 +385,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h2 class="text-lg font-semibold mb-2">Order Your Custom Pouches</h2>
-                            <p class="text-gray-600 text-sm">
+                            <h2 class="text-font-18px font-semibold mb-2">Order Your Custom Pouches</h2>
+                            <p class="text-gray text-font-14px">
                                 Upload your own design or use our downloadable templates for easy designing and ordering
                             </p>
                         </div>
@@ -401,8 +401,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h2 class="text-lg font-semibold mb-2">Order Your Custom Pouches</h2>
-                            <p class="text-gray-600 text-sm">
+                            <h2 class="text-font-18px font-semibold mb-2">Order Your Custom Pouches</h2>
+                            <p class="text-gray text-font-14px">
                                 Upload your own design or use our downloadable templates for easy designing and ordering
                             </p>
                         </div>
@@ -417,8 +417,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h2 class="text-lg font-semibold mb-2">Order Your Custom Pouches</h2>
-                            <p class="text-gray-600 text-sm">
+                            <h2 class="text-font-18px font-semibold mb-2">Order Your Custom Pouches</h2>
+                            <p class="text-gray text-font-14px">
                                 Upload your own design or use our downloadable templates for easy designing and ordering
                             </p>
                         </div>
@@ -433,8 +433,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h2 class="text-lg font-bold mb-2">Order Your Custom Pouches</h2>
-                            <p class="text-gray-600 text-sm">
+                            <h2 class="text-font-18px font-bold mb-2">Order Your Custom Pouches</h2>
+                            <p class="text-gray text-font-14px">
                                 Upload your own design or use our downloadable templates for easy designing and ordering
                             </p>
                         </div>
@@ -448,11 +448,11 @@
             <div
                 class="grid grid-cols-1 md:grid-cols-2 rounded-lg overflow-hidden relative bg-gradient-to-tr from-green-400 to-primary">
                 <div class="p-6 sm:p-10 md:p-16 text-white">
-                    <p class="text-sm sm:text-base">Try Before You Buy</p>
-                    <h2 class="text-xl sm:text-font-32px md:text-font-28px py-4 font-bold">
+                    <p class="text-font-14px sm:text-base">Try Before You Buy</p>
+                    <h2 class="text-font-20px sm:text-font-32px md:text-font-28px py-4 font-bold">
                         Get a hands-on look at our stand-up pouches
                     </h2>
-                    <p class="text-sm sm:text-base pb-8 sm:pb-16">
+                    <p class="text-font-14px sm:text-base pb-8 sm:pb-16">
                         Order a Pouch Sample Pack to explore materials, print quality, and durability—so you can package
                         with
                         confidence.
@@ -484,7 +484,7 @@
                 <!-- Trust Section -->
                 <div class="flex flex-col gap-6 p-2">
                     <div>
-                        <h2 class="text-xl sm:text-font-32px md:text-font-28px font-medium text-dark mb-4">
+                        <h2 class="text-font-20px sm:text-font-32px md:text-font-28px font-medium text-dark mb-4">
                             Thousands of Customers Trust Us With Their Printing
                         </h2>
                         <p class="text-gray mb-6">
@@ -520,7 +520,7 @@
             <!-- Reviews Section -->
             <div class="flex flex-col md:flex-row gap-8 mb-12 p-2">
                 <div class="md:w-1/2">
-                    <h2 class="text-lg sm:text-xl font-medium text-gray mb-6">
+                    <h2 class="text-font-18px sm:text-font-20px font-medium text-gray mb-6">
                         Discover What Our Customers Have to Say
                     </h2>
 
@@ -535,59 +535,59 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
-                            <div class="text-sm text-gray">2 reviews</div>
+                            <div class="text-font-14px text-gray">2 reviews</div>
                         </div>
 
                         <div class="flex-1">
                             <div class="mb-2">
                                 <div class="flex items-center">
-                                    <span class="w-12 text-sm text-gray">5 star</span>
+                                    <span class="w-12 text-font-14px text-gray">5 star</span>
                                     <div class="flex-1 h-4 bg-gray rounded-full overflow-hidden">
                                         <div class="bg-orange h-full" style="width: 100%"></div>
                                     </div>
-                                    <span class="w-16 text-right text-sm text-gray">100%</span>
+                                    <span class="w-16 text-right text-font-14px text-gray">100%</span>
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <div class="flex items-center">
-                                    <span class="w-12 text-sm text-gray">4 star</span>
+                                    <span class="w-12 text-font-14px text-gray">4 star</span>
                                     <div class="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
                                         <div class="bg-[#3333] h-full" style="width: 100%"></div>
                                     </div>
-                                    <span class="w-16 text-right text-sm text-gray">0.0%</span>
+                                    <span class="w-16 text-right text-font-14px text-gray">0.0%</span>
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <div class="flex items-center">
-                                    <span class="w-12 text-sm text-gray">3 star</span>
+                                    <span class="w-12 text-font-14px text-gray">3 star</span>
                                     <div class="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
                                         <div class="bg-[#3333] h-full" style="width: 100%"></div>
                                     </div>
-                                    <span class="w-16 text-right text-sm text-gray">0.0%</span>
+                                    <span class="w-16 text-right text-font-14px text-gray">0.0%</span>
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <div class="flex items-center">
-                                    <span class="w-12 text-sm text-gray">2 star</span>
+                                    <span class="w-12 text-font-14px text-gray">2 star</span>
                                     <div class="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
                                         <div class="bg-[#3333] h-full" style="width: 100%"></div>
                                     </div>
-                                    <span class="w-16 text-right text-sm text-gray">0.0%</span>
+                                    <span class="w-16 text-right text-font-14px text-gray">0.0%</span>
                                 </div>
                             </div>
                             <div class="mb-2">
                                 <div class="flex items-center">
-                                    <span class="w-12 text-sm text-gray">1 star</span>
+                                    <span class="w-12 text-font-14px text-gray">1 star</span>
                                     <div class="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
                                         <div class="bg-[#3333] h-full" style="width: 100%"></div>
                                     </div>
-                                    <span class="w-16 text-right text-sm text-gray">0.0%</span>
+                                    <span class="w-16 text-right text-font-14px text-gray">0.0%</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <h3 class="text-lg sm:text-xl font-medium text-gray mb-4">
+                    <h3 class="text-font-18px sm:text-font-20px font-medium text-gray mb-4">
                         The top 5 things our customers say about us:
                     </h3>
 
@@ -651,7 +651,7 @@
                 </div>
 
                 <div class="md:w-1/2 mt-8 md:mt-0">
-                    <h2 class="text-lg sm:text-xl font-medium text-dark mb-6">The most recent reviews</h2>
+                    <h2 class="text-font-18px sm:text-font-20px font-medium text-dark mb-6">The most recent reviews</h2>
 
                     <div class="border rounded-lg p-6 mb-4 text-center">
                         <div class="mb-2">

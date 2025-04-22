@@ -2,13 +2,13 @@
 @section('title', 'Retuns Policy')
 @section('content')
 
-    <div class="bg-dark text-white py-6 text-center text-3xl font-semibold tracking-wide">
+    <div class="bg-dark text-white py-6 text-center text-font-28px font-semibold tracking-wide">
         OUR RETURN POLICY
     </div>
 
     <div class="container bg-gray-100 md:py-12 py-5 px-6 md:px-16">
-        <div class="max-w-6xl mx-auto bg-white border-1 border-gray-300 rounded-md md:py-6 py-2 px-6 md:px-16  shadow-sm">
-            <h2 class="md:text-xl text-font-16px text-gray-800 mb-4">
+        <div class="max-w-6xl mx-auto bg-white border-1 border-gray/30 rounded-md md:py-6 py-2 px-6 md:px-16  shadow-sm">
+            <h2 class="md:text-font-20px text-font-16px text-dark mb-4">
                 MakeStickers is committed to customer satisfaction, and we want to exceed your expectations.
             </h2>
             <p class="text-gray leading-relaxed">

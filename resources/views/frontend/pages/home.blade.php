@@ -63,11 +63,11 @@
                 <div class="text-center md:-ms-72 px-4 sm:px-6 py-12 sm:py-24 w-full max-w-xs sm:max-w-md md:max-w-lg">
                     <img src="{{ asset('Frontend/images/makeitstick.png') }}" alt="Make it stick"
                         class="mx-auto w-3/4 sm:w-2/3 md:w-1/2">
-                    <h3 class="text-white uppercase py-3 text-sm sm:text-base md:text-lg lg:text-xl font-bold">
+                    <h3 class="text-white uppercase py-3 text-font-14px sm:text-base md:text-font-18px lg:text-font-20px font-bold">
                         Custom stickers made easy
                     </h3>
                     <a href="#"
-                        class="btn-secondary capitalize inline-flex items-center px-5 sm:px-8 text-sm sm:text-base rounded-none mt-2">
+                        class="btn-secondary capitalize inline-flex items-center px-5 sm:px-8 text-font-14px sm:text-base rounded-none mt-2">
                         <i class="fa-solid fa-pencil pr-1"></i>Make a Sticker
                     </a>
                 </div>
@@ -113,7 +113,7 @@
             {{-- middel point --}}
             <div class="middel_point pt-8 sm:pt-10 md:pt-12">
                 <div class="middel_header text-center  px-4">
-                    <h6 class="uppercase text-font-12px sm:text-sm md:text-heading-6 text-primary font-bold">
+                    <h6 class="uppercase text-font-12px sm:text-font-14px md:text-heading-6 text-primary font-bold">
                         MakeStickers Advantages
                     </h6>
                     <h2 class="text-heading-4 sm:text-heading-3 md:text-heading-2 font-bold uppercase">
@@ -128,14 +128,14 @@
                     <div class="space-y-8 sm:space-y-10 max-w-xl w-full">
                         <!-- Feature 1 -->
                         <div class="flex items-start gap-4 ps-4 sm:ps-7">
-                            <div class="text-tertiary text-2xl sm:text-3xl">
+                            <div class="text-tertiary text-font-24px sm:text-font-28px">
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div>
-                                <h3 class="text-tertiary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
+                                <h3 class="text-tertiary font-bold text-base sm:text-font-18px md:text-heading-4 uppercase">
                                     On-Demand Printing
                                 </h3>
-                                <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
+                                <p class="text-gray py-2 text-font-14px sm:text-font-14px">
                                     We've created a unique process that lets us print any quantity on the fly with
                                     little-to-no setup.
                                 </p>
@@ -144,14 +144,14 @@
 
                         <!-- Feature 2 -->
                         <div class="flex items-start gap-4 ps-4 sm:ps-7">
-                            <div class="text-secondary text-2xl sm:text-3xl">
+                            <div class="text-secondary text-font-24px sm:text-font-28px">
                                 <i class="fas fa-crop-alt"></i>
                             </div>
                             <div>
-                                <h3 class="text-secondary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
+                                <h3 class="text-secondary font-bold text-base sm:text-font-18px md:text-heading-4 uppercase">
                                     No Designer Needed
                                 </h3>
-                                <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
+                                <p class="text-gray py-2 text-font-14px sm:text-font-14px">
                                     Our easy-to-use templates don't require a degree in Graphic Design to create something
                                     truly custom.
                                 </p>
@@ -160,14 +160,14 @@
 
                         <!-- Feature 3 -->
                         <div class="flex items-start gap-4 ps-4 sm:ps-7">
-                            <div class="text-primary text-2xl sm:text-3xl">
+                            <div class="text-primary text-font-24px sm:text-font-28px">
                                 <i class="fas fa-comment-alt"></i>
                             </div>
                             <div>
-                                <h3 class="text-primary font-bold text-base sm:text-lg md:text-heading-4 uppercase">
+                                <h3 class="text-primary font-bold text-base sm:text-font-18px md:text-heading-4 uppercase">
                                     Reassuring at Every Step
                                 </h3>
-                                <p class="text-gray-600 py-2 text-sm sm:text-font-14px">
+                                <p class="text-gray py-2 text-font-14px sm:text-font-14px">
                                     You know what you're looking for, and we're here to help make sure you get it.
                                 </p>
                             </div>
@@ -188,8 +188,8 @@
 
                     <!-- Text Section -->
                     <div class="max-w-xl text-center md:text-left md:pr-24">
-                        <h2 class="text-heading-5  font-bold uppercase text-gray-700 mb-2">Makestickers Newsletter</h2>
-                        <h1 class="text-heading-3 md:text-4xl font-light text-gray-800 mb-4">
+                        <h2 class="text-heading-5  font-bold uppercase text-gray mb-2">Makestickers Newsletter</h2>
+                        <h1 class="text-heading-3 md:text-font-32px font-light text-dark mb-4">
                             Come for the content, stay for the stickers
                         </h1>
                         <p class="text-gray mb-6">

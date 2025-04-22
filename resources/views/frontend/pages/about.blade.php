@@ -40,7 +40,7 @@
         <div class="container mx-auto">
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-2 items-center justify-center ">
                 <div class="p-4 sm:order-2 lg:order-1">
-                    <h1 class="text-font-32px md:text-font-32px text-dark font-semibold font-Montserrat mb-5">Hi, We Are
+                    <h1 class="text-font-32px md:text-font-32px text-dark font-semibold mb-5">Hi, We Are
                         MakeStickers</h1>
                     <div class="me-[50px]">
                         <p class="text-font-20px text-dark mb-3">We're enthusiastic about making custom printing simple,
@@ -62,14 +62,14 @@
     {{-- Midwest Printing --}}
     <section>
         <div class="container mx-auto mt-5">
-            <h2 class="text-font-28px md:text-font-32px text-dark font-semibold font-Montserrat mb-10 text-center">Midwest
+            <h2 class="text-font-28px md:text-font-32px text-dark font-semibold mb-10 text-center">Midwest
                 Printing, Nationwide Support</h2>
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-3 items-center justify-center">
                 <div class="card text-center p-2">
                     <img class="img-fluid  mx-auto" src="{{ asset('frontend/about-us/icon-about-hands-grow.svg') }}"
                         alt="Independently Owned">
                     <div class="card-body p-2">
-                        <h3 class="text-font-20px font-semibold font-Montserrat mb-2">Independently Owned</h3>
+                        <h3 class="text-font-20px font-semibold mb-2">Independently Owned</h3>
                         <p class="text-font-20px text-gray text-center">We have control over our business decisions, which
                             fosters a unique company culture and personal touch in customer service and quality</p>
                     </div>
@@ -78,7 +78,7 @@
                     <img class="img-fluid  mx-auto" src="{{ asset('frontend/about-us/icon-about-illinois-facillity.svg') }}"
                         alt="Independently Owned">
                     <div class="card-body p-2">
-                        <h3 class="text-font-20px font-semibold font-Montserrat mb-2">Independently Owned</h3>
+                        <h3 class="text-font-20px font-semibold mb-2">Independently Owned</h3>
                         <p class="text-font-20px text-gray text-center">We have control over our business decisions, which
                             fosters a unique company culture and personal touch in customer service and quality</p>
                     </div>
@@ -87,7 +87,7 @@
                     <img class="img-fluid  mx-auto" src="{{ asset('frontend/about-us/icon-about-coast-to-coast.svg') }}"
                         alt="Independently Owned">
                     <div class="card-body p-2">
-                        <h3 class="text-font-20px font-semibold font-Montserrat mb-2">Independently Owned</h3>
+                        <h3 class="text-font-20px font-semibold mb-2">Independently Owned</h3>
                         <p class="text-font-20px text-gray text-center">We have control over our business decisions, which
                             fosters a unique company culture and personal touch in customer service and quality</p>
                     </div>
@@ -100,9 +100,9 @@
         <div class="container mx-auto mt-10">
             <div class="grid gap-5 grid-cols-1 lg:grid-cols-2 items-center justify-between">
                 <div class=" p-4 flex flex-col justify-start">
-                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold font-Montserrat mb-5">The
+                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold mb-5">The
                         MakeStickers Approach</h2>
-                    <h3 class="text-font-16px md:text-font-20px text-gray font-semibold font-Montserrat mb-5">Custom
+                    <h3 class="text-font-16px md:text-font-20px text-gray font-semibold mb-5">Custom
                         stickers and labels made easy.</h3>
                     <div class="w-[100%] lg:w-[80%]">
                         <p class="text-gray text-font-16px mt-2">Our mission is to take the pain out of sticker printing and
@@ -138,7 +138,7 @@
         <div class="container mx-auto mt-5">
             <div class="grid gap-3 grid-cols-1 lg:grid-cols-2 items-center justify-center">
                 <div class="flex flex-col justify-start p-2">
-                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold font-Montserrat mb-5">Our
+                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold mb-5">Our
                         Customers'
                         Happiness Is Our Priority</h2>
                     <div class="w-[80%]">
@@ -192,7 +192,7 @@
                         <img src="{{ asset('frontend/about-us/logo-google.svg') }}" alt="">
                     </div>
                     <div>
-                        <h2 class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
+                        <h2 class="text-font-16px md:text-font-20px font-semibold text-dark mb-2">
                             Google Customer Reviews</h2>
                         <div class="flex justify-center lg:justify-start items-center">
                             <span class="text-font-32px font-semibold me-3">4.9</span>
@@ -216,7 +216,7 @@
                         <img src="{{ asset('frontend/about-us/logo-makestickers-imageonly.svg') }}" alt="">
                     </div>
                     <div>
-                        <h2 class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
+                        <h2 class="text-font-16px md:text-font-20px font-semibold text-dark mb-2">
                             MakeStickers Product Reviews
                         </h2>
                         <div class="flex justify-center lg:justify-start items-center">
@@ -242,7 +242,7 @@
                     </div>
                     <div>
                         <h2
-                            class="text-font-16px md:text-font-20px font-semibold text-dark font-Montserrat mb-2">
+                            class="text-font-16px md:text-font-20px font-semibold text-dark mb-2">
                             Facebook Reviews</h2>
                         <div class="flex justify-start items-center">
                             <span class="text-font-32px font-semibold me-3">98%</span>
@@ -267,7 +267,7 @@
                     <img class="img-fluid" src="{{ asset('frontend/about-us/about-technology.webp') }}" alt="">
                 </div>
                 <div class="p-2 px-[30px]">
-                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold font-Montserrat mb-4">A Printing
+                    <h2 class="text-font-24px md:text-font-28px text-dark font-semibold mb-4">A Printing
                         Company Driven By Technology</h2>
                     <p class="text-font-16px text-gray my-3">To deliver exceptional quality, speed, and affordability to
                         our
@@ -338,7 +338,7 @@
         <hr class="border border-[#44444456] border-t-0">
 
         <div class="text-center my-10">
-            <h2 class="text-font-28px md:text-font-32px text-dark font-semibold font-Montserrat mb-5">Join the MakeStickers
+            <h2 class="text-font-28px md:text-font-32px text-dark font-semibold mb-5">Join the MakeStickers
                 Team</h2>
             <p class="text-font-16px text-gray mx-5 lg:mx-[350px]">We're a technology-focused printing company that's
                 growing quickly and (almost) always looking for good people to join our team.</p>

@@ -43,7 +43,7 @@
             </div>
 
             <!-- Desktop Nav -->
-            <div class="hidden md:flex space-x-6 text-sm font-semibold my-4">
+            <div class="hidden md:flex space-x-6 text-font-14px font-semibold my-4">
                 <a href="#" class="hover:text-tertiary">CUSTOM STICKERS</a>
                 <a href="#" class="hover:text-tertiary">CUSTOM LABELS</a>
                 <a href="{{route('frontend.pouch')}}" class="hover:text-tertiary">POUCHES</a>
@@ -63,10 +63,10 @@
 
     <!-- drawer component -->
     <div id="drawer-navigation" class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-700" tabindex="-1" aria-labelledby="drawer-navigation-label">
-        <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
+        <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray uppercase dark:text-gray">Menu</h5>
 
 
-        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+        <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray bg-transparent hover:bg-gray-200 hover:text-gray rounded-lg text-font-14px p-1.5 absolute top-2.5 end-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
             <i class="fa-solid fa-xmark"></i>
         </button>
 
@@ -149,7 +149,7 @@
 
                 <!-- mobile -->
 
-                <div class=" flex flex-col text-light  text-sm font-semibold my-4">
+                <div class=" flex flex-col text-light  text-font-14px font-semibold my-4">
                     <a href="#" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
                     <a href="#" class="hover:text-tertiary py-3">CUSTOM LABELS</a>
                     <a href="#" class="hover:text-tertiary py-3">POUCHES</a>

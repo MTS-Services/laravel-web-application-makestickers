@@ -44,7 +44,7 @@
                         <h3 class="text-font-20px font-bold text-gray mb-1">Sticker Production Assistant</h3>
                         <p class="text-font-14px text-gray mb-2"><span class="font-bold">Location:</span> Tinley Park, IL
                         </p>
-                        <a href="#" class="text-font-20px text-primary-hover font-bold text-primary-hover">+ View
+                        <a href="#" class="text-font-20px text-primary-hover font-bold">+ View
                             details</a>
                     </div>
                 </div>

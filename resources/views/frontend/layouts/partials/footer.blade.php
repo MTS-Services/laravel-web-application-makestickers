@@ -1,5 +1,5 @@
 <footer class=" bg-primary text-white pt-16 pb-0">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-center md:text-left">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-font-14px text-center md:text-left">
 
         <!-- Column 1 -->
         <div>
@@ -26,14 +26,14 @@
         <!-- Column 3 -->
         <div class=" text-center sm:text-left">
             <h4 class="font-bold mb-4">Follow Us</h4>
-            <div class="flex space-x-4 text-xl ps-24 sm:ps-0">
+            <div class="flex space-x-4 text-font-20px ps-24 sm:ps-0">
                 <a href="#" class="hover:text-light-gray"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="hover:text-light-gray"><i class="fab fa-x-twitter"></i></a>
                 <a href="#" class="hover:text-light-gray"><i class="fab fa-instagram"></i></a>
                 <a href="#" class="hover:text-light-gray"><i class="fab fa-linkedin"></i></a>
             </div>
 
-            <div class="flex space-x-4 text-xl my-2 ps-24 sm:ps-0">
+            <div class="flex space-x-4 text-font-20px my-2 ps-24 sm:ps-0">
                 <a href="#" class="hover:text-light-gray"><i class="fab fa-tiktok"></i></a>
                 <a href="#" class="hover:text-light-gray"><i class="fab fa-threads"></i></a>
                 <a href="#" class="hover:text-light-gray"><i class="fab fa-youtube"></i></a>
@@ -43,11 +43,11 @@
         <!-- Column 4 -->
         <div>
             <h4 class="font-bold mb-3">Contact Us</h4>
-            <p class="text-sm mb-1">Our offices are open Mon–Fri 8am–4:30pm (CT)</p>
+            <p class="text-font-14px mb-1">Our offices are open Mon–Fri 8am–4:30pm (CT)</p>
             <p class="font-semibold">Call Us</p>
             <p class="mb-2">1-800-347-2744</p>
             <a href="#"
-                class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold px-4 py-1 rounded">Send
+                class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black text-font-14px font-semibold px-4 py-1 rounded">Send
                 a Message</a>
         </div>
 

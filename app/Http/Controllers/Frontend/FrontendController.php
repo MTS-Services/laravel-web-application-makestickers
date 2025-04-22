@@ -17,13 +17,29 @@ class FrontendController extends Controller
         return view('frontend.pages.about');
     }
 
+    public function career()
+    {
+        return view('frontend.pages.careers');
+    }
+
+    public function pouch()
+    {
+        return view('frontend.pages.pouch');
+    }
     public function faq()
     {
         return view('frontend.pages.faq');
     }
-
     public function shipping()
     {
         return view('frontend.pages.shipping');
+    }
+    public function return(){
+        return view('frontend.pages.returns');
+    }
+
+    public function contact()
+    {
+        return view('frontend.pages.contact');
     }
 }

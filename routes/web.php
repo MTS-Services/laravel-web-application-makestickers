@@ -10,12 +10,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth Routes
-Route::get('/login', [TemporaryAuthController::class, 'login'])->name('login');
-Route::get('/register', [TemporaryAuthController::class, 'register'])->name('register');
-Route::get('/forgot-password', [TemporaryAuthController::class, 'forgotPassword'])->name('password.request');
-
-
 Auth::routes();
 
 require __DIR__ . '/frontend.php';

@@ -10,9 +10,9 @@
                     <div class="flex justify-between mb-2">
                         <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Login to your account</h2>
                     </div>
-                    <form action="">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="flex flex-col gap-2">
-
                             <label class="input w-full">
                                 <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
@@ -21,8 +21,15 @@
                                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                                     </g>
                                 </svg>
-                                <input type="email" placeholder="example@example.com" class="" />
+                                <input type="email" placeholder="example@example.com" name="email" id="email"
+                                    class="input @error('email') input-error @enderror" />
                             </label>
+
+                            @error('email')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
 
                             <label class="input w-full">
@@ -35,13 +42,19 @@
                                         <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
                                     </g>
                                 </svg>
-                                <input type="password" placeholder="Password" class="" />
+                                <input type="password" placeholder="Password" name="password" id="password"
+                                    class="input @error('password') input-error @enderror" />
                             </label>
+                            @error('password')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="flex justify-between items-center mt-4">
                             <label class="cursor-pointer label">
-                                <input type="checkbox" class="checkbox checkbox-xs" />
+                                <input type="checkbox" class="checkbox checkbox-xs" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}/>
                                 <span class="label-text">Remember me</span>
                             </label>
                             <a href="{{ route('password.request') }}" class="text-primary">Forgot Password</a>

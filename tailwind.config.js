@@ -13,18 +13,19 @@ export default {
     theme: {
         container: {
             center: true,
-            padding: '1rem',
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1rem',
+            },
             screens: {
-                'sm': '480px',
-                'md': '640px',
-                'lg': '768px',
-                'xl': '1024px',
-                '2xl': '1280px',
-                '3xl': '1536px',
+                xs: '480px',
+                sm: '640px',
+                md: '768px',
+                lg: '1024px',
+                xl: '1280px',
             },
         },
         extend: {
-
             screens: {
                 'xs': '480px',
                 'sm': '640px',
@@ -43,7 +44,14 @@ export default {
                 ...defaultTheme.fontFamily,
             },
             fontSize: {
-                'font-48px': ['3rem', '3.5rem'],
+                'heading-1': ['2.5rem', '3rem'],
+                'heading-2': ['2rem', '2.5rem'],
+                'heading-3': ['1.75rem', '2rem'],
+                'heading-4': ['1.5rem', '2rem'],
+                'heading-5': ['1.25rem', '1.75rem'],
+                'heading-6': ['1rem', '1.5rem'],
+
+               'font-48px': ['3rem', '3.5rem'],
                 'font-40px': ['2.5rem', '3rem'],
                 'font-32px': ['2rem', '2.5rem'],
                 'font-28px': ['1.75rem', '2.25rem'],
@@ -54,7 +62,6 @@ export default {
                 'font-16px': ['1rem', '1.5rem'],
                 'font-14px': ['0.875rem', '1.25rem'],
                 'font-12px': ['0.75rem', '1rem'],
-                ...defaultTheme.fontSize,
             },
 
             colors: {
@@ -74,6 +81,8 @@ export default {
                 'light-gray': '#F6F6F8',
                 'dark': '#333333',
                 'gray': '#737373',
+                'amber': '#f7b9296e',
+                'amber-light': '#92400E',
 
                 ...defaultTheme.colors,
             },

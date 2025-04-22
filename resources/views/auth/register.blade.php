@@ -1,77 +1,116 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app', ['page_slug' => 'login'])
+
+@section('title', 'Register')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
+    <div class="container">
+        <div class="flex flex-col items-center justify-center min-h-[50vh] py-6 sm:py-12 lg:py-24">
+            <div class="card w-full bg-white shadow-sm max-w-xl">
                 <div class="card-body">
+                    <div class="flex justify-between mb-2">
+                        <h2 class="text-font-20px md:text-font-22px lg:text-font-24px font-bold">Register to your account
+                        </h2>
+                    </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+                        <div class="flex flex-col gap-2">
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                            <label class="input w-full">
+                                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                        stroke="currentColor">
+                                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </g>
+                                </svg>
+                                <input type="input" placeholder="Username" name="name"
+                                    class="input @error('name') input-error @enderror" value="{{ old('name') }}" />
+                            </label>
+                            @error('name')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <label class="input w-full">
+                                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                        stroke="currentColor">
+                                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                    </g>
+                                </svg>
+                                <input type="email" placeholder="example@example.com" name="email"
+                                    class="input @error('email') input-error @enderror" value="{{ old('email') }}" />
+                            </label>
+                            @error('email')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+
+                            <label class="input w-full">
+                                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                        stroke="currentColor">
+                                        <path
+                                            d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z">
+                                        </path>
+                                        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                                <input type="password" placeholder="Password" name="password"
+                                    class="input @error('password') input-error @enderror" />
+                            </label>
+                            @error('password')
+                                <span class="text-tertiary text-font-14px mt-1" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+                            <label class="input w-full">
+                                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                        stroke="currentColor">
+                                        <path
+                                            d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z">
+                                        </path>
+                                        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                                <input type="password" placeholder="Confirm Password" name="password_confirmation"
+                                    class="input" />
+                            </label>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
+                        <button type="submit" class="btn-primary w-full mt-4">Register</button>
                     </form>
+                    <div class="flex flex-col gap-2">
+                        <p>Already have an account? <a href="{{ route('login') }}" class="text-primary">Login</a></p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <p>When you create a <strong class="text-gray">FREE</strong> account, you can enjoy these features:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <div>
+                            <h3 class="text-font-16px font-semibold">Address Book</h3>
+                            <p>Store addresses for quick and easy checkout</p>
+                        </div>
+                        <div>
+                            <h3 class="text-font-16px font-semibold">Order History</h3>
+                            <p>See your past orders and reorder designs easily</p>
+                        </div>
+                        <div>
+                            <h3 class="text-font-16px font-semibold">Favorite Designs</h3>
+                            <p>Save design progress to finish later or use a design as a base for different versions.
+                                (Previously design library)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection

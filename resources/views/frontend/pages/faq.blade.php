@@ -38,7 +38,7 @@
                                 <div class="collapse collapse-arrow bg-light-gray/10 border border-dark/10">
                                     <input type="radio" name="my-accordion-3" checked="checked" />
                                     <div class="collapse-title font-semibold">Question 1</div>
-                                    <div class="collapse-content text-sm">
+                                    <div class="collapse-content text-font-14px">
                                         <ul class="list pl-5">
                                             <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
                                             <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
@@ -50,7 +50,7 @@
                                 <div class="collapse collapse-arrow bg-light-gray/10 border border-dark/10">
                                     <input type="radio" name="my-accordion-3" />
                                     <div class="collapse-title font-semibold">I forgot my password. What should I do?</div>
-                                    <div class="collapse-content text-sm">
+                                    <div class="collapse-content text-font-14px">
                                         <ul class="list pl-5">
                                             <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
                                             <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
@@ -61,7 +61,7 @@
                                 <div class="collapse collapse-arrow bg-light-gray/10 border border-dark/10">
                                     <input type="radio" name="my-accordion-3" />
                                     <div class="collapse-title font-semibold">How do I update my profile information?</div>
-                                    <div class="collapse-content text-sm">
+                                    <div class="collapse-content text-font-14px">
                                         <ul class="list pl-5">
                                             <li><a href="" class="text-primary text-font-20px">Link 1</a></li>
                                             <li><a href="" class="text-primary text-font-20px">Link 1</a></li>

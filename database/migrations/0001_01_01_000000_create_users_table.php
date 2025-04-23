@@ -19,7 +19,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('image')->nullable();
+            $table->string('phone_number')->nullable();
             $table->string('password');
+            $table->tinyInteger('gender')->max(1)->default(0);
+            $table->string('dob')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

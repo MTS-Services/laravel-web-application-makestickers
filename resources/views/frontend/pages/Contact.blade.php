@@ -1,5 +1,5 @@
 @extends('frontend.layouts.app', ['page_slug' => 'contact'])
-@section('title', 'Contact US')
+@section('title', 'Profile')
 
 @push('styles')
 @endpush

@@ -41,6 +41,27 @@
     .main-header .topbar-toggler.more {
         padding: 10px 5px !important;
     }
+    .dropdown-menu .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 100%;
+            top: 0;
+            margin-left: 0.1rem;
+        }
+ 
+        .dropdown-menu .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+ 
+        .dropdown i.setting {
+            color: #2d2d2d;
+            transition: all 0.5s linear;
+        }
+ 
+        .dropdown i.setting:hover {
+            transform: rotate(90deg) !important;
+            color: #007bff;
+        }
 </style>
 
 {{-- Custom CSS   --}}

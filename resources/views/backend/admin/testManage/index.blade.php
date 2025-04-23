@@ -74,15 +74,63 @@
                                         </td>
                                         <td>{{ $test->description }}</td>
                                         <td>
-                                            <div class="d-flex justify-content-center align-items-center gap-1">
-                                                <a href="{{ route('admin.test.edit', encrypt($test->id)) }}"
-                                                    class="btn btn-primary btn-sm">Edit</a>
-                                                <form action="{{ route('admin.test.destroy', encrypt($test->id)) }}"
-                                                    method="POST" class="d-inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                                </form>
+
+                                            <div class="dropdown">
+                                                <a href="javascript:void(0)" type="button"
+                                                    id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    <i class="icon-settings fs-3 setting"></i>
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            {{ __('Details') }}
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('admin.test.edit', encrypt($test->id)) }}">
+                                                            {{ __('Edit') }}
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle"
+                                                            href="javascript:void(0)" id="status" role="button"
+                                                            aria-expanded="false">
+                                                            {{ __('Status') }}
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="status">
+                                                          
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                        href="#"> status 1</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                        href="#"> status 2</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                        href="#"> status 3</a>
+                                                                </li>
+                                                           
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a title="Delete" href="javascript:void(0)"
+                                                            onclick="function(e) {
+                                                            e.preventDefault();
+                                                            document.getElementById('delete-form-{{ $test->id }}').submit();
+                                                        }"
+                                                            class="dropdown-item text-danger" data-id="">
+                                                            {{ __('Delete') }}
+                                                        </a>
+                                                        <form id="delete-form-{{ $test->id }}"
+                                                            action="{{ route('admin.test.destroy', encrypt($test->id)) }}"
+                                                            method="DELETE">
+                                                            @csrf
+                                                        </form>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </td>
                                     </tr>

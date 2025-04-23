@@ -36,23 +36,23 @@
                     </a>
                 </li>
 
-                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'c')) active submenu @endif">
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'second_category')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#1"
-                        @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'c')) aria-expanded="true" @endif>
+                        @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'second_category')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Products Management') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'c')) show @endif" id="1">
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'second_category')) show @endif" id="1">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'main_category') active @endif">
                                 <a href="{{ route('admin.main-category.index') }}">
                                     <span class="sub-item">{{ __('Main Category') }}</span>
                                 </a>
                             </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'c') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Sub item 2') }}</span>
+                            <li class="@if (isset($page_slug) && $page_slug == 'second_category') active @endif">
+                                <a href="{{ route('admin.second-category.index') }}">
+                                    <span class="sub-item">{{ __('Second Category') }}</span>
                                 </a>
                             </li>
                         </ul>

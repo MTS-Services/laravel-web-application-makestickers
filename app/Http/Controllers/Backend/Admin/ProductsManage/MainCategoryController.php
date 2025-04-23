@@ -77,6 +77,7 @@ class MainCategoryController extends Controller
         $main_category->title = $request->title;
         $main_category->slug = $request->slug;
         $main_category->description = $request->description;
+        $main_category->image = $request->image;
         if($request->hasFile('image')) {
             $this->handleFileUpload($request, $main_category, 'image', 'images');        
         }

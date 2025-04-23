@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MainCategoryController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\SecondCategoryController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -19,5 +20,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::group(['as' => 'admin.'], function () {
         Route::resource('/test', TestController::class);
         Route::resource('/main-category', MainCategoryController::class);
+        Route::resource('/second-category', SecondCategoryController::class);
     });
 });

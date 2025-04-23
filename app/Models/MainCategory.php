@@ -13,4 +13,9 @@ class MainCategory extends BaseModel
         'description',
         'image',
     ];
+
+    public function secondCategories()
+    {
+        return $this->hasMany(SecondCategory::class);
+    }
 }

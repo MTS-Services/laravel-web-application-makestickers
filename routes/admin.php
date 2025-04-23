@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
+use App\Http\Controllers\Backend\Admin\Blog\BlogPostsController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\FaqManage\Faq\FaqController;
 use App\Http\Controllers\Backend\Admin\FaqManage\FaqCategory\FaqCategoryController;
@@ -25,5 +26,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::group(['as' => 'admin.',], function () {
         Route::resource('/faq', FaqController::class);
         Route::resource('/faq-category', FaqCategoryController::class);
+    });
+
+    Route::group(['as' => 'admin.',], function () {
+        Route::resource('/blog', BlogPostsController::class);
     });
 });

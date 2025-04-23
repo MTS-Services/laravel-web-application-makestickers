@@ -24,29 +24,21 @@ class SecondCategoryRequest extends FormRequest
         return [
             'main_category_id' => 'required|exists:main_categories,id',
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
         ];
     }
 
     protected function store(): array
     {
         return [
-            'image' => $this->image,
+            'slug' => 'required|string|min:5|unique:second_categories,slug',
         ];
-        if ($this->hasFile('image')) {
-            $this->handleFileUpload($request, $main_category, 'image');
-        }
     }
 
     protected function update(): array
     {
         return [
-            'slug' => 'nullable|string|max:255',
-            'image' => $this->image,
+            'slug' => 'nullable|string|min:5|unique:second_categories,slug,' . decrypt($this->route('second_category')),
         ];
-        if ($request->hasFile('image')) {
-            $this->handleFileUpload($request, $main_category, 'image');
-        }
     }
 }

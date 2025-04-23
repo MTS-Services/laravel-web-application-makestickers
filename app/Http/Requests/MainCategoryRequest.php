@@ -23,34 +23,23 @@ class MainCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'slug' => 'required',
-            'description' => 'required',
-        ] + 
-        ($this->isMethod('POST') ? $this->store() : $this->update());
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string|min:5',
+        ] +
+            ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 
     protected function store(): array
     {
         return [
-            'title' => $this->title,
-            'slug' => $this->slug,
-            'description' => $this->description,
+            'slug' => 'required|string|max:255|unique:main_categories,slug',
         ];
-        if ($this->hasFile('image')) {
-            $this->handleFileUpload($request, $main_category, 'image', 'images');
-        }
     }
 
     protected function update(): array
     {
         return [
-            'title' => $this->title,
-            'slug' => $this->slug,
-            'description' => $this->description, 
+            'slug' => 'required|string|max:255|unique:main_categories,slug,' . decrypt($this->route('main_category')),
         ];
-        if ($request->hasFile('image')) {
-            $this->handleFileUpload($request, $main_category, 'image', 'images');
-        }  
     }
 }

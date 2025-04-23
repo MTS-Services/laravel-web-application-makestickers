@@ -56,16 +56,18 @@
                                                     </li>
                                                     <li>
                                                         <a title="Delete" href="javascript:void(0)"
-                                                            onclick="function(e) {e.preventDefault(); document.getElementById('delete-form-{{ encrypt($second_category->id) }}').submit();}"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $second_category->id }}').submit();"
                                                             class="dropdown-item text-danger" data-id="">
 
                                                             {{ __('Delete') }}
                                                         </a>
-                                                        <form id="delete-form-{{ encrypt($second_category->id) }}"
+                                                        <form id="delete-form-{{ $second_category->id }}"
                                                             action="{{ route('admin.second-category.destroy', encrypt($second_category->id)) }}"
-                                                            method="DELETE">
+                                                            method="POST">
 
                                                             @csrf
+
+                                                            @method('DELETE')
 
                                                         </form>
                                                     </li>

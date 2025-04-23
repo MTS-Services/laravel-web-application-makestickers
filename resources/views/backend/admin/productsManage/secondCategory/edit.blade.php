@@ -51,7 +51,7 @@
                     {{-- Description --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea name="description" id="description" class="form-control"  rows="5" value="{{ $second_categories->description }}" placeholder="{{ $second_categories->description }}"></textarea>
+                        <textarea name="description" id="description" class="form-control"  rows="5">{{ $second_categories->description }}</textarea>
                         @error('description')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

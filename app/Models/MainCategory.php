@@ -18,4 +18,9 @@ class MainCategory extends BaseModel
     {
         return $this->hasMany(SecondCategory::class);
     }
+
+    public function thirdCategories()
+    {
+        return $this->hasMany(ThirdCategory::class);
+    }
 }

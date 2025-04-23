@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginControl
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MainCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\SecondCategoryController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\ThirdCategoryController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -21,5 +22,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/test', TestController::class);
         Route::resource('/main-category', MainCategoryController::class);
         Route::resource('/second-category', SecondCategoryController::class);
+        Route::resource('/third-category', ThirdCategoryController::class);
     });
 });

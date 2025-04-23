@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
+use App\Http\Controllers\Backend\Admin\Order\OrderController;
+
 
 
 // Admin Auth Routes
@@ -20,3 +22,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/test', TestController::class);
     });
 });
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+   Route::resource('/order', OrderController::class);
+});
+
+

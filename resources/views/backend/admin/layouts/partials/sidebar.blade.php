@@ -60,13 +60,14 @@
                 </li>
 
 
+
                 {{-- Single Label --}}
-                {{-- <li class="nav-item  @if (isset($page_slug) && $page_slug == 'a') active @endif">
-                    <a href="">
+                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'order') active @endif">
+                    <a href="{{ route('order.index') }}">
                         <i class="icon-chart"></i>
-                        <p>{{ __('Single label') }}</p>
+                        <p>{{ __('Order') }}</p>
                     </a>
-                </li> --}}
+                </li>
 
                 {{-- Submenu --}}
                 {{-- <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) active submenu @endif">

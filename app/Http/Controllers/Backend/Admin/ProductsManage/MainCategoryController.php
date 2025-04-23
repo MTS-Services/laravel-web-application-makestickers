@@ -52,7 +52,9 @@ class MainCategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $id = decrypt($id);
+        $main_category = MainCategory::findOrFail($id);
+        return view('backend.admin.productsManage.mainCategory.details', compact('main_category'));
     }
 
     /**

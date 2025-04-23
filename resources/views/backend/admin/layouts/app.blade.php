@@ -50,5 +50,6 @@
 
     {{-- All Scripts --}}
     @include('backend.admin.layouts.src.js')
+    @stack('script')
 </body>
 </html>

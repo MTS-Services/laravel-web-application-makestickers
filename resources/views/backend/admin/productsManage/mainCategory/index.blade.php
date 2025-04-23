@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row mt-4">
-        <div class="col-md-10 mx-auto">
+        <div class="col-md-12 mx-auto">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Main Category</h3>
@@ -18,7 +18,7 @@
                                     <th>{{ __('Slug') }}</th>
                                     <th>{{ __('Description') }}</th>
                                     <th>{{ __('Image') }}</th>
-                                    <th width="10%">Action</th>
+                                    <th width="20%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -29,19 +29,47 @@
                                         <td>{{ $main_category->slug }}</td>
                                         <td>{{ $main_category->description }}</td>
                                         <td>
-                                            <img src="{{ storage_url($main_category->image) }}" alt="{{ $main_category->title }}"
+                                            <img src="{{ storage_url($main_category->image) }}"
+                                                alt="{{ $main_category->title }}"
                                                 style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                                         </td>
                                         <td>
-                                            <div class="d-flex justify-content-center align-items-center gap-1">
-                                                <a href="{{ route('admin.main-category.edit', encrypt($main_category->id)) }}"
-                                                    class="btn btn-primary btn-sm">Edit</a>
-                                                <form action="{{ route('admin.main-category.destroy', encrypt($main_category->id)) }}"
-                                                    method="POST" class="d-inline-block">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                                </form>
+                                            <div class="dropdown">
+                                                <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="icon-settings fs-3 setting"></i>
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.main-category.show', encrypt($main_category->id)) }}">
+
+                                                            {{ __('Details') }}
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.main-category.edit', encrypt($main_category->id)) }}">
+
+                                                            {{ __('Edit') }}
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a title="Delete" href="javascript:void(0)"
+                                                            onclick="function(e) {e.preventDefault(); document.getElementById('delete-form-{{ encrypt($main_category->id) }}').submit();}"
+                                                            class="dropdown-item text-danger" data-id="">
+
+                                                            {{ __('Delete') }}
+                                                        </a>
+                                                        <form id="delete-form-{{ encrypt($main_category->id) }}"
+                                                            action="{{ route('admin.main-category.destroy', encrypt($main_category->id)) }}"
+                                                            method="DELETE">
+
+                                                            @csrf
+
+                                                        </form>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </td>
                                     </tr>

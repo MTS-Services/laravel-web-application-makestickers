@@ -16,10 +16,15 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('question');
+            $table->text('answer');
+            $table->unsignedBigInteger('faq_category_id');
             $table->timestamps();
             $table->softDeletes();
+            $this->addAdminAuditColumns($table);
+
+
+            $table->foreign('faq_category_id')->references('id')->on('faq_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

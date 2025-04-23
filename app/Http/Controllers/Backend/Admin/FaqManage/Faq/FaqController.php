@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend\Admin\FaqManage\Faq;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FaqCategry\faqRequest;
+use App\Models\Faq;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
 
@@ -13,8 +15,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-
-        return view('backend.admin.faqManage.faq.index');
+        $faqs = Faq::latest()->with('faqCategory')->get();
+        return view('backend.admin.faqManage.faq.index', compact('faqs'));
     }
 
     /**
@@ -22,22 +24,24 @@ class FaqController extends Controller
      */
     public function create()
     {
-        //
+        $faqCategories = FaqCategory::all();
+        return view('backend.admin.faqManage.faq.create', compact('faqCategories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(faqRequest $request)
     {
         $request->validate([
-            'title' => 'required',
-            'slug' => 'required|unique:faq_categories',
+            'faq_category_id' => 'required|exists:faq_categories,id',
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string',
         ]);
 
-        FaqCategory::create($request->only(['title', 'slug']));
+        Faq::create($request->all());
 
-        return back()->with('success', 'FAQ category created successfully.');
+        return redirect(route('admin.faq.index'))->with('success', 'FAQ created successfully.');
     }
 
     /**
@@ -53,15 +57,20 @@ class FaqController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+        $faqCategories = FaqCategory::all();
+        return view('backend.admin.faqManage.faq.edit', compact('faq', 'faqCategories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(faqRequest $request, string $id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+        $faq->update($request->only('faq_category_id', 'question', 'answer'));
+
+        return redirect(route('admin.faq.index'))->with('success', 'FAQ updated successfully.');
     }
 
     /**
@@ -69,6 +78,8 @@ class FaqController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $faq = Faq::findOrFail($id);
+        $faq->delete();
+        return redirect()->route('admin.faq.index')->with('success', 'Category deleted successfully!');
     }
 }

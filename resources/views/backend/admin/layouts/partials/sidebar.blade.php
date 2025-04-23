@@ -46,8 +46,8 @@
                     <div class="collapse @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) show @endif" id="1">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'b') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Sub item 1') }}</span>
+                                <a href="{{route('admin.faq-category.index')}}">
+                                    <span class="sub-item">{{ __('Faq_Categories') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'faq') active @endif">

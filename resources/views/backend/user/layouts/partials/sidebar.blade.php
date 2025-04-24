@@ -36,6 +36,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'size')) active @endif">
+                    <a href="{{ route('admin.size.index') }}">
+                        <i class='bx bxs-size'></i>
+                        <p>{{ __('size') }}</p>
+                    </a>
+                </li>
+
 
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'a')) active @endif">
                     <a href="">

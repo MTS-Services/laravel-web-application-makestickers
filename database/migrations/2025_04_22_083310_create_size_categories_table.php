@@ -16,8 +16,16 @@ return new class extends Migration
     {
         Schema::create('size_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('image')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
+            $this->addMorpheAuditColumns($table);
         });
     }
 

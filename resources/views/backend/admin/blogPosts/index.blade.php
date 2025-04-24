@@ -41,24 +41,16 @@
                                 <td>{{ Str::limit($post->short_description, 50) }}</td>
                                 <td>{{ Str::limit(strip_tags($post->long_description), 50) }}</td>
                                 <td>
-                                    @if($post->featured_image)
-                                    <img src="{{ asset('storage/' . $post->featured_image) }}" width="60" alt="Featured Image">
-                                    @else
-                                    N/A
-                                    @endif
+                                    <img src="{{ storage_url($post->featured_image) }}" width="60" alt="{{$post->title}}">
                                 </td>
                                 <td>
-                                    @if($post->image)
-                                    <img src="{{ asset('storage/' . $post->image) }}" width="60" alt="Image">
-                                    @else
-                                    N/A
-                                    @endif
+                                    <img src="{{ storage_url($post->image) }}" width="60" alt="{{$post->title}}">
                                 </td>
                                 <td>
-                                    @if($post->video_url)
-                                    <a href="{{ $post->video_url }}" target="_blank">View</a>
+                                    @if (isVideo($post->video))
+                                    <video src="{{ storage_url($post->video) }}" width="60" controls></video>
                                     @else
-                                    N/A
+                                    No Video Found
                                     @endif
                                 </td>
                                 <td>

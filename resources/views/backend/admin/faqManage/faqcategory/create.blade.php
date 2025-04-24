@@ -6,10 +6,10 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3>Add FAQ Category</h3>
-                <a href="{{ route('admin.faq-category.index') }}" class="btn btn-sm btn-secondary">Back</a>
+                <a href="{{ route('admin.faqCategory.index') }}" class="btn btn-sm btn-secondary">Back</a>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.faq-category.store') }}" method="POST">
+                <form action="{{ route('admin.faqCategory.store') }}" method="POST">
                     @csrf
 
                     <div class="form-group mb-3">

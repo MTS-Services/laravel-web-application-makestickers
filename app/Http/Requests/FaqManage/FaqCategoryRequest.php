@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\FaqCategry;
+namespace App\Http\Requests\FaqManage;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,22 +22,21 @@ class FaqCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-        ] + ($this->isMethod('POST') ? $this->store() : $this->update());
+            'title' => 'required|string|min:3|max:255',
+        ]
+            + ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 
-    protected function store(): array
+    protected function store()
     {
-        return
-            [
-                'slug' => 'required|string|max:255|unique:faq_categories,slug',
-            ];
+        return [
+            'slug' => 'required|string|unique:faq_categories,slug',
+        ];
     }
-    protected function update(): array
+    protected function update()
     {
-        return
-            [
-                'slug' => 'required|string|max:255|unique:faq_categories,slug' . $this->route('faqCategory'),
-            ];
+        return [
+            'slug' => 'required|unique:faq_categories,slug,' . $this->route('faqCategory'),
+        ];
     }
 }

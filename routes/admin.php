@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     Route::group(['as' => 'admin.',], function () {
         Route::resource('/faq', FaqController::class);
-        Route::resource('/faq-category', FaqCategoryController::class);
+        Route::resource('/faqCategory', FaqCategoryController::class);
     });
 
     Route::group(['as' => 'admin.',], function () {

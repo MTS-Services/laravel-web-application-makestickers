@@ -6,10 +6,10 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3>Edit FAQ Category</h3>
-                <a href="{{ route('admin.faq-category.index') }}" class="btn btn-sm btn-secondary">Back</a>
+                <a href="{{ route('admin.faqCategory.index') }}" class="btn btn-sm btn-secondary">Back</a>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.faq-category.update', $faqCategory->id) }}" method="POST">
+                <form action="{{ route('admin.faqCategory.update', $faqCategory->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 

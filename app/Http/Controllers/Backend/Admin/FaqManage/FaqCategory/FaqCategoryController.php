@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin\FaqManage\FaqCategory;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FaqCategry\faqCategoryRequest;
+use App\Http\Requests\FaqManage\FaqCategoryRequest;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
@@ -32,7 +32,7 @@ class FaqCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FaqCategoryRequest $request)
     {
 
         $request->validate([
@@ -42,7 +42,7 @@ class FaqCategoryController extends Controller
 
         FaqCategory::create($request->only(['title', 'slug']));
 
-        return redirect(route('admin.faq-category.index'))->with('success', 'FAQ category created successfully.');
+        return redirect(route('admin.faqCategory.index'))->with('success', 'FAQ category created successfully.');
     }
 
     /**
@@ -62,16 +62,14 @@ class FaqCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(faqCategoryRequest $request, string $id)
+    public function update(FaqCategoryRequest $request, string $id)
     {
-
+        $validated = $request->validated();
+        
         $faqCategory = FaqCategory::findOrFail($id);
-        $faqCategory->update([
-            'title' => $request->title,
-            'slug' => $request->slug ?? Str::slug($request->title),
-        ]);
+        $faqCategory->update($validated);
 
-        return redirect()->route('admin.faq-category.index')->with('success', 'Category updated successfully!');
+        return redirect()->route('admin.faqCategory.index')->with('success', 'Category updated successfully!');
     }
 
     /**
@@ -82,6 +80,6 @@ class FaqCategoryController extends Controller
         $faqCategory = FaqCategory::findOrFail($id);
         $faqCategory->delete();
 
-        return redirect()->route('admin.faq-category.index')->with('success', 'Category deleted successfully!');
+        return redirect()->route('admin.faqCategory.index')->with('success', 'Category deleted successfully!');
     }
 }

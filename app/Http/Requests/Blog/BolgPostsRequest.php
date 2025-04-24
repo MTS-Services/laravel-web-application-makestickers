@@ -22,15 +22,29 @@ class BolgPostsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'short_description' => 'required',
-            'long_description' => 'required',
-            'status' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'video_url' => 'nullable|url',
-            'video_thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required|string|min:3|max:255',
+            'short_desc' => 'nullable|string|max:255',
+            'long_desc' => 'nullable|string|min:5',
             'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'slug' => 'required|unique:blogs,slug',
+            'status' => 'required|integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video' => 'nullable|mimes:mp4,mov,avi',
+            'video_thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ] +
+            ($this->isMethod('POST') ? $this->store() : $this->update());
+    }
+
+    protected function store()
+    {
+        return [
+            'slug' => 'required|string|unique:blogs,slug',
+        ];
+    }
+
+    protected function update()
+    {
+        return [
+            'slug' => 'required|unique:blogs,slug,' . $this->route('blog'),
         ];
     }
 }

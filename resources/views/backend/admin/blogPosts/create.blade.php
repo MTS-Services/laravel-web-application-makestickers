@@ -14,50 +14,71 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" name="title" class="form-control" required>
+                        <input type="text" name="title" class="form-control">
+                        @error('title')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="slug" class="form-label">Slug (optional)</label>
+                        <label for="slug" class="form-label">Slug</label>
                         <input type="text" name="slug" class="form-control">
                     </div>
 
                     <div class="mb-3">
-                        <label for="short_description" class="form-label">Short Description</label>
-                        <textarea name="short_description" class="form-control" rows="2" required></textarea>
+                        <label for="short_desc" class="form-label">Short Description</label>
+                        <textarea name="short_desc" class="form-control" rows="1"></textarea>
+                        @error('short_desc')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="long_description" class="form-label">Long Description</label>
-                        <textarea name="long_description" class="form-control" rows="5" required></textarea>
+                        <label for="long_desc" class="form-label">Long Description</label>
+                        <textarea name="long_desc" class="form-control" rows="2"></textarea>
+                        @error('long_desc')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="featured_image" class="form-label">Featured Image</label>
-                        <input type="file" name="featured_image" class="form-control">
+                        <x-file-upload name="featured_image" type="image" maxSize="50" />
+                        @error('featured_image')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="image" class="form-label">SEO Image (optional)</label>
-                        <input type="file" name="image" class="form-control">
+                        <x-file-upload name="image" type="image" maxSize="50" />
+                        @error('image')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="video_url" class="form-label">Video URL (optional)</label>
-                        <input type="url" name="video_url" class="form-control">
+                        <label for="video" class="form-label">Video (optional)</label>
+                        <x-file-upload name="video" type="video" maxSize="200" />
+                        @error('video')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="video_thumbnail" class="form-label">Video Thumbnail (optional)</label>
-                        <input type="file" name="video_thumbnail" class="form-control">
+                        <x-file-upload name="video_thumbnail" type="image" maxSize="50" />
+                        @error('video_thumbnail')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
                         <label for="status" class="form-label">Status</label>
-                        <select name="status" class="form-control" required>
-                            <option value="draft">Draft</option>
-                            <option value="published">Published</option>
-                            <option value="archived">Archived</option>
+                        <select name="status" class="form-control">
+                            <option value="1" selected>Draft</option>
+                            <option value="2">Published</option>
+                            <option value="0">Hide</option>
                         </select>
                     </div>
 

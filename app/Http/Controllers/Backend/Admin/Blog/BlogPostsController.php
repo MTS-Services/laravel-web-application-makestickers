@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Backend\Admin\Blog;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Blog\BolgPostsRequest;
+use App\Http\Traits\FileManagementTrait;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BlogPostsController extends Controller
 {
+    use FileManagementTrait;
     /**
      * Display a listing of the resource.
      */
@@ -29,22 +32,31 @@ class BlogPostsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(request $request)
+    public function store(BolgPostsRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'short_description' => 'required',
-            'long_description' => 'required',
-            'status' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'video_url' => 'nullable|url',
-            'video_thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'slug' => 'required|unique:blogs,slug',
-        ]);
-        Blog::create($request->all());
-        return redirect(route('admin.blog.index'))->with('success', 'Blog created successfully.');
-       
+        $blog = new Blog();
+        $blog->title = $request->title;
+        $blog->slug = $request->slug;
+        $blog->short_desc = $request->short_desc;
+        $blog->long_desc = $request->long_desc;
+        $blog->status = $request->status;
+
+        if ($request->hasFile('video_thumbnail')) {
+            $this->handleFileUpload($request, $blog, 'video_thumbnail','video_thumbnail');
+        }
+        if ($request->hasFile('featured_image')) {
+            $this->handleFileUpload($request, $blog, 'featured_image', 'featured_image');
+        }
+        if ($request->hasFile('image')) {
+            $this->handleFileUpload($request, $blog, 'image', 'image');
+        }
+        if ($request->hasFile('video')) {
+            $this->handleFileUpload($request, $blog, 'video', 'video');
+        }
+        $blog->save();
+
+        session()->flash('success', 'Blog created successfully.');
+        return redirect()->route('admin.blog.index');
     }
 
     /**
@@ -60,15 +72,33 @@ class BlogPostsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Blog::findOrFail($id);
+        return view('backend.admin.blogPosts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(BolgPostsRequest $request, string $id)
     {
-        //
+        $post = Blog::findOrFail($id);
+        $post->update($request->all());
+
+        if ($request->hasFile('video_thumbnail')) {
+            $this->handleFileUpload($request, $post, 'video_thumbnail','video_thumbnail');
+        }
+        if ($request->hasFile('featured_image')) {
+            $this->handleFileUpload($request, $post, 'featured_image', 'featured_image');
+        }
+        if ($request->hasFile('image')) {
+            $this->handleFileUpload($request, $post, 'image', 'image');
+        }
+        if ($request->hasFile('video')) {
+            $this->handleFileUpload($request, $post, 'video', 'video');
+        }
+        $post->save();
+
+        return redirect(route('admin.blog.index'))->with('success', 'Blog updated successfully.');
     }
 
     /**
@@ -76,6 +106,8 @@ class BlogPostsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Blog::findOrFail($id);
+        $post->delete();
+        return redirect(route('admin.blog.index'))->with('success', 'Blog deleted successfully.');
     }
 }

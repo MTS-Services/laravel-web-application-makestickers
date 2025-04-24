@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin\FaqManage\Faq;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FaqCategry\faqRequest;
+use App\Http\Requests\FaqManage\faqRequest;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;

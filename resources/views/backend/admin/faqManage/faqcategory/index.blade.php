@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3>All FAQ Category</h3>
-                <a href="{{ route('admin.faq-category.create') }}" class="btn btn-primary btn-sm">Add New</a>
+                <a href="{{ route('admin.faqCategory.create') }}" class="btn btn-primary btn-sm">Add New</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,8 +26,8 @@
                                 <td>{{ $category->title }}</td>
                                 <td>{{ $category->slug }}</td>
                                 <td class="d-flex">
-                                    <a href="{{ route('admin.faq-category.edit', $category->id) }}" class="btn btn-sm btn-warning me-2">Edit</a>
-                                    <form action="{{ route('admin.faq-category.destroy', $category->id) }}" method="POST" style="display:inline-block;">
+                                    <a href="{{ route('admin.faqCategory.edit', $category->id) }}" class="btn btn-sm btn-warning me-2">Edit</a>
+                                    <form action="{{ route('admin.faqCategory.destroy', $category->id) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete this category?  ')">Delete</button>

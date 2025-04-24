@@ -75,7 +75,7 @@
                 <a href="#" class="hover:text-tertiary">CUSTOM STICKERS</a>
                 <a href="#" class="hover:text-tertiary">CUSTOM LABELS</a>
                 <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
-                <a href="#" class="hover:text-tertiary">DESIGNS</a>
+                <a href="{{ route('frontend.designs') }}" class="hover:text-tertiary">DESIGNS</a>
                 <a href="#" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>
         </div>

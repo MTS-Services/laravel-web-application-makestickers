@@ -36,15 +36,20 @@
                     </a>
                 </li>
 
-                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'second_category' || $page_slug == 'third_category')) active submenu @endif">
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'product' || $page_slug == 'main_category' || $page_slug == 'second_category' || $page_slug == 'third_category' || $page_slug == 'material_category' )) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#1"
-                        @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'second_category')) aria-expanded="true" @endif>
+                        @if (isset($page_slug) && ($page_slug == 'product' || $page_slug == 'main_category' || $page_slug == 'second_category' || $page_slug == 'third_category' || $page_slug == 'material_category')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Products Management') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'main_category' || $page_slug == 'second_category' || $page_slug == 'third_category')) show @endif" id="1">
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'product' || $page_slug == 'main_category' || $page_slug == 'second_category' || $page_slug == 'third_category' || $page_slug == 'material_category')) show @endif" id="1">
                         <ul class="nav nav-collapse">
+                            <li class="@if (isset($page_slug) && $page_slug == 'product') active @endif">
+                                <a href="">
+                                    <span class="sub-item">{{ __('Product') }}</span>
+                                </a>
+                            </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'main_category') active @endif">
                                 <a href="{{ route('admin.main-category.index') }}">
                                     <span class="sub-item">{{ __('Main Category') }}</span>
@@ -58,6 +63,11 @@
                             <li class="@if (isset($page_slug) && $page_slug == 'third_category') active @endif">
                                 <a href="{{ route('admin.third-category.index') }}">
                                     <span class="sub-item">{{ __('Third Category') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'material_category') active @endif">
+                                <a href="{{ route('admin.material-category.index') }}">
+                                    <span class="sub-item">{{ __('Material Category') }}</span>
                                 </a>
                             </li>
                         </ul>

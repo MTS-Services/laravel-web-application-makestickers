@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MainCategoryController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\SecondCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\ThirdCategoryController;
 
@@ -23,5 +24,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/main-category', MainCategoryController::class);
         Route::resource('/second-category', SecondCategoryController::class);
         Route::resource('/third-category', ThirdCategoryController::class);
+        Route::resource('/material-category', MaterialCategoryController::class);
     });
 });

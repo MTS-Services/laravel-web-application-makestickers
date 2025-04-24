@@ -24,4 +24,9 @@ class ThirdCategory extends BaseModel
     {
         return $this->belongsTo(SecondCategory::class);
     }
+
+    public function materialCategories()
+    {
+        return $this->hasMany(MaterialCategory::class);
+    }
 }

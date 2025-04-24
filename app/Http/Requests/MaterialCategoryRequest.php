@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SecondCategoryRequest extends FormRequest
+class MaterialCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,24 +22,24 @@ class SecondCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => 'required|exists:main_categories,id',
             'title' => 'required|string|max:255',
+            'third_category_id' => 'required|exists:third_categories,id',
             'description' => 'nullable|string',
-        ] +
+        ] + 
         ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 
     protected function store(): array
     {
         return [
-            'slug' => 'required|string|min:5|unique:second_categories,slug',
+            'slug' => 'required|string|min:5|unique:material_categories,slug',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'slug' => 'nullable|string|min:5|unique:second_categories,slug,' . decrypt($this->route('second_category')),
+            'slug' => 'required|string|min:5|unique:material_categories,slug,' . decrypt($this->route('material_category')),
         ];
     }
 }

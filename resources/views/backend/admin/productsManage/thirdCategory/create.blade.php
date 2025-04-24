@@ -15,7 +15,7 @@
             @csrf
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" name="title" class="form-control" id="title">
@@ -24,7 +24,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
                         <input type="text" name="slug" class="form-control" id="slug">
@@ -33,21 +33,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="main_category_id" class="form-label">Main Category</label>
-                        <select name="main_category_id" id="main_category_id" class="form-control">
-                            <option value="">Select Main Category</option>
-                            @foreach ($main_categories as $main_category)
-                                <option value="{{ $main_category->id }}">{{ $main_category->title }}</option>
-                            @endforeach
-                        </select>
-                        @error('main_category_id')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="mb-3">
                         <label for="second_category_id" class="form-label">Second Category</label>
                         <select name="second_category_id" id="second_category_id" class="form-control">

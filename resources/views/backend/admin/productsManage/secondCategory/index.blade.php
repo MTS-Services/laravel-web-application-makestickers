@@ -14,8 +14,8 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>{{ __('Main Category') }}</th>
                                     <th>{{ __('Title') }}</th>
+                                    <th>{{ __('Main Category') }}</th>
                                     <th>{{ __('Slug') }}</th>
                                     <th>{{ __('Image') }}</th>
                                     <th width="20%">Action</th>
@@ -25,8 +25,8 @@
                                 @forelse ($second_categories as $key => $second_category)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $second_category->mainCategory->title }}</td>
                                         <td>{{ $second_category->title }}</td>
+                                        <td>{{ $second_category->mainCategory->title }}</td>
                                         <td>{{ $second_category->slug }}</td>
                                         <td>
                                             <img src="{{ storage_url($second_category->image) }}"

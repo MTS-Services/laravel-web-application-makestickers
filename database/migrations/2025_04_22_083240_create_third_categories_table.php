@@ -16,8 +16,6 @@ return new class extends Migration
     {
         Schema::create('third_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('main_category_id');
-            $table->foreign('main_category_id')->references('id')->on('main_categories')->onDelete('cascade');
             $table->unsignedBigInteger('second_category_id');
             $table->foreign('second_category_id')->references('id')->on('second_categories')->onDelete('cascade');
             $table->string('title');

@@ -22,7 +22,7 @@ class SecondCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => 'nullable|exists:main_categories,id',
+            'main_category_id' => 'required|exists:main_categories,id',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
         ];

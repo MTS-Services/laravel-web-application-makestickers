@@ -15,7 +15,6 @@
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>{{ __('Title') }}</th>
-                                    <th>{{ __('Main Category') }}</th>
                                     <th>{{ __('Second Category') }}</th>
                                     <th>{{ __('Slug') }}</th>
                                     <th width="20%">Action</th>
@@ -26,7 +25,6 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $third_category->title }}</td>
-                                        <td>{{ $third_category->mainCategory->title }}</td>
                                         <td>{{ $third_category->secondCategory->title }}</td>
                                         <td>{{ $third_category->slug }}</td>
                                         <td>

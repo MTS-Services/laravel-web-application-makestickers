@@ -40,7 +40,6 @@ class ThirdCategoryController extends Controller
     {
         $third_category = new ThirdCategory();
         $third_category->title = $request->title;
-        $third_category->main_category_id = $request->main_category_id;
         $third_category->second_category_id = $request->second_category_id;
         $third_category->slug = $request->slug;
         $third_category->description = $request->description;
@@ -70,7 +69,6 @@ class ThirdCategoryController extends Controller
     {
         $id = decrypt($id);
         $data['third_categories'] = ThirdCategory::findOrFail($id);
-        $data['main_categories'] = MainCategory::all();
         $data['second_categories'] = SecondCategory::all();
         return view('backend.admin.productsManage.thirdCategory.edit', $data);
     }
@@ -83,7 +81,6 @@ class ThirdCategoryController extends Controller
         $id = decrypt($id);
         $third_category = ThirdCategory::findOrFail($id);   
         $third_category->title = $request->title;
-        $third_category->main_category_id = $request->main_category_id;
         $third_category->second_category_id = $request->second_category_id;
         $third_category->slug = $request->slug;
         $third_category->description = $request->description;
@@ -102,8 +99,7 @@ class ThirdCategoryController extends Controller
     public function destroy(string $id)
     {
         $id = decrypt($id);
-        $third_category = ThirdCategory::findOrFail($id)->delete();
-        $third_category->delete();
+        ThirdCategory::findOrFail($id)->delete();
         return redirect()->route('admin.third-category.index');
     }
 }

@@ -16,16 +16,6 @@
                                 <td>{{ $third_categories->title }}</td>
                             </tr>
                             <tr>
-                                <th>Main CategoryTitle</th>
-                                <td><span>:</span></td>
-                                <td>{{ $third_categories->mainCategory->title }}</td>
-                            </tr>
-                            <tr>
-                                <th>Main CategoryTitle</th>
-                                <td><span>:</span></td>
-                                <td>{{ $third_categories->secondCategory->title }}</td>
-                            </tr>
-                            <tr>
                                 <th>Second CategoryTitle</th>
                                 <td><span>:</span></td>
                                 <td>{{ $third_categories->secondCategory->title }}</td>

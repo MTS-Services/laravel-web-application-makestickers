@@ -22,8 +22,7 @@ class ThirdCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => 'nullable|exists:main_categories,id',
-            'second_category_id' => 'nullable|exists:second_categories,id',
+            'second_category_id' => 'required|exists:second_categories,id',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',

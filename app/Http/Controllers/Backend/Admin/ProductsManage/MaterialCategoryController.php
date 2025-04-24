@@ -55,7 +55,7 @@ class MaterialCategoryController extends Controller
     public function show(string $id)
     {
         $id = decrypt($id);
-        $data['material_categories'] = MaterialCategory::findOrFail($id);
+        $data['material_categories   '] = MaterialCategory::findOrFail($id);
         $data['third_categories'] = ThirdCategory::all();
         return view('backend.admin.productsManage.materialCategory.details', $data);
     }

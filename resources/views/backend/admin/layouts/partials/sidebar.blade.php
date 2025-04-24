@@ -46,7 +46,7 @@
                     <div class="collapse @if (isset($page_slug) && ($page_slug == 'product' || $page_slug == 'main_category' || $page_slug == 'second_category' || $page_slug == 'third_category' || $page_slug == 'material_category')) show @endif" id="1">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'product') active @endif">
-                                <a href="">
+                                <a href="{{ route('admin.product.index') }}">
                                     <span class="sub-item">{{ __('Product') }}</span>
                                 </a>
                             </li>

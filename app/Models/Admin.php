@@ -21,4 +21,9 @@ class Admin extends AuthBaseModel
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Products::class);
+    }
 }

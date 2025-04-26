@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use App\Models\AuthBaseModel;
+use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends AuthBaseModel
 {
-    protected $guard = 'admin';
+    use HasRoles;
     
+    protected $guard = 'admin';
+
     protected $fillable = [
         'name',
         'email',

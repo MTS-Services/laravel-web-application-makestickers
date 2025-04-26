@@ -52,28 +52,28 @@ class AuthBaseModel extends Authenticatable
         'gender_name',
     ];
 
-    public function getCreatedByNameAttribute($value)
+    public function getCreatedByNameAttribute()
     {
         return $this->createdBy ? $this->createdBy->name : 'System';
     }
-    public function getUpdatedByNameAttribute($value)
+    public function getUpdatedByNameAttribute()
     {
         return $this->updatedBy ? $this->updatedBy->name : 'Null';
     }
-    public function getDeletedByNameAttribute($value)
+    public function getDeletedByNameAttribute()
     {
         return $this->deletedBy ? $this->deletedBy->name : 'Null';
     }
 
-    public function getCreatorNameAttribute($value)
+    public function getCreatorNameAttribute()
     {
         return $this->creator ? $this->creator->name : 'Null';
     }
-    public function getUpdaterNameAttribute($value)
+    public function getUpdaterNameAttribute()
     {
         return $this->updater ? $this->updater->name : 'Null';
     }
-    public function getDeleterNameAttribute($value)
+    public function getDeleterNameAttribute()
     {
         return $this->deleter ? $this->deleter->name : 'Null';
     }

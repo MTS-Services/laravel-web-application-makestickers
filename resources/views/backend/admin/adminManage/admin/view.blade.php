@@ -24,9 +24,14 @@
                                 <th scope="row">{{ __('Image') }}</th>
                                 <td>{{ __(' : ') }} </td>
                                 <td>
-                                    <img src="{{ auth_storage_url($admin->image, $admin->gender) }}" class="img-fluid" alt="{{ $admin->name }}"
-                                        style="width: 100px; height: auto;">
+                                    <img src="{{ auth_storage_url($admin->image, $admin->gender) }}" class="img-fluid"
+                                        alt="{{ $admin->name }}" style="width: 100px; height: auto;">
                                 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">{{ __('Gender') }}</th>
+                                <td>{{ __(' : ') }} </td>
+                                <td>{{ $admin->gender_name }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">{{ __('Email') }}</th>
@@ -36,12 +41,12 @@
                             <tr>
                                 <th scope="row">{{ __('Phone') }}</th>
                                 <td>{{ __(' : ') }} </td>
-                                <td>{{ $admin->phone }}</td>
+                                <td>{{ $admin->phone ?? 'N/A' }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">{{ __('Gender') }}</th>
+                                <th>{{ __('Address') }}</th>
                                 <td>{{ __(' : ') }} </td>
-                                <td>{{ $admin->gender_name }}</td>
+                                <td>{{ $admin->address ?? 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">{{ __('Status') }}</th>

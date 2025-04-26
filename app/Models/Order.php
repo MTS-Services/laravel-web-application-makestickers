@@ -71,6 +71,24 @@ class Order extends BaseModel
     {
         return $this->getStatusBg()[$this->status] ?? 'secondary';
     }
+    public function getStatusBtnText($currentStatus)
+    {
+        $statusTexts = [];
+
+        foreach ($this->getStatus() as $key => $value) {
+            if ($key == $currentStatus) {
+                continue;
+            }
+
+            $statusTexts[] = [
+                'class' => $this->getStatusBg()[$key] ?? 'secondary',
+                'text'  => $value,
+            ];
+        }
+
+        return $statusTexts;
+    }
+ 
 
 
 }

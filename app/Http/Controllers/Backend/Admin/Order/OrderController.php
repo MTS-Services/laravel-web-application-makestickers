@@ -16,6 +16,10 @@ class OrderController extends Controller
         $orders = Order::all();
         return view('backend.admin.order.index', compact('orders'));
     }
+    public function status(Order $order)
+    {
+        return view('backend.admin.order.status');
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -10,4 +10,5 @@ Route::group(['middleware' => ['auth'], 'as' => 'user.'], function () {
 Route::group(['middleware' => ['auth'],'as'  => 'user.'], function () {
    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
    Route::get('/order/show', [OrderController::class, 'show'])->name('order.show');
+   Route::get('/order/status', [OrderController::class, 'status'])->name('order.status');
 });

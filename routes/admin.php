@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
    Route::resource('/order', OrderController::class);
+   Route::any('/order/status', [OrderController::class, 'status'])->name('order.status');
 });
 
 

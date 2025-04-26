@@ -18,26 +18,17 @@ class OrderController extends Controller
     {
         return view('backend.user.order.view');
     }
+    public function status(Order $order)
+    {
+      return view('backend.user.order.status');
+    }
     public function create()
     {
-        return view('backend.user.order.create');
+
     }
     public function store(OrderRequest $request)
     {
 
-        $data= new Order();
-         $data->order_number=$request->order_number;
-         $data->status=$request->status;
-         $data->total_items=$request->total_items;
-         $data->amount=$request->amount;
-         $data->tax_total=$request->tax_total;
-         $data->user_id=$request->user_id;
-         $data->product_id=$request->product_id;
-         $data->payment_method_id=$request->payment_method_id;
-         $data->billing_address_id=$request->billing_address_id;
-         $data->shipping_address_id=$request->shipping_address_id;
-         $data->save();
-         return redirect()->route('user.order.index');
     }
     public function edit(Order $order)
     {

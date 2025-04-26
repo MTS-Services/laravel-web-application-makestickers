@@ -212,7 +212,7 @@
                 <!-- mobile -->
 
                 <div class=" flex flex-col text-light  text-font-14px font-semibold my-4">
-                    <a href="#" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
+                    <a href="{{ route('frontend.custom_sticker') }}" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
                     <a href="#" class="hover:text-tertiary py-3">CUSTOM LABELS</a>
                     <a href="#" class="hover:text-tertiary py-3">POUCHES</a>
                     <a href="#" class="hover:text-tertiary py-3">DESIGNS</a>

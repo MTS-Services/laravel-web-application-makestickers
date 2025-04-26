@@ -46,4 +46,9 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.designs');
     }
+
+    public function customSticker()
+    {
+        return view('frontend.pages.custom_sticker');
+    }
 }

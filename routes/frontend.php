@@ -13,4 +13,5 @@ Route::group(['as' => 'frontend.', 'middleware' => 'guest'], function () {
     Route::get('/return', [FrontendController::class, 'return'])->name('returns'); 
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/designs', [FrontendController::class, 'designs'])->name('designs');
+    Route::get('/custom-sticker', [FrontendController::class, 'customSticker'])->name('custom_sticker');
 });

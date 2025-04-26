@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'test') active @endif">
-                    <a href="{{route('admin.test.index')}}">
+                    <a href="{{ route('admin.test.index') }}">
                         <i class="icon-chart"></i>
                         <p>{{ __('Test') }}</p>
                     </a>
@@ -59,6 +59,12 @@
                     </div>
                 </li>
 
+                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'site_setting') active @endif">
+                    <a href="{{ route('settings.index') }}">
+                        <i class="icon-chart"></i>
+                        <p>{{ __('Site Setting') }}</p>
+                    </a>
+                </li>
 
                 {{-- Single Label --}}
                 {{-- <li class="nav-item  @if (isset($page_slug) && $page_slug == 'a') active @endif">

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend\Admin\ProductsManage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Traits\FileManagementTrait;
-use App\Models\Admin;
 use App\Models\Products;
 use App\Models\SizeCategory;
 use App\Models\ThirdCategory;
@@ -40,7 +39,7 @@ class ProductsController extends Controller
     {
         $products = new Products();
         $products->third_category_id = $request->third_category_id;
-        $products->size_category_id = $request->size_category_id;
+        $products->size_categories_id = $request->size_categories_id;
         $products->title = $request->title;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
@@ -60,10 +59,7 @@ class ProductsController extends Controller
     public function show(string $id)
     {
         $id = decrypt($id);
-        $data['products'] = Products::findOrFail($id);
-        $data['third_categories'] = ThirdCategory::all();
-        $data['size_categories'] = SizeCategory::all();
-        $data['admin'] = Admin::all();
+        $data['products'] = Products::with(['thirdCategory', 'SizeCategory', 'admin'])->findOrFail($id);
         return view('backend.admin.productsManage.products.details', $data);
     }
 
@@ -87,7 +83,7 @@ class ProductsController extends Controller
         $id = decrypt($id);
         $products = Products::findOrFail($id);
         $products->third_category_id = $request->third_category_id;
-        $products->size_category_id = $request->size_category_id;
+        $products->size_categories_id = $request->size_categories_id;
         $products->title = $request->title;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;

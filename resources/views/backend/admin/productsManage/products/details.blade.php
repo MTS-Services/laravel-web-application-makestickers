@@ -1,40 +1,45 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'third_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'product'])
 
 @section('content')
     <div class="row mt-4">
         <div class="col-md-10 mx-auto">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3>Third Category</h3>
-                    <a href="{{ route('admin.third-category.index') }}" class="btn btn-primary btn-sm">Back</a>
+                    <h3>Products</h3>
+                    <a href="{{ route('admin.product.index') }}" class="btn btn-primary btn-sm">Back</a>
                 </div>
                 <div class="card-body">
                         <table class="table table-striped">
                             <tr>
                                 <th>Title</th>
                                 <td><span>:</span></td>
-                                <td>{{ $third_categories->title }}</td>
+                                <td>{{ $products->title }}</td>
                             </tr>
                             <tr>
-                                <th>Second CategoryTitle</th>
+                                <th>Third CategoryTitle</th>
                                 <td><span>:</span></td>
-                                <td>{{ $third_categories->secondCategory->title }}</td>
+                                <td>{{ $products->thirdCategory->title }}</td>
                             </tr>
                             <tr>
-                                <th>Slug</th>
+                                <th>Size</th>
                                 <td><span>:</span></td>
-                                <td>{{ $third_categories->slug }}</td>
+                                <td>{{-- {{ $products->sizeCategory->title }} --}}</td>
+                            </tr>
+                            <tr>
+                                <th>Unit Price</th>
+                                <td><span>:</span></td>
+                                <td>{{ $products->unit_price }}</td>
                             </tr>
                             <tr>
                                 <th>Description</th>
                                 <td><span>:</span></td>
-                                <td>{{ $third_categories->description }}</td>
+                                <td>{{ $products->description }}</td>
                             </tr>
                             <tr>
-                                <th>Image</th>
+                                <th>Preview Image</th>
                                 <td><span>:</span></td>
                                 <td>
-                                    <img src="{{ storage_url($third_categories->image) }}" alt="{{ $third_categories->title }}"
+                                    <img src="{{ storage_url($products->preview_image) }}" alt="{{ $products->title }}"
                                         style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                                 </td>
                             </tr>

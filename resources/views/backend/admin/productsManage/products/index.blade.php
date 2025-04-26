@@ -16,7 +16,8 @@
                                     <th width="5%">#</th>
                                     <th>{{ __('Title') }}</th>
                                     <th>{{ __('Third Category') }}</th>
-                                    <th>{{ __('Slug') }}</th>
+                                    <th>{{ __('Size') }}</th>
+                                    <th>{{ __('Unit Price') }}</th>
                                     <th width="20%">Action</th>
                                 </tr>
                             </thead>
@@ -26,7 +27,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $product->title }}</td>
                                         <td>{{ $product->thirdCategory->title }}</td>
-                                        <td>{{ $product->slug }}</td>
+                                        <td>{{-- {{ $product->SizeCategory->title }} --}}</td>
+                                        <td>{{ $product->unit_price }}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
@@ -36,14 +38,14 @@
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     <li>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.products-category.show', encrypt($product->id)) }}">
+                                                            href="{{ route('admin.product.show', encrypt($product->id)) }}">
 
                                                             {{ __('Details') }}
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.products-category.edit', encrypt($product->id)) }}">
+                                                            href="{{ route('admin.product.edit', encrypt($product->id)) }}">
 
                                                             {{ __('Edit') }}
                                                         </a>
@@ -56,7 +58,7 @@
                                                             {{ __('Delete') }}
                                                         </a>
                                                         <form id="delete-form-{{ $product->id }}"
-                                                            action="{{ route('admin.products-category.destroy', encrypt($product->id)) }}"
+                                                            action="{{ route('admin.product.destroy', encrypt($product->id)) }}"
                                                             method="POST">
 
                                                             @csrf

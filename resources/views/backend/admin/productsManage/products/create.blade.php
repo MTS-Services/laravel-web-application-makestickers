@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'product_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'product'])
 
 @push('css')
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -76,7 +76,7 @@
                     {{-- Image Upload --}}
                     <div class="mb-12">
                         <label class="form-label">Image</label>
-                        <x-file-upload name="preview_image" type="preview_image" maxSize="50" />
+                        <x-file-upload name="preview_image" type="image" maxSize="50" />
                         @error('preview_image')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

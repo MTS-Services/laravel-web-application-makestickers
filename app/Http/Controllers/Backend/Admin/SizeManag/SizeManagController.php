@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Backend\Admin\SizeManag;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\FileManagementTrait;
 use Illuminate\Http\Request;
 use App\Models\SizeCategory;
 
 class SizeManagController extends Controller
 {
+    use FileManagementTrait;
     /**
      * Display a listing of the resource.
      */
@@ -29,16 +31,19 @@ class SizeManagController extends Controller
      */
     public function store(Request $request)
     {
-        $test = new SizeCategory();
-        $test->name = $request->name;
-        $test->slug = $request->slug;
-        $test->description = $request->description;
+        $sizes = new SizeCategory();
+        $sizes->name = $request->name;
+        $sizes->email = $request->email;
+        $sizes->phone_number = $request->phone_number;
+        $sizes->address = $request->address;
+        $sizes->city = $request->city;
 
         if ($request->hasFile('image')) {
-            $this->handleFileUpload($request, $test, 'image', 'image');
+            $this->handleFileUpload($request, $sizes, 'image', 'image');
         }
 
-        $test->save();
+        $sizes->save();
+        session()->flash('success', 'Size created successfully');
         return redirect()->route('admin.size.index');
     }
 
@@ -47,6 +52,10 @@ class SizeManagController extends Controller
      */
     public function show(string $id)
     {
+        $id = decrypt($id);
+        $sizes = SizeCategory::findOrFail($id);
+        return view('backend.admin.SizeManage.details', compact('sizes'));
+
 
     }
 
@@ -56,8 +65,9 @@ class SizeManagController extends Controller
     public function edit(string $id)
     {
         $id = decrypt($id);
-        $test = SizeCategory::findOrFail($id);
-        return view('backend.admin.SizeManage.edit', compact('test'));
+        $sizes = SizeCategory::findOrFail($id);
+        session()->flash('success', 'Size updated successfully');
+        return view('backend.admin.SizeManage.edit', compact('sizes'));
     }
 
     /**
@@ -66,15 +76,20 @@ class SizeManagController extends Controller
     public function update(Request $request, string $id)
     {
         $id = decrypt($id);
-        $test = SizeCategory::findOrFail($id);
-        $test->name = $request->name;
-        $test->slug = $request->slug;
-        $test->description = $request->description;
+        $sizes = SizeCategory::findOrFail($id);
+        $sizes->name = $request->name;
+        $sizes->email = $request->email;
+        $sizes->phone_number = $request->phone_number;
+        $sizes->address = $request->address;
+        $sizes->city = $request->city;
 
         // Handle file uploads for each specific field
         if ($request->hasFile('image')) {
-            $this->handleFileUpload($request, $test, 'image', 'image');
+            $this->handleFileUpload($request, $sizes, 'image', 'image');
         }
+        $sizes->update();
+        session()->flash('success', 'Size updated successfully');
+        return redirect()->route('admin.size.index');
     }
 
     /**
@@ -83,9 +98,10 @@ class SizeManagController extends Controller
     public function destroy(string $id)
     {
         $id = decrypt($id);
-        $test = SizeCategory::findOrFail($id);
-        $test->deleted_by = admin()->id;
-        $test->delete();
+        $sizes = SizeCategory::findOrFail($id)->delete();
+        $sizes->deleted_by = admin()->id;
+        $sizes->delete();
+        session()->flash('success', 'Size deleted successfully');
         return redirect()->route('admin.size.index');
     }
 }

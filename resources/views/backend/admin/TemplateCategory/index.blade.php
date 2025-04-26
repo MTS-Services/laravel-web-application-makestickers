@@ -1,12 +1,12 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'size'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'template'])
 
 @section('content')
     <div class="row mt-4">
         <div class="col-md-12 mx-auto">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3>Size</h3>
-                    <a href="{{ route('admin.size.create') }}" class="btn btn-primary btn-sm">Add New</a>
+                    <h3>template</h3>
+                    <a href="{{ route('admin.template-category.create') }}" class="btn btn-primary btn-sm">Add New</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -24,16 +24,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($sizes as $size)
+                                @forelse ($templates as $template)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $size->name }}</td>
-                                        <td>{{ $size->email }}</td>
-                                        <td>{{ $size->phone_number }}</td>
-                                        <td>{{ $size->address }}</td>
-                                        <td>{{ $size->city }}</td>
+                                        <td>{{ $template->name }}</td>
+                                        <td>{{ $template->email }}</td>
+                                        <td>{{ $template->phone_number }}</td>
+                                        <td>{{ $template->address }}</td>
+                                        <td>{{ $template->city }}</td>
                                         <td>
-                                            <img src="{{ storage_url($size->image) }}" alt="size Image"
+                                            <img src="{{ storage_url($template->image) }}" alt="template Image"
                                                 style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                                         </td>
                                         <td>
@@ -44,27 +44,29 @@
                                                 </a>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('admin.size.show', encrypt($size->id)) }}">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.template-category.show', encrypt($template->id)) }}">
                                                             {{ __('Details') }}
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.size.edit', encrypt($size->id)) }}">
+                                                            href="{{ route('admin.template-category.edit', encrypt($template->id)) }}">
                                                             {{ __('Edit') }}
                                                         </a>
                                                     </li>
+                                                    <li>
 
                                                         <a title="Delete" href="javascript:void(0)"
                                                             onclick="function(e) {
                                                         e.preventDefault();
-                                                        document.getElementById('delete-form-{{ $size->id }}').submit();
+                                                        document.getElementById('delete-form-{{ $template->id }}').submit();
                                                     }"
                                                             class="dropdown-item text-danger" data-id="">
                                                             {{ __('Delete') }}
                                                         </a>
-                                                        <form id="delete-form-{{ $size->id }}"
-                                                            action="{{ route('admin.size.destroy', encrypt($size->id)) }}"
+                                                        <form id="delete-form-{{ $template->id }}"
+                                                            action="{{ route('admin.template-category.destroy', encrypt($template->id)) }}"
                                                             method="DELETE">
                                                             @csrf
                                                         </form>
@@ -75,7 +77,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="11" class="text-center">No size Found</td>
+                                        <td colspan="11" class="text-center">No template Found</td>
                                     </tr>
                                 @endforelse
                             </tbody>

@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\Backend\Admin\TestManage\TestController;
+
+use App\Models\TemplateCategory;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\SizeManag\SizeManagController as SizeController;
+use App\Http\Controllers\Backend\Admin\TemplateCategory\TemplateCategoryController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -18,6 +21,6 @@ Route::group(['prefix' => 'admin','as'=>'admin.', 'middleware' => 'auth:admin'],
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard'); // Admin Dashboard
     Route::resource('/test', TestController::class);
     Route::resource('/size', SizeController::class);
-
+    Route::resource('/template-category', TemplateCategoryController::class);
     });
 

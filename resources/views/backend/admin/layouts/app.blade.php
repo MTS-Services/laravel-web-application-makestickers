@@ -29,7 +29,7 @@
         {{-- End sidebar --}}
 
         <div class="main-panel">
-             
+
             {{-- Header --}}
             @include('backend.admin.layouts.partials.header')
             {{-- End Header --}}

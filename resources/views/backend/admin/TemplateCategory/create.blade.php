@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'size'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'template'])
 
 @push('css')
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -8,7 +8,7 @@
 @section('content')
     <div class="container mt-4">
         <h2>Create New Test</h2>
-        <form action="{{ route('admin.size.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.template-category.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             {{-- Name --}}

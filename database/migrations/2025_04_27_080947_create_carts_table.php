@@ -14,16 +14,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payment_methods', function (Blueprint $table) {
+        Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('type')->max(1)->default(1)->comment('1 = Credit Card, 2 = Paypal, 3 = Stripe');
-            $table->string('name');
-            $table->string('account_number')->nullable();
-            $table->string('cvc')->nullable();
-            $table->string('exp_month')->nullable();
-            $table->string('exp_year')->nullable();
+            $table->unsignedBigInteger('product_id');
             $table->timestamps();
             $table->softDeletes();
+            $this->addMorpheAuditColumns($table);
+
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payment_methods');
+        Schema::dropIfExists('carts');
     }
 };

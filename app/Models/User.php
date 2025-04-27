@@ -24,4 +24,9 @@ class User extends AuthBaseModel
             'password' => 'hashed',
         ];
     }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

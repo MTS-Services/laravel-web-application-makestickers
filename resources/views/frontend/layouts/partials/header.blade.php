@@ -31,7 +31,7 @@
                 <ul tabindex="0" class="dropdown-content menu  bg-light-gray rounded-box px-4 shadow-sm w-52 ">
                     @auth('web')
                         <li><a href="{{ route('user.dashboard') }}" class="px-5 my-1">My Dashboard</a></li>
-                        <li><a href="" class="px-5 my-1">Order History</a></li>
+                        <li><a href="{{ route('user.order.history') }}" class="px-5 my-1">Order History</a></li>
                         <li><a href="" class="px-5 my-1">My Favorites</a></li>
                         <li>
                             <a href="javaScript:void(0)" class="px-5 my-1 btn-tertiary"
@@ -76,7 +76,14 @@
                 <a href="#" class="hover:text-tertiary">CUSTOM LABELS</a>
                 <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
                 <a href="#" class="hover:text-tertiary">DESIGNS</a>
-                <a href="#" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
+                @auth
+
+                    <a href="{{ route('user.cart.index') }}" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i>
+                        CART</a>
+                @else
+                    <a href="{{ route('login') }}" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i>
+                        CART</a>
+                @endauth
             </div>
         </div>
 

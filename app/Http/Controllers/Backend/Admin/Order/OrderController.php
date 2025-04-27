@@ -18,8 +18,10 @@ class OrderController extends Controller
     }
     public function status(Order $order)
     {
-        return view('backend.admin.order.status');
+        $datas = Order::all();
+        return view('backend.admin.order.status', compact('datas'));
     }
+
 
     /**
      * Show the form for creating a new resource.

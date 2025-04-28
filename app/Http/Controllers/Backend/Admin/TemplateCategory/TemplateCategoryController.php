@@ -16,6 +16,7 @@ class TemplateCategoryController extends Controller
     public function index()
     {
         $templates = TemplateCategory::all();
+
         return view('backend.admin.TemplateCategory.index', compact('templates'));
     }
 

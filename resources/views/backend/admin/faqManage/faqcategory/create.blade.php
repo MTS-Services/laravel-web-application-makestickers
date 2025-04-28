@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'faq_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'faqcategory'])
 
 @section('content')
 <div class="row mt-4">
@@ -6,10 +6,10 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3>Add FAQ Category</h3>
-                <a href="{{ route('admin.faqCategory.index') }}" class="btn btn-sm btn-secondary">Back</a>
+                <a href="{{ route('admin.faqcategory.index') }}" class="btn btn-sm btn-secondary">Back</a>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.faqCategory.store') }}" method="POST">
+                <form action="{{ route('admin.faqcategory.store') }}" method="POST">
                     @csrf
 
                     <div class="form-group mb-3">

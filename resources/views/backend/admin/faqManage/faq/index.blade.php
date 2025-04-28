@@ -24,7 +24,8 @@
                             @foreach ($faqs as $faq)
                             <tr>
                                 <td>{{ $faq->id }}</td>
-                                <td>{{ $faq->faqCategory->title }}</td>
+                                <td>{{ $faq->faqcategory->title }}</td>
+
                                 <td>{{ $faq->question }}</td>
                                 <td>{{ $faq->answer }}</td>
                                 <td class="d-flex">

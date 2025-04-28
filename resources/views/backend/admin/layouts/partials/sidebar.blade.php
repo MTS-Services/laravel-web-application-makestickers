@@ -64,17 +64,17 @@
                     </a>
                 </li>
 
-                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) active submenu @endif">
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#1"
-                        @if (isset($page_slug) && ($page_slug=='b' || $page_slug=='faq' )) aria-expanded="true" @endif>
+                        @if (isset($page_slug) && ($page_slug=='faqcategory' || $page_slug=='faq' )) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Faq Management') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) show @endif" id="1">
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) show @endif" id="1">
                         <ul class="nav nav-collapse">
-                            <li class="@if (isset($page_slug) && $page_slug == 'b') active @endif">
-                                <a href="{{route('admin.faqCategory.index')}}">
+                            <li class="@if (isset($page_slug) && $page_slug == 'faqcategory') active @endif">
+                                <a href="{{route('admin.faqcategory.index')}}">
                                     <span class="sub-item">{{ __('Faq_Categories') }}</span>
                                 </a>
                             </li>

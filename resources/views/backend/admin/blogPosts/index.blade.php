@@ -61,10 +61,11 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <span class="badge bg-{{ $post->status == 'published' ? 'success' : ($post->status == 'draft' ? 'warning' : 'secondary') }}">
-                                        {{ ucfirst($post->status) }}
+                                    <span>
+                                        {{$post->status_text}}
                                     </span>
                                 </td>
+
                                 <td>{{ $post->created_at->format('d M Y') }}</td>
                                 <td>
                                     <a href="{{ route('admin.blog.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>

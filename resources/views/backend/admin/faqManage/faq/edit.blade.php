@@ -14,7 +14,7 @@
                     @method('PUT')
                     <div class="mb-3">
                         <label for="faq_category_id" class="form-label">FAQ Category</label>
-                        <select name="faq_category_id" class="form-control" required>
+                        <select name="faq_category_id" class="form-control" >
                             <option value="">Select a Category</option>
                             @foreach($faqCategories as $category)
                                 <option value="{{ $category->id }}" {{ $faq->faq_category_id == $category->id ? 'selected' : '' }}>
@@ -26,12 +26,12 @@
 
                     <div class="mb-3">
                         <label for="question"  class="form-label">Question</label>
-                        <input type="text" name="question" class="form-control" value="{{ $faq->question }}" required>
+                        <input type="text" name="question" class="form-control" value="{{ $faq->question }}" >
                     </div>
 
                     <div class="mb-3">
                         <label for="answer" class="form-label">Answer</label>
-                        <textarea name="answer" class="form-control" rows="4" required>{{ $faq->answer }}</textarea>
+                        <textarea name="answer" class="form-control" rows="4" >{{ $faq->answer }}</textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update FAQ</button>

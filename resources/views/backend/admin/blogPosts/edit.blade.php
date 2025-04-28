@@ -5,87 +5,86 @@
     <div class="col-md-10 mx-auto">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h3>Edit Blog Post</h3>
-                <a href="{{ route('admin.blog.index') }}" class="btn btn-secondary btn-sm">Back</a>
+                <h3>Edit Post</h3>
+                <a href="{{ route('admin.blog.index') }}" class="btn btn-sm btn-secondary ">Back</a>
             </div>
-
             <div class="card-body">
-                {{-- Validation Errors --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                {{-- Edit Form --}}
                 <form action="{{ route('admin.blog.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
                     <div class="mb-3">
-                        <label>Title</label>
-                        <input type="text" name="title" class="form-control" value="{{ old('title', $post->title) }}">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control"  id="title" value="{{ $post->title }}" >
+                        @error('title')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label>Slug</label>
-                        <input type="text" name="slug" class="form-control" value="{{ old('slug', $post->slug) }}">
+                        <label for="slug" class="form-label">Slug</label>
+                        <input type="text" name="slug" class="form-control" id="slug" value="{{ $post->slug }}">
                     </div>
 
                     <div class="mb-3">
-                        <label>Short Description</label>
-                        <textarea name="short_desc" class="form-control" rows="3">{{ $post->short_desc }}</textarea>
+                        <label for="short_desc" class="form-label">Short Description</label>
+                        <textarea name="short_desc" class="form-control" id="short_desc" rows="1">{{ $post->short_desc }}</textarea>
+                        @error('short_desc')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label>Long Description</label>
-                        <textarea name="long_desc" class="form-control" rows="5">{{ $post->long_desc }}</textarea>
+                        <label for="long_desc" class="form-label">Long Description</label>
+                        <textarea name="long_desc" class="form-control" id="long_desc" rows="2">{{ $post->long_desc }}</textarea>
+                        @error('long_desc')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label>Featured Image</label><br>
-                        @if ($post->featured_image)
-                            <img src="{{ asset('storage/' . $post->featured_image) }}" width="80"><br><br>
-                        @endif
-                        <input type="file" name="featured_image" class="form-control">
+                        <label for="featured_image" class="form-label">Featured Image</label>
+                        <x-file-upload name="featured_image" type="image" existingFile="{{ $post->featured_image }}" maxSize="50" />
+                        @error('featured_image')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label>Image</label><br>
-                        @if ($post->image)
-                            <img src="{{ asset('storage/' . $post->image) }}" width="80"><br><br>
-                        @endif
-                        <input type="file" name="image" class="form-control">
+                        <label for="image" class="form-label">SEO Image (optional)</label>
+                        <x-file-upload name="image" type="image" existingFile="{{ $post->image }}" maxSize="50" />
+                        @error('image')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label>Video URL</label>
-                        <input type="text" name="video_url" class="form-control" value="{{ $post->video_url }}">
+                        <label for="video" class="form-label">Video (optional)</label>
+                        <x-file-upload name="video" type="video" existingFile="{{ $post->video }}" maxSize="200" />
+                        @error('video')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label>Video Thumbnail</label><br>
-                        @if ($post->video_thumbnail)
-                            <img src="{{ asset('storage/' . $post->video_thumbnail) }}" width="80"><br><br>
-                        @endif
-                        <input type="file" name="video_thumbnail" class="form-control">
+                        <label for="video_thumbnail" class="form-label">Video Thumbnail (optional)</label>
+                        <x-file-upload name="video_thumbnail" type="image" existingFile="{{ $post->video_thumbnail }}" maxSize="50" />
+                        @error('video_thumbnail')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label>Status</label>
+                        <label for="status" class="form-label">Status</label>
                         <select name="status" class="form-control">
-                            <option value="draft" {{ $post->status == 'draft' ? 'selected' : '' }}>Draft</option>
-                            <option value="published" {{ $post->status == 'published' ? 'selected' : '' }}>Published</option>
+                            <option value="1" selected>Draft</option>
+                            <option value="2">Published</option>
+                            <option value="0">Hide</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-success">Update Post</button>
+                    <button type="submit" class="btn btn-success">Publish Blog Post</button>
                 </form>
-                {{-- End Edit Form --}}
             </div>
         </div>
     </div>

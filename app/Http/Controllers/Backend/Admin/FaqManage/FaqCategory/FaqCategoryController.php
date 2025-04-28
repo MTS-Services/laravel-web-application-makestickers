@@ -3,22 +3,19 @@
 namespace App\Http\Controllers\Backend\Admin\FaqManage\FaqCategory;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FaqManage\FaqCategoryRequest;
-use App\Models\Faq;
+use App\Http\Requests\FaqManage\FaqcategoryRequest;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class FaqCategoryController extends Controller
+class FaqcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-
-        $faqCategories = FaqCategory::all();
-        return view('backend.admin.faqManage.faqCategory.index', compact('faqCategories'));
+        $faqcategories = FaqCategory::all();
+        return view('backend.admin.faqManage.faqcategory.index', compact('faqcategories'));
     }
 
     /**
@@ -26,15 +23,14 @@ class FaqCategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.admin.faqManage.faqCategory.create');
+        return view('backend.admin.faqManage.faqcategory.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FaqCategoryRequest $request)
+    public function store(FaqcategoryRequest $request)
     {
-
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:faq_categories',
@@ -42,34 +38,37 @@ class FaqCategoryController extends Controller
 
         FaqCategory::create($request->only(['title', 'slug']));
 
-        return redirect(route('admin.faqCategory.index'))->with('success', 'FAQ category created successfully.');
+        return redirect(route('admin.faqcategory.index'))->with('success', 'FAQ category created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id) {}
+    public function show(string $id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        $faqCategory = FaqCategory::findOrFail($id);
-        return view('backend.admin.faqManage.faqCategory.edit', compact('faqCategory'));
+        $faqcategory = FaqCategory::findOrFail($id);
+        return view('backend.admin.faqManage.faqcategory.edit', compact('faqcategory'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(FaqCategoryRequest $request, string $id)
+    public function update(FaqcategoryRequest $request, string $id)
     {
         $validated = $request->validated();
         
-        $faqCategory = FaqCategory::findOrFail($id);
-        $faqCategory->update($validated);
+        $faqcategory = FaqCategory::findOrFail($id);
+        $faqcategory->update($validated);
 
-        return redirect()->route('admin.faqCategory.index')->with('success', 'Category updated successfully!');
+        return redirect()->route('admin.faqcategory.index')->with('success', 'Category updated successfully!');
     }
 
     /**
@@ -77,9 +76,9 @@ class FaqCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $faqCategory = FaqCategory::findOrFail($id);
-        $faqCategory->delete();
+        $faqcategory = FaqCategory::findOrFail($id);
+        $faqcategory->delete();
 
-        return redirect()->route('admin.faqCategory.index')->with('success', 'Category deleted successfully!');
+        return redirect()->route('admin.faqcategory.index')->with('success', 'Category deleted successfully!');
     }
 }

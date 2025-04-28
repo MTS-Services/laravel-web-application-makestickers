@@ -4,7 +4,7 @@ namespace App\Http\Requests\FaqManage;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FaqCategoryRequest extends FormRequest
+class FaqcategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -36,7 +36,7 @@ class FaqCategoryRequest extends FormRequest
     protected function update()
     {
         return [
-            'slug' => 'required|unique:faq_categories,slug,' . $this->route('faqCategory'),
+            'slug' => 'required|unique:faq_categories,slug,' . $this->route('faqcategory'),
         ];
     }
 }

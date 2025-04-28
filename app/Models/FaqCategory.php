@@ -8,7 +8,7 @@ class FaqCategory extends BaseModel
 {
     protected $fillable = ['title', 'slug'];
     
-    public function faq()
+    public function faqs()
     {
         return $this->hasMany(Faq::class);
     }

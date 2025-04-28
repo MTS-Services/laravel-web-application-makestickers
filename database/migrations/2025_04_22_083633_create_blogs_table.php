@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\Blog;
 
 return new class extends Migration
 {
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->string('image', 125)->nullable();
             $table->string('video', 255)->nullable();
             $table->string('video_thumbnail', 255)->nullable();
-            $table->tinyInteger('status')->max(1)->default(1)->comment('1 = Draft, 0 = Hide', '2 = Publish');
+            $table->tinyInteger('status')->max(1)->default(Blog::STATUS_DRAFT)->comment(Blog::STATUS_PUBLISH . ' = Publish, ' . Blog::STATUS_DRAFT . ' = Draft, ' . Blog::STATUS_HIDE . ' = Hide');
             $table->timestamps();
             $table->softDeletes();
             $this->addAdminAuditColumns($table);

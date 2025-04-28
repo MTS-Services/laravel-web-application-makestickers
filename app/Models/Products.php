@@ -18,9 +18,9 @@ class Products extends BaseModel
         'preview_image',
     ];
 
-    public function thirdCategory()
+    public function stickerCategory()
     {
-        return $this->belongsTo(ThirdCategory::class);
+        return $this->belongsTo(StickerCategory::class);
     }
     public function SizeCategory()
     {

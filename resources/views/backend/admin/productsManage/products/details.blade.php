@@ -16,9 +16,9 @@
                                 <td>{{ $products->title }}</td>
                             </tr>
                             <tr>
-                                <th>Third CategoryTitle</th>
+                                <th>Category</th>
                                 <td><span>:</span></td>
-                                <td>{{ $products->thirdCategory->title }}</td>
+                                <td>{{ $products->stickerCategory }}</td>
                             </tr>
                             <tr>
                                 <th>Size</th>

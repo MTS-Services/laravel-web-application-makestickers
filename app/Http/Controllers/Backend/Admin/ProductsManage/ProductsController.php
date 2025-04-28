@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Http\Traits\FileManagementTrait;
 use App\Models\Products;
 use App\Models\SizeCategory;
+use App\Models\StickerCategory;
 use App\Models\ThirdCategory;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $data['products'] = Products::with(['thirdCategory', 'SizeCategory', 'admin'])->get();
+        $data['products'] = Products::with(['stickerCategory', 'SizeCategory', 'admin'])->get();
         return view('backend.admin.productsManage.products.index', $data);
     }
 
@@ -27,7 +28,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $data['third_categories'] = ThirdCategory::all();
+        $data['third_categories'] = StickerCategory::all();
         $data['size_categories'] = SizeCategory::all();
         return view('backend.admin.productsManage.products.create', $data);
     }
@@ -38,12 +39,9 @@ class ProductsController extends Controller
     public function store(ProductRequest $request)
     {
         $products = new Products();
-        $products->third_category_id = $request->third_category_id;
-        $products->size_categories_id = $request->size_categories_id;
         $products->title = $request->title;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
-
         if ($request->hasFile('preview_image')) {
             $this->handleFileUpload($request, $products, 'preview_image');
         }
@@ -59,7 +57,7 @@ class ProductsController extends Controller
     public function show(string $id)
     {
         $id = decrypt($id);
-        $data['products'] = Products::with(['thirdCategory', 'SizeCategory', 'admin'])->findOrFail($id);
+        $data['products'] = Products::with(['stickerCategory', 'SizeCategory'])->findOrFail($id);
         return view('backend.admin.productsManage.products.details', $data);
     }
 
@@ -70,7 +68,7 @@ class ProductsController extends Controller
     {
         $id = decrypt($id);
         $data['products'] = Products::findOrFail($id);
-        $data['third_categories'] = ThirdCategory::all();
+        $data['third_categories'] = StickerCategory::all();
         $data['size_categories'] = SizeCategory::all();
         return view('backend.admin.productsManage.products.edit', $data);
     }
@@ -82,12 +80,9 @@ class ProductsController extends Controller
     {
         $id = decrypt($id);
         $products = Products::findOrFail($id);
-        $products->third_category_id = $request->third_category_id;
-        $products->size_categories_id = $request->size_categories_id;
         $products->title = $request->title;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
-
         if ($request->hasFile('preview_image')) {
             $this->handleFileUpload($request, $products, 'preview_image');
         }

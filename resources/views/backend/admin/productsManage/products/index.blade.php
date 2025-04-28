@@ -9,13 +9,13 @@
                     <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-sm">Add New</a>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive overflow-visible">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>{{ __('Title') }}</th>
-                                    <th>{{ __('Third Category') }}</th>
+                                    <th>{{ __('Category') }}</th>
                                     <th>{{ __('Size') }}</th>
                                     <th>{{ __('Unit Price') }}</th>
                                     <th width="20%">Action</th>
@@ -26,8 +26,9 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $product->title }}</td>
-                                        <td>{{ $product->thirdCategory->title }}</td>
-                                        <td>{{-- {{ $product->SizeCategory->title }} --}}</td>
+                                        <td>{{ isset($product->stickerCategory) ? $product->stickerCategory->title : (isset($product->labelCategory) ? $product->labelCategory->title : 'N/A') }}
+                                        </td>
+                                        <td>{{ isset($product->sizeCategory) ? $product->sizeCategory->title : 'N/A' }}</td>
                                         <td>{{ $product->unit_price }}</td>
                                         <td>
                                             <div class="dropdown">

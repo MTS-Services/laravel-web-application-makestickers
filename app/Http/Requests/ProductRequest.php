@@ -23,8 +23,6 @@ class ProductRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'third_category_id' => 'nullable|exists:third_categories,id',
-            'size_categories_id' => 'nullable|exists:size_categories,id',
             'unit_price' => 'required|string',
             'description' => 'nullable|string',
             'preview_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',   

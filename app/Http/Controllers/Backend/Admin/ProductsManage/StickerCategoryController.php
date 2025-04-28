@@ -45,7 +45,9 @@ class StickerCategoryController extends Controller
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $second_category, 'image');
         }
+        $second_category->created_by = admin()->id;
         $second_category->save();
+        session()->flash('success', 'Sticker Category added successfully');
         return redirect()->route('admin.sticker-category.index');
     }
 
@@ -74,17 +76,16 @@ class StickerCategoryController extends Controller
     {
         $id = decrypt($id);
         $second_category = StickerCategory::findOrFail($id);
-        $second_category->main_category_id = $request->main_category_id;
         $second_category->title = $request->title;
         $second_category->slug = $request->slug;
         $second_category->description = $request->description;
-        $second_category->image = $request->image;
-
+        
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $second_category, 'image');
         }
-
+        $second_category->updated_by = admin()->id;
         $second_category->save();
+        session()->flash('success', 'Sticker Category updated successfully');
         return redirect()->route('admin.sticker-category.index');
     }
 

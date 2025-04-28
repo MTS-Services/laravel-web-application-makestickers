@@ -35,6 +35,11 @@ class OrderController extends Controller
         return view('backend.user.order.order_detail');
     }
 
+    public function orderPayment()
+    {
+        return view('backend.user.order.odder');
+    }
+
     public function create() {}
 
     public function store(Request $request)
@@ -56,7 +61,7 @@ class OrderController extends Controller
         $paymentMethod->cvc = $request->cvc ?? null;
         $paymentMethod->save();
 
-        return redirect()->route('backend.user.review.product_review');
+        return redirect()->route('backend.user.check_out.index');
     }
 
 

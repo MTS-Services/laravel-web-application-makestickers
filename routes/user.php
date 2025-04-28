@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\User\DashbordController as UserDashboardController;
 use App\Http\Controllers\Backend\User\OrderManage\OrderController;
 use App\Http\Controllers\Backend\User\Review\ReviewController;
+use App\Http\Controllers\Backend\User\Checkout\CheckoutController;
 
 Route::group(['middleware' => ['auth'], 'as' => 'user.'], function () {
     Route::get('/dashboard', [UserDashboardController::class, 'dashboard'])->name('dashboard');
@@ -17,6 +18,7 @@ Route::group(['middleware' => ['auth'],'as'  => 'user.'], function () {
     Route::get('/order/history', [OrderController::class, 'orderHistory'])->name('history');
     Route::get('/order/details', [OrderController::class, 'orderDetails'])->name('details');
     Route::post('/order/store', [OrderController::class, 'store'])->name('store');
+    Route::post('/payment',[OrderController::class,'orderPayment'])->name('payment');
    });
 
 
@@ -26,5 +28,7 @@ Route::group(['middleware' => ['auth'],'as'  => 'user.'], function () {
 
    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
    Route::get('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+   Route::post('/checkout',[CheckoutController::class,'index'])->name('checkout.form');
 });
 

@@ -23,7 +23,7 @@
           <a href="#" class="block text-gray-600 hover:text-blue-600">My Cancellations</a>
 
           <div class="mt-6 font-bold text-gray-700">My Reviews</div>
-          <a href="#" class="block text-gray-600 hover:text-blue-600">My Reviews</a>
+          <a href="{{ route('user.review.index') }}" class="block text-gray-600 hover:text-blue-600">My Reviews</a>
 
           <div class="mt-6 font-bold text-gray-700">My Wishlist & Followed Stores</div>
 

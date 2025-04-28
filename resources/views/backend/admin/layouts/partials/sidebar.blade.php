@@ -29,8 +29,36 @@
                     </a>
                 </li>
 
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'admin' || $page_slug == 'role' || $page_slug == 'permission')) active submenu @endif">
+                    <a data-bs-toggle="collapse" href="#adminManagement"
+                        @if (isset($page_slug) && ($page_slug=='admin' || $page_slug=='role' || $page_slug=='permission' )) aria-expanded="true" @endif>
+                        <i class="icon-people"></i>
+                        <p>{{ __('Admin Management') }}</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'admin' || $page_slug == 'role' || $page_slug == 'permission')) show @endif" id="adminManagement">
+                        <ul class="nav nav-collapse">
+                            <li class="@if (isset($page_slug) && $page_slug == 'admin') active @endif">
+                                <a href="{{ route('am.admin.index') }}">
+                                    <span class="sub-item">{{ __('Admins') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'role') active @endif">
+                                <a href="{{ route('am.role.index') }}">
+                                    <span class="sub-item">{{ __('Roles') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'permission') active @endif">
+                                <a href="{{ route('am.permission.index') }}">
+                                    <span class="sub-item">{{ __('Permissions') }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'test') active @endif">
-                    <a href="{{route('admin.test.index')}}">
+                    <a href="{{ route('admin.test.index') }}">
                         <i class="icon-chart"></i>
                         <p>{{ __('Test') }}</p>
                     </a>
@@ -38,7 +66,7 @@
 
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#1"
-                        @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'faq')) aria-expanded="true" @endif>
+                        @if (isset($page_slug) && ($page_slug=='b' || $page_slug=='faq' )) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Faq Management') }}</p>
                         <span class="caret"></span>
@@ -65,16 +93,22 @@
                         <p>{{ __('Bolg Posts') }}</p>
                     </a>
                 </li>
+                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'site_setting') active @endif">
+                    <a href="{{ route('settings.index') }}">
+                        <i class="icon-chart"></i>
+                        <p>{{ __('Site Setting') }}</p>
+                    </a>
+                </li>
 
                 {{-- Single Label --}}
                 {{-- <li class="nav-item  @if (isset($page_slug) && $page_slug == 'a') active @endif">
                     <a href="">
                         <i class="icon-chart"></i>
                         <p>{{ __('Single label') }}</p>
-                    </a>
+                </a>
                 </li> --}}
 
-                
+
             </ul>
         </div>
     </div>

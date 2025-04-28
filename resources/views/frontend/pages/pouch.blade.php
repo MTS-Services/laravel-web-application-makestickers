@@ -687,10 +687,8 @@
                     </div>
 
                     <div class="text-center mt-6">
-                        <button
-                            class="border border-primary text-primary px-4 py-2 rounded-md hover:bg-primary-hover hover:text-white transition-colors">
-                            See all reviews
-                        </button>
+                        <a href="{{route('frontend.review')}}"  class="border border-primary text-primary px-4 py-2 rounded-md hover:bg-primary-hover 
+                         hover:text-white transition-colors">See all reviews</a>
                     </div>
                 </div>
             </div>

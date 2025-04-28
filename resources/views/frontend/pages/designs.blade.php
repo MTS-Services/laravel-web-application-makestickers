@@ -155,7 +155,7 @@
 
                 <!-- Card 9 -->
                 <div
-                    class="card py-1 bg-base-100 w-full sm:w-[48%] lg:w-[32%] hover:bg-primary transition-all duration-300 ease-in-out border border-zinc-300 shadow-sm">
+                    class="card mb-3 sm:mb-4 lg:mb-0 py-1 bg-base-100 w-full sm:w-[48%] lg:w-[32%] hover:bg-primary transition-all duration-300 ease-in-out border border-zinc-300 shadow-sm">
                     <div class="card-body text-center group/new p-2">
                         <h2 class="text-font-18px font-bold px-4 text-gray group-hover/new:text-white">
                             Sticker Packs

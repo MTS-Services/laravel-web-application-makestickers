@@ -16,6 +16,12 @@ return new class extends Migration
     {
         Schema::create('material_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->unsignedBigInteger('third_category_id');
+            $table->foreign('third_category_id')->references('id')->on('third_categories')->onDelete('cascade');
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -16,8 +16,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->unsignedBigInteger('third_category_id');
+            $table->unsignedBigInteger('size_categories_id');
+            $table->string('description')->nullable();
+            $table->string('unit_price');
+            $table->string('preview_image')->nullable();
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes();            
+            $this->addAdminAuditColumns($table);
+
+            $table->foreign('size_categories_id')->references('id')->on('size_categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('third_category_id')->references('id')->on('third_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

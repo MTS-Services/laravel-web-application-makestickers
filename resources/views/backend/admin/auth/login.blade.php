@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app', ['page_slug' => 'login'])
 
-@section('title', 'Login')
+@section('title', 'Admin Login')
 
 @section('content')
     <div class="container">
@@ -54,7 +54,8 @@
 
                         <div class="flex justify-between items-center mt-4">
                             <label class="cursor-pointer label">
-                                <input type="checkbox" class="checkbox checkbox-xs" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}/>
+                                <input type="checkbox" class="checkbox checkbox-xs" name="remember" id="remember"
+                                    {{ old('remember') ? 'checked' : '' }} />
                                 <span class="label-text">Remember me</span>
                             </label>
                             <a href="" class="text-primary">Forgot Password</a>

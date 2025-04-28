@@ -10,7 +10,7 @@ class FrontendController extends Controller
 {
     public function home()
     {
-        
+
         return view('frontend.pages.home');
     }
 
@@ -36,7 +36,8 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.shipping');
     }
-    public function return(){
+    public function return()
+    {
         return view('frontend.pages.returns');
     }
 
@@ -56,5 +57,9 @@ class FrontendController extends Controller
     public function customLabel()
     {
         return view('frontend.pages.custom_labels');
+    }
+    public function review()
+    {
+        return view('frontend.pages.review');
     }
 }

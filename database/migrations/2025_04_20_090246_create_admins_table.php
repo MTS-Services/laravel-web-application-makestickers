@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use App\Http\Traits\AuditColumnTraits;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -24,6 +25,12 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $this->addAdminAuditColumns($table);
+
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('image')->nullable();
+            $table->tinyInteger('status')->default(Admin::STATUS_ACTIVE)->comment(Admin::STATUS_ACTIVE . ' = Active, ' . Admin::STATUS_PENDING . ' = Pending, ' . Admin::STATUS_INACTIVE . ' = Inactive');
+            $table->string('gender')->default(Admin::GENDER_OTHER)->comment(Admin::GENDER_MALE . ' = Male, ' . Admin::GENDER_FEMALE . ' = Female, ' . Admin::GENDER_OTHER . ' = Other');
         });
     }
 

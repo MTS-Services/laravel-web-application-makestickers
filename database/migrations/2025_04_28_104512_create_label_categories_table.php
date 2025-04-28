@@ -14,14 +14,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('third_categories', function (Blueprint $table) {
+        Schema::create('label_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('second_category_id');
-            $table->foreign('second_category_id')->references('id')->on('second_categories')->onDelete('cascade');
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('description')->nullable();
-            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('third_categories');
+        Schema::dropIfExists('label_categories');
     }
 };

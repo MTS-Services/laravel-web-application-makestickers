@@ -50,19 +50,9 @@
                                     <span class="sub-item">{{ __('Product') }}</span>
                                 </a>
                             </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'main_category') active @endif">
-                                <a href="{{ route('admin.main-category.index') }}">
-                                    <span class="sub-item">{{ __('Main Category') }}</span>
-                                </a>
-                            </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'second_category') active @endif">
-                                <a href="{{ route('admin.second-category.index') }}">
-                                    <span class="sub-item">{{ __('Second Category') }}</span>
-                                </a>
-                            </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'third_category') active @endif">
-                                <a href="{{ route('admin.third-category.index') }}">
-                                    <span class="sub-item">{{ __('Third Category') }}</span>
+                                <a href="{{ route('admin.sticker-category.index') }}">
+                                    <span class="sub-item">{{ __('Sticker Category') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'material_category') active @endif">

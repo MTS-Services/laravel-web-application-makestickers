@@ -14,16 +14,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('second_categories', function (Blueprint $table) {
+        Schema::create('sticker_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('main_category_id');
-            $table->foreign('main_category_id')->references('id')->on('main_categories')->onDelete('cascade');
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $this->addAdminAuditColumns($table);
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('second_categories');
+        Schema::dropIfExists('sticker_categories');
     }
 };

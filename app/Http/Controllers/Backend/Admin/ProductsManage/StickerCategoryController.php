@@ -7,11 +7,12 @@ use App\Http\Requests\SecondCategoryRequest;
 use App\Http\Traits\FileManagementTrait;
 use App\Models\MainCategory;
 use App\Models\SecondCategory;
+use App\Models\StickerCategory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
-class SecondCategoryController extends Controller
+class StickerCategoryController extends Controller
 {
     use FileManagementTrait;
     /**
@@ -19,8 +20,8 @@ class SecondCategoryController extends Controller
      */
     public function index()
     {
-        $data['second_categories'] = SecondCategory::with('mainCategory')->get();
-        return view('backend.admin.productsManage.secondCategory.index', $data);
+        $data['second_categories'] = StickerCategory::all();
+        return view('backend.admin.productsManage.stickerCategory.index', $data);
     }
 
     /**
@@ -28,8 +29,7 @@ class SecondCategoryController extends Controller
      */
     public function create(): View
     {
-        $data['main_categories'] = MainCategory::all();
-        return view('backend.admin.productsManage.secondCategory.create', $data);
+        return view('backend.admin.productsManage.stickerCategory.create');
     }
 
     /**
@@ -37,8 +37,7 @@ class SecondCategoryController extends Controller
      */
     public function store(SecondCategoryRequest $request)
     {
-        $second_category = new SecondCategory();
-        $second_category->main_category_id = $request->main_category_id;
+        $second_category = new StickerCategory();
         $second_category->title = $request->title;
         $second_category->slug = $request->slug;
         $second_category->description = $request->description;
@@ -47,7 +46,7 @@ class SecondCategoryController extends Controller
             $this->handleFileUpload($request, $second_category, 'image');
         }
         $second_category->save();
-        return redirect()->route('admin.second-category.index');
+        return redirect()->route('admin.sticker-category.index');
     }
 
     /**
@@ -55,9 +54,8 @@ class SecondCategoryController extends Controller
      */
     public function show(string $id)
     {
-        $id = decrypt($id);
-        $data['second_categories'] = SecondCategory::with('mainCategory')->findOrFail($id);
-        return view('backend.admin.productsManage.secondCategory.details', $data);
+        $data['second_categories'] = StickerCategory::with('mainCategory')->findOrFail(decrypt($id));
+        return view('backend.admin.productsManage.stickerCategory.details', $data);
     }
 
     /**
@@ -65,10 +63,8 @@ class SecondCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $id = decrypt($id);
-        $data['second_categories'] = SecondCategory::findOrFail($id);
-        $data['main_categories'] = MainCategory::all();
-        return view('backend.admin.productsManage.secondCategory.edit', $data);
+        $data['second_categories'] = StickerCategory::findOrFail(decrypt($id));
+        return view('backend.admin.productsManage.stickerCategory.edit', $data);
     }
 
     /**
@@ -77,7 +73,7 @@ class SecondCategoryController extends Controller
     public function update(SecondCategoryRequest $request, string $id)
     {
         $id = decrypt($id);
-        $second_category = SecondCategory::findOrFail($id);
+        $second_category = StickerCategory::findOrFail($id);
         $second_category->main_category_id = $request->main_category_id;
         $second_category->title = $request->title;
         $second_category->slug = $request->slug;
@@ -89,7 +85,7 @@ class SecondCategoryController extends Controller
         }
 
         $second_category->save();
-        return redirect()->route('admin.second-category.index');
+        return redirect()->route('admin.sticker-category.index');
     }
 
     /**
@@ -98,9 +94,9 @@ class SecondCategoryController extends Controller
     public function destroy(string $id)
     {
         $id = decrypt($id);
-        $second_category = SecondCategory::findOrFail($id);
+        $second_category = StickerCategory::findOrFail($id);
         $second_category->deleted_by = admin()->id;
         $second_category->delete();
-        return redirect()->route('admin.second-category.index');
+        return redirect()->route('admin.sticker-category.index');
     }
 }

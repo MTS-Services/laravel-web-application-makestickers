@@ -11,8 +11,7 @@ class FrontendController extends Controller
     public function home()
     {
         
-        $data['main_categories'] = MainCategory::with('secondCategories')->get();
-        return view('frontend.pages.home', $data);
+        return view('frontend.pages.home');
     }
 
     public function about()

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MaterialCategoryRequest;
 use App\Http\Traits\FileManagementTrait;
 use App\Models\MaterialCategory;
+use App\Models\StickerCategory;
 use App\Models\ThirdCategory;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class MaterialCategoryController extends Controller
      */
     public function create()
     {
-        $data['third_categories'] = ThirdCategory::all();
+        $data['third_categories'] = StickerCategory::all();
         return view('backend.admin.productsManage.materialCategory.create', $data);
     }
 
@@ -56,7 +57,7 @@ class MaterialCategoryController extends Controller
     {
         $id = decrypt($id);
         $data['material_categories   '] = MaterialCategory::findOrFail($id);
-        $data['third_categories'] = ThirdCategory::all();
+        $data['third_categories'] = StickerCategory::all();
         return view('backend.admin.productsManage.materialCategory.details', $data);
     }
 
@@ -67,7 +68,7 @@ class MaterialCategoryController extends Controller
     {
         $id = decrypt($id);
         $data['material_categories'] = MaterialCategory::findOrFail($id);
-        $data['third_categories'] = ThirdCategory::all();
+        $data['third_categories'] = StickerCategory::all();
         return view('backend.admin.productsManage.materialCategory.edit', $data);
     }
 

@@ -22,7 +22,6 @@ class SecondCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'main_category_id' => 'required|exists:main_categories,id',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
         ] +
@@ -32,14 +31,14 @@ class SecondCategoryRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'slug' => 'required|string|min:5|unique:second_categories,slug',
+            'slug' => 'required|string|min:5|unique:sticker_categories,slug',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'slug' => 'nullable|string|min:5|unique:second_categories,slug,' . decrypt($this->route('second_category')),
+            'slug' => 'nullable|string|min:5|unique:sticker_categories,slug,' . decrypt($this->route('sticker_category')),
         ];
     }
 }

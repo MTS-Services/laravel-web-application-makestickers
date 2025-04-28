@@ -6,16 +6,15 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Second Category</h3>
-                    <a href="{{ route('admin.second-category.create') }}" class="btn btn-primary btn-sm">Add New</a>
+                    <a href="{{ route('admin.sticker-category.create') }}" class="btn btn-primary btn-sm">Add New</a>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive overflow-visible">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>{{ __('Title') }}</th>
-                                    <th>{{ __('Main Category') }}</th>
                                     <th>{{ __('Slug') }}</th>
                                     <th>{{ __('Image') }}</th>
                                     <th width="20%">Action</th>
@@ -26,7 +25,6 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $second_category->title }}</td>
-                                        <td>{{ $second_category->mainCategory->title }}</td>
                                         <td>{{ $second_category->slug }}</td>
                                         <td>
                                             <img src="{{ storage_url($second_category->image) }}"
@@ -42,14 +40,14 @@
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     <li>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.second-category.show', encrypt($second_category->id)) }}">
+                                                            href="{{ route('admin.sticker-category.show', encrypt($second_category->id)) }}">
 
                                                             {{ __('Details') }}
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.second-category.edit', encrypt($second_category->id)) }}">
+                                                            href="{{ route('admin.sticker-category.edit', encrypt($second_category->id)) }}">
 
                                                             {{ __('Edit') }}
                                                         </a>
@@ -62,7 +60,7 @@
                                                             {{ __('Delete') }}
                                                         </a>
                                                         <form id="delete-form-{{ $second_category->id }}"
-                                                            action="{{ route('admin.second-category.destroy', encrypt($second_category->id)) }}"
+                                                            action="{{ route('admin.sticker-category.destroy', encrypt($second_category->id)) }}"
                                                             method="POST">
 
                                                             @csrf

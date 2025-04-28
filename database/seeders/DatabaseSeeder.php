@@ -18,6 +18,5 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AdminSeeder::class,
         ]);
-        SizeCategory::factory(10)->create('size_categories');
     }
 }

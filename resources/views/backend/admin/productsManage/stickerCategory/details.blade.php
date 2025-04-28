@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Second Category</h3>
-                    <a href="{{ route('admin.second-category.index') }}" class="btn btn-primary btn-sm">Back</a>
+                    <a href="{{ route('admin.sticker-category.index') }}" class="btn btn-primary btn-sm">Back</a>
                 </div>
                 <div class="card-body">
                         <table class="table table-striped">

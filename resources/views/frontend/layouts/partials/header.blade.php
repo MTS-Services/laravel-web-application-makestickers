@@ -74,25 +74,7 @@
             <div class="hidden md:flex space-x-6 text-font-14px font-semibold my-4">
                 <a href="{{ route('frontend.custom_sticker',) }}" class="hover:text-tertiary">CUSTOM STICKERS</a>
                 <a href="{{ route('frontend.custom_label') }}" class="hover:text-tertiary">CUSTOM LABELS</a>
-                {{-- @foreach ($main_categories as $main_category)
-                    <a href="#" class="main-category hover:text-tertiary uppercase"
-                        data-id="{{ $main_category->id }}">
-                        {{ $main_category->title }} 
-                    </a>
-                @endforeach --}}
-                {{-- @foreach ($main_categories as $main_category)
-                    <div class="group relative">
-                        <a href="#" class="hover:text-tertiary uppercase">{{ $main_category->title }}</a>
-                        <div class="absolute hidden group-hover:block bg-white">
-                            @foreach ($main_category->secondCategories as $subcategory)
-                                <a href="{{ route('subcategory.show', $subcategory->id) }}"
-                                    class="block px-4 py-2 text-sm">
-                                    {{ $subcategory->title }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                @endforeach --}}
+               
                 
                 <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
                 <a href="{{ route('frontend.designs') }}" class="hover:text-tertiary">DESIGNS</a>

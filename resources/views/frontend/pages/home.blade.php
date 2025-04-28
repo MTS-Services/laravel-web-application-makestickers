@@ -90,16 +90,8 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3   md:gap-4 sm:gap-2 md:px-4 px-2">
 
-                @foreach ($main_categories as $main_category)
-                    <a href=""
-                        class="card-1 text-center p-2 transform transition duration-300 hover:text-white hover:bg-primary-hover/80 rounded-xl">
-                        <img class="w-full mx-auto" src="{{ asset('Frontend/images/custom-stickers-2.jpg') }}"
-                            alt="">
-                        <h5 class="md:text-heading-5 text-heading-6 pt-1 uppercase font-bold">{{ $main_category->title }}
-                        </h5>
-                        <h6 class="md:text-heading-6 text-font-12px  pb-2">{{ $main_category->description }}</h6>
-                    </a>
-                @endforeach
+
+
                 <div
                     class="card-1 text-center p-2 transform transition duration-300 hover:text-white hover:bg-primary-hover/80 rounded-xl">
                     <img class="w-full mx-auto" src="{{ asset('Frontend/images/custom-stickers-2.jpg') }}" alt="">

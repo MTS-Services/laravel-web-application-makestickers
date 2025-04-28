@@ -98,7 +98,7 @@ class SizeManagController extends Controller
     public function destroy(string $id)
     {
         $id = decrypt($id);
-        $sizes = SizeCategory::findOrFail($id)->delete();
+        $sizes = SizeCategory::findOrFail($id);
         $sizes->deleted_by = admin()->id;
         $sizes->delete();
         session()->flash('success', 'Size deleted successfully');

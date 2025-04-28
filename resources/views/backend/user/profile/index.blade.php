@@ -11,7 +11,6 @@
         <div class="bg-gradient-to-r from-primary-hover to-dark-blue text-white text-center py-6">
             <h2 class="text-2xl sm:text-3xl font-semibold">{{ user()->name }}'s Profile</h2>
         </div>
-
         {{-- Profile Body --}}
         <div class="p-6 sm:p-8 text-center">
 

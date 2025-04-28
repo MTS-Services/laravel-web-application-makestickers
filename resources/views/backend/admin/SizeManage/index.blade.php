@@ -44,7 +44,8 @@
                                                 </a>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('admin.size.show', encrypt($size->id)) }}">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.size.show', encrypt($size->id)) }}">
                                                             {{ __('Details') }}
                                                         </a>
                                                     </li>
@@ -54,21 +55,19 @@
                                                             {{ __('Edit') }}
                                                         </a>
                                                     </li>
-
+                                                    <li>
                                                         <a title="Delete" href="javascript:void(0)"
-                                                            onclick="function(e) {
-                                                        e.preventDefault();
-                                                        document.getElementById('delete-form-{{ $size->id }}').submit();
-                                                    }"
-                                                            class="dropdown-item text-danger" data-id="">
-                                                            {{ __('Delete') }}
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $size->id }}').submit();"
+                                                        class="dropdown-item text-danger" data-id="">
+                                                        {{ __('Delete') }}
                                                         </a>
                                                         <form id="delete-form-{{ $size->id }}"
-                                                            action="{{ route('admin.size.destroy', encrypt($size->id)) }}"
-                                                            method="DELETE">
-                                                            @csrf
+                                                        action="{{ route('admin.size.destroy', encrypt($size->id)) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
                                                         </form>
-                                                    </li>
+                                                        </li>
                                                 </ul>
                                             </div>
                                         </td>

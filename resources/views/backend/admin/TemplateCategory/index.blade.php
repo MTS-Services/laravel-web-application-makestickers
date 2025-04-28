@@ -56,21 +56,18 @@
                                                         </a>
                                                     </li>
                                                     <li>
-
                                                         <a title="Delete" href="javascript:void(0)"
-                                                            onclick="function(e) {
-                                                        e.preventDefault();
-                                                        document.getElementById('delete-form-{{ $template->id }}').submit();
-                                                    }"
-                                                            class="dropdown-item text-danger" data-id="">
-                                                            {{ __('Delete') }}
+                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $template->id }}').submit();"
+                                                        class="dropdown-item text-danger" data-id="">
+                                                        {{ __('Delete') }}
                                                         </a>
                                                         <form id="delete-form-{{ $template->id }}"
-                                                            action="{{ route('admin.template-category.destroy', encrypt($template->id)) }}"
-                                                            method="DELETE">
-                                                            @csrf
+                                                        action="{{ route('admin.template-category.destroy', encrypt($template->id)) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
                                                         </form>
-                                                    </li>
+                                                        </li>
                                                 </ul>
                                             </div>
                                         </td>

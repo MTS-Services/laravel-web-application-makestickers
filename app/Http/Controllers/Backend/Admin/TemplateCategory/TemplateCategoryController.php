@@ -97,7 +97,7 @@ class TemplateCategoryController extends Controller
     public function destroy(string $id)
     {
         $id = decrypt($id);
-        $templates = TemplateCategory::findOrFail($id)->delete();
+        $templates = TemplateCategory::findOrFail($id);
         $templates->deleted_by = admin()->id;
         $templates->delete();
         session()->flash('success', 'deleted successfully');

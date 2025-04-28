@@ -38,12 +38,12 @@
 
                     <div class="mb-3">
                         <label>Short Description</label>
-                        <textarea name="short_description" class="form-control" rows="3">{{ old('short_description', $post->short_description) }}</textarea>
+                        <textarea name="short_desc" class="form-control" rows="3">{{ $post->short_desc }}</textarea>
                     </div>
 
                     <div class="mb-3">
                         <label>Long Description</label>
-                        <textarea name="long_description" class="form-control" rows="5">{{ old('long_description', $post->long_description) }}</textarea>
+                        <textarea name="long_desc" class="form-control" rows="5">{{ $post->long_desc }}</textarea>
                     </div>
 
                     <div class="mb-3">
@@ -64,7 +64,7 @@
 
                     <div class="mb-3">
                         <label>Video URL</label>
-                        <input type="text" name="video_url" class="form-control" value="{{ old('video_url', $post->video_url) }}">
+                        <input type="text" name="video_url" class="form-control" value="{{ $post->video_url }}">
                     </div>
 
                     <div class="mb-3">

@@ -38,8 +38,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ Str::limit($post->title, 40) }}</td>
                                 <td>{{ $post->slug }}</td>
-                                <td>{{ Str::limit($post->short_description, 50) }}</td>
-                                <td>{{ Str::limit(strip_tags($post->long_description), 50) }}</td>
+                                <td>{{ Str::limit($post->short_desc, 50) }}</td>
+                                <td>{{ Str::limit($post->long_desc, 50) }}</td>
                                 <td>
                                     <img src="{{ storage_url($post->featured_image) }}" width="60" alt="{{$post->title}}">
                                 </td>

@@ -82,7 +82,12 @@ class BlogPostsController extends Controller
     public function update(BolgPostsRequest $request, string $id)
     {
         $post = Blog::findOrFail($id);
-        $post->update($request->all());
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->short_desc = $request->short_desc;
+        $post->long_desc = $request->long_desc;
+        $post->status = $request->status;
+    
 
         if ($request->hasFile('video_thumbnail')) {
             $this->handleFileUpload($request, $post, 'video_thumbnail','video_thumbnail');

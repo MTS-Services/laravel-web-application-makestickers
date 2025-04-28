@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\MainCategory;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function home()
     {
-        return view('frontend.pages.home');
+        
+        $data['main_categories'] = MainCategory::with('secondCategories')->get();
+        return view('frontend.pages.home', $data);
     }
 
     public function about()
@@ -50,5 +53,9 @@ class FrontendController extends Controller
     public function customSticker()
     {
         return view('frontend.pages.custom_sticker');
+    }
+    public function customLabel()
+    {
+        return view('frontend.pages.custom_labels');
     }
 }

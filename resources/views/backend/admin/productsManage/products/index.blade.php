@@ -65,7 +65,7 @@
                                                         <ul class="dropdown-menu" aria-labelledby="status">
                                                             @foreach ($product->getStatusBtnText($product->status) as $status)
                                                                 <li class="dropdown-item">
-                                                                    <a href="{{ route('admin.product.status', [($product->id),(array_search($status['text'], $product->getStatus()))]) }}"
+                                                                    <a href="{{ route('admin.product.status', [encrypt($product->id), encrypt(array_search($status['text'], $product->getStatus()))]) }}"
                                                                         class="text-{{ $status['class'] }}">
                                                                     {{ $status['text'] }}
                                                                     </a>

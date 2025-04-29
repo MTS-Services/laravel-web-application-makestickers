@@ -7,8 +7,6 @@ use App\Http\Requests\MaterialCategoryRequest;
 use App\Http\Traits\FileManagementTrait;
 use App\Models\MaterialCategory;
 use App\Models\StickerCategory;
-use App\Models\ThirdCategory;
-use Illuminate\Http\Request;
 
 class MaterialCategoryController extends Controller
 {
@@ -18,7 +16,7 @@ class MaterialCategoryController extends Controller
      */
     public function index()
     {
-        $data['material_categories'] = MaterialCategory::with('thirdCategory')->get();
+        $data['material_categories'] = MaterialCategory::with('stickerCategory')->get();
         return view('backend.admin.productsManage.materialCategory.index', $data);
     }
 
@@ -27,7 +25,7 @@ class MaterialCategoryController extends Controller
      */
     public function create()
     {
-        $data['third_categories'] = StickerCategory::all();
+        $data['sticker_categories'] = StickerCategory::all();
         return view('backend.admin.productsManage.materialCategory.create', $data);
     }
 
@@ -38,7 +36,7 @@ class MaterialCategoryController extends Controller
     {
         $material_category = new MaterialCategory();
         $material_category->title = $request->title;
-        $material_category->third_category_id = $request->third_category_id;
+        $material_category->sticker_category_id = $request->sticker_category_id;
         $material_category->slug = $request->slug;
         $material_category->description = $request->description;
 
@@ -56,8 +54,8 @@ class MaterialCategoryController extends Controller
     public function show(string $id)
     {
         $id = decrypt($id);
-        $data['material_categories   '] = MaterialCategory::findOrFail($id);
-        $data['third_categories'] = StickerCategory::all();
+        $data['material_categories'] = MaterialCategory::findOrFail($id);
+        $data['sticker_categories'] = StickerCategory::all();
         return view('backend.admin.productsManage.materialCategory.details', $data);
     }
 
@@ -68,7 +66,7 @@ class MaterialCategoryController extends Controller
     {
         $id = decrypt($id);
         $data['material_categories'] = MaterialCategory::findOrFail($id);
-        $data['third_categories'] = StickerCategory::all();
+        $data['sticker_categories'] = StickerCategory::all();
         return view('backend.admin.productsManage.materialCategory.edit', $data);
     }
 
@@ -80,7 +78,7 @@ class MaterialCategoryController extends Controller
         $id = decrypt($id);
         $material_category = MaterialCategory::findOrFail($id);
         $material_category->title = $request->title;
-        $material_category->third_category_id = $request->third_category_id;
+        $material_category->sticker_category_id = $request->sticker_category_id;
         $material_category->slug = $request->slug;
         $material_category->description = $request->description;
         if ($request->hasFile('image')) {
@@ -97,6 +95,15 @@ class MaterialCategoryController extends Controller
     {
         $id = decrypt($id);
         MaterialCategory::findOrFail($id)->delete();
+        return redirect()->route('admin.material-category.index');
+    }
+    public function status(string $id, string $status)
+    {
+        $material_category = MaterialCategory::findOrFail(decrypt($id));
+        $material_category->status = decrypt($status);
+        $material_category->update();
+
+        session()->flash('success', 'Product Status Updated Successfully');
         return redirect()->route('admin.material-category.index');
     }
 }

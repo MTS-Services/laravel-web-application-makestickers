@@ -49,7 +49,7 @@
                     {{-- Image Upload --}}
                     <div class="mb-12">
                         <label class="form-label">Image</label>
-                        <x-file-upload name="image" type="image" maxSize="50" />
+                        <x-file-upload name="image" type="image" maxSize="2" />
                         @error('image')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

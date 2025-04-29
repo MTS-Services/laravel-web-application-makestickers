@@ -11,7 +11,6 @@
           <a href="#" class="block text-gray-600 hover:text-blue-600">My Profile</a>
           <a href="#" class="block text-gray-600 hover:text-blue-600">Address Book</a>
           <a href="#" class="block text-gray-600 hover:text-blue-600">My Payment Options</a>
-          <a href="#" class="block text-gray-600 hover:text-blue-600">Daraz Wallet</a>
 
           <div class="mt-6 font-bold text-gray-700">My Orders</div>
           <a href="#" class="block text-blue-600 font-semibold">My Orders</a>
@@ -23,7 +22,7 @@
 
           <div class="mt-6 font-bold text-gray-700">My Wishlist & Followed Stores</div>
 
-          <div class="mt-6 font-bold text-gray-700">Sell On Daraz</div>
+          <div class="mt-6 font-bold text-gray-700">Sell On Make Sticker</div>
         </nav>
       </div>
     </aside>

@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Requests\Order\OrderRequest;
+use App\Models\BillingAddress;
 use App\Models\PaymentMethod;
-use Illuminate\Support\Facades\Validator;
+use App\Models\ShippingAddress;
 
 class OrderController extends Controller
 {
@@ -35,12 +36,10 @@ class OrderController extends Controller
         return view('backend.user.order.order_detail');
     }
 
-    public function orderPayment()
-    {
-        return view('backend.user.order.odder');
-    }
+   
 
-    public function create() {}
+
+
 
     public function store(Request $request)
     {
@@ -52,6 +51,30 @@ class OrderController extends Controller
         $order->discount_total = $request->discount_total ?? 0;
         $order->shipping_total = $request->shipping_total ?? 0;
         $order->save();
+
+        $data=new ShippingAddress();
+        $data->creater_id = user()->id;
+        $data->country = $request->country;
+        $data->first_name = $request->first_name;
+        $data->last_name = $request->last_name;
+        $data->street_address = $request->street_address;
+        $data->phone = $request->phone;
+        $data->company = $request->company;
+        $data->state = $request->state;
+        $data->city = $request->city;
+        $data->zip_code = $request->zip_code;
+        $data->save();
+
+        $billing=new BillingAddress();
+        $billing->creater_id = user()->id;
+        $billing->first_name = $request->first_name;
+        $billing->last_name = $request->last_name;
+        $billing->street_address = $request->street_address;
+        $billing->state = $request->state;
+        $billing->city = $request->city;
+        $billing->zip_code = $request->zip_code;
+        $billing->save();
+
         $paymentMethod = new PaymentMethod();
         $paymentMethod->order_id = $order->id;
         $paymentMethod->name = $request->name ?? 'Unknown';
@@ -61,7 +84,7 @@ class OrderController extends Controller
         $paymentMethod->cvc = $request->cvc ?? null;
         $paymentMethod->save();
 
-        return redirect()->route('backend.user.check_out.index');
+        return redirect()->route('backend.user.order.odder');
     }
 
 

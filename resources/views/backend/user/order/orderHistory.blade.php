@@ -68,7 +68,7 @@
           <div class="flex flex-col md:flex-row p-4 space-y-4 md:space-y-0 md:space-x-4">
             <img src="https://static-01.daraz.com.bd/p/2066a2f2c17ee6620e55c5a71d82c8b2.jpg" alt="Product" class="w-24 h-24 object-cover rounded">
             <div class="flex-1">
-              <h3 class="font-semibold"><a href="{{ route('user.order.details') }}">Bata Rugged TRAINER Lace-Up Shoe for Men</a></h3>
+              <h3 class="font-semibold"><a href="{{ route('user.op.details') }}">Bata Rugged TRAINER Lace-Up Shoe for Men</a></h3>
               <p class="text-sm text-gray-500 mt-1">Color Family: Olive, Size: UK 10</p>
             </div>
             <div class="flex flex-col items-end">

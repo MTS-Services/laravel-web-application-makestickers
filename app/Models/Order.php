@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Products as Product;
+use App\Models\Product as Product;
 
 class Order extends BaseModel
 {
@@ -19,7 +20,7 @@ class Order extends BaseModel
     }
 
     public function product() {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(product::class);
     }
 
     public function billingAddress() {
@@ -88,7 +89,4 @@ class Order extends BaseModel
 
         return $statusTexts;
     }
- 
-
-
 }

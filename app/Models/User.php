@@ -29,4 +29,14 @@ class User extends AuthBaseModel
     {
         return $this->hasMany(Cart::class);
     }
+    public function shippingAddress()
+    {
+        return $this->hasMany(ShippingAddress::class);
+    }
+
+    public function billingAddress()
+    {
+        return $this->hasMany(BillingAddress::class);
+    }
+
 }

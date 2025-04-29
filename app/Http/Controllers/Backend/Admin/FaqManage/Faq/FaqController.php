@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin\FaqManage\Faq;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FaqManage\faqRequest;
+use App\Http\Requests\FaqManage\FaqRequest;
 use App\Models\Faq;
 use App\Models\FaqCategory;
 use Illuminate\Http\Request;
@@ -31,14 +31,9 @@ class FaqController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(faqRequest $request)
+    public function store(FaqRequest $request)
     {
-        $request->validate([
-            'faq_category_id' => 'required|exists:faq_categories,id',
-            'question' => 'required|string|max:255',
-            'answer' => 'required|string',
-        ]);
-
+        
         Faq::create($request->all());
 
         return redirect(route('admin.faq.index'))->with('success', 'FAQ created successfully.');

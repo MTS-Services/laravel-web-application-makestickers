@@ -31,11 +31,7 @@ class FaqcategoryController extends Controller
      */
     public function store(FaqcategoryRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'slug' => 'required|unique:faq_categories',
-        ]);
-
+        
         FaqCategory::create($request->only(['title', 'slug']));
 
         return redirect(route('admin.faqcategory.index'))->with('success', 'FAQ category created successfully.');

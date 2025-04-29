@@ -27,6 +27,9 @@
                                         <td>{{ $material_category->title }}</td>
                                         <td>{{ $material_category->stickerCategory->title }}</td>
                                         <td>{{ $material_category->slug }}</td>
+                                        <td><span
+                                                class="badge badge-{{ $material_category->status_bg }}">{{ $material_category->status_text }}</span>
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
@@ -47,6 +50,22 @@
 
                                                             {{ __('Edit') }}
                                                         </a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="javascript:void(0)"
+                                                            id="status" role="button" aria-expanded="false">
+                                                            {{ __('Status') }}
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="status">
+                                                            @foreach ($material_category->getStatusBtnText($material_category->status) as $status)
+                                                                <li class="dropdown-item">
+                                                                    <a href="{{ route('admin.material.status', [encrypt($material_category->id), encrypt(array_search($status['text'], $material_category->getStatus()))]) }}"
+                                                                        class="text-{{ $status['class'] }}">
+                                                                        {{ $status['text'] }}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
                                                     </li>
                                                     <li>
                                                         <a title="Delete" href="javascript:void(0)"

@@ -31,6 +31,13 @@
                                 <td>{{ $material_categories->description }}</td>
                             </tr>
                             <tr>
+                                <th>Status</th>
+                                <td><span>:</span></td>
+                                <td>
+                                    <span class="badge badge-{{ $material_categories->status_bg }}">{{ $material_categories->status_text }}</span>
+                                </td>
+                            </tr>
+                            <tr>
                                 <th>Image</th>
                                 <td><span>:</span></td>
                                 <td>

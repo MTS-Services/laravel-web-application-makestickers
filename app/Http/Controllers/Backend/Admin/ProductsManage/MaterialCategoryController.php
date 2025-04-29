@@ -97,4 +97,13 @@ class MaterialCategoryController extends Controller
         MaterialCategory::findOrFail($id)->delete();
         return redirect()->route('admin.material-category.index');
     }
+    public function status(string $id, string $status)
+    {
+        $material_category = MaterialCategory::findOrFail(decrypt($id));
+        $material_category->status = decrypt($status);
+        $material_category->update();
+
+        session()->flash('success', 'Product Status Updated Successfully');
+        return redirect()->route('admin.material-category.index');
+    }
 }

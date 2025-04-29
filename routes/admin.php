@@ -58,8 +58,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/sticker-category', StickerCategoryController::class);
         Route::resource('/material-category', MaterialCategoryController::class);
         Route::resource('/product', ProductsController::class);
-        Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('product.status');
-        Route::get('/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('sticker.status');
+        Route::get('/product/status/{id}/{status}', [ProductsController::class, 'status'])->name('product.status');
+        Route::get('/sticker-category/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('sticker.status');
+        Route::get('/material-category/status/{id}/{status}', [MaterialCategoryController::class, 'status'])->name('material.status');
     });
 
 

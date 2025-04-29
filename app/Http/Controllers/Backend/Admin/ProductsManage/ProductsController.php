@@ -104,8 +104,8 @@ class ProductsController extends Controller
     }
     public function status(string $id, string $status)
     {
-        $product = Product::findOrFail($id);
-        $product->status = $status;
+        $product = Product::findOrFail(decrypt($id));
+        $product->status = decrypt($status);
         $product->update();
 
         session()->flash('success', 'Product Status Updated Successfully');

@@ -16,8 +16,8 @@
                                     <th width="5%">#</th>
                                     <th>{{ __('Title') }}</th>
                                     <th>{{ __('Slug') }}</th>
-                                    <th>{{ __('Status') }}</th>
                                     <th>{{ __('Image') }}</th>
+                                    <th>{{ __('Status') }}</th>
                                     <th width="20%">Action</th>
                                 </tr>
                             </thead>
@@ -27,12 +27,12 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $sticker_category->title }}</td>
                                         <td>{{ $sticker_category->slug }}</td>
-                                        <td><span class="badge badge-{{ $sticker_category->status_bg }}">{{ $sticker_category->status_text }}</span></td>
                                         <td>
                                             <img src="{{ storage_url($sticker_category->image) }}"
-                                                alt="{{ $sticker_category->title }}"
-                                                style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
+                                            alt="{{ $sticker_category->title }}"
+                                            style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                                         </td>
+                                        <td><span class="badge badge-{{ $sticker_category->status_bg }}">{{ $sticker_category->status_text }}</span></td>
                                         <td>
                                             <div class="dropdown">
                                                 <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
@@ -63,7 +63,7 @@
                                                         <ul class="dropdown-menu" aria-labelledby="status">
                                                             @foreach ($sticker_category->getStatusBtnText($sticker_category->status) as $status)
                                                                 <li class="dropdown-item">
-                                                                    <a href="{{ route('admin.sticker.status', [($sticker_category->id),(array_search($status['text'], $sticker_category->getStatus()))]) }}"
+                                                                    <a href="{{ route('admin.sticker.status', [encrypt($sticker_category->id), encrypt(array_search($status['text'], $sticker_category->getStatus()))]) }}"
                                                                         class="text-{{ $status['class'] }}">
                                                                     {{ $status['text'] }}
                                                                     </a>

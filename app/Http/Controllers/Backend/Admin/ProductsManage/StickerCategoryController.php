@@ -101,11 +101,11 @@ class StickerCategoryController extends Controller
     }
     public function status(string $id, string $status)
     {
-        $sticker_category = StickerCategory::findOrFail($id);
-        $sticker_category->status = $status;
+        $sticker_category = StickerCategory::findOrFail(decrypt($id));
+        $sticker_category->status = decrypt($status);
         $sticker_category->update();
 
         session()->flash('success', 'Product Status Updated Successfully');
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.sticker-category.index');
     }
 }

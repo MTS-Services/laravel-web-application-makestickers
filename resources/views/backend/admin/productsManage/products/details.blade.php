@@ -6,37 +6,44 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Products</h3>
-                    <a href="{{ route('admin.product.index') }}" class="btn btn-primary btn-sm">Back</a>
+                    <a href="{{ route('admin.product.index') }}" class="btn btn-primary btn-md">Back</a>
                 </div>
                 <div class="card-body">
                         <table class="table table-striped">
                             <tr>
-                                <th>Title</th>
+                                <th>{{ __('Title') }}</th>
                                 <td><span>:</span></td>
                                 <td>{{ $products->title }}</td>
                             </tr>
                             <tr>
-                                <th>Category</th>
+                                <th>{{ __('Sticker Category') }}</th>
                                 <td><span>:</span></td>
                                 <td>{{ $products->stickerCategory }}</td>
                             </tr>
                             <tr>
-                                <th>Size</th>
+                                <th>{{ __('Size') }}</th>
                                 <td><span>:</span></td>
                                 <td>{{-- {{ $products->sizeCategory->title }} --}}</td>
                             </tr>
                             <tr>
-                                <th>Unit Price</th>
+                                <th>{{ __('Unit Price') }}</th>
                                 <td><span>:</span></td>
                                 <td>{{ $products->unit_price }}</td>
                             </tr>
                             <tr>
-                                <th>Description</th>
+                                <th>{{ __('Description') }}</th>
                                 <td><span>:</span></td>
                                 <td>{{ $products->description }}</td>
                             </tr>
                             <tr>
-                                <th>Preview Image</th>
+                                <th>{{ __('Status') }}</th>
+                                <td><span>:</span></td>
+                                <td>
+                                    <span class="badge badge-{{ $products->status_bg }}">{{ $products->status_text }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>{{ __('Preview Image') }}</th>
                                 <td><span>:</span></td>
                                 <td>
                                     <img src="{{ storage_url($products->preview_image) }}" alt="{{ $products->title }}"

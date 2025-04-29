@@ -4,9 +4,10 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class Products extends BaseModel
+class Product extends BaseModel
 {
     protected $table = 'products';
+
 
     protected $fillable = [
         'title',

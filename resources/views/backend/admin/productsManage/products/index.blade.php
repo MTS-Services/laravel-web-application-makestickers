@@ -18,6 +18,7 @@
                                     <th>{{ __('Category') }}</th>
                                     <th>{{ __('Size') }}</th>
                                     <th>{{ __('Unit Price') }}</th>
+                                    <th>{{ __('Status') }}</th>
                                     <th width="20%">Action</th>
                                 </tr>
                             </thead>
@@ -30,6 +31,7 @@
                                         </td>
                                         <td>{{ isset($product->sizeCategory) ? $product->sizeCategory->title : 'N/A' }}</td>
                                         <td>{{ $product->unit_price }}</td>
+                                        <td><span class="badge badge-{{ $product->status_bg }}">{{ $product->status_text }}</span></td>
                                         <td>
                                             <div class="dropdown">
                                                 <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
@@ -50,6 +52,22 @@
 
                                                             {{ __('Edit') }}
                                                         </a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="javascript:void(0)"
+                                                            id="status" role="button" aria-expanded="false">
+                                                            {{ __('Status') }}
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="status">
+                                                            @foreach ($product->getStatusBtnText($product->status) as $status)
+                                                                <li class="dropdown-item">
+                                                                    <a href="{{ route('admin.product.status', [($product->id),(array_search($status['text'], $product->getStatus()))]) }}"
+                                                                        class="text-{{ $status['class'] }}">
+                                                                    {{ $status['text'] }}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
                                                     </li>
                                                     <li>
                                                         <a title="Delete" href="javascript:void(0)"

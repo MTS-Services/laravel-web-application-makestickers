@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend\Admin\ProductsManage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Traits\FileManagementTrait;
-use App\Models\Products;
+use App\Models\Product;
 use App\Models\SizeCategory;
 use App\Models\StickerCategory;
 
@@ -17,7 +17,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $data['products'] = Products::with(['stickerCategory', 'SizeCategory', 'admin'])->get();
+        $data['products'] = Product::with(['stickerCategory', 'SizeCategory', 'admin'])->get();
         return view('backend.admin.productsManage.products.index', $data);
     }
 
@@ -36,16 +36,16 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $products = new Products();
-        $products->title = $request->title;
-        $products->sticker_category_id = $request->sticker_category_id;
-        $products->description = $request->description;
-        $products->unit_price = $request->unit_price;
+        $product = new Product();
+        $product->title = $request->title;
+        $product->sticker_category_id = $request->sticker_category_id;
+        $product->description = $request->description;
+        $product->unit_price = $request->unit_price;
         if ($request->hasFile('preview_image')) {
-            $this->handleFileUpload($request, $products, 'preview_image');
+            $this->handleFileUpload($request, $product, 'preview_image');
         }
 
-        $products->save();
+        $product->save();
         session()->flash('success', 'Product added successfully');
         return redirect()->route('admin.product.index');
     }
@@ -56,7 +56,7 @@ class ProductsController extends Controller
     public function show(string $id)
     {
         $id = decrypt($id);
-        $data['products'] = Products::with(['stickerCategory', 'SizeCategory'])->findOrFail($id);
+        $data['products'] = Product::with(['stickerCategory', 'SizeCategory'])->findOrFail($id);
         return view('backend.admin.productsManage.products.details', $data);
     }
 
@@ -66,7 +66,7 @@ class ProductsController extends Controller
     public function edit(string $id)
     {
         $id = decrypt($id);
-        $data['products'] = Products::findOrFail($id);
+        $data['products'] = Product::findOrFail($id);
         $data['sticker_categories'] = StickerCategory::all();
         $data['size_categories'] = SizeCategory::all();
         return view('backend.admin.productsManage.products.edit', $data);
@@ -78,16 +78,16 @@ class ProductsController extends Controller
     public function update(ProductRequest $request, string $id)
     {
         $id = decrypt($id);
-        $products = Products::findOrFail($id);
-        $products->title = $request->title;
-        $products->sticker_category_id = $request->sticker_category_id;
-        $products->description = $request->description;
-        $products->unit_price = $request->unit_price;
+        $product = Product::findOrFail($id);
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->unit_price = $request->unit_price;
+        $product->status = $request->status;
         if ($request->hasFile('preview_image')) {
-            $this->handleFileUpload($request, $products, 'preview_image');
+            $this->handleFileUpload($request, $product, 'preview_image');
         }
 
-        $products->save();
+        $product->save();
         session()->flash('success', 'Product updated successfully');
         return redirect()->route('admin.product.index');
     }
@@ -98,8 +98,17 @@ class ProductsController extends Controller
     public function destroy(string $id)
     {
         $id = decrypt($id);
-        Products::findOrFail($id)->delete();
+        Product::findOrFail($id)->delete();
         session()->flash('success', 'Product deleted successfully');
+        return redirect()->route('admin.product.index');
+    }
+    public function status(string $id, string $status)
+    {
+        $product = Product::findOrFail($id);
+        $product->status = $status;
+        $product->update();
+
+        session()->flash('success', 'Product Status Updated Successfully');
         return redirect()->route('admin.product.index');
     }
 }

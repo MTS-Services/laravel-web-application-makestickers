@@ -18,7 +18,8 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" name="title" value="{{ old('title') }}" class="form-control" id="title">
+                        <input type="text" name="title" value="{{ old('title') }}" class="form-control"
+                            id="title">
                         @error('title')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -40,6 +41,18 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
+                        <label for="status" class="form-label">Status Category</label>
+                        <select name="status" id="status" class="form-control">
+                            <option value="">Select Status</option>
+                            @foreach (getStatus() as $key => $value)
+                                <option value="{{ $key }}">{{ $value }}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
                         <label for="size_categories_id" class="form-label">Size Category</label>
                         <select name="size_categories_id" id="size_categories_id" class="form-control">
                             <option value="">Select Size Category</option>
@@ -55,7 +68,8 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="color_categories_id" class="form-label">Unit Price</label>
-                        <input type="text" name="unit_price" value="{{ old('unit_price') }}" class="form-control" id="unit_price">
+                        <input type="text" name="unit_price" value="{{ old('unit_price') }}" class="form-control"
+                            id="unit_price">
                         @error('unit_price')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

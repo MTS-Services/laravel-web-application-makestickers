@@ -61,12 +61,26 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     {{-- Description --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea name="description" id="description" class="form-control"  rows="5">{{ $products->description }}</textarea>
                         @error('description')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" id="status" class="form-control">
+                            <option value="">Select Status</option>
+                            @foreach (getStatus() as $key => $value)
+                                <option value="{{ $key }}" {{ $key == $products->status ? 'selected' : '' }}>{{ $value }}</option>
+                            @endforeach
+                        </select>
+                        @error('status')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

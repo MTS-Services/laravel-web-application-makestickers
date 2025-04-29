@@ -110,6 +110,7 @@ class ProductsController extends Controller
         session()->flash('success', 'Product deleted successfully');
         return redirect()->route('admin.product.index');
     }
+
     public function status(string $id, string $status)
     {
         $product = Product::findOrFail(decrypt($id));
@@ -118,5 +119,30 @@ class ProductsController extends Controller
 
         session()->flash('success', 'Product Status Updated Successfully');
         return redirect()->route('admin.product.index');
+    }
+
+    public function trash()
+    {
+        $products = Product::onlyTrashed()->latest()->get();
+        $products->load('deletedBy');
+        // $data['sticker_categories'] = StickerCategory::all();
+        // $data['size_categories'] = SizeCategory::all();
+        return view('backend.admin.productsManage.products.trash', compact('products'));
+    }
+
+    public function restore(string $id)
+    {
+        $id = decrypt($id);
+        Product::onlyTrashed()->findOrFail($id)->restore();
+        session()->flash('success', 'Product restored successfully');
+        return redirect()->route('admin.product.trash');
+    }
+
+    public function forceDelete(string $id)
+    {
+        $id = decrypt($id);
+        Product::onlyTrashed()->findOrFail($id)->forceDelete();
+        session()->flash('success', 'Product deleted permanently');
+        return redirect()->route('admin.product.trash');
     }
 }

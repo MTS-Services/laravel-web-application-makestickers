@@ -73,9 +73,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/product', ProductsController::class);
         Route::group(['as' => 'product.', 'prefix' => 'product'], function () {
             Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('status');
-            // Trash 
-            // restore 
-            // force delete
+            Route::get('/trash', [ProductsController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [ProductsController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [ProductsController::class, 'forceDelete'])->name('force-delete');
         });
         Route::resource('/label-category', LabelCategoryController::class);
         Route::group(['as' => 'label-category.', 'prefix' => 'label-category'], function () {

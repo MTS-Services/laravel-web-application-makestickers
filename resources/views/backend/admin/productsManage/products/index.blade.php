@@ -1,12 +1,15 @@
 @extends('backend.admin.layouts.app', ['page_slug' => 'product'])
 
 @section('content')
-    <div class="row mt-4">
+    <div class="row mt-5">
         <div class="col-md-12 mx-auto">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Products Category</h3>
-                    <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-sm">Add New</a>
+                    <div>
+                        <a href="#" class="btn btn-info btn-md me-2">Trash</a>
+                        <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-md">Add New</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive overflow-visible">

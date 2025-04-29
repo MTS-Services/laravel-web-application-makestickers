@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardContr
 use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
+use App\Models\StickerCategory;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/material-category', MaterialCategoryController::class);
         Route::resource('/product', ProductsController::class);
         Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('product.status');
+        Route::get('/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('sticker.status');
     });
 
 

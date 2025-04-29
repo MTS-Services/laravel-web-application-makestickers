@@ -99,4 +99,13 @@ class StickerCategoryController extends Controller
         $sticker_category->delete();
         return redirect()->route('admin.sticker-category.index');
     }
+    public function status(string $id, string $status)
+    {
+        $sticker_category = StickerCategory::findOrFail($id);
+        $sticker_category->status = $status;
+        $sticker_category->update();
+
+        session()->flash('success', 'Product Status Updated Successfully');
+        return redirect()->route('admin.product.index');
+    }
 }

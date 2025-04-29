@@ -19,11 +19,19 @@
                             <th>Slug</th>
                             <td><span>:</span></td>
                             <td>{{ $sticker_categories->slug }}</td>
+                            
                         </tr>
                         <tr>
                             <th>Description</th>
                             <td><span>:</span></td>
                             <td>{{ $sticker_categories->description }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td><span>:</span></td>
+                            <td>
+                                <span class="badge badge-{{ $sticker_categories->status_bg }}">{{ $sticker_categories->status_text }}</span>
+                            </td>
                         </tr>
                         <tr>
                             <th>Image</th>

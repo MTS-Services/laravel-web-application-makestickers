@@ -16,6 +16,7 @@
                                     <th width="5%">#</th>
                                     <th>{{ __('Title') }}</th>
                                     <th>{{ __('Slug') }}</th>
+                                    <th>{{ __('Status') }}</th>
                                     <th>{{ __('Image') }}</th>
                                     <th width="20%">Action</th>
                                 </tr>
@@ -26,6 +27,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $sticker_category->title }}</td>
                                         <td>{{ $sticker_category->slug }}</td>
+                                        <td><span class="badge badge-{{ $sticker_category->status_bg }}">{{ $sticker_category->status_text }}</span></td>
                                         <td>
                                             <img src="{{ storage_url($sticker_category->image) }}"
                                                 alt="{{ $sticker_category->title }}"
@@ -38,6 +40,7 @@
                                                     <i class="icon-settings fs-3 setting"></i>
                                                 </a>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
                                                     <li>
                                                         <a class="dropdown-item"
                                                             href="{{ route('admin.sticker-category.show', encrypt($sticker_category->id)) }}">
@@ -51,6 +54,22 @@
 
                                                             {{ __('Edit') }}
                                                         </a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle" href="javascript:void(0)"
+                                                            id="status" role="button" aria-expanded="false">
+                                                            {{ __('Status') }}
+                                                        </a>
+                                                        <ul class="dropdown-menu" aria-labelledby="status">
+                                                            @foreach ($sticker_category->getStatusBtnText($sticker_category->status) as $status)
+                                                                <li class="dropdown-item">
+                                                                    <a href="{{ route('admin.sticker.status', [($sticker_category->id),(array_search($status['text'], $sticker_category->getStatus()))]) }}"
+                                                                        class="text-{{ $status['class'] }}">
+                                                                    {{ $status['text'] }}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
                                                     </li>
                                                     <li>
                                                         <a title="Delete" href="javascript:void(0)"

@@ -45,16 +45,18 @@
         {{-- Categories --}}
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-[50px]">
+                @foreach ($custom_stickers as  $custom_sticker)
                 <div class="text-center p-2 bg-light-gray rounded-md">
-                    <div class="">
-                        <img class="w-full mx-auto" src="{{ asset('frontend/custom-sticker/die-cut-stickers.svg') }}"
+                    <div class="p-3">
+                        <img class="w-full mx-auto" src="{{ storage_url($custom_sticker->preview_image) }}"
                             alt="" style="width: 300px">
                     </div>
                     <div class="p-3">
-                        <h4 class="text-font-20px font-extrabold uppercase text-dark">Die Cut Stickers</h4>
-                        <p class="text-font-16px text-gray p-2">Lorem ipsum dolor sit amet consectetur.</p>
+                        <h4 class="text-font-20px font-extrabold uppercase text-dark">{{ $custom_sticker->title }}</h4>
+                        <p class="text-font-16px text-gray p-2">{{ $custom_sticker->description }}</p>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
         {{-- The MakeStickers Way --}}

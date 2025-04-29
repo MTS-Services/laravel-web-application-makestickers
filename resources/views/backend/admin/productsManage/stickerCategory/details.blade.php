@@ -41,6 +41,26 @@
                                     style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                             </td>
                         </tr>
+                        <tr>
+                            <th>Created By</th>
+                            <td><span>:</span></td>
+                            <td>{{ $sticker_categories->created_by_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Created At</th>
+                            <td><span>:</span></td>
+                            <td>{{ timeFormat($sticker_categories->created_at) }}</td>
+                        </tr>
+                        <tr>
+                            <th>Updated By</th>
+                            <td><span>:</span></td>
+                            <td>{{ $sticker_categories->updated_by_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Updated At</th>
+                            <td><span>:</span></td>
+                            <td>{{ updatedDate($sticker_categories->created_at, $sticker_categories->updated_at) }}</td>
+                        </tr>
                     </table>
 
                 </div>

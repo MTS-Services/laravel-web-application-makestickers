@@ -27,28 +27,30 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="third_category_id" class="form-label">Third Category</label>
-                        <select name="third_category_id" id="third_category_id" class="form-control">
-                            <option value="">Select Third Category</option>
-                            @foreach ($third_categories as $third_category)
-                                <option value="{{ $third_category->id }}">{{ $third_category->title }}</option>
+                        <label for="sticker_category_id" class="form-label">Sticker Category</label>
+                        <select name="sticker_category_id" id="sticker_category_id" class="form-control">
+                            <option value="">Select Sticker Category</option>
+                            @foreach ($sticker_categories as $sticker_category)
+                                <option value="{{ $sticker_category->id }}">{{ $sticker_category->title }}</option>
                             @endforeach
                         </select>
-                        @error('third_category_id')
+                        @error('sticker_category_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="status" class="form-label">Status Category</label>
-                        <select name="status" id="status" class="form-control">
-                            <option value="">Select Status</option>
-                            @foreach (getStatus() as $key => $value)
-                                <option value="{{ $key }}">{{ $value }}</option>
+                        <label for="label_category_id" class="form-label">Label Category</label>
+                        <select name="label_category_id" id="label_category_id" class="form-control">
+                            <option value="">Select Label Category</option>
+                            @foreach ($label_categories as $label_category)
+                                <option value="{{ $label_category->id }}">{{ $label_category->title }}</option>
                             @endforeach
                         </select>
-
+                        @error('label_category_id')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -66,21 +68,22 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="color_categories_id" class="form-label">Unit Price</label>
-                        <input type="text" name="unit_price" value="{{ old('unit_price') }}" class="form-control"
-                            id="unit_price">
-                        @error('unit_price')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-12">
                     {{-- Description --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea name="description" id="description" class="form-control" rows="5">{{ old('description') }}</textarea>
                         @error('description')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="color_categories_id" class="form-label">Unit Price</label>
+                        <input type="text" name="unit_price" value="{{ old('unit_price') }}" class="form-control"
+                            id="unit_price">
+                        @error('unit_price')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

@@ -35,28 +35,28 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="third_category_id" class="form-label">Third Category</label>
-                        <select name="third_category_id" id="third_category_id" class="form-control">
-                            <option value="">Select Third Category</option>
-                            @foreach ($third_categories as $third_category)
-                                <option value="{{ $third_category->id }}" {{ $third_category->id == $products->third_category_id ? 'selected' : '' }}>{{ $third_category->title }}</option>
+                        <label for="sticker_category_id" class="form-label">Sticker Category</label>
+                        <select name="sticker_category_id" id="sticker_category_id" class="form-control">
+                            <option value="">Select sticker category</option>
+                            @foreach ($sticker_categories as $sticker_category)
+                                <option value="{{ $sticker_category->id }}" {{ $sticker_category->id == $products->sticker_category_id ? 'selected' : '' }}>{{ $sticker_category->title }}</option>
                             @endforeach
                         </select>
-                        @error('third_category_id')
+                        @error('sticker_category_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="size_categories_id" class="form-label">Size</label>
-                        <select name="size_categories_id" id="size_categories_id" class="form-control">
-                            <option value="">Select Size Category</option>
-                            @foreach ($size_categories as $size_category)
-                                <option value="{{ $size_category->id }}" {{ $size_category->id == $products->size_categories_id ? 'selected' : '' }}>{{ $size_category->title }}</option>
+                        <label for="label_category_id" class="form-label">Label Category</label>
+                        <select name="label_category_id" id="label_category_id" class="form-control">
+                            <option value="">Select label category</option>
+                            @foreach ($label_categories as $label_category)
+                                <option value="{{ $label_category->id }}" {{ $label_category->id == $products->label_category_id ? 'selected' : '' }}>{{ $label_category->title }}</option>
                             @endforeach
                         </select>
-                        @error('size_categories_id')
+                        @error('label_category_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -73,14 +73,14 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select name="status" id="status" class="form-control">
-                            <option value="">Select Status</option>
-                            @foreach (getStatus() as $key => $value)
-                                <option value="{{ $key }}" {{ $key == $products->status ? 'selected' : '' }}>{{ $value }}</option>
+                        <label for="size_categories_id" class="form-label">Size</label>
+                        <select name="size_categories_id" id="size_categories_id" class="form-control">
+                            <option value="">Select Size Category</option>
+                            @foreach ($size_categories as $size_category)
+                                <option value="{{ $size_category->id }}" {{ $size_category->id == $products->size_categories_id ? 'selected' : '' }}>{{ $size_category->title }}</option>
                             @endforeach
                         </select>
-                        @error('status')
+                        @error('size_categories_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

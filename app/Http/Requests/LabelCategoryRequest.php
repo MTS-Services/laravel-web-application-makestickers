@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ThirdCategoryRequest extends FormRequest
+class LabelCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,6 @@ class ThirdCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'second_category_id' => 'required|exists:second_categories,id',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
@@ -34,14 +33,14 @@ class ThirdCategoryRequest extends FormRequest
     
     {
         return [
-            'slug' => 'required|string|min:5|unique:third_categories,slug',
+            'slug' => 'required|string|min:5|unique:label_categories,slug',
         ];
     } 
 
     protected function update(): array
     {
         return [
-            'slug' => 'required|string|min:5|unique:third_categories,slug,' . decrypt($this->route('third_category')),
+            'slug' => 'required|string|min:5|unique:label_categories,slug,' . decrypt($this->route('label_category')),
         ];
     }  
 }

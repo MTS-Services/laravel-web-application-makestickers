@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'main_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'label_category'])
 
 @push('css')
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -8,10 +8,10 @@
 @section('content')
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Create Main Category</h2>
-            <a href="{{ route('admin.main-category.index') }}" class="btn btn-primary btn-md">Back</a>
+            <h2>Create Label Category</h2>
+            <a href="{{ route('admin.label-category.index') }}" class="btn btn-primary btn-md">Back</a>
         </div>
-        <form action="{{ route('admin.main-category.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.label-category.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="row">

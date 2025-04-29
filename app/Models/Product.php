@@ -17,11 +17,23 @@ class Product extends BaseModel
         'unit_price',
         'description',
         'preview_image',
+
+        'created_by',
+        'updated_by',
+        'deleted_by',
+
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public function stickerCategory()
     {
         return $this->belongsTo(StickerCategory::class);
+    }
+    public function labelCategory()
+    {
+        return $this->belongsTo(LabelCategory::class);
     }
     public function SizeCategory()
     {

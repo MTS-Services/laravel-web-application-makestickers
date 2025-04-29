@@ -71,7 +71,7 @@
                         <p>{{ __('Products Management') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'product' || $page_slug == 'main_category' || $page_slug == 'second_category' || $page_slug == 'third_category' || $page_slug == 'material_category')) show @endif" id="1">
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'product' || $page_slug == 'label_category' || $page_slug == 'second_category' || $page_slug == 'third_category' || $page_slug == 'material_category')) show @endif" id="1">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'product') active @endif">
                                 <a href="{{ route('admin.product.index') }}">
@@ -81,6 +81,11 @@
                             <li class="@if (isset($page_slug) && $page_slug == 'second_category') active @endif">
                                 <a href="{{ route('admin.sticker-category.index') }}">
                                     <span class="sub-item">{{ __('Sticker Category') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'label_category') active @endif">
+                                <a href="{{ route('admin.label-category.index') }}">
+                                    <span class="sub-item">{{ __('Label Category') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'material_category') active @endif">

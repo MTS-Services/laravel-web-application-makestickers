@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Backend\Admin\ProductsManage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Traits\FileManagementTrait;
+use App\Models\LabelCategory;
 use App\Models\Product;
 use App\Models\SizeCategory;
 use App\Models\StickerCategory;
-use App\Models\ThirdCategory;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -19,7 +19,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $data['products'] = Product::with(['stickerCategory', 'SizeCategory', 'admin'])->get();
+        $data['products'] = Product::with(['stickerCategory', 'SizeCategory', 'labelCategory'])->get();
         return view('backend.admin.productsManage.products.index', $data);
     }
 
@@ -28,8 +28,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $data['third_categories'] = StickerCategory::all();
+        $data['sticker_categories'] = StickerCategory::all();
         $data['size_categories'] = SizeCategory::all();
+        $data['label_categories'] = LabelCategory::all();
         return view('backend.admin.productsManage.products.create', $data);
     }
 
@@ -38,16 +39,20 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        $validated = $request->validated();
         $product = new Product();
         $product->title = $request->title;
         $product->description = $request->description;
-        $product->unit_price = $request->unit_price;
+        $product->unit_price = $request->unit_price; 
+
         if (isset($request->status)) {
             $product->status = $request->status;
         }
         if ($request->hasFile('preview_image')) {
             $this->handleFileUpload($request, $product, 'preview_image');
         }
+        
+        $product->created_by = admin()->id;
 
         $product->save();
         session()->flash('success', 'Product added successfully');
@@ -71,8 +76,9 @@ class ProductsController extends Controller
     {
         $id = decrypt($id);
         $data['products'] = Product::findOrFail($id);
-        $data['third_categories'] = StickerCategory::all();
+        $data['sticker_categories'] = StickerCategory::all();
         $data['size_categories'] = SizeCategory::all();
+        $data['label_categories'] = LabelCategory::all();
         return view('backend.admin.productsManage.products.edit', $data);
     }
 
@@ -83,15 +89,11 @@ class ProductsController extends Controller
     {
         $id = decrypt($id);
         $product = Product::findOrFail($id);
-        $product->title = $request->title;
-        $product->description = $request->description;
-        $product->unit_price = $request->unit_price;
-        $product->status = $request->status;
+        $validated = $request->validated();
         if ($request->hasFile('preview_image')) {
             $this->handleFileUpload($request, $product, 'preview_image');
         }
-
-        $product->save();
+        $product->update($validated);
         session()->flash('success', 'Product updated successfully');
         return redirect()->route('admin.product.index');
     }

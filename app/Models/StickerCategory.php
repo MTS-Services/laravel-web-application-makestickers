@@ -10,6 +10,6 @@ class StickerCategory extends BaseModel
 
     public function products()
     {
-        return $this->hasMany(Products::class, 'sticker_category_id');
+        return $this->hasMany(Product::class, 'sticker_category_id');
     }
 }

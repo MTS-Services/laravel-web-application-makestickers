@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'main_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'label_category'])
 
 @push('css')
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -8,17 +8,17 @@
 @section('content')
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Edit Main Category</h2>
-            <a href="{{ route('admin.main-category.index') }}" class="btn btn-primary btn-md">Back</a>
+            <h2>Edit Label Category</h2>
+            <a href="{{ route('admin.label-category.index') }}" class="btn btn-primary btn-md">Back</a>
         </div>
-        <form action="{{ route('admin.main-category.update', encrypt($main_category->id)) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.label-category.update', encrypt($label_category->id)) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" name="title" class="form-control" value="{{ $main_category->title }}" id="title">
+                        <input type="text" name="title" class="form-control" value="{{ $label_category->title }}" id="title">
                         @error('title')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -27,7 +27,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
-                        <input type="text" name="slug" class="form-control" value="{{ $main_category->slug }}" id="slug">
+                        <input type="text" name="slug" class="form-control" value="{{ $label_category->slug }}" id="slug">
                         @error('slug')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -37,7 +37,7 @@
                     {{-- Description --}}
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea name="description" id="description" class="form-control"  rows="5">{{ $main_category->description }}</textarea>
+                        <textarea name="description" id="description" class="form-control"  rows="5">{{ $label_category->description }}</textarea>
                         @error('description')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

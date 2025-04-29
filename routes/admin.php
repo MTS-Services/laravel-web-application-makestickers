@@ -8,9 +8,11 @@ use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\SiteSetting\SiteSettingController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\LabelCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
+use App\Models\LabelCategory;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -57,7 +59,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/sticker-category', StickerCategoryController::class);
         Route::resource('/material-category', MaterialCategoryController::class);
         Route::resource('/product', ProductsController::class);
-        Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('product.status');
+        Route::group(['as' => 'product.', 'prefix' => 'product'], function () {
+            Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('status');
+            // Trash 
+            // restore 
+            // force delete
+        });
+        Route::resource('/label-category', LabelCategoryController::class);
+        Route::group(['as' => 'label-category.', 'prefix' => 'label-category'], function () {
+            Route::get('/status/{id}/{status}', [LabelCategoryController::class, 'status'])->name('status');
+            // Trash
+            // restore 
+            // force delete
+        });
     });
 
 

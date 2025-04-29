@@ -50,6 +50,26 @@
                                         style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                                 </td>
                             </tr>
+                            <tr>
+                                <th>{{ __('Created At') }}</th>
+                                <td><span>:</span></td>
+                                <td>{{ timeFormat($products->created_at) }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ __('Created By') }}</th>
+                                <td><span>:</span></td>
+                                <td>{{ $products->created_by_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ __('Updated At') }}</th>
+                                <td><span>:</span></td>
+                                <td>{{ updatedDate($products->created_at, $products->updated_at) }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ __('Updated By') }}</th>
+                                <td><span>:</span></td>
+                                <td>{{ $products->updated_by_name }}</td>
+                            </tr>
                         </table>
 
                 </div>

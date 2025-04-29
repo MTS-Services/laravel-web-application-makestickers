@@ -19,7 +19,8 @@
                                     <th>{{ __('Size') }}</th>
                                     <th>{{ __('Unit Price') }}</th>
                                     <th>{{ __('Status') }}</th>
-                                    <th width="20%">Action</th>
+                                    <th>{{ __('Created By') }}</th>
+                                    <th width="20%">{{ __('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,6 +33,9 @@
                                         <td>{{ isset($product->sizeCategory) ? $product->sizeCategory->title : 'N/A' }}</td>
                                         <td>{{ $product->unit_price }}</td>
                                         <td><span class="badge badge-{{ $product->status_bg }}">{{ $product->status_text }}</span></td>
+                                        <td>
+                                            {{ $product->created_by_name }}
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"

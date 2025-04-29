@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('unit_price');
             $table->string('preview_image')->nullable();
-
-            $table->tinyInteger('status')->max(1)->default(Product::STATUS_ACTIVE)->comment(Product::STATUS_ACTIVE . ' = Active, ' );
+            $table->tinyInteger('status')->max(1)->default(Product::STATUS_ACTIVE)->comment(Product::STATUS_ACTIVE . ' = Active, ' . Product::STATUS_INACTIVE . ' = Inactive');
 
             $table->timestamps();
             $table->softDeletes();            

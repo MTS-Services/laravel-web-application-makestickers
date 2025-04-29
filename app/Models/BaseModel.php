@@ -10,11 +10,44 @@ class BaseModel extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public function createdBy()
+    {
+        return $this->belongsTo(Admin::class, 'created_by');
+    }
+
+    public function updatedBy()
+    {
+        return $this->belongsTo(Admin::class, 'updated_by');
+    }
+
+    public function deletedBy()
+    {
+        return $this->belongsTo(Admin::class, 'deleted_by');
+    }
 
     protected $appends = [
+        'created_by_name',
+        'updated_by_name',
+        'deleted_by_name',
+
         'status_text',
         'status_bg',
     ];
+
+    public function getCreatedByNameAttribute()
+    {
+        return $this->createdBy ? $this->createdBy->name : 'System';
+    }
+
+    public function getUpdatedByNameAttribute()
+    {
+        return $this->updatedBy ? $this->updatedBy->name : 'Null';
+    }
+
+    public function getDeletedByNameAttribute()
+    {
+        return $this->deletedBy ? $this->deletedBy->name : 'Null';
+    }
 
     public const STATUS_ACTIVE = 1;
     public const STATUS_INACTIVE = 0;

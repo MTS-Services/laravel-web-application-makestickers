@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('label_category_id')->nullable();
             $table->foreign('material_category_id')->references('id')->on('material_categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('sticker_category_id')->references('id')->on('sticker_categories')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('label_category_id')->references('id')->on('sticker_categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('label_category_id')->references('id')->on('label_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

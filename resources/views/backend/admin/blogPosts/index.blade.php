@@ -14,18 +14,13 @@
                 <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
 
-                <div class="table-responsive">
+                <div class="table-responsive overflow-visible">
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Title</th>
                                 <th>Slug</th>
-                                <th>Short Description</th>
-                                <th>Long Description</th>
-                                <th>Featured Image</th>
-                                <th>Image</th>
-                                <th>Video url</th>
                                 <th>Video Thumbnail</th>
                                 <th>Status</th>
                                 <th>Created At</th>
@@ -36,46 +31,74 @@
                             @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ Str::limit($post->title, 40) }}</td>
+                                <td>{{ $post->title}}</td>
                                 <td>{{ $post->slug }}</td>
-                                <td>{{ Str::limit($post->short_desc, 50) }}</td>
-                                <td>{{ Str::limit($post->long_desc, 50) }}</td>
                                 <td>
-                                    <img src="{{ storage_url($post->featured_image) }}" width="60" alt="{{$post->title}}">
+
+                                    <img src="{{ storage_url($post->video_thumbnail) }}" width="60" alt="{{ $post->title }}">
                                 </td>
                                 <td>
-                                    <img src="{{ storage_url($post->image) }}" width="60" alt="{{$post->title}}">
-                                </td>
-                                <td>
-                                    @if (isVideo($post->video))
-                                    <video src="{{ storage_url($post->video) }}" width="60" controls></video>
-                                    @else
-                                    No Video Found
-                                    @endif
-                                </td>
-                                <td>
-                                    @if($post->video_thumbnail)
-                                    <img src="{{ asset('storage/' . $post->video_thumbnail) }}" width="60" alt="Video Thumbnail">
-                                    @else
-                                    N/A
-                                    @endif
-                                </td>
-                                <td>
-                                    <span>
-                                        {{$post->status_text}}
+                                    <span class="badge badge-{{ $post->blog_status_bg_color }}">
+                                        {{$post->blog_status_text}}
                                     </span>
                                 </td>
 
-                                <td>{{ $post->created_at->format('d M Y') }}</td>
+                                <td>{{ timeFormat($post->created_at) }}</td>
                                 <td>
-                                    <a href="{{ route('admin.blog.edit', $post->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('admin.blog.destroy', $post->id) }}" method="POST" style="display:inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this post?')">
-                                            Delete
-                                        </button>
-                                    </form>
+                                    <div
+                                        class="btn-group d-flex align-items-center gap-3 flex-wrap justify-content-start">
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="icon-settings fs-3 setting"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end"
+                                                aria-labelledby="dropdownMenuButton1">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.blog.show', encrypt($post->id)) }}">
+                                                        {{ __('Details') }}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.blog.edit', encrypt($post->id)) }}">
+                                                        {{ __('Edit') }}
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle"
+                                                        href="javascript:void(0)" id="status" role="button"
+                                                        aria-expanded="false">
+                                                        {{ __('Status') }}
+                                                    </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="status">
+                                                        @foreach ($post->getBlogStatusBtnText($post->status) as $status)
+                                                        <li class="dropdown-item">
+                                                            <a href="{{ route('admin.blog.status', [encrypt($post->id), encrypt(array_search($status['text'], $post->getBlogStatus()))]) }}"
+                                                                class="text-{{ $status['class'] }}">
+                                                                {{ $status['text'] }}
+                                                            </a>
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a title="Delete" href="javascript:void(0)"
+                                                        onclick="confirmDelete(() => document.getElementById('delete-form-{{ $post->id }}').submit());"
+                                                        class="dropdown-item text-danger" data-id="">
+                                                        {{ __('Delete') }}
+                                                    </a>
+                                                    <form id="delete-form-{{ $post->id }}"
+                                                        action="{{ route('admin.blog.destroy', encrypt($post->id)) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

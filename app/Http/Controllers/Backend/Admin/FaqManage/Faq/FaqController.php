@@ -57,7 +57,7 @@ class FaqController extends Controller
      */
     public function edit(string $id)
     {
-        $faq = Faq::findOrFail($id);
+        $faq = Faq::findOrFail(decrypt($id));
         $faqCategories = FaqCategory::all();
         return view('backend.admin.faqManage.faq.edit', compact('faq', 'faqCategories'));
     }
@@ -78,7 +78,7 @@ class FaqController extends Controller
      */
     public function destroy(string $id)
     {
-        $faq = Faq::findOrFail($id);
+        $faq = Faq::findOrFail(decrypt($id));
         $faq->delete();
         return redirect()->route('admin.faq.index')->with('success', 'Category deleted successfully!');
     }

@@ -9,7 +9,7 @@
                 <a href="{{ route('admin.faqcategory.create') }}" class="btn btn-primary btn-sm">Add New</a>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive overflow-visible">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -25,13 +25,39 @@
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->title }}</td>
                                 <td>{{ $category->slug }}</td>
-                                <td class="d-flex">
-                                    <a href="{{ route('admin.faqcategory.edit', $category->id) }}" class="btn btn-sm btn-warning me-2">Edit</a>
-                                    <form action="{{ route('admin.faqcategory.destroy', $category->id) }}" method="POST" style="display:inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure to delete this category?  ')">Delete</button>
-                                    </form>
+                               
+                                <td>
+                                    <div
+                                        class="btn-group d-flex align-items-center gap-3 flex-wrap justify-content-start">
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="icon-settings fs-3 setting"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end"
+                                                aria-labelledby="dropdownMenuButton1">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.faqcategory.edit', encrypt($category->id)) }}">
+                                                        {{ __('Edit') }}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a title="Delete" href="javascript:void(0)"
+                                                        onclick="confirmDelete(() => document.getElementById('delete-form-{{ $category->id }}').submit());"
+                                                        class="dropdown-item text-danger" data-id="">
+                                                        {{ __('Delete') }}
+                                                    </a>
+                                                    <form id="delete-form-{{ $category->id }}"
+                                                        action="{{ route('admin.faqcategory.destroy', encrypt($category->id)) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

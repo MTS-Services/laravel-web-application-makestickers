@@ -9,7 +9,7 @@
                 <a href="{{ route('admin.faq.create') }}" class="btn btn-primary btn-sm">Add New</a>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive overflow-visible">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -28,14 +28,38 @@
 
                                 <td>{{ $faq->question }}</td>
                                 <td>{{ $faq->answer }}</td>
-                                <td class="d-flex">
-                                    <a href="{{ route('admin.faq.edit', $faq->id) }}" class="btn btn-sm btn-warning me-2">Edit</a>
-                                    <form action="{{ route('admin.faq.destroy', $faq->id) }}" method="POST" style="display:inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Are you sure to delete this FAQ?')">Delete</button>
-                                    </form>
+
+                                <td>
+                                    <div class="btn-group d-flex align-items-center gap-3 flex-wrap justify-content-start">
+                                        <div class="dropdown">
+                                            <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="icon-settings fs-3 setting"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-end"
+                                                aria-labelledby="dropdownMenuButton1">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.faq.edit', encrypt($faq->id)) }}">
+                                                        {{ __('Edit') }}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a title="Delete" href="javascript:void(0)"
+                                                        onclick="confirmDelete(() => document.getElementById('delete-form-{{ $faq->id }}').submit());"
+                                                        class="dropdown-item text-danger" data-id="">
+                                                        {{ __('Delete') }}
+                                                    </a>
+                                                    <form id="delete-form-{{ $faq->id }}"
+                                                        action="{{ route('admin.faq.destroy', encrypt($faq->id)) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

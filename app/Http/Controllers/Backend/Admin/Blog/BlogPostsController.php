@@ -42,7 +42,7 @@ class BlogPostsController extends Controller
         $blog->status = $request->status;
 
         if ($request->hasFile('video_thumbnail')) {
-            $this->handleFileUpload($request, $blog, 'video_thumbnail','video_thumbnail');
+            $this->handleFileUpload($request, $blog, 'video_thumbnail', 'video_thumbnail');
         }
         if ($request->hasFile('featured_image')) {
             $this->handleFileUpload($request, $blog, 'featured_image', 'featured_image');
@@ -64,7 +64,8 @@ class BlogPostsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $blogs = Blog::findOrFail(decrypt($id));
+        return view('backend.admin.blogPosts.view', compact('blogs'));
     }
 
     /**
@@ -72,7 +73,7 @@ class BlogPostsController extends Controller
      */
     public function edit(string $id)
     {
-        $post = Blog::findOrFail($id);
+        $post = Blog::findOrFail(decrypt($id));
         return view('backend.admin.blogPosts.edit', compact('post'));
     }
 
@@ -87,10 +88,10 @@ class BlogPostsController extends Controller
         $post->short_desc = $request->short_desc;
         $post->long_desc = $request->long_desc;
         $post->status = $request->status;
-    
+
 
         if ($request->hasFile('video_thumbnail')) {
-            $this->handleFileUpload($request, $post, 'video_thumbnail','video_thumbnail');
+            $this->handleFileUpload($request, $post, 'video_thumbnail', 'video_thumbnail');
         }
         if ($request->hasFile('featured_image')) {
             $this->handleFileUpload($request, $post, 'featured_image', 'featured_image');
@@ -111,8 +112,20 @@ class BlogPostsController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Blog::findOrFail($id);
+        $post = Blog::findOrFail(decrypt($id));
         $post->delete();
         return redirect(route('admin.blog.index'))->with('success', 'Blog deleted successfully.');
+    }
+
+    public function status(string $id, string $status)
+    {
+        $post = Blog::findOrFail(decrypt($id));
+        $post->update([
+            'status' => decrypt($status),
+            'updated_by' => admin()->id,
+        ]);
+
+        session()->flash('success', 'Blog Status Updated Successfully');
+        return redirect()->route('admin.blog.index');
     }
 }

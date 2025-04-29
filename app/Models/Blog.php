@@ -20,7 +20,8 @@ class Blog extends BaseModel
     ];
 
     protected $appends = [
-        'status_text',
+        'blog_status_bg_color',
+        'blog_status_text',
     ];
 
 
@@ -28,7 +29,7 @@ class Blog extends BaseModel
     public const STATUS_DRAFT = 1;
     public const STATUS_HIDE = 0;
 
-    public function getStatus()
+    public function getBlogStatus()
     {
         return [
             self::STATUS_PUBLISH => 'Publish',
@@ -36,9 +37,39 @@ class Blog extends BaseModel
             self::STATUS_HIDE => 'Hide'
         ];
     }
-
-    public function getStatusTextAttribute()
+    public function getBlogStatusBg()
     {
-        return $this->getStatus()[$this->status] ?? 'Unknown';
+        return [
+            self::STATUS_PUBLISH => 'success',
+            self::STATUS_DRAFT => 'info',
+            self::STATUS_HIDE => 'warning'
+        ];
+    }
+
+    public function getBlogStatusTextAttribute()
+    {
+        return $this->getBlogStatus()[$this->status] ?? 'Unknown';
+    }
+
+    public function getBlogStatusBgColorAttribute()
+    {
+        return $this->getBlogStatusBg()[$this->status] ?? 'secondary';
+    }
+
+    public function getBlogStatusBtnText($currentStatus)
+    {
+        $statusBtnText = [];
+
+        foreach ($this->getBlogStatus() as $key => $value) {
+            if ($key == $currentStatus) {
+                continue;
+            }
+
+            $statusBtnText[$key] = [
+                'text' => $value,
+                'class' => $this->getBlogStatusBg()[$key] ?? 'secondary',
+            ];
+        }
+        return $statusBtnText;
     }
 }

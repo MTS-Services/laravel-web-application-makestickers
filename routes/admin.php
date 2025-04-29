@@ -64,6 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     Route::group(['as' => 'admin.',], function () {
         Route::resource('/blog', BlogPostsController::class);
+        Route::get('/blog/status/{id}/{status}', [BlogPostsController::class, 'status'])->name('blog.status');
     });
 
     // Site Setting 

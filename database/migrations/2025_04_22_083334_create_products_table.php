@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\Product;
 
 return new class extends Migration
 {
@@ -21,6 +22,9 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('unit_price');
             $table->string('preview_image')->nullable();
+
+            $table->tinyInteger('status')->max(1)->default(Product::STATUS_ACTIVE)->comment(Product::STATUS_ACTIVE . ' = Active, ' );
+
             $table->timestamps();
             $table->softDeletes();            
             $this->addAdminAuditColumns($table);

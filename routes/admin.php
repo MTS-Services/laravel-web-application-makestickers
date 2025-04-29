@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/sticker-category', StickerCategoryController::class);
         Route::resource('/material-category', MaterialCategoryController::class);
         Route::resource('/product', ProductsController::class);
+        Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('product.status');
     });
 
 

@@ -42,14 +42,12 @@ class ProductsController extends Controller
         $validated = $request->validated();
         $product = new Product();
         $product->title = $request->title;
-        $product->sticker_category_id = $request->sticker_category_id;
         $product->description = $request->description;
         $product->unit_price = $request->unit_price; 
 
         if (isset($request->status)) {
             $product->status = $request->status;
         }
-        $product->unit_price = $request->unit_price;
         if ($request->hasFile('preview_image')) {
             $this->handleFileUpload($request, $product, 'preview_image');
         }
@@ -112,8 +110,8 @@ class ProductsController extends Controller
     }
     public function status(string $id, string $status)
     {
-        $product = Product::findOrFail(decrypt($id));
-        $product->status = decrypt($status);
+        $product = Product::findOrFail($id);
+        $product->status = $status;
         $product->update();
 
         session()->flash('success', 'Product Status Updated Successfully');

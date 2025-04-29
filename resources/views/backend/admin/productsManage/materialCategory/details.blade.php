@@ -16,9 +16,9 @@
                                 <td>{{ $material_categories->title }}</td>
                             </tr>
                             <tr>
-                                <th>Sticker CategoryTitle</th>
+                                <th>Third CategoryTitle</th>
                                 <td><span>:</span></td>
-                                <td>{{ $material_categories->stickerCategory->title }}</td>
+                                <td>{{ $material_categories->thirdCategory->title }}</td>
                             </tr>
                             <tr>
                                 <th>Slug</th>
@@ -29,13 +29,6 @@
                                 <th>Description</th>
                                 <td><span>:</span></td>
                                 <td>{{ $material_categories->description }}</td>
-                            </tr>
-                            <tr>
-                                <th>Status</th>
-                                <td><span>:</span></td>
-                                <td>
-                                    <span class="badge badge-{{ $material_categories->status_bg }}">{{ $material_categories->status_text }}</span>
-                                </td>
                             </tr>
                             <tr>
                                 <th>Image</th>

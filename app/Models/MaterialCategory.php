@@ -10,14 +10,14 @@ class MaterialCategory extends BaseModel
 
     protected $fillable = [
         'title',
-        'sticker_category_id',
+        'third_category_id',
         'slug',
         'description',
         'image',
     ];
 
-    public function StickerCategory()
+    public function thirdCategory()
     {
-        return $this->belongsTo(StickerCategory::class);
+        return $this->belongsTo(ThirdCategory::class);
     }
 }

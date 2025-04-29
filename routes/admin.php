@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\Admin\ProductsManage\LabelCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
+use App\Models\LabelCategory;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -56,20 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::group(['as' => 'admin.'], function () {
         Route::resource('/test', TestController::class);
         Route::resource('/sticker-category', StickerCategoryController::class);
-        Route::group(['as' => 'sticker-category.', 'prefix' => 'sticker-category'], function () {
-            Route::get('/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('status');
-            // Trash 
-            // restore 
-            // force delete
-        });
-
         Route::resource('/material-category', MaterialCategoryController::class);
-        Route::group(['as' => 'material-category.', 'prefix' => 'material-category'], function () {
-            Route::get('/status/{id}/{status}', [MaterialCategoryController::class, 'status'])->name('status');
-            // Trash 
-            // restore 
-            // force delete
-        });
         Route::resource('/product', ProductsController::class);
         Route::group(['as' => 'product.', 'prefix' => 'product'], function () {
             Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('status');

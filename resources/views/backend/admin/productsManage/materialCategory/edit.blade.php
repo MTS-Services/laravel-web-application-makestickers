@@ -38,16 +38,16 @@
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label for="status" class="form-label">Sticker Categorie</label>
-                        <select name="sticker_category_id" id="sticker_category_id" class="form-control">
-                            <option value="">Select Sticker Categorie</option>
-                            @foreach ($sticker_categories as $sticker_categorie)
-                                <option value="{{ $sticker_categorie->id }}"
-                                    {{ $sticker_categorie->id == $material_categories->sticker_category_id ? 'selected' : '' }}>
-                                    {{ $sticker_categorie->title }}</option>
+                        <label for="status" class="form-label">Third Category</label>
+                        <select name="third_category_id" id="third_category_id" class="form-control">
+                            <option value="">Select Third Category</option>
+                            @foreach ($third_categories as $third_category)
+                                <option value="{{ $third_category->id }}"
+                                    {{ $third_category->id == $material_categories->third_category_id ? 'selected' : '' }}>
+                                    {{ $third_category->title }}</option>
                             @endforeach
                         </select>
-                        @error('sticker_category_id')
+                        @error('third_category_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

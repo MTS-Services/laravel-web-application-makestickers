@@ -23,7 +23,7 @@ class MaterialCategoryRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'sticker_category_id' => 'required|exists:sticker_categories,id',
+            'third_category_id' => 'required|exists:third_categories,id',
             'description' => 'nullable|string',
         ] + 
         ($this->isMethod('POST') ? $this->store() : $this->update());

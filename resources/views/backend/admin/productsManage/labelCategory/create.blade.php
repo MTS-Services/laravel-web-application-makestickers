@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'material_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'label_category'])
 
 @push('css')
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -8,14 +8,14 @@
 @section('content')
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center">
-            <h2>Create Material Category</h2>
-            <a href="{{ route('admin.material-category.index') }}" class="btn btn-primary btn-md">Back</a>
+            <h2>Create Label Category</h2>
+            <a href="{{ route('admin.label-category.index') }}" class="btn btn-primary btn-md">Back</a>
         </div>
-        <form action="{{ route('admin.material-category.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.label-category.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" name="title" class="form-control" id="title">
@@ -24,25 +24,11 @@
                         @enderror
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
                         <input type="text" name="slug" class="form-control" id="slug">
                         @error('slug')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label for="third_category_id" class="form-label">Third Category</label>
-                        <select name="third_category_id" id="third_category_id" class="form-control">
-                            <option value="">Select Third Category</option>
-                            @foreach ($third_categories as $third_category)
-                                <option value="{{ $third_category->id }}">{{ $third_category->title }}</option>
-                            @endforeach
-                        </select>
-                        @error('third_category_id')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

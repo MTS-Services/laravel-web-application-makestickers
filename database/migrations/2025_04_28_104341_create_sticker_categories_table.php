@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
-use App\Models\StickerCategory;
 
 return new class extends Migration
 {
@@ -21,7 +20,6 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('image')->nullable();
-            $table->tinyInteger('status')->max(1)->default(StickerCategory::STATUS_ACTIVE)->comment(StickerCategory::STATUS_ACTIVE . ' = Active,'. StickerCategory::STATUS_INACTIVE . ' = Inactive');
             $table->timestamps();
             $table->softDeletes();
             $this->addAdminAuditColumns($table);

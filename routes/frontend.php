@@ -10,7 +10,7 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('/pouch', [FrontendController::class, 'pouch'])->name('pouch');
     Route::get('/faq', [FrontendController::class, 'faq'])->name('faq');
     Route::get('/shipping', [FrontendController::class, 'shipping'])->name('shipping');
-    Route::get('/return', [FrontendController::class, 'return'])->name('returns'); 
+    Route::get('/return', [FrontendController::class, 'return'])->name('returns');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/designs', [FrontendController::class, 'designs'])->name('designs');
     Route::get('/review', [FrontendController::class, 'review'])->name('review');

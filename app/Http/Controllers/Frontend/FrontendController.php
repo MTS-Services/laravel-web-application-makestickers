@@ -34,7 +34,8 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.shipping');
     }
-    public function return(){
+    public function return()
+    {
         return view('frontend.pages.returns');
     }
 
@@ -49,5 +50,10 @@ class FrontendController extends Controller
     public function review()
     {
         return view('frontend.pages.review');
+    }
+
+    public function blog()
+    {
+        return view('frontend.pages.blog');
     }
 }

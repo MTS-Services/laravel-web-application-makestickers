@@ -51,7 +51,7 @@
                 <div tabindex="0" role="button" class="py-2 px-4 hover:text-tertiary">ABOUT US <i
                         class="fas fa-caret-down pl-2"></i></div>
                 <ul tabindex="0" class="dropdown-content menu  bg-light-gray rounded-box px-4 shadow-sm w-52 ">
-                    <li><a href="#" class="px-5 my-1">Blog</a></li>
+                    <li><a href="{{ route('frontend.blog') }}" class="px-5 my-1">Blog</a></li>
                     <li><a href="#" class="px-5 my-1">Sticker Trends</a></li>
                     <li><a href="{{ route('frontend.about') }}" class="px-5 my-1">About Us</a></li>
                     <li><a href="{{ route('frontend.career') }}" class="px-5 my-1 ">Careers</a></li>

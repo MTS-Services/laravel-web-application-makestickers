@@ -11,7 +11,7 @@ class Product extends BaseModel
 
     protected $fillable = [
         'title',
-        'third_category_id',
+        'sticker_category_id',
         'size_categories_id',
         'admin_id',
         'unit_price',

@@ -40,6 +40,11 @@
                             <option value="">Select sticker category</option>
                             @foreach ($sticker_categories as $sticker_category)
                                 <option value="{{ $sticker_category->id }}" {{ $sticker_category->id == $products->sticker_category_id ? 'selected' : '' }}>{{ $sticker_category->title }}</option>
+                        <label for="sticker_category_id" class="form-label">Sticker Categorie</label>
+                        <select name="sticker_category_id" id="sticker_category_id" class="form-control">
+                            <option value="">Select Sticker Categorie</option>
+                            @foreach ($sticker_categories as $sticker_categorie)
+                                <option value="{{ $sticker_categorie->id }}" {{ $sticker_categorie->id == $products->sticker_category_id ? 'selected' : '' }}>{{ $sticker_categorie->title }}</option>
                             @endforeach
                         </select>
                         @error('sticker_category_id')

@@ -3,8 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
-class SecondCategoryRequest extends FormRequest
+class StickerCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,14 +30,14 @@ class SecondCategoryRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'slug' => 'required|string|min:5|unique:sticker_categories,slug',
+            'slug' => 'required|string|min:5|unique:label_categories,slug',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'slug' => 'nullable|string|min:5|unique:sticker_categories,slug,' . decrypt($this->route('sticker_category')),
+            'slug' => 'required|string|min:5|unique:label_categories,slug,' . decrypt($this->route('label_category')),
         ];
     }
 }

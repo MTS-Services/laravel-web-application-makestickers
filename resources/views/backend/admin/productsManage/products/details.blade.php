@@ -18,7 +18,7 @@
                             <tr>
                                 <th>{{ __('Sticker Category') }}</th>
                                 <td><span>:</span></td>
-                                <td>{{ $products->stickerCategory }}</td>
+                                <td>{{ $products->stickerCategory->title }}</td>
                             </tr>
                             <tr>
                                 <th>{{ __('Size') }}</th>

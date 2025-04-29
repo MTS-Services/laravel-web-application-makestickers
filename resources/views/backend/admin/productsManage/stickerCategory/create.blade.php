@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'second_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'sticker_category'])
 
 @push('css')
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -24,7 +24,7 @@
                         @enderror
                     </div>
                 </div>
-              
+
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
@@ -49,7 +49,7 @@
                     {{-- Image Upload --}}
                     <div class="mb-12">
                         <label class="form-label">Image</label>
-                        <x-file-upload name="image" type="image" maxSize="50" />
+                        <x-file-upload name="image" type="image" maxSize="2" />
                         @error('image')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

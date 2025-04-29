@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
 class LabelCategoryRequest extends FormRequest
 {
     /**
@@ -24,23 +23,21 @@ class LabelCategoryRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-        ]+
+        ] +
         ($this->isMethod('POST') ? $this->store() : $this->update());
     }
 
     protected function store(): array
-    
     {
         return [
             'slug' => 'required|string|min:5|unique:label_categories,slug',
         ];
-    } 
+    }
 
     protected function update(): array
     {
         return [
             'slug' => 'required|string|min:5|unique:label_categories,slug,' . decrypt($this->route('label_category')),
         ];
-    }  
+    }
 }

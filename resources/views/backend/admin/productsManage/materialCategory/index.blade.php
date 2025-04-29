@@ -9,13 +9,13 @@
                     <a href="{{ route('admin.material-category.create') }}" class="btn btn-primary btn-sm">Add New</a>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="table-responsive overflow-visible">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>{{ __('Title') }}</th>
-                                    <th>{{ __('Third Category') }}</th>
+                                    <th>{{ __('Sticker Category') }}</th>
                                     <th>{{ __('Slug') }}</th>
                                     <th width="20%">Action</th>
                                 </tr>
@@ -25,7 +25,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $material_category->title }}</td>
-                                        <td>{{ $material_category->thirdCategory->title }}</td>
+                                        <td>{{ $material_category->stickerCategory->title }}</td>
                                         <td>{{ $material_category->slug }}</td>
                                         <td>
                                             <div class="dropdown">

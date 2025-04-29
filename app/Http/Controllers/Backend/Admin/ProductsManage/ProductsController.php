@@ -8,8 +8,6 @@ use App\Http\Traits\FileManagementTrait;
 use App\Models\Products;
 use App\Models\SizeCategory;
 use App\Models\StickerCategory;
-use App\Models\ThirdCategory;
-use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -28,7 +26,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $data['third_categories'] = StickerCategory::all();
+        $data['sticker_categories'] = StickerCategory::all();
         $data['size_categories'] = SizeCategory::all();
         return view('backend.admin.productsManage.products.create', $data);
     }
@@ -40,6 +38,7 @@ class ProductsController extends Controller
     {
         $products = new Products();
         $products->title = $request->title;
+        $products->sticker_category_id = $request->sticker_category_id;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
         if ($request->hasFile('preview_image')) {
@@ -68,7 +67,7 @@ class ProductsController extends Controller
     {
         $id = decrypt($id);
         $data['products'] = Products::findOrFail($id);
-        $data['third_categories'] = StickerCategory::all();
+        $data['sticker_categories'] = StickerCategory::all();
         $data['size_categories'] = SizeCategory::all();
         return view('backend.admin.productsManage.products.edit', $data);
     }
@@ -81,6 +80,7 @@ class ProductsController extends Controller
         $id = decrypt($id);
         $products = Products::findOrFail($id);
         $products->title = $request->title;
+        $products->sticker_category_id = $request->sticker_category_id;
         $products->description = $request->description;
         $products->unit_price = $request->unit_price;
         if ($request->hasFile('preview_image')) {

@@ -16,9 +16,9 @@
                                 <td>{{ $material_categories->title }}</td>
                             </tr>
                             <tr>
-                                <th>Third CategoryTitle</th>
+                                <th>Sticker CategoryTitle</th>
                                 <td><span>:</span></td>
-                                <td>{{ $material_categories->thirdCategory->title }}</td>
+                                <td>{{ $material_categories->stickerCategory->title }}</td>
                             </tr>
                             <tr>
                                 <th>Slug</th>

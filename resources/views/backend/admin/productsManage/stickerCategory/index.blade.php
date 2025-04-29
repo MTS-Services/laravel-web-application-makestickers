@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app', ['page_slug' => 'second_category'])
+@extends('backend.admin.layouts.app', ['page_slug' => 'sticker_category'])
 
 @section('content')
     <div class="row mt-4">
@@ -21,14 +21,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($second_categories as $key => $second_category)
+                                @forelse ($sticker_categories as $key => $sticker_category)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $second_category->title }}</td>
-                                        <td>{{ $second_category->slug }}</td>
+                                        <td>{{ $sticker_category->title }}</td>
+                                        <td>{{ $sticker_category->slug }}</td>
                                         <td>
-                                            <img src="{{ storage_url($second_category->image) }}"
-                                                alt="{{ $second_category->title }}"
+                                            <img src="{{ storage_url($sticker_category->image) }}"
+                                                alt="{{ $sticker_category->title }}"
                                                 style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                                         </td>
                                         <td>
@@ -40,27 +40,27 @@
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     <li>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.sticker-category.show', encrypt($second_category->id)) }}">
+                                                            href="{{ route('admin.sticker-category.show', encrypt($sticker_category->id)) }}">
 
                                                             {{ __('Details') }}
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.sticker-category.edit', encrypt($second_category->id)) }}">
+                                                            href="{{ route('admin.sticker-category.edit', encrypt($sticker_category->id)) }}">
 
                                                             {{ __('Edit') }}
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a title="Delete" href="javascript:void(0)"
-                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $second_category->id }}').submit();"
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $sticker_category->id }}').submit();"
                                                             class="dropdown-item text-danger" data-id="">
 
                                                             {{ __('Delete') }}
                                                         </a>
-                                                        <form id="delete-form-{{ $second_category->id }}"
-                                                            action="{{ route('admin.sticker-category.destroy', encrypt($second_category->id)) }}"
+                                                        <form id="delete-form-{{ $sticker_category->id }}"
+                                                            action="{{ route('admin.sticker-category.destroy', encrypt($sticker_category->id)) }}"
                                                             method="POST">
 
                                                             @csrf

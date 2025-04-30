@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AdminManage\AdminRequest;
+use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -15,7 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::latest()->with('createdBy')->get();
+        $admins = Admin::orderBy('id', 'asc')->with('createdBy')->get();
         return view('backend.admin.adminManage.admin.index', compact('admins'));
     }
 
@@ -24,7 +26,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('backend.admin.adminManage.admin.create');
+        $roles = Role::orderBy('name')->get();
+        return view('backend.admin.adminManage.admin.create', compact('roles'));
     }
 
     /**
@@ -35,16 +38,20 @@ class AdminController extends Controller
         // dd($request->all());
         $validated = $request->validated();
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '.' . time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('admin', $fileName, 'public');
-            $path = 'admin/' . $fileName;
-            $validated['image'] = $path;
-        }
-        $validated['created_by'] = admin()->id;
+        DB::transaction(function () use ($validated, $request) {
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '.' . time() . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('admin', $fileName, 'public');
+                $path = 'admin/' . $fileName;
+                $validated['image'] = $path;
+            }
+            $validated['created_by'] = admin()->id;
 
-        Admin::create($validated);
+            $admin = Admin::create($validated);
+            $role = Role::findOrFail($request->role_id);
+            $admin->assignRole($role);
+        });
 
         session()->flash('success', 'Admin Created Successfully');
         return redirect()->route('am.admin.index');
@@ -55,8 +62,8 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
-        $admin = Admin::findOrFail(decrypt($id));
-        $admin->load(['createdBy', 'updatedBy']);
+        $admin = Admin::with(['createdBy', 'updatedBy'])->findOrFail(decrypt($id));
+        $admin->permissions_group = $admin->role->permissions->groupBy('prefix');
         return view('backend.admin.adminManage.admin.view', compact('admin'));
     }
 
@@ -66,7 +73,8 @@ class AdminController extends Controller
     public function edit(string $id)
     {
         $admin = Admin::findOrFail(decrypt($id));
-        return view('backend.admin.adminManage.admin.edit', compact('admin'));
+        $roles = Role::orderBy('name')->get();
+        return view('backend.admin.adminManage.admin.edit', compact('admin', 'roles'));
     }
 
     /**
@@ -77,23 +85,26 @@ class AdminController extends Controller
         $admin = Admin::findOrFail(decrypt($id));
         $validated = $request->validated();
 
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '.' . time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('admin', $fileName, 'public');
-            $path = 'admin/' . $fileName;
-            $validated['image'] = $path;
-            if ($admin->image) {
-                Storage::disk('public')->delete($admin->image);
+        DB::transaction(function () use ($validated, $request, $admin) {
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME) . '.' . time() . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('admin', $fileName, 'public');
+                $path = 'admin/' . $fileName;
+                $validated['image'] = $path;
+                if ($admin->image) {
+                    Storage::disk('public')->delete($admin->image);
+                }
             }
-        }
-
-        $validated['password'] = isset($request->password) ? $request->password : $admin->password;
-
-        $validated['updated_by'] = admin()->id;
-
-        $admin->update($validated);
-
+    
+            $validated['password'] = isset($request->password) ? $request->password : $admin->password;
+    
+            $validated['updated_by'] = admin()->id;
+    
+            $admin->update($validated);
+            $role = Role::findOrFail($request->role_id);
+            $admin->syncRoles($role);
+        });
         session()->flash('success', 'Admin Updated Successfully');
         return redirect()->route('am.admin.index');
     }

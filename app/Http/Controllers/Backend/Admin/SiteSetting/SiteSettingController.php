@@ -63,6 +63,7 @@ class SiteSettingController extends Controller
         $site_setting->address = $request->address;
         $site_setting->phone = $request->phone;
         $site_setting->email = $request->email;
+        $site_setting->fax = $request->fax;
         $site_setting->facebook = $request->facebook;
         $site_setting->twitter = $request->twitter;
         $site_setting->instagram = $request->instagram;

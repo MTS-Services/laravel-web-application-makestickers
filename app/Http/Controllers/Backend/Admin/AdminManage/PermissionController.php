@@ -14,7 +14,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::latest()->get();
+        $permissions = Permission::orderBy('prefix')->get();
         return view('backend.admin.adminManage.permission.index', compact('permissions'));
     }
 

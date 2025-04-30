@@ -32,26 +32,26 @@
       <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 
         <!-- Call -->
-        <div class="bg-white border shadow-[0_4px_6px_rgba(0,0,0,0.5)] p-8 text-center rounded-md">
+        <div class="bg-white border border-gray/10 shadow-[0_4px_6px_rgba(0,0,0,0.2)] p-8 text-center rounded-md">
           <i class="fa-solid fa-mobile text-font-28px"></i>
           <div class="text-tertiary text-font-24px font-bold mb-2 mt-2">CALL</div>
-          <p class="text-tertiary text-font-20px font-semibold">1-800-347-2744</p>
+          <a href="tel:{{siteSetting()->phone ?? ''}}" class="text-tertiary text-font-20px font-semibold">{{siteSetting()->phone ?? '000-000-0000'}}</a>
         </div>
 
         <!-- Message -->
-        <div class="bg-white border shadow-[0_4px_6px_rgba(0,0,0,0.5)] p-8 text-center rounded-md">
+        <div class="bg-white border border-gray/10 shadow-[0_4px_6px_rgba(0,0,0,0.2)] p-8 text-center rounded-md">
           <i class="fa-solid fa-message text-font-24px"></i>
           <div class="text-primary-hover text-font-24px font-bold mb-2 mt-2">MESSAGE</div>
-          <button class="mt-2 bg-primary-hover hover:bg-primary-hover text-white px-4 py-2 rounded font-semibold text-font-14px">
+          <a href="mailto:{{siteSetting()->email ?? ''}}" class="mt-2 bg-primary-hover hover:bg-primary-hover text-white px-4 py-2 rounded font-semibold text-font-14px">
             SEND A MESSAGE
-          </button>
+          </a>
         </div>
 
         <!-- Fax -->
-        <div class="bg-white border shadow-[0_4px_6px_rgba(0,0,0,0.5)] p-8 text-center rounded-md">
+        <div class="bg-white border border-gray/10 shadow-[0_4px_6px_rgba(0,0,0,0.2)] p-8 text-center rounded-md">
           <i class="fa-solid fa-fax text-font-24px"></i>
           <div class="text-gray text-font-24px font-bold mb-2 mt-2">FAX</div>
-          <p class="text-gray text-font-20px font-semibold">708-614-1974</p>
+          <a href="{{siteSetting()->fax ?? ''}}" class="text-gray text-font-20px font-semibold">{{siteSetting()->fax ?? '000-000-0000'}}</a>
         </div>
 
       </div>
@@ -61,8 +61,7 @@
     <section class="py-12 bg-white px-4">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="text-font-28px font-semibold uppercase tracking-wide mb-4">Our Location</h2>
-        <p class="text-font-14px font-medium text-gray uppercase mb-1">18621 81st Ave</p>
-        <p class="text-font-14px font-medium text-gray uppercase">Tinley Park, IL 60487</p>
+        <p class="text-font-14px font-medium text-gray uppercase mb-1">{{siteSetting()->address ?? 'Address'}}</p>
       </div>
     </section>
 

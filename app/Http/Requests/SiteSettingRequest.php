@@ -29,6 +29,7 @@ class SiteSettingRequest extends FormRequest
             'favicon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'address' => 'required|string',
             'phone' => 'required|string',
+            'fax' => 'required|string',
             'email' => 'required|email',
             'facebook' => 'nullable|url',
             'twitter' => 'nullable|url',

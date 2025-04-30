@@ -69,4 +69,9 @@ class FrontendController extends Controller
     {
         return view('frontend.pages.review');
     }
+
+    public function blog()
+    {
+        return view('frontend.pages.blog');
+    }
 }

@@ -13,6 +13,7 @@
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.6",
+        "league/csv": "9.23.0",
         "spatie/laravel-permission": "^6.17"
     },
     "require-dev": {
@@ -31,7 +32,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Http/Helpers/MainHelper.php"
+            "app/Http/Helpers/MainHelper.php",
+            "app/Http/Helpers/SiteSetting.php"
         ]
     },
     "autoload-dev": {

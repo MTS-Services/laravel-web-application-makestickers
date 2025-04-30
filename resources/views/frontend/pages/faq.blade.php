@@ -74,17 +74,23 @@
                     </div>
                     <div class="md:basis-1/3 card w-full bg-light-gray/10 shadow-sm border border-dark/10 h-fit">
                         <div class="card-body">
-                            <h4 class="text-font-18px md:text-font-22px lg:text-font-24px font-bold text-gray uppercase">STILL NEED ANSWERS?</h4>
+                            <h4 class="text-font-18px md:text-font-22px lg:text-font-24px font-bold text-gray uppercase">
+                                STILL NEED ANSWERS?</h4>
                             <div class="flex items-center justify-between mt-5">
-                                <p class="text-font-16px lg:text-font-18px xl:text-font-20px"><i class="fa-solid fa-mobile-retro"></i> Call:</p>
-                                <a href="tel:+1-800-123-4567" class="text-dark text-font-16px lg:text-font-18px xl:text-font-20px">+1-800-123-4567</a>
+                                <p class="text-font-16px lg:text-font-18px xl:text-font-20px"><i
+                                        class="fa-solid fa-mobile-retro"></i> Call:</p>
+                                <a href="tel:{{ siteSetting()->phone ?? '' }}"
+                                    class="text-dark text-font-16px lg:text-font-18px xl:text-font-20px">+{{ siteSetting()->phone ?? '000-000-0000' }}</a>
                             </div>
                             <div class="flex items-center justify-between mt-5">
-                                <p class="text-font-16px lg:text-font-18px xl:text-font-20px"><i class="fa-solid fa-fax"></i> Fax:</p>
-                                <a href="fax:+1-800-123-4567" class="text-dark text-font-16px lg:text-font-18px xl:text-font-20px">+1-800-123-4567</a>
+                                <p class="text-font-16px lg:text-font-18px xl:text-font-20px"><i
+                                        class="fa-solid fa-fax"></i> Fax:</p>
+                                <a href="fax:{{ siteSetting()->fax ?? '' }}"
+                                    class="text-dark text-font-16px lg:text-font-18px xl:text-font-20px">+{{ siteSetting()->fax ?? '000-000-0000' }}</a>
                             </div>
                             <div class="flex items-center justify-between mt-5">
-                                <p class="text-font-16px lg:text-font-18px xl:text-font-20px"><i class="fa-solid fa-headset"></i> Chat:</p>
+                                <p class="text-font-16px lg:text-font-18px xl:text-font-20px"><i
+                                        class="fa-solid fa-headset"></i> Chat:</p>
                                 <button class="btn text-white bg-tertiary btn-sm hover:bg-tertiary-hover">Start
                                     Chat</button>
                             </div>
@@ -94,7 +100,7 @@
                             <p class="text-font-14px text-gray">Our customer support hours are</p>
                             <p class="text-font-20px text-primary">Monday to Friday: 8:00 AM to 5:00 PM</p>
                             <h4 class="text-font-24px font-bold text-gray">Our Location</h4>
-                            <p class="text-gray">123 Main Street, Anytown, USA</p>
+                            <p class="text-gray">{{ siteSetting()->address ?? 'Address'}}</p>
                         </div>
                     </div>
                 </div>

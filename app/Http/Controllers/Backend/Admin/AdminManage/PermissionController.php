@@ -9,12 +9,27 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+
+        // Define permissions for each method
+        $this->middleware('permission:permission-list', ['only' => ['index', 'show']]);
+        $this->middleware('permission:permission-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:permission-edit', ['only' => ['edit', 'update', 'status']]);
+        $this->middleware('permission:permission-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:permission-trash', ['only' => ['trash', 'restore']]);
+        $this->middleware('permission:permission-restore', ['only' => ['restore']]);
+        $this->middleware('permission:permission-force-delete', ['only' => ['forceDelete']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $permissions = Permission::latest()->get();
+        $permissions = Permission::orderBy('prefix')->get();
         return view('backend.admin.adminManage.permission.index', compact('permissions'));
     }
 
@@ -87,6 +102,12 @@ class PermissionController extends Controller
         return redirect()->route('am.permission.index');
     }
 
+    public function status(string $id, string $status)
+    {
+        //
+    }
+
+
     public function trash()
     {
         $permissions = Permission::onlyTrashed()->latest()->get();
@@ -100,7 +121,11 @@ class PermissionController extends Controller
         $permission->restore();
 
         session()->flash('success', 'Permission restored successfully.');
-        return redirect()->route('am.permission.index');
+        $count = Permission::onlyTrashed()->count();
+        if ($count == 0) {
+            return redirect()->route('am.permission.index');
+        }
+        return redirect()->route('am.permission.trash');
     }
 
     public function forceDelete(string $id)
@@ -109,6 +134,10 @@ class PermissionController extends Controller
         $permission->forceDelete();
 
         session()->flash('success', 'Permission permanently deleted successfully.');
-        return redirect()->route('am.permission.index');
+        $count = Permission::onlyTrashed()->count();
+        if ($count == 0) {
+            return redirect()->route('am.permission.index');
+        }
+        return redirect()->route('am.permission.trash');
     }
 }

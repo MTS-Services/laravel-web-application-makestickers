@@ -4,14 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FrontendController;
 
 Route::group(['as' => 'frontend.'], function () {
-    Route::get('/' , [FrontendController::class, 'home'])->name('home');
+    Route::get('/', [FrontendController::class, 'home'])->name('home');
     Route::get('/about', [FrontendController::class, 'about'])->name('about');
     Route::get('/career', [FrontendController::class, 'career'])->name('career');
     Route::get('/pouch', [FrontendController::class, 'pouch'])->name('pouch');
     Route::get('/faq', [FrontendController::class, 'faq'])->name('faq');
     Route::get('/shipping', [FrontendController::class, 'shipping'])->name('shipping');
-    Route::get('/return', [FrontendController::class, 'return'])->name('returns'); 
+    Route::get('/return', [FrontendController::class, 'return'])->name('returns');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/designs', [FrontendController::class, 'designs'])->name('designs');
     Route::get('/review', [FrontendController::class, 'review'])->name('review');
+    Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
 });

@@ -57,7 +57,8 @@
                             </div>
                         </div>
 
-                        <p class="mt-5 md:w-11/12">Specific delivery dates and costs will be shown during checkout and will be based
+                        <p class="mt-5 md:w-11/12">Specific delivery dates and costs will be shown during checkout and will
+                            be based
                             on your order
                             and shipping address.</p>
                     </div>
@@ -99,12 +100,18 @@
                     <div class="flex flex-col items-center text-center p-5">
                         <i class="fa-regular fa-clock text-font-48px text-tertiary"></i>
                         <h4 class="text-font-24px font-medium capitalize text-tertiary">Production Time</h4>
-                        <p>Our bumper stickers are printed within 2 business days of the time they're ordered. If for some reason there is a delay in creating your sticker, we will attempt to contact you immediately.</p>
+                        <p>Our bumper stickers are printed within 2 business days of the time they're ordered. If for some
+                            reason there is a delay in creating your sticker, we will attempt to contact you immediately.
+                        </p>
                     </div>
                     <div class="flex flex-col items-center text-center p-5">
                         <i class="fa-solid fa-file-invoice-dollar text-font-48px text-secondary"></i>
                         <h4 class="text-font-24px font-medium capitalize text-secondary">Return Policy</h4>
-                        <p>MakeStickers is committed to customer satisfaction, and we intend to exceed your expectations. If you’re not head-over-heels thrilled with your product, give us a call at <a href="tel:1-800-555-5555" class="text-primary">1-800-555-5555</a> (Mon-Fri 8am-4:30pm CT) and talk with a real person who will do their best to correct any issues. <a href="" class="text-primary">View our return policy.</a></p>
+                        <p>MakeStickers is committed to customer satisfaction, and we intend to exceed your expectations. If
+                            you’re not head-over-heels thrilled with your product, give us a call at <a
+                                href="tel:{{ siteSetting()->phone ?? '' }}" class="text-primary">{{ siteSetting()->phone ?? '000-000-0000' }}</a> (Mon-Fri
+                            8am-4:30pm CT) and talk with a real person who will do their best to correct any issues. <a
+                                href="" class="text-primary">View our return policy.</a></p>
                     </div>
                 </div>
             </div>

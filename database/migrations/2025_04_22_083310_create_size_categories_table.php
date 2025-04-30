@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('image')->nullable();
             $table->rememberToken();
+            $table->string('title');
             $table->timestamps();
             $table->softDeletes();
             $this->addMorpheAuditColumns($table);

@@ -106,6 +106,12 @@
                             <li class="@if (isset($page_slug) && $page_slug == 'material_category') active @endif">
                                 <a href="{{ route('admin.material-category.index') }}">
                                     <span class="sub-item">{{ __('Material Category') }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                                
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#1"
                         @if (isset($page_slug) && ($page_slug=='faqcategory' || $page_slug=='faq' )) aria-expanded="true" @endif>

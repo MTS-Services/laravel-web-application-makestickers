@@ -16,8 +16,24 @@ return new class extends Migration
     {
         Schema::create('site_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('keywords')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('fax')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
+            $this->addAdminAuditColumns($table);
         });
     }
 

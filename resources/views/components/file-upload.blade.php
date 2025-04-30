@@ -46,6 +46,6 @@
                 {{ formatFileSize(storage_url($existingFile)) }}
             </div>
         </div>
-        <button type="button" class="remove-btn bi bi-x-lg" title="Remove file">X</button>
+        <button type="button" class="remove-btn bi bi-x-lg" title="Remove file"></button>
     </div>
 </div>

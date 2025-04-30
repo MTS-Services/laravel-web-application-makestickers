@@ -63,7 +63,8 @@
                 <div class="text-center md:-ms-72 px-4 sm:px-6 py-12 sm:py-24 w-full max-w-xs sm:max-w-md md:max-w-lg">
                     <img src="{{ asset('Frontend/images/makeitstick.png') }}" alt="Make it stick"
                         class="mx-auto w-3/4 sm:w-2/3 md:w-1/2">
-                    <h3 class="text-white uppercase py-3 text-font-14px sm:text-base md:text-font-18px lg:text-font-20px font-bold">
+                    <h3
+                        class="text-white uppercase py-3 text-font-14px sm:text-base md:text-font-18px lg:text-font-20px font-bold">
                         Custom stickers made easy
                     </h3>
                     <a href="#"
@@ -88,6 +89,9 @@
                 <span class="w-24 h-0.5 bg-tertiary block mx-auto mb-5 mt-3"></span>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3   md:gap-4 sm:gap-2 md:px-4 px-2">
+
+
+
                 <div
                     class="card-1 text-center p-2 transform transition duration-300 hover:text-white hover:bg-primary-hover/80 rounded-xl">
                     <img class="w-full mx-auto" src="{{ asset('Frontend/images/custom-stickers-2.jpg') }}" alt="">
@@ -148,7 +152,8 @@
                                 <i class="fas fa-crop-alt"></i>
                             </div>
                             <div>
-                                <h3 class="text-secondary font-bold text-base sm:text-font-18px md:text-heading-4 uppercase">
+                                <h3
+                                    class="text-secondary font-bold text-base sm:text-font-18px md:text-heading-4 uppercase">
                                     No Designer Needed
                                 </h3>
                                 <p class="text-gray py-2 text-font-14px sm:text-font-14px">

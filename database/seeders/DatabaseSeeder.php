@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SizeCategory;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,9 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            UserSeeder::class,
+            RoleSeeder::class,
             AdminSeeder::class,
-            ProductSeeder::class
+            PermissionSeeder::class,
+            RoleHasPermissionSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

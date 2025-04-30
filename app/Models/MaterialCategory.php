@@ -6,8 +6,18 @@ use App\Models\BaseModel;
 
 class MaterialCategory extends BaseModel
 {
-    public function card()
+    protected $table = 'material_categories';
+
+    protected $fillable = [
+        'title',
+        'sticker_category_id',
+        'slug',
+        'description',
+        'image',
+    ];
+
+    public function StickerCategory()
     {
-        return $this->hasMany(Cart::class);
+        return $this->belongsTo(StickerCategory::class);
     }
 }

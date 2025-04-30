@@ -1,4 +1,4 @@
-@extends('backend.user.layouts.app', ['page_slug' => 'dashboard'])
+@extends('frontend.layouts.app', ['page_slug' => 'dashboard'])
 @section('title', 'User Dashboard')
 @section('content')
     <div class="row mt-5">

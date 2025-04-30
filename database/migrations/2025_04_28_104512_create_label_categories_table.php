@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\LabelCategory;
 
 return new class extends Migration
 {
@@ -14,10 +15,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('third_categories', function (Blueprint $table) {
+        Schema::create('label_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->tinyInteger('status')->max(1)->default(LabelCategory::STATUS_ACTIVE)->comment(LabelCategory::STATUS_ACTIVE . ' = Active, ' . LabelCategory::STATUS_INACTIVE . ' = Inactive');
             $table->timestamps();
             $table->softDeletes();
+            $this->addAdminAuditColumns($table);
         });
     }
 
@@ -26,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('third_categories');
+        Schema::dropIfExists('label_categories');
     }
 };

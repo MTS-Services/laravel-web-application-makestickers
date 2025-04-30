@@ -1,15 +1,12 @@
-<header class="bg-white shadow-md">
+<header class="bg-light-white shadow-md">
     <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         <!-- Logo -->
         <div>
             <div class="flex items-center space-x-2">
-                <a href="{{ route('frontend.home') }}"> <img src="{{ asset('Frontend/images/makestickers-logo.svg') }}"
-                        alt="Make Stickers" class="h-10"></a>
-
+                <a href="{{ route('frontend.home') }}"> <img src="{{ storage_url(siteSetting()->logo ?? '') }}"
+                        alt="{{ siteSetting()->title ?? 'Site Title' }}" class="h-10"></a>
             </div>
-
-
         </div>
 
         <!-- Right Buttons -->
@@ -54,7 +51,7 @@
                 <div tabindex="0" role="button" class="py-2 px-4 hover:text-tertiary">ABOUT US <i
                         class="fas fa-caret-down pl-2"></i></div>
                 <ul tabindex="0" class="dropdown-content menu  bg-light-gray rounded-box px-4 shadow-sm w-52 ">
-                    <li><a href="#" class="px-5 my-1">Blog</a></li>
+                    <li><a href="{{ route('frontend.blog') }}" class="px-5 my-1">Blog</a></li>
                     <li><a href="#" class="px-5 my-1">Sticker Trends</a></li>
                     <li><a href="{{ route('frontend.about') }}" class="px-5 my-1">About Us</a></li>
                     <li><a href="{{ route('frontend.career') }}" class="px-5 my-1 ">Careers</a></li>
@@ -72,18 +69,13 @@
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex space-x-6 text-font-14px font-semibold my-4">
-                <a href="#" class="hover:text-tertiary">CUSTOM STICKERS</a>
-                <a href="#" class="hover:text-tertiary">CUSTOM LABELS</a>
-                <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
-                <a href="#" class="hover:text-tertiary">DESIGNS</a>
-                @auth
+                <a href="{{ route('frontend.custom_sticker',) }}" class="hover:text-tertiary">CUSTOM STICKERS</a>
+                <a href="{{ route('frontend.custom_label') }}" class="hover:text-tertiary">CUSTOM LABELS</a>
 
-                    <a href="{{ route('user.op.cart.index') }}" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i>
-                        CART</a>
-                @else
-                    <a href="{{ route('login') }}" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i>
-                        CART</a>
-                @endauth
+
+                <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
+                <a href="{{ route('frontend.designs') }}" class="hover:text-tertiary">DESIGNS</a>
+                <a href="#" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>
         </div>
 
@@ -219,7 +211,7 @@
                 <!-- mobile -->
 
                 <div class=" flex flex-col text-light  text-font-14px font-semibold my-4">
-                    <a href="#" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
+                    <a href="{{ route('frontend.custom_sticker') }}" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
                     <a href="#" class="hover:text-tertiary py-3">CUSTOM LABELS</a>
                     <a href="#" class="hover:text-tertiary py-3">POUCHES</a>
                     <a href="#" class="hover:text-tertiary py-3">DESIGNS</a>

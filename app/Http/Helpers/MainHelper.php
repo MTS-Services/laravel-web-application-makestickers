@@ -1,10 +1,13 @@
 <?php
 
-use App\Models\Permission;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Admin;
 use League\Csv\Writer;
-use Illuminate\Support\Facades\File;
+use App\Models\Permission;
 use Illuminate\Support\Str;
+use App\Models\AuthBaseModel;
+use App\Models\BaseModel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 
 function admin()
@@ -19,17 +22,12 @@ function user()
 
 function timeFormat($time)
 {
-    return date(('d M, Y H:i A'), strtotime($time));
+    return date('d M, Y h:i A', strtotime($time));
 }
 
-function creater_name($user)
+function updatedDate($createdAt, $updatedAt)
 {
-    return $user->name ?? 'System';
-}
-
-function updater_name($user)
-{
-    return $user->name ?? 'Null';
+    return $createdAt == $updatedAt ? "N/A" : timeFormat($updatedAt);
 }
 
 function storage_url($urlOrArray)
@@ -225,4 +223,24 @@ function getFileType($path)
     }
 
     return 'unknown';
+}
+
+function genders()
+{
+    $genders = [];
+    $authBaseModel = new AuthBaseModel();
+    foreach ($authBaseModel->getGenders() as $key => $value) {
+        $genders[$key] = $value;
+    }
+    return $genders;
+}
+
+function getStatus()
+{
+    $status = [];
+    $baseModel = new BaseModel;
+    foreach ($baseModel->getStatus() as $key => $value) {
+        $status[$key] = $value;
+    }
+    return $status;
 }

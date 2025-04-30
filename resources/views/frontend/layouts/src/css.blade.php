@@ -1,0 +1,49 @@
+<!-- Favicon -->
+<link rel="icon" href="" type="image/x-icon" />
+<!-- Fonts and icons -->
+<script src="{{ asset('backend/assets/js/plugin/webfont/webfont.min.js') }}"></script>
+<script>
+    WebFont.load({
+        google: {
+            families: ["Public Sans:300,400,500,600,700"]
+        },
+        custom: {
+            families: [
+                "Font Awesome 5 Solid",
+                "Font Awesome 5 Regular",
+                "Font Awesome 5 Brands",
+                "simple-line-icons",
+            ],
+            urls: ["{{ asset('backend/assets/css/fonts.min.css') }}"],
+        },
+        active: function() {
+            sessionStorage.fonts = true;
+        },
+    });
+</script>
+<link rel="stylesheet" href="{{ asset('backend/assets/css/kaiadmin.min.css') }}" />
+
+{{-- Boxicons CDN Link --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" />
+{{-- FontAwesome 6 CDN LINK --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+{{-- Bootstrap Icons --}}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+{{-- Css Links --}}
+@stack('css_links')
+
+@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+<style>
+    .main-header .btn.btn-toggle.toggle-sidebar,
+    .main-header .btn.btn-toggle.sidenav-toggler,
+    .main-header .topbar-toggler.more {
+        padding: 10px 5px !important;
+    }
+</style>
+
+{{-- Custom CSS   --}}
+{{-- FileUpload CSS --}}
+<link rel="stylesheet" href="{{ asset('backend/assets/custom_files/css/fileUpload.css') }}">
+@stack('css')

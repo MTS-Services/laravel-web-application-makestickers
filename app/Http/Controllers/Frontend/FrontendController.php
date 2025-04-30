@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\MainCategory;
 use App\Models\StickerCategory;
 use Illuminate\Http\Request;
@@ -67,6 +68,7 @@ class FrontendController extends Controller
 
     public function blog()
     {
-        return view('frontend.pages.blog');
+        $blogs = Blog::where('status', Blog::STATUS_PUBLISH)->with('createdBy')->get();        
+        return view('frontend.pages.blog', compact('blogs'));
     }
 }

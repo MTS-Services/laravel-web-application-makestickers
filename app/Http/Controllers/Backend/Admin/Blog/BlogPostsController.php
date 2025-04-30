@@ -53,6 +53,9 @@ class BlogPostsController extends Controller
         if ($request->hasFile('video')) {
             $this->handleFileUpload($request, $blog, 'video', 'video');
         }
+
+        $blog->created_by = admin()->id;
+
         $blog->save();
 
         session()->flash('success', 'Blog created successfully.');

@@ -23,6 +23,9 @@
                     <div class="mb-3">
                         <label for="slug" class="form-label">Slug</label>
                         <input type="text" name="slug" class="form-control">
+                        @error('slug')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="mb-3">
@@ -43,7 +46,7 @@
 
                     <div class="mb-3">
                         <label for="featured_image" class="form-label">Featured Image</label>
-                        <x-file-upload name="featured_image" type="image" maxSize="50" />
+                        <x-file-upload name="featured_image" type="image" maxSize="2" />
                         @error('featured_image')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -51,7 +54,7 @@
 
                     <div class="mb-3">
                         <label for="image" class="form-label">SEO Image (optional)</label>
-                        <x-file-upload name="image" type="image" maxSize="50" />
+                        <x-file-upload name="image" type="image" maxSize="2" />
                         @error('image')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -59,7 +62,7 @@
 
                     <div class="mb-3">
                         <label for="video" class="form-label">Video (optional)</label>
-                        <x-file-upload name="video" type="video" maxSize="200" />
+                        <x-file-upload name="video" type="video" maxSize="50" />
                         @error('video')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
@@ -67,7 +70,7 @@
 
                     <div class="mb-3">
                         <label for="video_thumbnail" class="form-label">Video Thumbnail (optional)</label>
-                        <x-file-upload name="video_thumbnail" type="image" maxSize="50" />
+                        <x-file-upload name="video_thumbnail" type="image" maxSize="2" />
                         @error('video_thumbnail')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror

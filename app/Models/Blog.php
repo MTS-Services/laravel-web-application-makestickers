@@ -19,11 +19,14 @@ class Blog extends BaseModel
 
     ];
 
-    protected $appends = [
-        'blog_status_bg_color',
-        'blog_status_text',
-    ];
-
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->appends = array_merge(parent::getAppends(), [
+            'blog_status_bg_color',
+            'blog_status_text'
+        ]);
+    }
 
     public const STATUS_PUBLISH = 2;
     public const STATUS_DRAFT = 1;
@@ -71,5 +74,11 @@ class Blog extends BaseModel
             ];
         }
         return $statusBtnText;
+    }
+
+    // Blog.php (Model)
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
     }
 }

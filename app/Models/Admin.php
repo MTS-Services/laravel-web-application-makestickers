@@ -61,4 +61,9 @@ class Admin extends AuthBaseModel
     {
         return $this->role()->pluck('name')->first() ?? 'N/A';
     }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

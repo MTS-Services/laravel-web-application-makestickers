@@ -63,7 +63,7 @@ class FaqController extends Controller
     public function update(faqRequest $request, string $id)
     {
         $faq = Faq::findOrFail($id);
-        $faq->update($request->only('faq_category_id', 'question', 'answer'));
+        $faq->update($request->only('faq_category_id', 'question', 'status', 'answer'));
 
         return redirect(route('admin.faq.index'))->with('success', 'FAQ updated successfully.');
     }
@@ -76,5 +76,17 @@ class FaqController extends Controller
         $faq = Faq::findOrFail(decrypt($id));
         $faq->delete();
         return redirect()->route('admin.faq.index')->with('success', 'Category deleted successfully!');
+    }
+
+    public function status(string $id, string $status)
+    {
+        $faq = Faq::findOrFail(decrypt($id));
+        $faq->update([
+            'status' => decrypt($status),
+            'updated_by' => admin()->id,
+        ]);
+
+        session()->flash('success', 'Faq Status Updated Successfully');
+        return redirect()->route('admin.Faq.index');
     }
 }

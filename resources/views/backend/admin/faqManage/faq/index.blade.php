@@ -16,6 +16,7 @@
                                 <th width="5%">Id</th>
                                 <th>faq_category_Name</th>
                                 <th>Question</th>
+                                <th>Status</th>
                                 <th>Answer</th>
                                 <th width="10%">Action</th>
                             </tr>
@@ -27,6 +28,7 @@
                                 <td>{{ $faq->faqcategory->title }}</td>
 
                                 <td>{{ $faq->question }}</td>
+                                <td>{{ $faq->status }}</td>
                                 <td>{{ $faq->answer }}</td>
 
                                 <td>

@@ -90,7 +90,7 @@
                     {{-- Image Upload --}}
                     <div class="mb-12">
                         <label class="form-label">Preview Image</label>
-                        <x-file-upload name="preview_image" type="image" existingFile="{{ $products->image }}" maxSize="50" />
+                        <x-file-upload name="preview_image" type="image" maxSize="50" />
                         @error('preview_image')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

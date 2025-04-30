@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\MainCategory;
+use App\Models\LabelCategory;
+use App\Models\Product;
 use App\Models\StickerCategory;
 use Illuminate\Http\Request;
 
@@ -53,12 +54,16 @@ class FrontendController extends Controller
 
     public function customSticker()
     {
-        $custom_stickers = StickerCategory::all();
-        return view('frontend.pages.custom_sticker', compact('custom_stickers'));
+        $data['custom_stickers'] = StickerCategory::all();
+        $data['products'] = Product::where('sticker_category_id', '!=', null)->get();
+
+        return view('frontend.pages.custom_sticker', $data);
     }
     public function customLabel()
     {
-        return view('frontend.pages.custom_labels');
+        $data['custom_labels'] = LabelCategory::all();
+        $data['products'] = Product::where('label_category_id', '!=', null)->get();
+        return view('frontend.pages.custom_labels', $data);
     }
     public function review()
     {

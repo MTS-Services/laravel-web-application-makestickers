@@ -18,7 +18,7 @@
                             <tr>
                                 <th>{{ __('Sticker Category') }}</th>
                                 <td><span>:</span></td>
-                                <td>{{ $products->stickerCategory->title }}</td>
+                                <td>{{ isset($products->stickerCategory->title) ? $products->stickerCategory->title : 'N/A' }}</td>
                             </tr>
                             <tr>
                                 <th>{{ __('Size') }}</th>
@@ -46,7 +46,7 @@
                                 <th>{{ __('Preview Image') }}</th>
                                 <td><span>:</span></td>
                                 <td>
-                                    <img src="{{ storage_url($products->preview_image) }}" alt="{{ $products->title }}"
+                                    <img src="{{ storage_url($products->preview_image)  }}" alt="{{ $products->title }}"
                                         style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
                                 </td>
                             </tr>

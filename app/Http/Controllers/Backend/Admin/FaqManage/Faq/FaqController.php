@@ -87,6 +87,6 @@ class FaqController extends Controller
         ]);
 
         session()->flash('success', 'Faq Status Updated Successfully');
-        return redirect()->route('admin.Faq.index');
+        return redirect()->route('admin.faq.index');
     }
 }

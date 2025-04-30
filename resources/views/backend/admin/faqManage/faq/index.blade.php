@@ -28,9 +28,8 @@
                                 <td>{{ $faq->faqcategory->title }}</td>
 
                                 <td>{{ $faq->question }}</td>
-                                <td>{{ $faq->status }}</td>
+                                <td><span class="badge badge-{{ $faq->status_bg }}">{{ $faq->status_text }}</span></td>
                                 <td>{{ $faq->answer }}</td>
-
                                 <td>
                                     <div class="btn-group d-flex align-items-center gap-3 flex-wrap justify-content-start">
                                         <div class="dropdown">
@@ -45,6 +44,22 @@
                                                         href="{{ route('admin.faq.edit', encrypt($faq->id)) }}">
                                                         {{ __('Edit') }}
                                                     </a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a class="dropdown-item dropdown-toggle" href="javascript:void(0)"
+                                                        id="status" role="button" aria-expanded="false">
+                                                        {{ __('Status') }}
+                                                    </a>
+                                                    <ul class="dropdown-menu" aria-labelledby="status">
+                                                        @foreach ($faq->getStatusBtnText($faq->status) as $status)
+                                                        <li class="dropdown-item">
+                                                            <a href="{{ route('admin.faq.status', [encrypt($faq->id), encrypt(array_search($status['text'], $faq->getStatus()))]) }}"
+                                                                class="text-{{ $status['class'] }}">
+                                                                {{ $status['text'] }}
+                                                            </a>
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
                                                 </li>
                                                 <li>
                                                     <a title="Delete" href="javascript:void(0)"

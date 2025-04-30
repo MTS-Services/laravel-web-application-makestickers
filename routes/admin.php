@@ -92,6 +92,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     Route::group(['as' => 'admin.',], function () {
         Route::resource('/faq', FaqController::class);
+        Route::get('/faq/status/{id}/{status}', [FaqController::class, 'status'])->name('faq.status');
         Route::resource('/faqcategory', FaqcategoryController::class);
     });
 

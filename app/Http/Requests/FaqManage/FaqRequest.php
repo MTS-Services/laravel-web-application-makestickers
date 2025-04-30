@@ -23,7 +23,6 @@ class FaqRequest extends FormRequest
         return [
             'faq_category_id' => 'required|exists:faq_categories,id',
             'question' => 'required|string',
-            'status' => 'required|string',
             'answer' => 'required|string',
 
         ];

@@ -14,14 +14,6 @@ class Product extends BaseModel
         return $this->hasMany(Review::class);
     }
 
-    public function cart()
-    {
-        return $this->hasMany(Cart::class);
-    }
-
-
-
-
     protected $fillable = [
         'title',
         'sticker_category_id',
@@ -48,12 +40,26 @@ class Product extends BaseModel
     {
         return $this->belongsTo(LabelCategory::class);
     }
-    public function SizeCategory()
+    public function materialCategory()
+    {
+        return $this->belongsTo(MaterialCategory::class);
+    }
+    public function sizeCategory()
     {
         return $this->belongsTo(SizeCategory::class);
     }
+
     public function admin()
     {
         return $this->belongsTo(Admin::class);
+    }
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
     }
 }

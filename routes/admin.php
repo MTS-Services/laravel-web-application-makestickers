@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\Admin\ProductsManage\LabelCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
+use App\Http\Controllers\Backend\Admin\Order\OrderController as AdminOrderController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -97,8 +98,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     });
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-   Route::resource('/order', OrderController::class);
-   Route::any('/order/status', [OrderController::class, 'status'])->name('order.status');
+   Route::resource('/order', AdminOrderController::class);
+   Route::any('/order/status', [AdminOrderController::class, 'status'])->name('order.status');
 });
 
 

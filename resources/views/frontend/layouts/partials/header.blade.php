@@ -75,7 +75,7 @@
 
                 <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
                 <a href="{{ route('frontend.designs') }}" class="hover:text-tertiary">DESIGNS</a>
-                <a href="#" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
+                <a href="{{ route('user.op.cart.index') }}" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>
         </div>
 

@@ -16,17 +16,17 @@ class OrderProcessController extends Controller
 {
     public function __construct()
     {
-
         $this->middleware('auth:web');
     }
 
-
     public function cart()
     {
-        $data['orders'] = Order::all();
-        $data['carts'] = Cart::all();
-        $data['products'] = Product::all();
-        return view('backend.user.order.index', $data);
+        $carts = Cart::with('product.materialCategory', 'product.sizeCategory', 'product.labelCategory', 'product.stickerCategory')
+            ->where('creater_id', user()->id)
+            ->get();
+
+        $products = $carts->pluck('product');
+        return view('backend.user.order.index', compact('products'));
     }
     public function update(Request $request)
     {

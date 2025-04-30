@@ -30,6 +30,7 @@ class Order extends BaseModel
     public function shippingAddress() {
         return $this->belongsTo(ShippingAddress::class);
     }
+    
 
     public function paymentMethod() {
         return $this->belongsTo(PaymentMethod::class);

@@ -3,7 +3,6 @@
 use App\Http\Controllers\Backend\User\Cart\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\User\DashbordController as UserDashboardController;
-use App\Http\Controllers\Backend\User\OrderManage\OrderController;
 use App\Http\Controllers\Backend\User\Review\ReviewController;
 use App\Http\Controllers\Backend\User\Checkout\CheckoutController;
 use App\Http\Controllers\Backend\User\Address\ShippingAddressController;
@@ -14,16 +13,6 @@ Route::group(['middleware' => ['auth'], 'as' => 'user.'], function () {
 });
 // order controller
 Route::group(['middleware' => ['auth'], 'as'  => 'user.'], function () {
-    Route::group(['as' => 'order.'], function () {
-        Route::get('/order', [OrderController::class, 'index'])->name('index');
-        //     Route::get('/order/show', [OrderController::class, 'show'])->name('show');
-
-
-
-
-
-
-    });
 
     // Review controller
     Route::get('/review', [ReviewController::class, 'index'])->name('review.index');

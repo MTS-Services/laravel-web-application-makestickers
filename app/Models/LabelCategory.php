@@ -16,8 +16,8 @@ class LabelCategory extends BaseModel
         'image',
     ];
 
-    public function label()
+    public function products()
     {
-        return $this->hasMany(Product::class, 'label_category_id');
+        return $this->hasMany(Product::class);
     }
 }

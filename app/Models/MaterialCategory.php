@@ -20,4 +20,12 @@ class MaterialCategory extends BaseModel
     {
         return $this->belongsTo(StickerCategory::class);
     }
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

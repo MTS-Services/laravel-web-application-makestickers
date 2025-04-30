@@ -17,18 +17,16 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('material_categorie_id');
+            $table->unsignedBigInteger('material_category_id');
             $table->unsignedBigInteger('size_categorie_id');
-            $table->integer('image');
-            $table->integer('quantity');
-            $table->integer('price');
+            $table->integer('quantity')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $this->addMorpheAuditColumns($table);
 
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('material_categorie_id')->references('id')->on('material_categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('material_category_id')->references('id')->on('material_categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('size_categorie_id')->references('id')->on('size_categories')->onDelete('cascade')->onUpdate('cascade');
 
         });

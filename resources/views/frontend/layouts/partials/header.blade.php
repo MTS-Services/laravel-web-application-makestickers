@@ -1,4 +1,4 @@
-<header class="bg-white shadow-md">
+<header class="bg-light-white shadow-md">
     <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
         <!-- Logo -->
@@ -69,8 +69,10 @@
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex space-x-6 text-font-14px font-semibold my-4">
-                <a href="#" class="hover:text-tertiary">CUSTOM STICKERS</a>
-                <a href="#" class="hover:text-tertiary">CUSTOM LABELS</a>
+                <a href="{{ route('frontend.custom_sticker',) }}" class="hover:text-tertiary">CUSTOM STICKERS</a>
+                <a href="{{ route('frontend.custom_label') }}" class="hover:text-tertiary">CUSTOM LABELS</a>
+               
+                
                 <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
                 <a href="{{ route('frontend.designs') }}" class="hover:text-tertiary">DESIGNS</a>
                 <a href="#" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
@@ -209,7 +211,7 @@
                 <!-- mobile -->
 
                 <div class=" flex flex-col text-light  text-font-14px font-semibold my-4">
-                    <a href="#" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
+                    <a href="{{ route('frontend.custom_sticker') }}" class="hover:text-tertiary py-3">CUSTOM STICKERS</a>
                     <a href="#" class="hover:text-tertiary py-3">CUSTOM LABELS</a>
                     <a href="#" class="hover:text-tertiary py-3">POUCHES</a>
                     <a href="#" class="hover:text-tertiary py-3">DESIGNS</a>

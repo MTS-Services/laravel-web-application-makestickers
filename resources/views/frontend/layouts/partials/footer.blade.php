@@ -1,4 +1,4 @@
-<footer class=" bg-primary text-white pt-16 pb-0">
+<footer class=" bg-primary text-white pt-16 pb-0 sticky-bottom">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-font-14px text-center md:text-left">
 
         <!-- Column 1 -->

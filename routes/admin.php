@@ -1,13 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
-use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
-use App\Http\Controllers\Backend\Admin\SiteSetting\SiteSettingController;
+use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\LabelCategoryController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
+use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
+use App\Http\Controllers\Backend\Admin\SiteSetting\SiteSettingController;
+use App\Http\Controllers\Backend\Admin\TestManage\TestController;
+use Illuminate\Support\Facades\Route;
+
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -49,8 +54,37 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     });
 
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard'); // Admin Dashboard
-    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::group(['as' => 'admin.'], function () {
         Route::resource('/test', TestController::class);
+        Route::resource('/sticker-category', StickerCategoryController::class);
+        Route::group(['as' => 'sticker-category.', 'prefix' => 'sticker-category'], function () {
+            Route::get('/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('status');
+            // Trash 
+            // restore 
+            // force delete
+        });
+
+        Route::resource('/material-category', MaterialCategoryController::class);
+        Route::group(['as' => 'material-category.', 'prefix' => 'material-category'], function () {
+            Route::get('/status/{id}/{status}', [MaterialCategoryController::class, 'status'])->name('status');
+            // Trash 
+            // restore 
+            // force delete
+        });
+        Route::resource('/product', ProductsController::class);
+        Route::group(['as' => 'product.', 'prefix' => 'product-restore'], function () {
+            Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('status');
+            Route::get('/trash', [ProductsController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [ProductsController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [ProductsController::class, 'forceDelete'])->name('force-delete');
+        });
+        Route::resource('/label-category', LabelCategoryController::class);
+        Route::group(['as' => 'label-category.', 'prefix' => 'label-category'], function () {
+            Route::get('/status/{id}/{status}', [LabelCategoryController::class, 'status'])->name('status');
+            // Trash
+            // restore 
+            // force delete
+        });
     });
 
 

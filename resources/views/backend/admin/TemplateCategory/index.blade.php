@@ -5,7 +5,7 @@
         <div class="col-md-12 mx-auto">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3>template</h3>
+                    <h3>Size</h3>
                     <a href="{{ route('admin.template-category.create') }}" class="btn btn-primary btn-sm">Add New</a>
                 </div>
                 <div class="card-body">
@@ -14,24 +14,24 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>Name</th>
-                                    <th>email</th>
-                                    <th>Number</th>
-                                    <th>address</th>
-                                    <th>city</th>
+                                    <th>Title</th>
+                                    <th>size categories</th>
+                                    <th>Sticker Category</th>
+                                    <th>Material Category</th>
+                                    <th>Label Category</th>
                                     <th>Image</th>
                                     <th width="10%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($templates as $template)
+                                @forelse ($TemplateCategory as $template)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $template->name }}</td>
-                                        <td>{{ $template->email }}</td>
-                                        <td>{{ $template->phone_number }}</td>
-                                        <td>{{ $template->address }}</td>
-                                        <td>{{ $template->city }}</td>
+                                        <td>{{ $template->title }}</td>
+                                        <td>{{ $template->sizeCategory->title ?? 'N/A' }}</td>
+                                        <td>{{ $template->stickerCategory->title ?? 'N/A' }}</td>
+                                        <td>{{ $template->materialCategory->title ?? 'N/A' }}</td>
+                                        <td>{{ $template->labelCategory->title ?? 'N/A' }}</td>
                                         <td>
                                             <img src="{{ storage_url($template->image) }}" alt="template Image"
                                                 style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
@@ -57,24 +57,24 @@
                                                     </li>
                                                     <li>
                                                         <a title="Delete" href="javascript:void(0)"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $template->id }}').submit();"
-                                                        class="dropdown-item text-danger" data-id="">
-                                                        {{ __('Delete') }}
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $template->id }}').submit();"
+                                                            class="dropdown-item text-danger" data-id="">
+                                                            {{ __('Delete') }}
                                                         </a>
                                                         <form id="delete-form-{{ $template->id }}"
-                                                        action="{{ route('admin.template-category.destroy', encrypt($template->id)) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
+                                                            action="{{ route('admin.template-category.destroy', encrypt($template->id)) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
                                                         </form>
-                                                        </li>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="11" class="text-center">No template Found</td>
+                                        <td colspan="11" class="text-center">No Template Found</td>
                                     </tr>
                                 @endforelse
                             </tbody>

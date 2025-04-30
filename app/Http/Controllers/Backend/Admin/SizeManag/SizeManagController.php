@@ -7,6 +7,7 @@ use App\Http\Traits\FileManagementTrait;
 use App\Models\LabelCategory;
 use App\Models\MaterialCategory;
 use Illuminate\Http\Request;
+use App\Http\Requests\Sizemanage;
 use App\Models\SizeCategory;
 use App\Models\StickerCategory;
 
@@ -30,17 +31,8 @@ class SizeManagController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Sizemanage $request)
     {
-        $request->validate([
-            'height' => 'nullable|string',
-            'width' => 'nullable|string',
-            'sticker_category_id' => 'nullable|exists:sticker_categories,id',
-            'material_category_id' => 'nullable|exists:material_categories,id',
-            'label_category_id' => 'nullable|exists:label_categories,id',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        ]);
-
         $sizes = new SizeCategory();
         $sizes->height = $request->height;
         $sizes->width = $request->width;
@@ -81,20 +73,10 @@ class SizeManagController extends Controller
 
         return view('backend.admin.SizeManage.edit', compact('size', 'stickerCategories', 'materialCategories', 'labelCategories'));
     }
-    public function update(Request $request, string $id)
+    public function update(Sizemanage $request, string $id)
     { {
             $id = decrypt($id);
             $sizes = SizeCategory::findOrFail($id);
-
-            $request->validate([
-                'height' => 'nullable|string',
-                'width' => 'nullable|string',
-                'sticker_category_id' => 'nullable|exists:sticker_categories,id',
-                'material_category_id' => 'nullable|exists:material_categories,id',
-                'label_category_id' => 'nullable|exists:label_categories,id',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            ]);
-
             $sizes->height = $request->height;
             $sizes->width = $request->width;
             $sizes->sticker_category_id = $request->sticker_category_id;

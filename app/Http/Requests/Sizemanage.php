@@ -11,7 +11,7 @@ class Sizemanage extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,13 +22,12 @@ class Sizemanage extends FormRequest
     public function rules(): array
     {
         return [
-            'height' => 'nullable|string',
-            'width' => 'nullable|string',
+            'height' => 'required|string',
+            'width' => 'required|string',
             'sticker_category_id' => 'nullable|exists:sticker_categories,id',
             'material_category_id' => 'nullable|exists:material_categories,id',
             'label_category_id' => 'nullable|exists:label_categories,id',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-
-        ] + ($this->isMethod('POST') ? $this->store() : $this->update());
+        ];
     }
 }

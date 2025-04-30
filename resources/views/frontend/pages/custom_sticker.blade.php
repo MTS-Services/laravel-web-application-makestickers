@@ -45,7 +45,7 @@
         {{-- Categories --}}
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-[50px]">
-                @foreach ($custom_stickers as $custom_sticker)
+                @forelse ($custom_stickers as $custom_sticker)
                     <div class="text-center p-2 bg-light-gray rounded-md">
                         <div class="p-3">
                             <img class="w-full mx-auto" src="{{ storage_url($custom_sticker->image) }}"
@@ -56,7 +56,9 @@
                             <p class="text-font-16px text-gray p-2">{{ $custom_sticker->description }}</p>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <p class="text-font-16px text-gray py-20 text-center">No Custom Stickers Categories Found</p>
+                @endforelse
             </div>
         </div>
         {{-- The MakeStickers Way --}}
@@ -147,24 +149,24 @@
         <section class="container mx-auto py-16 px-4">
             <h2 class="text-font-28px font-bold text-gray mb-8">Related Custom Sticker Products</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                
+
                 @foreach ($products as $product)
-                        <div class="border border-gray rounded-lg overflow-hidden">
-                            <img src="{{ storage_url($product->preview_image) }}" alt="{{ $product->title }}"
-                                class="w-full object-cover">
-                            <div class="p-4">
-                                <h3 class="font-bold text-gray mb-2">{{ $product->title }}</h3>
-                                <p class="text-gray text-font-14px mb-10">{{ $product->description }}</p>
-                                <a href="#"
-                                    class="text-primary hover:text-blue-600 text-font-14px font-medium inline-flex items-center">
-                                    Design <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </a>
-                            </div>
+                    <div class="border border-gray rounded-lg overflow-hidden">
+                        <img src="{{ storage_url($product->preview_image) }}" alt="{{ $product->title }}"
+                            class="w-full object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray mb-2">{{ $product->title }}</h3>
+                            <p class="text-gray text-font-14px mb-10">{{ $product->description }}</p>
+                            <a href="#"
+                                class="text-primary hover:text-blue-600 text-font-14px font-medium inline-flex items-center">
+                                Design <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
                         </div>
+                    </div>
                 @endforeach
             </div>
         </section>

@@ -14,24 +14,25 @@
                             <thead>
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>Name</th>
-                                    <th>email</th>
-                                    <th>Number</th>
-                                    <th>address</th>
-                                    <th>city</th>
+                                    <th>Height</th>
+                                    <th>Width</th>
+                                    <th>Sticker Category</th>
+                                    <th>Material Category</th>
+                                    <th>Label Category</th>
                                     <th>Image</th>
                                     <th width="10%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($sizes as $size)
+                                @forelse ($sizeCategories as $size)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $size->name }}</td>
-                                        <td>{{ $size->email }}</td>
-                                        <td>{{ $size->phone_number }}</td>
-                                        <td>{{ $size->address }}</td>
-                                        <td>{{ $size->city }}</td>
+                                        <td>{{ $size->height }}</td>
+                                        <td>{{ $size->width }}</td>
+                                        <td>{{ $size->stickerCategory->title?? 'N/A' }}</td>
+                                        <td>{{ $size->materialCategory->title ?? 'N/A' }}</td>
+                                        <td>{{ $size->labelCategory->title ?? 'N/A' }}</td>
+
                                         <td>
                                             <img src="{{ storage_url($size->image) }}" alt="size Image"
                                                 style="width: 50px; aspect-ratio:16/9; object-fit:cover;">
@@ -57,17 +58,17 @@
                                                     </li>
                                                     <li>
                                                         <a title="Delete" href="javascript:void(0)"
-                                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $size->id }}').submit();"
-                                                        class="dropdown-item text-danger" data-id="">
-                                                        {{ __('Delete') }}
+                                                            onclick="event.preventDefault(); document.getElementById('delete-form-{{ $size->id }}').submit();"
+                                                            class="dropdown-item text-danger" data-id="">
+                                                            {{ __('Delete') }}
                                                         </a>
                                                         <form id="delete-form-{{ $size->id }}"
-                                                        action="{{ route('admin.size.destroy', encrypt($size->id)) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
+                                                            action="{{ route('admin.size.destroy', encrypt($size->id)) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
                                                         </form>
-                                                        </li>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </td>

@@ -1,62 +1,70 @@
 <?php
 
 namespace App\Http\Controllers\Backend\Admin\SizeManag;
+
 use App\Http\Controllers\Controller;
 use App\Http\Traits\FileManagementTrait;
+use App\Models\LabelCategory;
+use App\Models\MaterialCategory;
 use Illuminate\Http\Request;
 use App\Models\SizeCategory;
+use App\Models\StickerCategory;
 
 class SizeManagController extends Controller
 {
     use FileManagementTrait;
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $sizes = SizeCategory::all();
-        return view('backend.admin.SizeManage.index', compact('sizes'));
+        $sizeCategories = SizeCategory::with(['stickerCategory', 'materialCategory', 'labelCategory'])->get();
+        return view('backend.admin.SizeManage.index', compact('sizeCategories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('backend.admin.SizeManage.create');
-    }
+        $data['stickerCategories'] = StickerCategory::all();
+        $data['materialCategories'] = MaterialCategory::all();
+        $data['labelCategories'] = LabelCategory::all();
+        return view('backend.admin.SizeManage.create', $data);
 
+    }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'height' => 'nullable|string',
+            'width' => 'nullable|string',
+            'sticker_category_id' => 'nullable|exists:sticker_categories,id',
+            'material_category_id' => 'nullable|exists:material_categories,id',
+            'label_category_id' => 'nullable|exists:label_categories,id',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
         $sizes = new SizeCategory();
-        $sizes->name = $request->name;
-        $sizes->email = $request->email;
-        $sizes->phone_number = $request->phone_number;
-        $sizes->address = $request->address;
-        $sizes->city = $request->city;
+        $sizes->height = $request->height;
+        $sizes->width = $request->width;
+        $sizes->sticker_category_id = $request->sticker_category_id;
+        $sizes->material_category_id = $request->material_category_id;
+        $sizes->label_category_id = $request->label_category_id;
 
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $sizes, 'image', 'image');
         }
 
         $sizes->save();
-        session()->flash('success', 'Size created successfully');
+
+        session()->flash('success', 'Size category created successfully');
         return redirect()->route('admin.size.index');
     }
-
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
         $id = decrypt($id);
-        $sizes = SizeCategory::findOrFail($id);
-        return view('backend.admin.SizeManage.details', compact('sizes'));
-
-
+        $size = SizeCategory::with(['stickerCategory', 'materialCategory', 'labelCategory'])->findOrFail($id);
+        return view('backend.admin.SizeManage.details', compact('size'));
     }
 
     /**
@@ -65,43 +73,52 @@ class SizeManagController extends Controller
     public function edit(string $id)
     {
         $id = decrypt($id);
-        $sizes = SizeCategory::findOrFail($id);
-        session()->flash('success', 'Size updated successfully');
-        return view('backend.admin.SizeManage.edit', compact('sizes'));
-    }
+        $size = SizeCategory::findOrFail($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
+        $stickerCategories = StickerCategory::all();
+        $materialCategories = MaterialCategory::all();
+        $labelCategories = LabelCategory::all();
+
+        return view('backend.admin.SizeManage.edit', compact('size', 'stickerCategories', 'materialCategories', 'labelCategories'));
+    }
     public function update(Request $request, string $id)
-    {
-        $id = decrypt($id);
-        $sizes = SizeCategory::findOrFail($id);
-        $sizes->name = $request->name;
-        $sizes->email = $request->email;
-        $sizes->phone_number = $request->phone_number;
-        $sizes->address = $request->address;
-        $sizes->city = $request->city;
+    { {
+            $id = decrypt($id);
+            $sizes = SizeCategory::findOrFail($id);
 
-        // Handle file uploads for each specific field
-        if ($request->hasFile('image')) {
-            $this->handleFileUpload($request, $sizes, 'image', 'image');
+            $request->validate([
+                'height' => 'nullable|string',
+                'width' => 'nullable|string',
+                'sticker_category_id' => 'nullable|exists:sticker_categories,id',
+                'material_category_id' => 'nullable|exists:material_categories,id',
+                'label_category_id' => 'nullable|exists:label_categories,id',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            ]);
+
+            $sizes->height = $request->height;
+            $sizes->width = $request->width;
+            $sizes->sticker_category_id = $request->sticker_category_id;
+            $sizes->material_category_id = $request->material_category_id;
+            $sizes->label_category_id = $request->label_category_id;
+
+            if ($request->hasFile('image')) {
+                $this->handleFileUpload($request, $sizes, 'image', 'image');
+            }
+
+            $sizes->save();
+
+            session()->flash('success', 'Size updated successfully');
+            return redirect()->route('admin.size.index');
         }
-        $sizes->update();
-        session()->flash('success', 'Size updated successfully');
-        return redirect()->route('admin.size.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $id = decrypt($id);
-        $sizes = SizeCategory::findOrFail($id);
-        $sizes->deleted_by = admin()->id;
-        $sizes->delete();
-        session()->flash('success', 'Size deleted successfully');
-        return redirect()->route('admin.size.index');
+    $size = SizeCategory::findOrFail($id);
+    $size->save();
+    $size->delete();
+    session()->flash('success', 'Size deleted successfully');
+    return redirect()->route('admin.size.index');
     }
 }

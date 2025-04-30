@@ -73,16 +73,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/sticker-category', StickerCategoryController::class);
         Route::group(['as' => 'sticker-category.', 'prefix' => 'sticker-category'], function () {
             Route::get('/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('status');
-            // Trash 
-            // restore 
+            // Trash
+            // restore
             // force delete
         });
 
         Route::resource('/material-category', MaterialCategoryController::class);
         Route::group(['as' => 'material-category.', 'prefix' => 'material-category'], function () {
             Route::get('/status/{id}/{status}', [MaterialCategoryController::class, 'status'])->name('status');
-            // Trash 
-            // restore 
+            // Trash
+            // restore
             // force delete
         });
         Route::resource('/product', ProductsController::class);
@@ -96,7 +96,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::group(['as' => 'label-category.', 'prefix' => 'label-category'], function () {
             Route::get('/status/{id}/{status}', [LabelCategoryController::class, 'status'])->name('status');
             // Trash
-            // restore 
+            // restore
             // force delete
         });
     });

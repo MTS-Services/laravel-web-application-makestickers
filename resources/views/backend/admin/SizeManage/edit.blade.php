@@ -8,47 +8,68 @@
 @section('content')
     <div class="container mt-4">
         <h2>Edit Size</h2>
-        <form action="{{ route('admin.size.update', encrypt($sizes->id)) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.size.update', encrypt($size->id)) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            {{-- Name --}}
+
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="name" value="{{ $sizes->name }}">
+                <label for="height" class="form-label">Height</label>
+                <input type="text" name="height" value="{{ old('height', $size->height) }}" class="form-control">
             </div>
 
-            {{-- Slug --}}
             <div class="mb-3">
-                <label for="slug" class="form-label">Email</label>
-                <input type="text" name="email" class="form-control" id="email" value="{{ $sizes->email }}">
+                <label for="width" class="form-label">Width</label>
+                <input type="text" name="width" value="{{ old('width', $size->width) }}" class="form-control">
             </div>
 
-            {{-- Description --}}
             <div class="mb-3">
-                <label for="number" class="form-label">Number</label>
-                <textarea name="number" id="number" class="form-control" rows="5">{{ $sizes->phone_number }}</textarea>
-            </div>
-            <div class="mb-3">
-                <label for="adress" class="form-label">Address</label>
-                <input type="text" name="adress" class="form-control" id="adress" value="{{ $sizes->address }}">
-            </div>
-            <div class="mb-3">
-                <label for="city" class="form-label">City</label>
-                <input type="text" name="city" class="form-control" id="city" value="{{ $sizes->city }}">
+                <label for="sticker_category_id" class="form-label">Sticker Category</label>
+                <select name="sticker_category_id" class="form-select">
+                    <option value="">Select</option>
+                    @foreach($stickerCategories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $size->sticker_category_id ? 'selected' : '' }}>
+                            {{ $category->title ?? 'Unnamed' }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
+            <div class="mb-3">
+                <label for="material_category_id" class="form-label">Material Category</label>
+                <select name="material_category_id" class="form-select">
+                    <option value="">Select</option>
+                    @foreach($materialCategories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $size->material_category_id ? 'selected' : '' }}>
+                            {{ $category->title ?? 'Unnamed' }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="label_category_id" class="form-label">Label Category</label>
+                <select name="label_category_id" class="form-select">
+                    <option value="">Select</option>
+                    @foreach($labelCategories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $size->label_category_id ? 'selected' : '' }}>
+                            {{ $category->title ?? 'Unnamed' }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
             {{-- Image Upload --}}
             <div class="mb-3">
-                <label class="form-label">Image</label>
-                <x-file-upload name="image1" type="image" existingFile="{{ $sizes->image }}" maxSize="50" />
+                <label for="image" class="form-label">Image</label><br>
+                @if ($size->image)
+                    <img src="{{storage_url($size->image) }}" width="80" class="mb-2">
+                @endif
+                <input type="file" name="image" class="form-control">
             </div>
             {{-- Submit Button --}}
-            <button type="submit" class="btn btn-primary">Update Test</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 @endsection
-
 @push('js')
     {{-- <script src="{{ asset('backend/assets/custom_files/js/fileUpload.js') }}"></script> --}}
 @endpush

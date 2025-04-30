@@ -22,26 +22,13 @@ class Sizemanage extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'image' => 'required',
-            'phone_number' => 'required',
-            'address' => 'required',
-            'city' => 'required',
+            'height' => 'nullable|string',
+            'width' => 'nullable|string',
+            'sticker_category_id' => 'nullable|exists:sticker_categories,id',
+            'material_category_id' => 'nullable|exists:material_categories,id',
+            'label_category_id' => 'nullable|exists:label_categories,id',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
 
         ] + ($this->isMethod('POST') ? $this->store() : $this->update());
-    }
-    protected function store(): array
-    {
-        return [
-            'email' => 'required|string|min:8|unique:material_categories,email',
-        ];
-    }
-    protected function update(): array
-    {
-        return [
-            'email' => 'required|string|min:8|unique:material_categories,email,' . $this->route('material_category')->id,
-        ];
     }
 }

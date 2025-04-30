@@ -28,9 +28,6 @@
                         <p>{{ __('Dashboard') }}</p>
                     </a>
                 </li>
-
-                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'size') active @endif">
-                    <a href="{{route('admin.size.index')}}">
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'admin' || $page_slug == 'role' || $page_slug == 'permission')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#adminManagement"
                         @if (isset($page_slug) && ($page_slug == 'admin' || $page_slug == 'role' || $page_slug == 'permission')) aria-expanded="true" @endif>
@@ -59,8 +56,8 @@
                     </div>
                 </li>
 
-                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'test') active @endif">
-                    <a href="{{ route('admin.test.index') }}">
+                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'size') active @endif">
+                    <a href="{{ route('admin.size.index') }}">
                         <i class="icon-chart"></i>
                         <p>{{ __('size') }}</p>
                     </a>

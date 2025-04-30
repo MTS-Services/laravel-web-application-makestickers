@@ -6,47 +6,76 @@
 @endpush
 
 @section('content')
-    <div class="container mt-4">
-        <h2>Create New Test</h2>
-        <form action="{{ route('admin.size.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+<div class="container">
+    <h2>Create New Size Category</h2>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Validation Error!</strong>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form action="{{ route('admin.size.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
 
-            {{-- Name --}}
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" class="form-control" id="name">
-            </div>
+        <div class="mb-3">
+            <label for="height" class="form-label">Height</label>
+            <input type="text" name="height" class="form-control" value="{{ old('height') }}">
+        </div>
 
-            {{-- Slug --}}
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" name="email" class="form-control" id="email">
-            </div>
+        <div class="mb-3">
+            <label for="width" class="form-label">Width</label>
+            <input type="text" name="width" class="form-control" value="{{ old('width') }}">
+        </div>
 
-            {{-- Description --}}
-            <div class="mb-3">
-                <label for="phone_number" class="form-label">Number</label>
-                <input type="text" name="phone_number" class="form-control" id="email">
-            </div>
-            <div class="mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" name="email" class="form-control" id="email">
-            </div>
-            <div class="mb-3">
-                <label for="city" class="form-label">City</label>
-                <input type="text" name="address" class="form-control" id="email">
-            </div>
+        <div class="mb-3">
+            <label for="sticker_category_id" class="form-label">Sticker Category</label>
+            <select name="sticker_category_id" class="form-select">
+                <option value="">Select</option>
+                @foreach($stickerCategories as $category)
+                    <option value="{{ $category->id }}" {{ old('sticker_category_id') == $category->title ? 'selected' : '' }}>
+                        {{ $category->title ?? 'Unnamed' }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
-            {{-- Image Upload --}}
-            <div class="mb-3">
-                <label class="form-label">Image</label>
-                <x-file-upload name="image" type="image" maxSize="50" />
-            </div>
+        <div class="mb-3">
+            <label for="material_category_id" class="form-label">Material Category</label>
+            <select name="material_category_id" class="form-select">
+                <option value="">Select</option>
+                @foreach($materialCategories as $category)
+                    <option value="{{ $category->id }}" {{ old('material_category_id') == $category->title ? 'selected' : '' }}>
+                        {{ $category->title ?? 'Unnamed' }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
-            {{-- Submit Button --}}
-            <button type="submit" class="btn btn-primary">Create Test</button>
-        </form>
-    </div>
+        <div class="mb-3">
+            <label for="label_category_id" class="form-label">Label Category</label>
+            <select name="label_category_id" class="form-select">
+                <option value="">Select</option>
+                @foreach($labelCategories as $category)
+                    <option value="{{ $category->id }}" {{ old('label_category_id') == $category->title ? 'selected' : '' }}>
+                        {{ $category->title ?? 'Unnamed' }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image (optional)</label>
+            <input type="file" name="image" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-success">Create</button>
+        <a href="{{ route('admin.size.index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 @endsection
 
 @push('js')

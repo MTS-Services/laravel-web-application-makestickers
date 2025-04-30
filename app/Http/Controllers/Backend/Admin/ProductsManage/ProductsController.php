@@ -49,10 +49,7 @@ class ProductsController extends Controller
         if (isset($request->status)) {
             $product->status = $request->status;
         }
-        $product->unit_price = $request->unit_price;
-        if ($request->hasFile('preview_image')) {
-            $this->handleFileUpload($request, $product, 'preview_image');
-        }
+        $this->handleFileUpload($request, $product, 'preview_image', 'preview_image');
         
         $product->created_by = admin()->id;
 
@@ -96,9 +93,7 @@ class ProductsController extends Controller
         $product->description = $request->description;
         $product->unit_price = $request->unit_price; 
 
-        if ($request->hasFile('preview_image')) {
-            $this->handleFileUpload($request, $product, 'preview_image');
-        }
+        $this->handleFileUpload($request, $product, 'preview_image', 'preview_image');
 
         $product->updated_by = admin()->id;
         $product->update();

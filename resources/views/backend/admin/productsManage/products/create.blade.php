@@ -6,7 +6,7 @@
 @endpush
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container mt-4 md:-mt-96">
         <div class="d-flex justify-content-between align-items-center">
             <h2>Create Products</h2>
             <a href="{{ route('admin.product.index') }}" class="btn btn-primary btn-md">Back</a>

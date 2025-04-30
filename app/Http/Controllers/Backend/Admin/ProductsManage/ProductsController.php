@@ -126,8 +126,6 @@ class ProductsController extends Controller
     {
         $products = Product::onlyTrashed()->latest()->get();
         $products->load('deletedBy');
-        // $data['sticker_categories'] = StickerCategory::all();
-        // $data['size_categories'] = SizeCategory::all();
         return view('backend.admin.productsManage.products.trash', compact('products'));
     }
 

@@ -7,7 +7,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Products Category</h3>
                     <div>
-                        <a href="#" class="btn btn-info btn-md me-2">Trash</a>
+                        <a href="{{ route('admin.product.trash') }}" class="btn btn-info btn-md me-2">Trash</a>
                         <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-md">Add New</a>
                     </div>
                 </div>

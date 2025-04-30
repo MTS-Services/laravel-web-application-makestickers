@@ -27,6 +27,47 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($products as $product)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $product->title }}</td>
+                                        <td>{{ isset($product->stickerCategory) ? $product->stickerCategory->title : (isset($product->labelCategory) ? $product->labelCategory->title : 'N/A') }}</td>
+                                        <td>{{ isset($product->sizeCategory) ? $product->sizeCategory->title : 'N/A' }}</td>
+                                        <td><span class="badge badge-{{ $product->status_bg }}">{{ $product->status_text }}</span></td>
+                                        <td>{{ $product->unit_price }}</td>
+                                        <td>{{ $product->deleted_at }}</td>
+                                        <td>{{ $product->deleted_by_name }}</td>
+                                        <td>
+                                            <div
+                                                class="btn-group d-flex align-items-center gap-3 flex-wrap justify-content-start">
+                                                <i class="icon-grid reorder fs-4 float-left" style="cursor: move;"></i>
+
+                                                <div class="dropdown">
+                                                    <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="icon-settings fs-3 setting"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end"
+                                                        aria-labelledby="dropdownMenuButton1">
+                                                        <li>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('admin.product.restore', encrypt($product->id)) }}">
+                                                                {{ __('Restore') }}
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a title="Delete" class="dropdown-item text-danger"
+                                                                href="javascript:void(0)" onclick="confirmPermanentDelete('{{ route('admin.product.force-delete', encrypt($product->id)) }}')">
+                                                                {{ __('Permanently Delete') }}
+                                                            </a>
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

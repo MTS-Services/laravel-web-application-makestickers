@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Backend\Admin\ProductsManage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StickerCategoryRequest;
 use App\Http\Traits\FileManagementTrait;
-use App\Models\MainCategory;
 use App\Models\StickerCategory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
 class StickerCategoryController extends Controller

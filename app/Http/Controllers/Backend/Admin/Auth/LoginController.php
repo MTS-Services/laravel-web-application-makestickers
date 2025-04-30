@@ -19,7 +19,7 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest')->except('logout');
     }
 
     /**
@@ -27,7 +27,10 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('backend.admin.auth.login'); // Return the login form view
+        if($this->guard()->check()) {
+            return redirect()->route('admin.dashboard');
+        }
+        return view('backend.admin.auth.login');
     }
 
     /**

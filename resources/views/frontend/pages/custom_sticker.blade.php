@@ -150,7 +150,7 @@
                 
                 @foreach ($products as $product)
                         <div class="border border-gray rounded-lg overflow-hidden">
-                            <img src="{{ storage_url($product->image) }}" alt="{{ $product->title }}"
+                            <img src="{{ storage_url($product->preview_image) }}" alt="{{ $product->title }}"
                                 class="w-full object-cover">
                             <div class="p-4">
                                 <h3 class="font-bold text-gray mb-2">{{ $product->title }}</h3>

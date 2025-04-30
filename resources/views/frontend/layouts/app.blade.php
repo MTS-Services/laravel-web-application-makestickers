@@ -8,7 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="shortcut icon" href="{{ siteSetting()->favicon ? asset('storage/' . siteSetting()->favicon) : '' }}"
+    <link rel="shortcut icon"
+        href="{{ siteSetting() ? (siteSetting()->favicon ? asset('storage/' . siteSetting()->favicon) : '')     : '' }}"
         type="image/x-icon">
 
     {{-- Fontawesome icons --}}

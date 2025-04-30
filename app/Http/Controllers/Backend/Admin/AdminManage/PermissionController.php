@@ -9,6 +9,21 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+
+        // Define permissions for each method
+        $this->middleware('permission:permission-list', ['only' => ['index', 'show']]);
+        $this->middleware('permission:permission-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:permission-edit', ['only' => ['edit', 'update', 'status']]);
+        $this->middleware('permission:permission-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:permission-trash', ['only' => ['trash', 'restore']]);
+        $this->middleware('permission:permission-restore', ['only' => ['restore']]);
+        $this->middleware('permission:permission-force-delete', ['only' => ['forceDelete']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -86,6 +101,12 @@ class PermissionController extends Controller
         session()->flash('success', 'Permission Deleted Successfully');
         return redirect()->route('am.permission.index');
     }
+
+    public function status(string $id, string $status)
+    {
+        //
+    }
+
 
     public function trash()
     {

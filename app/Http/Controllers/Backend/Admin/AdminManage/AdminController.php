@@ -12,6 +12,22 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+
+        // Define permissions for each method
+        $this->middleware('permission:admin-list', ['only' => ['index', 'show']]);
+        $this->middleware('permission:admin-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:admin-edit', ['only' => ['edit', 'update', 'status']]);
+        $this->middleware('permission:admin-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:admin-trash', ['only' => ['trash', 'restore']]);
+        $this->middleware('permission:admin-restore', ['only' => ['restore']]);
+        $this->middleware('permission:admin-force-delete', ['only' => ['forceDelete']]);
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -96,11 +112,11 @@ class AdminController extends Controller
                     Storage::disk('public')->delete($admin->image);
                 }
             }
-    
+
             $validated['password'] = isset($request->password) ? $request->password : $admin->password;
-    
+
             $validated['updated_by'] = admin()->id;
-    
+
             $admin->update($validated);
             $role = Role::findOrFail($request->role_id);
             $admin->syncRoles($role);

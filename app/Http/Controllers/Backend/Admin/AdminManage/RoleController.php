@@ -11,6 +11,21 @@ use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+
+        // Define permissions for each method
+        $this->middleware('permission:role-list', ['only' => ['index', 'show']]);
+        $this->middleware('permission:role-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:role-edit', ['only' => ['edit', 'update', 'status']]);
+        $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:role-trash', ['only' => ['trash', 'restore']]);
+        $this->middleware('permission:role-restore', ['only' => ['restore']]);
+        $this->middleware('permission:role-force-delete', ['only' => ['forceDelete']]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -96,6 +111,11 @@ class RoleController extends Controller
         $role->delete();
         session()->flash('success', 'Role Deleted Successfully');
         return redirect()->route('am.role.index');
+    }
+
+    public function status(string $id, string $status)
+    {
+        //
     }
 
     public function trash()

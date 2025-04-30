@@ -30,14 +30,14 @@ class StickerCategoryRequest extends FormRequest
     protected function store(): array
     {
         return [
-            'slug' => 'required|string|min:5|unique:label_categories,slug',
+            'slug' => 'required|string|min:5|unique:sticker_categories,slug',
         ];
     }
 
     protected function update(): array
     {
         return [
-            'slug' => 'required|string|min:5|unique:label_categories,slug,' . decrypt($this->route('label_category')),
+            'slug' => 'required|string|min:5|unique:sticker_categories,slug,' . decrypt($this->route('sticker_category')),
         ];
     }
 }

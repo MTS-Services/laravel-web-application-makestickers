@@ -82,7 +82,7 @@ class StickerCategoryController extends Controller
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $sticker_category, 'image');
         }
-        $sticker_category->updated_by = admin()->id;
+        // $sticker_category->updated_by = admin()->id;
         $sticker_category->save();
         session()->flash('success', 'Sticker Category updated successfully');
         return redirect()->route('admin.sticker-category.index');

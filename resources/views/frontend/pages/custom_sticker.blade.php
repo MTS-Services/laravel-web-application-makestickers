@@ -48,7 +48,7 @@
                 @foreach ($custom_stickers as  $custom_sticker)
                 <div class="text-center p-2 bg-light-gray rounded-md">
                     <div class="p-3">
-                        <img class="w-full mx-auto" src="{{ storage_url($custom_sticker->preview_image) }}"
+                        <img class="w-full mx-auto" src="{{ storage_url($custom_sticker->image) }}"
                             alt="" style="width: 300px">
                     </div>
                     <div class="p-3">

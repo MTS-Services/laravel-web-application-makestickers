@@ -131,10 +131,19 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         $admin = Admin::findOrFail(decrypt($id));
+
+        if ($admin->hasRole('Super Admin')) {
+            session()->flash('error', 'Super Admin can not be deleted');
+            return redirect()->route('am.admin.index');
+        }
+        if ($admin->id == admin()->id) {
+            session()->flash('error', 'You can not delete yourself');
+            return redirect()->route('am.admin.index');
+        }
+
         $admin->update([
             'deleted_by' => admin()->id
         ]);
-
         $admin->delete();
         return redirect()->route('am.admin.index');
     }
@@ -165,7 +174,12 @@ class AdminController extends Controller
         $admin->restore();
 
         session()->flash('success', 'Admin restored successfully.');
-        return redirect()->route('am.admin.index');
+        $count = Admin::onlyTrashed()->count();
+
+        if ($count == 0) {
+            return redirect()->route('am.admin.index');
+        }
+        return redirect()->route('am.admin.trash');
     }
 
     public function forceDelete(string $id)
@@ -177,6 +191,11 @@ class AdminController extends Controller
         $admin->forceDelete();
 
         session()->flash('success', 'Admin permanently deleted successfully.');
-        return redirect()->route('am.admin.index');
+        $count = Admin::onlyTrashed()->count();
+
+        if ($count == 0) {
+            return redirect()->route('am.admin.index');
+        }
+        return redirect()->route('am.admin.trash');
     }
 }

@@ -67,19 +67,23 @@
                             <tr>
                                 <th scope="row">{{ __('Permissions') }}</th>
                                 <td>{{ __(' : ') }} </td>
-                                <td width="60%">
-                                    @foreach ($admin->permissions_group as $prefix => $permissions)
-                                        <div class="d-flex align-items-center flex-wrap mb-3">
-                                            <h5 class="m-0 pe-3">{{ $prefix }} {{ __(' : ') }}</h5>
-                                            <div class="d-flex gap-{50px} align-items-center flex-wrap gap-1 m-0 p-0">
-                                                @foreach ($permissions as $permission)
-                                                    <span
-                                                        class="badge bg-success-subtle text-dark">{{ $permission->name }}</span>
-                                                @endforeach
+                                @if ($admin->hasRole('Super Admin'))
+                                    <td>{{ __('Super Admin has all permissions') }}</td>
+                                @else
+                                    <td width="60%">
+                                        @foreach ($admin->permissions_group as $prefix => $permissions)
+                                            <div class="d-flex align-items-center flex-wrap mb-3">
+                                                <h5 class="m-0 pe-3">{{ $prefix }} {{ __(' : ') }}</h5>
+                                                <div class="d-flex gap-{50px} align-items-center flex-wrap gap-1 m-0 p-0">
+                                                    @foreach ($permissions as $permission)
+                                                        <span
+                                                            class="badge bg-success-subtle text-dark">{{ $permission->name }}</span>
+                                                    @endforeach
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endforeach
-                                </td>
+                                        @endforeach
+                                    </td>
+                                @endif
                             </tr>
                             <tr>
                                 <th scope="row">{{ __('Created At') }}</th>

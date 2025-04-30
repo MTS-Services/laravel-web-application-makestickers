@@ -104,6 +104,12 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
         $role = Role::findOrFail(decrypt($id));
+
+        if ($role->id === 1) {
+            session()->flash('error', 'Super Admin Role can not be deleted');
+            return redirect()->route('am.role.index');
+        }
+
         $role->update([
             'deleted_by' => admin()->id
         ]);
@@ -131,7 +137,11 @@ class RoleController extends Controller
         $role->restore();
 
         session()->flash('success', 'Role restored successfully.');
-        return redirect()->route('am.role.index');
+        $count = Role::onlyTrashed()->count();
+        if ($count == 0) {
+            return redirect()->route('am.role.index');
+        }
+        return redirect()->route('am.role.trash');
     }
 
     public function forceDelete(string $id)
@@ -140,6 +150,10 @@ class RoleController extends Controller
         $role->forceDelete();
 
         session()->flash('success', 'Role permanently deleted successfully.');
-        return redirect()->route('am.role.index');
+        $count = Role::onlyTrashed()->count();
+        if ($count == 0) {
+            return redirect()->route('am.role.index');
+        }
+        return redirect()->route('am.role.trash');
     }
 }

@@ -28,5 +28,11 @@ class AdminSeeder extends Seeder
             'role_id' => 2
         ]);
         $admin->assignRole('Admin');
+
+        Admin::create([
+            'name' => 'Test Admin',
+            'email' => 'test@test.com',
+            'password' => 'test@test.com',
+        ]);
     }
 }

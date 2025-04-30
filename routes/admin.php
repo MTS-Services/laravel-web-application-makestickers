@@ -7,11 +7,14 @@ use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\SiteSetting\SiteSettingController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
+use App\Http\Controllers\Backend\Admin\Blog\BlogPostsController;
 use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\LabelCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
+use App\Http\Controllers\Backend\Admin\FaqManage\Faq\FaqController;
+use App\Http\Controllers\Backend\Admin\FaqManage\FaqCategory\FaqcategoryController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -87,7 +90,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     });
 
 
+    Route::group(['as' => 'admin.',], function () {
+        Route::resource('/faq', FaqController::class);
+        Route::resource('/faqcategory', FaqcategoryController::class);
+    });
 
+    Route::group(['as' => 'admin.',], function () {
+        Route::resource('/blog', BlogPostsController::class);
+        Route::get('/blog/status/{id}/{status}', [BlogPostsController::class, 'status'])->name('blog.status');
+    });
 
     // Site Setting 
     Route::group(['prefix' => 'site-settings', 'as' => 'settings.'], function () {

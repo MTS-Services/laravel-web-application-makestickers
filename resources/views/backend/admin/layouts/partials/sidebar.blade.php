@@ -31,7 +31,7 @@
 
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'admin' || $page_slug == 'role' || $page_slug == 'permission')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#adminManagement"
-                        @if (isset($page_slug) && ($page_slug == 'admin' || $page_slug == 'role' || $page_slug == 'permission')) aria-expanded="true" @endif>
+                        @if (isset($page_slug) && ($page_slug=='admin' || $page_slug=='role' || $page_slug=='permission' )) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Admin Management') }}</p>
                         <span class="caret"></span>
@@ -106,12 +106,35 @@
                             <li class="@if (isset($page_slug) && $page_slug == 'material_category') active @endif">
                                 <a href="{{ route('admin.material-category.index') }}">
                                     <span class="sub-item">{{ __('Material Category') }}</span>
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) active submenu @endif">
+                    <a data-bs-toggle="collapse" href="#1"
+                        @if (isset($page_slug) && ($page_slug=='faqcategory' || $page_slug=='faq' )) aria-expanded="true" @endif>
+                        <i class="icon-people"></i>
+                        <p>{{ __('Faq Management') }}</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) show @endif" id="1">
+                        <ul class="nav nav-collapse">
+                            <li class="@if (isset($page_slug) && $page_slug == 'faqcategory') active @endif">
+                                <a href="{{route('admin.faqcategory.index')}}">
+                                    <span class="sub-item">{{ __('Faq_Categories') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'faq') active @endif">
+                                <a href="{{route('admin.faq.index')}}">
+                                    <span class="sub-item">{{ __('FAQ') }}</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
+                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'blog') active @endif">
+                    <a href="{{route('admin.blog.index')}}">
+                        <i class="icon-chart"></i>
+                        <p>{{ __('Bolg Posts') }}</p>
+                    </a>
+                </li>
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'site_setting') active @endif">
                     <a href="{{ route('settings.index') }}">
                         <i class="icon-chart"></i>
@@ -124,32 +147,10 @@
                     <a href="">
                         <i class="icon-chart"></i>
                         <p>{{ __('Single label') }}</p>
-                    </a>
+                </a>
                 </li> --}}
 
-                {{-- Submenu --}}
-                {{-- <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) active submenu @endif">
-                    <a data-bs-toggle="collapse" href="#1"
-                        @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) aria-expanded="true" @endif>
-                        <i class="icon-people"></i>
-                        <p>{{ __('Dropdown') }}</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) show @endif" id="1">
-                        <ul class="nav nav-collapse">
-                            <li class="@if (isset($page_slug) && $page_slug == 'b') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Sub item 1') }}</span>
-                                </a>
-                            </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'c') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Sub item 2') }}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
+
             </ul>
         </div>
     </div>

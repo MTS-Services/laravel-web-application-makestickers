@@ -37,6 +37,14 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select name="status" class="form-control">
+                                <option value="1" {{ $faq->status == 1 ? 'selected' : '' }}>Acttive</option>
+                                <option value="0" {{ $faq->status == 0 ? 'selected' : '' }}>Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <label for="answer" class="form-label">Answer</label>
                             <textarea name="answer" class="form-control" rows="4">{{ $faq->answer }}</textarea>
                             @error('answer')

@@ -13,16 +13,17 @@ Route::group(['middleware' => ['auth'], 'as' => 'user.'], function () {
     Route::get('/dashboard', [UserDashboardController::class, 'dashboard'])->name('dashboard');
 });
 // order controller
-Route::group(['middleware' => ['auth'],'as'  => 'user.'], function () {
-   Route::group(['as' => 'order.'], function () {
-//     Route::get('/order', [OrderController::class, 'index'])->name('index');
-//     Route::get('/order/show', [OrderController::class, 'show'])->name('show');
+Route::group(['middleware' => ['auth'], 'as'  => 'user.'], function () {
+    Route::group(['as' => 'order.'], function () {
+        Route::get('/order', [OrderController::class, 'index'])->name('index');
+        //     Route::get('/order/show', [OrderController::class, 'show'])->name('show');
 
 
 
 
 
-   });
+
+    });
 
     // Review controller
     Route::get('/review', [ReviewController::class, 'index'])->name('review.index');
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['auth'],'as'  => 'user.'], function () {
 
     Route::group(['as' => 'op.', 'prefix' => 'order-process'], function () {
         Route::get('/cart', [OrderProcessController::class, 'cart'])->name('cart.index');
+        Route::post('/cart', [OrderProcessController::class, 'cartStore'])->name('cart.store');
         Route::get('/cart/remove', [OrderProcessController::class, 'cartRemove'])->name('cart.remove');
         Route::post('/address', [OrderProcessController::class, 'address'])->name('address.form');
         Route::post('/payment', [OrderProcessController::class, 'payment'])->name('payment.form');
@@ -43,6 +45,8 @@ Route::group(['middleware' => ['auth'],'as'  => 'user.'], function () {
         Route::get('/order-details', [OrderProcessController::class, 'orderDetails'])->name('details');
         Route::get('/order-status', [OrderProcessController::class, 'status'])->name('status');
         Route::get('/show', [OrderProcessController::class, 'show'])->name('show');
+        // web.php
+
+        Route::post('/user/cart/update', [OrderProcessController::class, 'update'])->name('cart.update');
     });
 });
-

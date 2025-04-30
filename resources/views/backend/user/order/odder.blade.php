@@ -10,8 +10,9 @@
                 <!-- Information Section -->
                 <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
                     <h2 class="text-xl font-bold text-gray-800 mb-4">Information</h2>
-                    <p class="text-gray-600 mb-6">{{ Auth::user()->name }}</p>
+                    <p class="text-gray-600 mb-6">{{ Auth::user()->email }}</p>
                     <!-- Shipping Address -->
+
                     <div class="mb-6 pb-6 border-b border-gray-200">
                         <div class="flex justify-between items-center mb-2">
                             <h3 class="font-bold text-gray-800">Ship To</h3>
@@ -43,8 +44,8 @@
                     <form class="space-y-6" action="{{ route('user.op.store') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" hidden name="shippingAddress" value="{{ json_encode($shippingAddress) }}">
-                        <input type="hidden" hidden name="billingAddress" value="{{ json_encode($billingAddress) }}">
+                        {{-- <input type="hidden" hidden name="shippingAddress" value="{{ json_encode($shippingAddress) }}">
+                        <input type="hidden" hidden name="billingAddress" value="{{ json_encode($billingAddress) }}"> --}}
                         <!-- Type -->
                         <div>
                             <label for="type" class="block font-medium mb-1">Payment Type</label>
@@ -88,7 +89,6 @@
                         </div>
                      </div>
                        </div>
-                        <p class="text-gray-600 mt-4">More Options</p>
                     </div>
                 </div>
                 <!-- Navigation Buttons -->
@@ -123,28 +123,34 @@
                     </div>
 
                     <!-- Price Breakdown -->
-                    @foreach ($orders as $order)
 
 
                     <div class="space-y-2 mb-4">
-                    
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Shipping</span>
-                            <span class="text-gray-800">{{ $order->amount }}$</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">Taxes</span>
-                            <span class="text-gray-800">{{ $order->tax_total }}$</span>
-                        </div>
-                        <div class="pt-2">
-                            <a href="#" class="text-blue-600 text-sm hover:text-blue-800">Add a tax exempt certificate for New York</a>
-                        </div>
-                        <div class="flex justify-between pt-4 border-t border-gray-200">
-                            <span class="font-bold text-gray-800">Total</span>
-                            <span class="font-bold text-gray-800">{{ $order->shipping_total }}$</span>
-                        </div>
+                        @foreach ($orders as $order)
+                            @if ($loop->first)
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Shipping</span>
+                                <span class="text-gray-800">{{ $order->amount }}$</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Taxes</span>
+                                <span class="text-gray-800">{{ $order->tax_total }}$</span>
+                            </div>
+                            <div class="pt-2">
+                                <a href="#" class="text-blue-600 text-sm hover:text-blue-800">
+                                    Add a tax exempt certificate for New York
+                                </a>
+                            </div>
+                            <div class="flex justify-between pt-4 border-t border-gray-200">
+                                <span class="font-bold text-gray-800">Total</span>
+                                <span class="font-bold text-gray-800">{{ $order->shipping_total }}$</span>
+                            </div>
+                            @break
+                            @endif
+                        @endforeach
                     </div>
-                    @endforeach
+
+
                     <!-- Total -->
 
                 </div>

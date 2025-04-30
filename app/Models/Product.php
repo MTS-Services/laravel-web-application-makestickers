@@ -18,4 +18,5 @@ class Product extends BaseModel
     {
         return $this->hasMany(Cart::class);
     }
+   
 }

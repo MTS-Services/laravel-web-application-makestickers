@@ -24,6 +24,7 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
+        
 
     }
     public function removeFromCart(Request $request)

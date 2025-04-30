@@ -5,7 +5,7 @@
 
 
     <div class="container bg-gray-100 font-sans mx-auto px-4 py-8 max-w-7xl">
-        <form action="{{ route('user.op.payment.form') }}" method="POST">
+        <form action="{{ route('user.op.payment.form') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" hidden name="carts" value="{{ json_encode($carts) }}">
             <input type="hidden" hidden name="orderSummary" value="{{ json_encode($orderSummary) }}">
@@ -23,7 +23,7 @@
                         <!-- Country -->
                         <div class="mb-4">
                             <label class="block text-gray-700 mb-2">Country</label>
-                            <select name="country" required class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                            <select name="country"  class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500">
                                 <option value="" disabled {{ old('country') ? '' : 'selected' }}>Select Country</option>
                                 <option value="USA" {{ old('country') == 'USA' ? 'selected' : '' }}>United States</option>
                                 <option value="Canada" {{ old('country') == 'Canada' ? 'selected' : '' }}>Canada</option>
@@ -35,7 +35,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div class="mb-4">
                                 <label class="block text-gray-700 mb-2">First Name</label>
-                                <input type="text" name="first_name" value="{{ old('first_name') }}" required class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500">
+                                <input type="text" name="first_name" value="{{ old('first_name') }}" class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500">
                             </div>
                             <div>
                                 <label class="block text-gray-700 mb-2">Last Name</label>
@@ -88,7 +88,7 @@
                                 <label class="block text-gray-700 mb-2">Zip Code</label>
                                 <input type="text"
                                     class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                    id="shippingZip" name="zip">
+                                    id="shippingZip" name="zip_code">
                             </div>
                         </div>
 
@@ -148,7 +148,7 @@
                             </div>
                             <input type="text" placeholder="Street Address"
                                 class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
-                                id="billingAddress" name="billing_address">
+                                id="billingAddress" name="billing_street_address">
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <input type="text" placeholder="City"
                                     class="px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-500"
@@ -163,9 +163,10 @@
                         </div>
 
                         <!-- Order Summary -->
-                        @foreach ($orders as $card )
 
 
+                        @foreach ($orders as $index => $card)
+                        @if ($loop->first)
                         <div class="border-t pt-6">
                             <h2 class="text-lg font-bold text-gray-800 mb-4">Order Summary</h2>
 
@@ -191,9 +192,13 @@
                                 class="mt-6 w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-bold">
                                 CONTINUE TO DELIVERY
                             </button>
-
                         </div>
-                        @endforeach
+                        @break
+                        @endif
+                    @endforeach
+
+
+
 
                     </div>
                 </div>

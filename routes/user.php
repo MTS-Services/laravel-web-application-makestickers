@@ -5,9 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-use App\Http\Controllers\Backend\User\DashbordController as UserDashboardController;
+use App\Http\Controllers\Backend\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\Backend\User\UserProfileController;
-use App\Http\Controllers\Backend\UserDashboard\UserDashboardController as UserController;
 use App\Http\Controllers\Backend\User\Review\ReviewController;
 use App\Http\Controllers\Backend\User\Checkout\CheckoutController;
 use App\Http\Controllers\Backend\User\Address\ShippingAddressController;
@@ -20,11 +19,11 @@ Route::group(['middleware' => ['auth'], 'as' => 'user.'], function () {
     Route::put('/profile', [UserProfileController::class, 'update'])->name('profile.update');
     Route::get('/profile/password', [UserProfileController::class, 'showUpdateForm'])->name('profile.password.form');
     Route::put('/profile/password', [UserProfileController::class, 'updatePassword'])->name('profile.password');
-    Route::get('/AccountSettings', [UserController::class, 'AccountSettings'])->name('AccountSettings');
-    Route::get('/AddressBook', [UserController::class, 'AddressBook'])->name('AddressBook');
-    Route::get('/ManageSavedCreditCards', [UserController::class, 'ManageSavedCreditCards'])->name('ManageSavedCreditCards');
-    Route::get('/MyFavoriteDesigns', [UserController::class, 'MyFavoriteDesigns'])->name('MyFavoriteDesigns');
-    Route::get('/OrderHistory', [UserController::class, 'OrderHistory'])->name('OrderHistory');
+    Route::get('/AccountSettings', [UserDashboardController::class, 'AccountSettings'])->name('AccountSettings');
+    Route::get('/AddressBook', [UserDashboardController::class, 'AddressBook'])->name('AddressBook');
+    Route::get('/ManageSavedCreditCards', [UserDashboardController::class, 'ManageSavedCreditCards'])->name('ManageSavedCreditCards');
+    Route::get('/MyFavoriteDesigns', [UserDashboardController::class, 'MyFavoriteDesigns'])->name('MyFavoriteDesigns');
+    Route::get('/OrderHistory', [UserDashboardController::class, 'OrderHistory'])->name('OrderHistory');
 });
 // order controller
 Route::group(['middleware' => ['auth'], 'as'  => 'user.'], function () {

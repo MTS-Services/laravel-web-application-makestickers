@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\Order;
 
 return new class extends Migration
 {
@@ -15,10 +16,26 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        $table->id();
+        $table->tinyInteger('status')->max(1)->default(Order::STATUS_PENDING)->comment(Order::STATUS_PENDING . ' = Pending, ' . Order::STATUS_PROCESSING . ' = Processing, ' . Order::STATUS_COMPLETED . ' = Completed, ' . Order::STATUS_CANCELLED . ' = Cancelled');
+        $table->integer('total_items')->nullable();
+        $table->integer('amount')->nullable();
+        $table->integer('tax_total')->default(0);
+        $table->integer('discount_total')->default(0);
+        $table->integer('shipping_total')->default(0);
+        $table->text('notes')->nullable();
+        $this->addMorpheAuditColumns($table);
+        // $table->unsignedBigInteger('product_id');
+        // $table->unsignedBigInteger('payment_method_id');
+        // $table->unsignedBigInteger('billing_address_id');
+        // $table->unsignedBigInteger('shipping_address_id');
+        $table->timestamps();
+        $table->softDeletes();
+        // $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+        // $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade')->onUpdate('cascade');
+        // $table->foreign('billing_address_id')->references('id')->on('billing_addresses')->onDelete('cascade')->onUpdate('cascade');
+        // $table->foreign('shipping_address_id')->references('id')->on('shipping_addresses')->onDelete('cascade')->onUpdate('cascade');
+    });
     }
 
     /**

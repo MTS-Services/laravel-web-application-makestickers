@@ -3,11 +3,16 @@
 namespace App\Models;
 
 use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Review;
 
 class Product extends BaseModel
 {
-    protected $table = 'products';
-
+    use HasFactory;
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
 
     protected $fillable = [
         'title',
@@ -35,12 +40,26 @@ class Product extends BaseModel
     {
         return $this->belongsTo(LabelCategory::class);
     }
-    public function SizeCategory()
+    public function materialCategory()
+    {
+        return $this->belongsTo(MaterialCategory::class);
+    }
+    public function sizeCategory()
     {
         return $this->belongsTo(SizeCategory::class);
     }
+
     public function admin()
     {
         return $this->belongsTo(Admin::class);
+    }
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
     }
 }

@@ -47,6 +47,8 @@
     {{-- Footer --}}
     @include('frontend.layouts.partials.footer')
 
+    {{-- Jquery --}}
+    <script src="{{ asset('backend/assets/js/core/jquery-3.7.1.min.js') }}"></script>
     {{-- Swiper js --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
         integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA=="

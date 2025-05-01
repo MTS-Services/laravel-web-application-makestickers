@@ -28,7 +28,7 @@
                 <ul tabindex="0" class="dropdown-content menu  bg-light-gray rounded-box px-4 shadow-sm w-52 ">
                     @auth('web')
                         <li><a href="{{ route('user.dashboard') }}" class="px-5 my-1">My Dashboard</a></li>
-                        <li><a href="" class="px-5 my-1">Order History</a></li>
+                        <li><a href="{{ route('user.op.history') }}" class="px-5 my-1">Order History</a></li>
                         <li><a href="" class="px-5 my-1">My Favorites</a></li>
                         <li>
                             <a href="javaScript:void(0)" class="px-5 my-1 btn-tertiary"
@@ -71,11 +71,11 @@
             <div class="hidden md:flex space-x-6 text-font-14px font-semibold my-4">
                 <a href="{{ route('frontend.custom_sticker',) }}" class="hover:text-tertiary">CUSTOM STICKERS</a>
                 <a href="{{ route('frontend.custom_label') }}" class="hover:text-tertiary">CUSTOM LABELS</a>
-               
-                
+
+
                 <a href="{{ route('frontend.pouch') }}" class="hover:text-tertiary">POUCHES</a>
                 <a href="{{ route('frontend.designs') }}" class="hover:text-tertiary">DESIGNS</a>
-                <a href="#" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
+                <a href="{{ route('user.op.cart.index') }}" class="hover:text-tertiary"><i class="fas fa-shopping-cart"></i> CART</a>
             </div>
         </div>
 

@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\Admin\TemplateCategory\TemplateCategoryControll
 
 use App\Http\Controllers\Backend\Admin\FaqManage\Faq\FaqController;
 use App\Http\Controllers\Backend\Admin\FaqManage\FaqCategory\FaqcategoryController;
+use App\Http\Controllers\Backend\Admin\Order\OrderController as AdminOrderController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -124,3 +125,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::put('/update/{update}', [SiteSettingController::class, 'update'])->name('update');
     });
 });
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+   Route::resource('/order', AdminOrderController::class);
+   Route::any('/order/status', [AdminOrderController::class, 'status'])->name('order.status');
+});
+
+

@@ -75,6 +75,12 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'order')) active @endif">
+                    <a href="{{ route('user.order.index') }}">
+                        <i class="icon-chart"></i>
+                        <p>{{ __('Order') }}</p>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

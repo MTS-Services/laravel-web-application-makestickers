@@ -6,8 +6,6 @@ use App\Models\BaseModel;
 
 class SizeCategory extends BaseModel
 {
-    protected $guard = 'admin';
-
     protected $fillable = [
         'height',
         'width',

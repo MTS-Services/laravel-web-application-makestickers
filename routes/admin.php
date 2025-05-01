@@ -16,10 +16,11 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 
 // Admin Dashboard Routes (Requires Admin Authentication)
 
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-
-    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 
     // Admin & Role - Permission Management
     Route::group(['prefix' => 'admin-management', 'as' => 'am.'], function () {

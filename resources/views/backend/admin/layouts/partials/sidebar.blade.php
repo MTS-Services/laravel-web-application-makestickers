@@ -65,15 +65,6 @@
                     </li>
                 @endif
 
-                @can('test-list')
-                    <li class="nav-item  @if (isset($page_slug) && $page_slug == 'test') active @endif">
-                        <a href="{{ route('admin.test.index') }}">
-                            <i class="icon-chart"></i>
-                            <p>{{ __('Test') }}</p>
-                        </a>
-                    </li>
-                @endcan
-
                 <li class="nav-item  @if (isset($page_slug) &&
                         ($page_slug == 'product' ||
                             $page_slug == 'label_category' ||
@@ -99,22 +90,22 @@
                                 $page_slug == 'material_category')) show @endif" id="1">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'product') active @endif">
-                                <a href="{{ route('admin.product.index') }}">
+                                <a href="">
                                     <span class="sub-item">{{ __('Product') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'sticker_category') active @endif">
-                                <a href="{{ route('admin.sticker-category.index') }}">
+                                <a href="">
                                     <span class="sub-item">{{ __('Sticker Category') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'label_category') active @endif">
-                                <a href="{{ route('admin.label-category.index') }}">
+                                <a href="">
                                     <span class="sub-item">{{ __('Label Category') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'material_category') active @endif">
-                                <a href="{{ route('admin.material-category.index') }}">
+                                <a href="">
                                     <span class="sub-item">{{ __('Material Category') }}</span>
                                 </a>
                             </li>
@@ -132,12 +123,12 @@
                     <div class="collapse @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) show @endif" id="2">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'faqcategory') active @endif">
-                                <a href="{{route('admin.faqcategory.index')}}">
+                                <a href="">
                                     <span class="sub-item">{{ __('Faq_Categories') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'faq') active @endif">
-                                <a href="{{route('admin.faq.index')}}">
+                                <a href="">
                                     <span class="sub-item">{{ __('FAQ') }}</span>
                                 </a>
                             </li>
@@ -146,13 +137,13 @@
                 </li>
 
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'blog') active @endif">
-                    <a href="{{route('admin.blog.index')}}">
+                    <a href="">
                         <i class="icon-chart"></i>
                         <p>{{ __('Bolg Posts') }}</p>
                     </a>
                 </li>
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'site_setting') active @endif">
-                    <a href="{{ route('settings.index') }}">
+                    <a href="">
                         <i class="icon-chart"></i>
                         <p>{{ __('Site Setting') }}</p>
                     </a>
@@ -161,7 +152,7 @@
 
                 {{-- Single Label --}}
                  <li class="nav-item  @if (isset($page_slug) && $page_slug == 'order') active @endif">
-                    <a href="{{ route('order.index') }}">
+                    <a href="">
                         <i class="icon-chart"></i>
                         <p>{{ __('Order') }}</p>
                     </a>

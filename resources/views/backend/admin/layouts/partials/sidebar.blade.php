@@ -65,96 +65,36 @@
                     </li>
                 @endif
 
-                <li class="nav-item  @if (isset($page_slug) &&
-                        ($page_slug == 'product' ||
-                            $page_slug == 'label_category' ||
-                            $page_slug == 'sticker_category' ||
-                            $page_slug == 'third_category' ||
-                            $page_slug == 'material_category')) active submenu @endif">
-                    <a data-bs-toggle="collapse" href="#1"
-                        @if (isset($page_slug) &&
-                                ($page_slug == 'product' ||
-                                    $page_slug == 'label_category' ||
-                                    $page_slug == 'sticker_category' ||
-                                    $page_slug == 'third_category' ||
-                                    $page_slug == 'material_category')) aria-expanded="true" @endif>
+
+                {{-- Dropdown --}}
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'a' || $page_slug == 'b')) active submenu @endif">
+                    <a data-bs-toggle="collapse" href="#dropdown2"
+                        @if (isset($page_slug) && ($page_slug == 'a' || $page_slug == 'b')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
-                        <p>{{ __('Products Management') }}</p>
+                        <p>{{ __('Dropdown') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) &&
-                            ($page_slug == 'product' ||
-                                $page_slug == 'label_category' ||
-                                $page_slug == 'sticker_category' ||
-                                $page_slug == 'third_category' ||
-                                $page_slug == 'material_category')) show @endif" id="1">
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'a' || $page_slug == 'v')) show @endif" id="dropdown2">
                         <ul class="nav nav-collapse">
-                            <li class="@if (isset($page_slug) && $page_slug == 'product') active @endif">
+                            <li class="@if (isset($page_slug) && $page_slug == 'a') active @endif">
                                 <a href="">
-                                    <span class="sub-item">{{ __('Product') }}</span>
+                                    <span class="sub-item">{{ __('Item 1') }}</span>
                                 </a>
                             </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'sticker_category') active @endif">
+                            <li class="@if (isset($page_slug) && $page_slug == 'v') active @endif">
                                 <a href="">
-                                    <span class="sub-item">{{ __('Sticker Category') }}</span>
-                                </a>
-                            </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'label_category') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Label Category') }}</span>
-                                </a>
-                            </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'material_category') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Material Category') }}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                                
-                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) active submenu @endif">
-                    <a data-bs-toggle="collapse" href="#2"
-                        @if (isset($page_slug) && ($page_slug=='faqcategory' || $page_slug=='faq' )) aria-expanded="true" @endif>
-                        <i class="icon-people"></i>
-                        <p>{{ __('Faq Management') }}</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'faqcategory' || $page_slug == 'faq')) show @endif" id="2">
-                        <ul class="nav nav-collapse">
-                            <li class="@if (isset($page_slug) && $page_slug == 'faqcategory') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('Faq_Categories') }}</span>
-                                </a>
-                            </li>
-                            <li class="@if (isset($page_slug) && $page_slug == 'faq') active @endif">
-                                <a href="">
-                                    <span class="sub-item">{{ __('FAQ') }}</span>
+                                    <span class="sub-item">{{ __('Item 2') }}</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
 
-                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'blog') active @endif">
+                {{-- Single label --}}
+                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'c') active @endif">
                     <a href="">
                         <i class="icon-chart"></i>
-                        <p>{{ __('Bolg Posts') }}</p>
-                    </a>
-                </li>
-                <li class="nav-item  @if (isset($page_slug) && $page_slug == 'site_setting') active @endif">
-                    <a href="">
-                        <i class="icon-chart"></i>
-                        <p>{{ __('Site Setting') }}</p>
-                    </a>
-                </li>
-
-
-                {{-- Single Label --}}
-                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'order') active @endif">
-                    <a href="">
-                        <i class="icon-chart"></i>
-                        <p>{{ __('Order') }}</p>
+                        <p>{{ __('Single label') }}</p>
                     </a>
                 </li>
 

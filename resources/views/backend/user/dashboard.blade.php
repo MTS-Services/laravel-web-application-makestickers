@@ -11,11 +11,11 @@
                     Account Dashboard
                 </div>
                 <nav class="divide-y divide-gray-200 mb-0">
-                    <a href="{{route('user.OrderHistory')}}" class="block p-4 hover:bg-gray-100">Order History</a>
-                    <a href="{{route('user.AccountSettings')}}" class="block p-4 hover:bg-gray-100">Account Settings</a>
-                    <a href="{{route('user.ManageSavedCreditCards')}}" class="block p-4 hover:bg-gray-100">Manage Saved Credit Cards</a>
-                    <a href="{{route('user.AddressBook')}}" class="block p-4 hover:bg-gray-100">Address Book</a>
-                    <a href="{{route('user.MyFavoriteDesigns')}}" class="block p-4 hover:bg-gray-100 rounded-b">My Favorite Designs</a>
+                    <a href="" class="block p-4 hover:bg-gray-100">Order History</a>
+                    <a href="" class="block p-4 hover:bg-gray-100">Account Settings</a>
+                    <a href="" class="block p-4 hover:bg-gray-100">Manage Saved Credit Cards</a>
+                    <a href="" class="block p-4 hover:bg-gray-100">Address Book</a>
+                    <a href="" class="block p-4 hover:bg-gray-100 rounded-b">My Favorite Designs</a>
                 </nav>
             </aside>
             <!-- Main Content -->
@@ -36,7 +36,7 @@
                     <div>
                         <div class="flex justify-between items-center mb-2">
                             <h2 class="font-semibold text-lg text-gray-800">Account Settings</h2>
-                            <a href="{{route('user.AccountSettings')}}" class="bg-red-500 text-white text-sm px-4 py-1 rounded hover:bg-red-600">Edit</a>
+                            <a href="" class="bg-red-500 text-white text-sm px-4 py-1 rounded hover:bg-red-600">Edit</a>
                         </div>
                         <hr class="mb-4 border-gray-300">
                         <p class="text-gray-700 mb-1">rez01khan07@gmail.com</p>
@@ -52,7 +52,7 @@
                         <div class="mb-16">
                             <div class="flex justify-between items-center mb-2">
                                 <h2 class="font-semibold text-lg text-gray-800">Address Book</h2>
-                                <a href="{{route('user.AddressBook')}}" class="bg-red-500 text-white text-sm px-4 py-1 rounded hover:bg-red-600">Manage</a>
+                                <a href="" class="bg-red-500 text-white text-sm px-4 py-1 rounded hover:bg-red-600">Manage</a>
                             </div>
                             <hr class="border-gray-300 mb-4">
                             <p class="text-gray-700">Click <span class="font-semibold ">Manage</span> to enter addresses.</p>
@@ -62,7 +62,7 @@
                         <div>
                             <div class="flex justify-between items-center mb-2">
                                 <h2 class="font-semibold text-lg text-gray-800">My Favorites</h2>
-                                <a href="{{route('user.MyFavoriteDesigns')}}" class="bg-red-500 text-white text-sm px-4 py-1 rounded hover:bg-red-600">Manage</a>
+                                <a href="" class="bg-red-500 text-white text-sm px-4 py-1 rounded hover:bg-red-600">Manage</a>
                             </div>
                             <hr class="border-gray-300 mb-2">
                             <p class="text-gray-700">Save your favorite customized designs so you can reorder later.</p>

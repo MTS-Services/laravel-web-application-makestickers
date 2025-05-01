@@ -59,13 +59,13 @@
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'size') active @endif">
                     <a href="{{ route('admin.size.index') }}">
                         <i class="icon-chart"></i>
-                        <p>{{ __('size') }}</p>
+                        <p>{{ __('Size') }}</p>
                     </a>
                 </li>
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'template') active @endif">
                     <a href="{{route('admin.template-category.index')}}">
                         <i class="icon-chart"></i>
-                        <p>{{ __('template') }}</p>
+                        <p>{{ __('Template') }}</p>
                     </a>
                 </li>
 

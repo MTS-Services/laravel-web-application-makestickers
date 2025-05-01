@@ -9,8 +9,11 @@
                     <strong>Title:</strong> {{ $template->title ?? 'N/A' }}
                 </div>
                 <div class="mb-3">
-                    <strong>size Categories:</strong>
-                    {{ $template->sizeCategories->name ?? 'N/A' }}
+                    <strong>Height:</strong> {{ $template->sizeCategory->height ?? 'N/A' }}
+                </div>
+
+                <div class="mb-3">
+                    <strong>Width:</strong> {{ $template->sizeCategory->width ?? 'N/A' }}
                 </div>
 
                 <div class="mb-3">
@@ -27,7 +30,6 @@
                     <strong>Label Category:</strong>
                     {{ $template->labelCategory->title ?? 'N/A' }}
                 </div>
-
                 <div class="mb-3">
                     <strong>Image:</strong><br>
                     @if ($template->image)

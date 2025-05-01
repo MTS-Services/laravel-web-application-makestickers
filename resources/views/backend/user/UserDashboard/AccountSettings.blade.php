@@ -7,14 +7,14 @@
             <!-- Sidebar -->
             <aside class="w-80  bg-white rounded shadow overflow-hidden">
                 <div class="bg-sky-500 text-white text-lg font-semibold p-4 rounded-t">
-                    Order History
+                    Account Settings
                 </div>
                 <nav class="divide-y divide-gray-200 mb-0">
-                    <a href="#" class="block p-4 hover:bg-gray-100">Order History</a>
-                    <a href="#" class="block p-4 hover:bg-gray-100">Account Settings</a>
-                    <a href="#" class="block p-4 hover:bg-gray-100">Manage Saved Credit Cards</a>
-                    <a href="#" class="block p-4 hover:bg-gray-100">Address Book</a>
-                    <a href="#" class="block p-4 hover:bg-gray-100 rounded-b">My Favorite Designs</a>
+                    <a href="{{route('user.OrderHistory')}}" class="block p-4 hover:bg-gray-100">Order History</a>
+                    <a href="{{route('user.AccountSettings')}}" class="block p-4 hover:bg-gray-100">Account Settings</a>
+                    <a href="{{route('user.ManageSavedCreditCards')}}" class="block p-4 hover:bg-gray-100">Manage Saved Credit Cards</a>
+                    <a href="{{route('user.AddressBook')}}" class="block p-4 hover:bg-gray-100">Address Book</a>
+                    <a href="{{route('user.MyFavoriteDesigns')}}" class="block p-4 hover:bg-gray-100 rounded-b">My Favorite Designs</a>
                 </nav>
             </aside>
             <!-- Main Content -->

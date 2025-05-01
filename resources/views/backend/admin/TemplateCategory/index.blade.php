@@ -15,7 +15,8 @@
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>Title</th>
-                                    <th>size categories</th>
+                                    <th>height</th>
+                                    <th>width</th>
                                     <th>Sticker Category</th>
                                     <th>Material Category</th>
                                     <th>Label Category</th>
@@ -28,7 +29,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $template->title }}</td>
-                                        <td>{{ $template->sizeCategory->title ?? 'N/A' }}</td>
+                                        <td>{{ $template->sizeCategory->height ?? 'N/A' }}</td>
+                                        <td>{{ $template->sizeCategory->width ?? 'N/A' }}</td>
                                         <td>{{ $template->stickerCategory->title ?? 'N/A' }}</td>
                                         <td>{{ $template->materialCategory->title ?? 'N/A' }}</td>
                                         <td>{{ $template->labelCategory->title ?? 'N/A' }}</td>

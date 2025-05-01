@@ -42,7 +42,6 @@
                 @endforeach
             </select>
         </div>
-
         <div class="mb-3">
             <label for="material_category_id" class="form-label">Material Category</label>
             <select name="material_category_id" class="form-select">
@@ -54,7 +53,6 @@
                 @endforeach
             </select>
         </div>
-
         <div class="mb-3">
             <label for="label_category_id" class="form-label">Label Category</label>
             <select name="label_category_id" class="form-select">

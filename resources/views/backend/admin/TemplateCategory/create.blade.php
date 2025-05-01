@@ -47,7 +47,6 @@
                     @endforeach
                 </select>
             </div>
-
             <div class="mb-3">
                 <label for="sticker_category_id" class="form-label">Sticker Category</label>
                 <select name="sticker_category_id" class="form-select">

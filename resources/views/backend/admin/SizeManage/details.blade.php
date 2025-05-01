@@ -15,17 +15,17 @@
 
             <div class="mb-3">
                 <strong>Sticker Category:</strong>
-                {{ $size->stickerCategory->name ?? 'N/A' }}
+                {{ $size->stickerCategory->title ?? 'N/A' }}
             </div>
 
             <div class="mb-3">
                 <strong>Material Category:</strong>
-                {{ $size->materialCategory->name ?? 'N/A' }}
+                {{ $size->materialCategory->title ?? 'N/A' }}
             </div>
 
             <div class="mb-3">
                 <strong>Label Category:</strong>
-                {{ $size->labelCategory->name ?? 'N/A' }}
+                {{ $size->labelCategory->title ?? 'N/A' }}
             </div>
 
             <div class="mb-3">

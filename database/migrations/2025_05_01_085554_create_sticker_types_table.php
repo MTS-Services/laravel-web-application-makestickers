@@ -28,8 +28,8 @@ return new class extends Migration
             $table->boolean('is_featured')->default(false);
             $table->timestamps();
             $table->softDeletes();
+            
             $this->addAdminAuditColumns($table);
-
             $table->foreign('category_id')->references('id')->on('sticker_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }

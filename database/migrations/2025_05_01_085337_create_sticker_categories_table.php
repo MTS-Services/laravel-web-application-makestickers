@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->timestamps();
             $table->softDeletes();
+
             $this->addAdminAuditColumns($table);
         });
     }

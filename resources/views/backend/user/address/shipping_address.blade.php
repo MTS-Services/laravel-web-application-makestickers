@@ -102,7 +102,7 @@
                         <!-- Navigation Buttons -->
                         <div class="flex flex-col sm:flex-row justify-between gap-4">
 
-                            <a href="{{ route('user.op.cart.index') }}"
+                            <a href=""
                                 class="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium text-center">
                                 Back
                             </a>

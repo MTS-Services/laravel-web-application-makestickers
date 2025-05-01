@@ -93,7 +93,7 @@
                 </div>
                 <!-- Navigation Buttons -->
                 <div class="flex flex-col sm:flex-row justify-between gap-4 mb-8">
-                    <a href="{{ route('user.op.cart.index') }}" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition font-medium">
+                    <a href="" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition font-medium">
                         RETURN TO CART
                     </a>
                     <form action="{{ route('user.op.store') }}" method="POST">

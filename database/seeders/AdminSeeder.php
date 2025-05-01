@@ -15,24 +15,24 @@ class AdminSeeder extends Seeder
     {
         $superAdmin = Admin::create([
             'name' => 'Super Admin',
-            'email' => 'superadmin@superadmin.com',
-            'password' => 'superadmin@superadmin.com',
+            'email' => 'superadmin@dev.com',
+            'password' => 'superadmin@dev.com',
             'role_id' => 1
         ]);
         $superAdmin->assignRole('Super Admin');
 
         $admin = Admin::create([
             'name' => 'Admin',
-            'email' => 'admin@admin.com',
-            'password' => 'admin@admin.com',
+            'email' => 'admin@dev.com',
+            'password' => 'admin@dev.com',
             'role_id' => 2
         ]);
         $admin->assignRole('Admin');
 
         Admin::create([
             'name' => 'Test Admin',
-            'email' => 'test@test.com',
-            'password' => 'test@test.com',
+            'email' => 'test@dev.com',
+            'password' => 'test@dev.com',
         ]);
     }
 }

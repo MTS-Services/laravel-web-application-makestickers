@@ -29,12 +29,29 @@
                     </a>
                 </li>
 
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'Profile')) active @endif">
+                    <a href="{{ route('user.profile') }}">
+                        <i class='bx bxs-profile'></i>
+                        <p>{{ __('Profile') }}</p>
+                    </a>
+                </li>
+
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'size')) active @endif">
+                    <a href="{{ route('admin.size.index') }}">
+                        <i class='bx bxs-size'></i>
+                        <p>{{ __('size') }}</p>
+                    </a>
+                </li>
+
+
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'a')) active @endif">
                     <a href="">
                         <i class="icon-chart"></i>
                         <p>{{ __('Single label') }}</p>
                     </a>
                 </li>
+
+
 
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'b' || $page_slug == 'c')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#1"
@@ -57,6 +74,12 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'order')) active @endif">
+                    <a href="{{ route('user.order.index') }}">
+                        <i class="icon-chart"></i>
+                        <p>{{ __('Order') }}</p>
+                    </a>
                 </li>
             </ul>
         </div>

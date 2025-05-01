@@ -5,6 +5,7 @@ use League\Csv\Writer;
 use App\Models\Permission;
 use Illuminate\Support\Str;
 use App\Models\AuthBaseModel;
+use App\Models\BaseModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -229,7 +230,17 @@ function genders()
     $genders = [];
     $authBaseModel = new AuthBaseModel();
     foreach ($authBaseModel->getGenders() as $key => $value) {
-      $genders[$key] = $value;
+        $genders[$key] = $value;
     }
     return $genders;
+}
+
+function getStatus()
+{
+    $status = [];
+    $baseModel = new BaseModel;
+    foreach ($baseModel->getStatus() as $key => $value) {
+        $status[$key] = $value;
+    }
+    return $status;
 }

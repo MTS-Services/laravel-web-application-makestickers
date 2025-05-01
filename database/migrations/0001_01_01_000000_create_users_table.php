@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -24,6 +25,12 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $this->addMorpheAuditColumns($table);
+
+            $table->tinyInteger('status')->max(1)->default(User::STATUS_PENDING)->comment(User::STATUS_ACTIVE . ' = Active, ' . User::STATUS_INACTIVE . ' = Inactive', User::STATUS_PENDING . ' = Pending');
+            $table->string('image')->nullable();
+            $table->string('phone')->nullable();
+            $table->tinyInteger('gender')->max(1)->default(0);
+            $table->string('dob')->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

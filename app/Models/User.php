@@ -9,7 +9,11 @@ class User extends AuthBaseModel
     protected $fillable = [
         'name',
         'email',
+        'image',
+        'phone_number',
         'password',
+        'gender',
+        'dob',
     ];
 
     protected $hidden = [

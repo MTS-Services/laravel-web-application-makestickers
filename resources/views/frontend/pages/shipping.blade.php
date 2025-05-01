@@ -109,7 +109,7 @@
                         <h4 class="text-font-24px font-medium capitalize text-secondary">Return Policy</h4>
                         <p>MakeStickers is committed to customer satisfaction, and we intend to exceed your expectations. If
                             you’re not head-over-heels thrilled with your product, give us a call at <a
-                                href="tel:{{ siteSetting()->phone ?? '' }}" class="text-primary">{{ siteSetting()->phone ?? '000-000-0000' }}</a> (Mon-Fri
+                                href="tel:" class="text-primary">000-000-0000</a> (Mon-Fri
                             8am-4:30pm CT) and talk with a real person who will do their best to correct any issues. <a
                                 href="" class="text-primary">View our return policy.</a></p>
                     </div>

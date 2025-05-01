@@ -20,14 +20,6 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleHasPermissionSeeder::class,
             UserSeeder::class,
-
-            SizeCategorySeeder::class,
-            MaterialCategorySeeder::class,
-            StickerCategorySeeder::class,
-            LabelCategorySeeder::class,
-
-            ProductSeeder::class,
-            CartSeeder::class,
         ]);
     }
 }

@@ -40,10 +40,6 @@ class Admin extends AuthBaseModel
         'password' => 'hashed',
     ];
 
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -60,10 +56,5 @@ class Admin extends AuthBaseModel
     public function getRoleNameAttribute()
     {
         return $this->role()->pluck('name')->first() ?? 'N/A';
-    }
-
-    public function blogs()
-    {
-        return $this->hasMany(Blog::class);
     }
 }

@@ -1,28 +1,9 @@
 <?php
 
-
-use App\Models\TemplateCategory;
-use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
-use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
-use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Backend\Admin\Blog\BlogPostsController;
-use App\Http\Controllers\Backend\Admin\ProductsManage\LabelCategoryController;
-use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
-use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
-use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
-use App\Http\Controllers\Backend\Admin\SiteSetting\SiteSettingController;
 use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use Illuminate\Support\Facades\Route;
-
-
-use App\Http\Controllers\Backend\Admin\SizeManag\SizeManagController as SizeController;
-use App\Http\Controllers\Backend\Admin\TemplateCategory\TemplateCategoryController as TemplateCategoryController;
-
-use App\Http\Controllers\Backend\Admin\FaqManage\Faq\FaqController;
-use App\Http\Controllers\Backend\Admin\FaqManage\FaqCategory\FaqcategoryController;
-use App\Http\Controllers\Backend\Admin\Order\OrderController as AdminOrderController;
 
 // Admin Auth Routes
 Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')->group(function () {
@@ -33,101 +14,6 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 
 // Admin Dashboard Routes (Requires Admin Authentication)
 
-Route::group(['prefix' => 'admin','as'=>'admin.', 'middleware' => 'auth:admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard'); // Admin Dashboard
-    Route::resource('/test', TestController::class);
-    Route::resource('/size', SizeController::class);
-    Route::resource('/template-category', TemplateCategoryController::class);
-    });
-
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-
-    // Admin & Role - Permission Management
-    Route::group(['prefix' => 'admin-management', 'as' => 'am.'], function () {
-
-        // Admins Management
-        Route::resource('admin', AdminController::class);
-        Route::group(['as' => 'admin.', 'prefix' => 'admin-restore'], function () {
-            Route::get('/trash', [AdminController::class, 'trash'])->name('trash');
-            Route::get('/restore/{id}', [AdminController::class, 'restore'])->name('restore');
-            Route::get('/force-delete/{id}', [AdminController::class, 'forceDelete'])->name('force-delete');
-            Route::get('/status/{id}/{status}', [AdminController::class, 'status'])->name('status');
-        });
-
-        // Role Management
-        Route::resource('role', RoleController::class);
-        Route::group(['as' => 'role.', 'prefix' => 'role-restore'], function () {
-            Route::get('/trash', [RoleController::class, 'trash'])->name('trash');
-            Route::get('/restore/{id}', [RoleController::class, 'restore'])->name('restore');
-            Route::get('/force-delete/{id}', [RoleController::class, 'forceDelete'])->name('force-delete');
-        });
-
-        // Permission Management
-        Route::resource('permission', PermissionController::class);
-        Route::group(['as' => 'permission.', 'prefix' => 'permission-restore'], function () {
-            Route::get('/trash', [PermissionController::class, 'trash'])->name('trash');
-            Route::get('/restore/{id}', [PermissionController::class, 'restore'])->name('restore');
-            Route::get('/force-delete/{id}', [PermissionController::class, 'forceDelete'])->name('force-delete');
-        });
-    });
-
-    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard'); // Admin Dashboard
-    Route::group(['as' => 'admin.'], function () {
-        Route::resource('/test', TestController::class);
-        Route::resource('/sticker-category', StickerCategoryController::class);
-        Route::group(['as' => 'sticker-category.', 'prefix' => 'sticker-category'], function () {
-            Route::get('/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('status');
-            // Trash
-            // restore
-            // force delete
-        });
-
-        Route::resource('/material-category', MaterialCategoryController::class);
-        Route::group(['as' => 'material-category.', 'prefix' => 'material-category'], function () {
-            Route::get('/status/{id}/{status}', [MaterialCategoryController::class, 'status'])->name('status');
-            // Trash
-            // restore
-            // force delete
-        });
-        Route::resource('/product', ProductsController::class);
-        Route::group(['as' => 'product.', 'prefix' => 'product-restore'], function () {
-            Route::get('/status/{id}/{status}', [ProductsController::class, 'status'])->name('status');
-            Route::get('/trash', [ProductsController::class, 'trash'])->name('trash');
-            Route::get('/restore/{id}', [ProductsController::class, 'restore'])->name('restore');
-            Route::get('/force-delete/{id}', [ProductsController::class, 'forceDelete'])->name('force-delete');
-        });
-        Route::resource('/label-category', LabelCategoryController::class);
-        Route::group(['as' => 'label-category.', 'prefix' => 'label-category'], function () {
-            Route::get('/status/{id}/{status}', [LabelCategoryController::class, 'status'])->name('status');
-            // Trash
-            // restore
-            // force delete
-        });
-    });
-
-
-    Route::group(['as' => 'admin.',], function () {
-        Route::resource('/faq', FaqController::class);
-        Route::get('/faq/status/{id}/{status}', [FaqController::class, 'status'])->name('faq.status');
-        Route::resource('/faqcategory', FaqcategoryController::class);
-    });
-
-    Route::group(['as' => 'admin.',], function () {
-        Route::resource('/blog', BlogPostsController::class);
-        Route::get('/blog/status/{id}/{status}', [BlogPostsController::class, 'status'])->name('blog.status');
-    });
-
-    // Site Setting
-    Route::group(['prefix' => 'site-settings', 'as' => 'settings.'], function () {
-        Route::get('/', [SiteSettingController::class, 'index'])->name('index');
-        Route::post('/store', [SiteSettingController::class, 'store'])->name('store');
-        Route::put('/update/{update}', [SiteSettingController::class, 'update'])->name('update');
-    });
 });
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-   Route::resource('/order', AdminOrderController::class);
-   Route::any('/order/status', [AdminOrderController::class, 'status'])->name('order.status');
-});
-
-

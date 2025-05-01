@@ -4,8 +4,8 @@
         <!-- Logo -->
         <div>
             <div class="flex items-center space-x-2">
-                <a href="{{ route('frontend.home') }}"> <img src="{{ storage_url(siteSetting()->logo ?? '') }}"
-                        alt="{{ siteSetting()->title ?? 'Site Title' }}" class="h-10"></a>
+                <a href="{{ route('frontend.home') }}"> <img src=""
+                        alt="Site Title" class="h-10"></a>
             </div>
         </div>
 

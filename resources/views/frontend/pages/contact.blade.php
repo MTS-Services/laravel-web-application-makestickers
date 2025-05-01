@@ -35,14 +35,14 @@
         <div class="bg-white border border-gray/10 shadow-[0_4px_6px_rgba(0,0,0,0.2)] p-8 text-center rounded-md">
           <i class="fa-solid fa-mobile text-font-28px"></i>
           <div class="text-tertiary text-font-24px font-bold mb-2 mt-2">CALL</div>
-          <a href="tel:{{siteSetting()->phone ?? ''}}" class="text-tertiary text-font-20px font-semibold">{{siteSetting()->phone ?? '000-000-0000'}}</a>
+          <a href="tel:" class="text-tertiary text-font-20px font-semibold">000-000-0000</a>
         </div>
 
         <!-- Message -->
         <div class="bg-white border border-gray/10 shadow-[0_4px_6px_rgba(0,0,0,0.2)] p-8 text-center rounded-md">
           <i class="fa-solid fa-message text-font-24px"></i>
           <div class="text-primary-hover text-font-24px font-bold mb-2 mt-2">MESSAGE</div>
-          <a href="mailto:{{siteSetting()->email ?? ''}}" class="mt-2 bg-primary-hover hover:bg-primary-hover text-white px-4 py-2 rounded font-semibold text-font-14px">
+          <a href="mailto:" class="mt-2 bg-primary-hover hover:bg-primary-hover text-white px-4 py-2 rounded font-semibold text-font-14px">
             SEND A MESSAGE
           </a>
         </div>
@@ -51,7 +51,7 @@
         <div class="bg-white border border-gray/10 shadow-[0_4px_6px_rgba(0,0,0,0.2)] p-8 text-center rounded-md">
           <i class="fa-solid fa-fax text-font-24px"></i>
           <div class="text-gray text-font-24px font-bold mb-2 mt-2">FAX</div>
-          <a href="{{siteSetting()->fax ?? ''}}" class="text-gray text-font-20px font-semibold">{{siteSetting()->fax ?? '000-000-0000'}}</a>
+          <a href="" class="text-gray text-font-20px font-semibold">000-000-0000</a>
         </div>
 
       </div>
@@ -61,7 +61,7 @@
     <section class="py-12 bg-white px-4">
       <div class="max-w-xl mx-auto text-center">
         <h2 class="text-font-28px font-semibold uppercase tracking-wide mb-4">Our Location</h2>
-        <p class="text-font-14px font-medium text-gray uppercase mb-1">{{siteSetting()->address ?? 'Address'}}</p>
+        <p class="text-font-14px font-medium text-gray uppercase mb-1">Address</p>
       </div>
     </section>
 

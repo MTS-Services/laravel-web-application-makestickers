@@ -27,18 +27,18 @@
         <div class=" text-center sm:text-left">
             <h4 class="font-bold mb-4">Follow Us</h4>
             <div class="flex space-x-4 text-font-20px ps-24 sm:ps-0">
-                <a href="{{ siteSetting()->facebook ?? '' }}" class="hover:text-light-gray"><i
+                <a href="" class="hover:text-light-gray"><i
                         class="fab fa-facebook"></i></a>
-                <a href="{{ siteSetting()->twitter ?? '' }}" class="hover:text-light-gray"><i
+                <a href="" class="hover:text-light-gray"><i
                         class="fab fa-x-twitter"></i></a>
-                <a href="{{ siteSetting()->instagram ?? '' }}" class="hover:text-light-gray"><i
+                <a href="" class="hover:text-light-gray"><i
                         class="fab fa-instagram"></i></a>
-                <a href="{{ siteSetting()->linkedin ?? '' }}" class="hover:text-light-gray"><i
+                <a href="" class="hover:text-light-gray"><i
                         class="fab fa-linkedin"></i></a>
             </div>
 
             <div class="flex space-x-4 text-font-20px my-2 ps-24 sm:ps-0">
-                <a href="{{ siteSetting()->youtube ?? '' }}" class="hover:text-light-gray"><i
+                <a href="" class="hover:text-light-gray"><i
                         class="fab fa-youtube"></i></a>
             </div>
         </div>
@@ -48,8 +48,8 @@
             <h4 class="font-bold mb-3">Contact Us</h4>
             <p class="text-font-14px mb-1">Our offices are open Mon–Fri 8am–4:30pm (CT)</p>
             <p class="font-semibold">Call Us</p>
-            <a href="tel:{{ siteSetting()->phone ?? '' }}" class="mb-2 block">{{ siteSetting()->phone ?? '000-000-0000' }}</a>
-            <a href="mailto:{{ siteSetting()->email ?? '' }}"
+            <a href="tel:" class="mb-2 block">000-000-0000</a>
+            <a href="mailto:"
                 class="inline-block bg-yellow-400 hover:bg-yellow-500 text-black text-font-14px font-semibold px-4 py-1 rounded">Send
                 a Message</a>
         </div>

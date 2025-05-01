@@ -16,7 +16,6 @@ Route::group(['as' => 'frontend.'], function () {
     Route::get('/designs', [FrontendController::class, 'designs'])->name('designs');
     Route::get('/custom-sticker', [FrontendController::class, 'customSticker'])->name('custom_sticker');
     Route::get('/custom-label', [FrontendController::class, 'customLabel'])->name('custom_label');
-    Route::get('/categories/{id}/second_categories', [CategoryController::class, 'getSecondCategories'])->name('second_categories');
     Route::get('/review', [FrontendController::class, 'review'])->name('review');
     Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
 });

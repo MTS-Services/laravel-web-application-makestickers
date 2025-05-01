@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardCont
 use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
+use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Auth Routes
@@ -48,6 +49,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
             Route::get('/trash', [PermissionController::class, 'trash'])->name('trash');
             Route::get('/restore/{id}', [PermissionController::class, 'restore'])->name('restore');
             Route::get('/force-delete/{id}', [PermissionController::class, 'forceDelete'])->name('force-delete');
+        });
+
+        //Material Management
+        Route::resource('/material', MaterialController::class);
+        Route::group(['as' => 'material.', 'prefix' => 'material-restore'], function () {
+            Route::get('/status/{id}/{status}', [MaterialController::class, 'status'])->name('status');
+            Route::get('/trash', [MaterialController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [MaterialController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [MaterialController::class, 'forceDelete'])->name('force-delete');
         });
     });
 });

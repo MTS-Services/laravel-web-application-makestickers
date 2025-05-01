@@ -66,6 +66,29 @@
                 @endif
 
 
+                {{-- Material Management --}}
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute')) active submenu @endif">
+                    <a data-bs-toggle="collapse" href="#dropdown2"
+                        @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute')) aria-expanded="true" @endif>
+                        <i class="icon-people"></i>
+                        <p>{{ __('Material Management') }}</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute')) show @endif" id="dropdown2">
+                        <ul class="nav nav-collapse">
+                            <li class="@if (isset($page_slug) && $page_slug == 'material') active @endif">
+                                <a href="{{ route('am.material.index') }}">
+                                    <span class="sub-item">{{ __('Material') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'material_attribute') active @endif">
+                                <a href="">
+                                    <span class="sub-item">{{ __('Material Attribute') }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 {{-- Dropdown --}}
                 <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'a' || $page_slug == 'b')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#dropdown2"

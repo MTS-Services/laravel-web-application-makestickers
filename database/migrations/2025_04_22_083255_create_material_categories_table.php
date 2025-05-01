@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('material_categories', function (Blueprint $table) {
+        Schema::create('material_categories', callback: function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();

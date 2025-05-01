@@ -1,10 +1,12 @@
 <?php
 
+
+use App\Models\TemplateCategory;
 use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
-use App\Http\Controllers\Backend\Admin\DashbordController as AdminDashboardController;
+use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\LabelCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\MaterialCategoryController;
 use App\Http\Controllers\Backend\Admin\ProductsManage\ProductsController;
@@ -12,6 +14,10 @@ use App\Http\Controllers\Backend\Admin\ProductsManage\StickerCategoryController;
 use App\Http\Controllers\Backend\Admin\SiteSetting\SiteSettingController;
 use App\Http\Controllers\Backend\Admin\TestManage\TestController;
 use Illuminate\Support\Facades\Route;
+
+
+use App\Http\Controllers\Backend\Admin\SizeManag\SizeManagController as SizeController;
+use App\Http\Controllers\Backend\Admin\TemplateCategory\TemplateCategoryController as TemplateCategoryController;
 
 
 // Admin Auth Routes
@@ -22,12 +28,21 @@ Route::controller(AdminLoginController::class)->prefix('admin')->name('admin.')-
 });
 
 // Admin Dashboard Routes (Requires Admin Authentication)
+
+Route::group(['prefix' => 'admin','as'=>'admin.', 'middleware' => 'auth:admin'], function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('dashboard'); // Admin Dashboard
+    Route::resource('/test', TestController::class);
+    Route::resource('/size', SizeController::class);
+    Route::resource('/template-category', TemplateCategoryController::class);
+    });
+
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
     // Admin & Role - Permission Management
     Route::group(['prefix' => 'admin-management', 'as' => 'am.'], function () {
 
-        // Admins Management 
+        // Admins Management
         Route::resource('admin', AdminController::class);
         Route::group(['as' => 'admin.', 'prefix' => 'admin-restore'], function () {
             Route::get('/trash', [AdminController::class, 'trash'])->name('trash');
@@ -59,16 +74,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('/sticker-category', StickerCategoryController::class);
         Route::group(['as' => 'sticker-category.', 'prefix' => 'sticker-category'], function () {
             Route::get('/status/{id}/{status}', [StickerCategoryController::class, 'status'])->name('status');
-            // Trash 
-            // restore 
+            // Trash
+            // restore
             // force delete
         });
 
         Route::resource('/material-category', MaterialCategoryController::class);
         Route::group(['as' => 'material-category.', 'prefix' => 'material-category'], function () {
             Route::get('/status/{id}/{status}', [MaterialCategoryController::class, 'status'])->name('status');
-            // Trash 
-            // restore 
+            // Trash
+            // restore
             // force delete
         });
         Route::resource('/product', ProductsController::class);
@@ -82,7 +97,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::group(['as' => 'label-category.', 'prefix' => 'label-category'], function () {
             Route::get('/status/{id}/{status}', [LabelCategoryController::class, 'status'])->name('status');
             // Trash
-            // restore 
+            // restore
             // force delete
         });
     });
@@ -90,7 +105,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
 
 
-    // Site Setting 
+    // Site Setting
     Route::group(['prefix' => 'site-settings', 'as' => 'settings.'], function () {
         Route::get('/', [SiteSettingController::class, 'index'])->name('index');
         Route::post('/store', [SiteSettingController::class, 'store'])->name('store');

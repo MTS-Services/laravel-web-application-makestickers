@@ -6,7 +6,7 @@
     <div class="bg-gray-50 font-sans text-gray-800 max-w-6xl mx-auto p-4 sm:p-6">
         <h1 class="text-2xl font-bold mb-6">Shopping Cart</h1>
 
-        <form action="{{ route('user.op.address.form') }}" method="POST">
+        <form action="" method="POST">
             @csrf
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -41,7 +41,7 @@
 
                                 <div class="mt-3 flex flex-wrap gap-4">
                                     <button class="text-blue-600 font-semibold text-sm">EDIT DESIGN</button>
-                                    <a href="{{ route('user.op.cart.remove', ['id' => $product->id]) }}"
+                                    <a href=""
                                     class="text-red-600 font-semibold text-sm">
                                     <span class="font-bold">x</span> REMOVE DESIGN
                                     </a>
@@ -133,7 +133,7 @@
 
                 // Send the updated quantity and price to the server via AJAX
                 $.ajax({
-                    url: '{{ route('user.op.cart.update') }}', // Update route
+                    url: '', // Update route
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',

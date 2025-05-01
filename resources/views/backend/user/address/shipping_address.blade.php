@@ -5,7 +5,7 @@
 
 
     <div class="container bg-gray-100 font-sans mx-auto px-4 py-8 max-w-7xl">
-        <form action="{{ route('user.op.payment.form') }}" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" hidden name="carts" value="{{ json_encode($carts) }}">
             <input type="hidden" hidden name="orderSummary" value="{{ json_encode($orderSummary) }}">

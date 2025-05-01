@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\Faq;
 
 return new class extends Migration
 {
@@ -16,8 +17,16 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
+            $table->string('question');
+            $table->tinyInteger('status')->max(1)->default(Faq::STATUS_ACTIVE)->comment(Faq::STATUS_ACTIVE . ' = Active,'. Faq::STATUS_INACTIVE . ' = Inactive');
+            $table->text('answer');
+            $table->unsignedBigInteger('faq_category_id');
             $table->timestamps();
             $table->softDeletes();
+            $this->addAdminAuditColumns($table);
+
+
+            $table->foreign('faq_category_id')->references('id')->on('faq_categories')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

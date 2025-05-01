@@ -9,7 +9,7 @@
     <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
     <link rel="shortcut icon"
-        href="{{ siteSetting() ? (siteSetting()->favicon ? asset('storage/' . siteSetting()->favicon) : '')     : '' }}"
+        href="{{ siteSetting() ? (siteSetting()->favicon ? asset('storage/' . siteSetting()->favicon) : '') : '' }}"
         type="image/x-icon">
 
     {{-- Fontawesome icons --}}

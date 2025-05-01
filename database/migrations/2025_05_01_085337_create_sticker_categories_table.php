@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('sticker_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('sort_order');
+            $table->integer('sort_order')->default(0);
             $table->string('name', 255);
             $table->string('slug', 255)->unique();
             $table->text('description')->nullable();

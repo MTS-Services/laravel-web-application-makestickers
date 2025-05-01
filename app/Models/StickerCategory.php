@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\Backend\Admin\StickerMangement\StickerType;
 use App\Models\BaseModel;
 
 class StickerCategory extends BaseModel
@@ -14,7 +15,7 @@ class StickerCategory extends BaseModel
         'description',
         'image',
         'status',
-        
+
         'created_by',
         'updated_by',
         'deleted_by',

@@ -5,21 +5,21 @@ namespace App\Http\Controllers\Backend\Admin\StickerMangement;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class StickerType extends Controller
+class StickerTypeContoller extends Controller
 {
 
     public function __construct()
     {
         $this->middleware('auth:admin');
-        
+
         // Define permissions for each method
-        $this->middleware('permission:admin-list', ['only' => ['index', 'show']]);
-        $this->middleware('permission:admin-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:admin-edit', ['only' => ['edit', 'update', 'status']]);
-        $this->middleware('permission:admin-delete', ['only' => ['destroy']]);
-        $this->middleware('permission:admin-trash', ['only' => ['trash', 'restore']]);
-        $this->middleware('permission:admin-restore', ['only' => ['restore']]);
-        $this->middleware('permission:admin-force-delete', ['only' => ['forceDelete']]);
+        // $this->middleware('permission:sticker-type-list', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:sticker-type-create', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:sticker-type-edit', ['only' => ['edit', 'update', 'status']]);
+        // $this->middleware('permission:sticker-type-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:sticker-type-trash', ['only' => ['trash', 'restore']]);
+        // $this->middleware('permission:sticker-type-restore', ['only' => ['restore']]);
+        // $this->middleware('permission:sticker-type-force-delete', ['only' => ['forceDelete']]);
     }
 
     /**
@@ -27,7 +27,7 @@ class StickerType extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.admin.stickerMangement.stickerType.index');
     }
 
     /**

@@ -32,6 +32,7 @@ class BaseModel extends Model
 
         'status_text',
         'status_bg',
+        'TypeText',
     ];
 
     public function getCreatedByNameAttribute()
@@ -96,5 +97,21 @@ class BaseModel extends Model
         }
 
         return $statusBtnText;
+    }
+
+    public const TYPE_TEXT = 1;
+    public const TYPE_NUMBER = 2;
+
+    public function getType()
+    {
+        return [
+            self::TYPE_TEXT => 'Text',
+            self::TYPE_NUMBER => 'Number',
+        ];
+    }
+
+    public function getTypeTextAttribute()
+    {
+        return $this->getType()[$this->type] ?? 'Unknown';
     }
 }

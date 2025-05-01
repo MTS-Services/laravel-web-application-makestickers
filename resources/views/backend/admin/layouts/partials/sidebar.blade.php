@@ -82,7 +82,7 @@
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'material_attribute') active @endif">
-                                <a href="">
+                                <a href="{{ route('am.material-attribute.index') }}">
                                     <span class="sub-item">{{ __('Material Attribute') }}</span>
                                 </a>
                             </li>

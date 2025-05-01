@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\MaterialAttribute;
 
 return new class extends Migration
 {
@@ -16,6 +17,10 @@ return new class extends Migration
     {
         Schema::create('material_attributes', function (Blueprint $table) {
             $table->id();
+            $table->integer('sort_order');
+            $table->string('name');
+            $table->tinyInteger('type')->default(MaterialAttribute::TYPE_TEXT)->comment(MaterialAttribute::TYPE_TEXT . ' = Text, ' . MaterialAttribute::TYPE_NUMBER . ' = Number');
+            $table->tinyInteger('status')->default(MaterialAttribute::STATUS_ACTIVE)->comment(MaterialAttribute::STATUS_ACTIVE . ' = Active, ' . MaterialAttribute::STATUS_INACTIVE . ' = Inactive');
             $table->timestamps();
             $table->softDeletes();
         });

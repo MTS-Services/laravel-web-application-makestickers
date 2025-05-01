@@ -90,6 +90,29 @@
                     </div>
                 </li>
 
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'size' || $page_slug == 'size_price')) active submenu @endif">
+                    <a data-bs-toggle="collapse" href="#dropdown2"
+                        @if (isset($page_slug) && ($page_slug == 'size' || $page_slug == 'size_price')) aria-expanded="true" @endif>
+                        <i class="icon-people"></i>
+                        <p>{{ __('Size Management') }}</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'size' || $page_slug == 'size_price')) show @endif" id="dropdown2">
+                        <ul class="nav nav-collapse">
+                            <li class="@if (isset($page_slug) && $page_slug == 'size') active @endif">
+                                <a href="{{ route('size.size.index') }}">
+                                    <span class="sub-item">{{ __('Size') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'size_price') active @endif">
+                                <a href="">
+                                    <span class="sub-item">{{ __('Size Price') }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 {{-- Single label --}}
                 <li class="nav-item  @if (isset($page_slug) && $page_slug == 'c') active @endif">
                     <a href="">

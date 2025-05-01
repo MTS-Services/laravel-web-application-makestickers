@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\StickerSizeManagement\SizeController;
 use App\Http\Controllers\Backend\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
+
 use Illuminate\Support\Facades\Route;
 
 // Admin Auth Routes
@@ -49,5 +51,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
             Route::get('/restore/{id}', [PermissionController::class, 'restore'])->name('restore');
             Route::get('/force-delete/{id}', [PermissionController::class, 'forceDelete'])->name('force-delete');
         });
+    });
+
+    // Sticker size Management
+    Route::group(['prefix' => 'size-management', 'as' => 'size.'], function () {
+        Route::resource('size', SizeController::class);
+        Route::get('/status/{id}/{status}', [SizeController::class, 'status'])->name('status');
     });
 });

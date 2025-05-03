@@ -9,7 +9,33 @@ class MaterialAttribute extends BaseModel
     protected $table = 'material_attributes';
 
     protected $fillable = [
-        'sort_order',
         'name',
+        'type',
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->appends = array_merge(parent::getAppends(), [
+            'material_type',
+        ]);
+    }
+
+    public const TYPE_TEXT = 1;
+    public const TYPE_NUMBER = 2;
+    public const TYPE_DECIMAL = 3;
+
+    public static function getType()
+    {
+        return [
+            self::TYPE_TEXT => 'Text',
+            self::TYPE_NUMBER => 'Number',
+            self::TYPE_DECIMAL => 'Decimal',
+        ];
+    }
+
+    public function getMaterialTypeAttribute()
+    {
+        return $this->getType()[$this->type] ?? 'Unknown';
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend\Admin\MaterialManagement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MaterialManagement\MaterialAttributeRequest;
+use App\Http\Requests\MaterialManagement\MaterialRequest;
 use App\Models\MaterialAttribute;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -44,12 +46,16 @@ class MaterialAttributeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(MaterialAttributeRequest $request)
     {
-        $materialAttribute = new MaterialAttribute();
-        $materialAttribute->sort_order = $request->sort_order;
-        $materialAttribute->name = $request->name;
-        $materialAttribute->save();
+        $material_attribute = new MaterialAttribute();
+        $material_attribute->name = $request->name;
+        $material_attribute->type = $request->type;
+
+        $material_attribute->created_by = auth()->guard('admin')->user()->id;
+
+        $material_attribute->save();
+        session()->flash('success', 'Material Attribute created successfully');
         return redirect()->route('am.material-attribute.index');
     }
 
@@ -58,8 +64,8 @@ class MaterialAttributeController extends Controller
      */
     public function show(string $id)
     {
-        $materialAttribute = MaterialAttribute::findOrFail(decrypt($id));
-        return view('backend.admin.materialManage.materialAttribute.view', compact('materialAttribute'));
+        $material_attribute = MaterialAttribute::findOrFail(decrypt($id));
+        return view('backend.admin.materialManage.materialAttribute.view', compact('material_attribute'));
     }
 
     /**
@@ -67,19 +73,21 @@ class MaterialAttributeController extends Controller
      */
     public function edit(string $id)
     {
-        $materialAttribute = MaterialAttribute::findOrFail(decrypt($id));
-        return view('backend.admin.materialManage.materialAttribute.edit', compact('materialAttribute'));
+        $material_attribute = MaterialAttribute::findOrFail(decrypt($id));
+        return view('backend.admin.materialManage.materialAttribute.edit', compact('material_attribute'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(MaterialAttributeRequest $request, string $id)
     {
-        $materialAttribute = MaterialAttribute::findOrFail(decrypt($id));
-        $materialAttribute->name = $request->name;
+        $material_attribute = MaterialAttribute::findOrFail(decrypt($id));
+        $material_attribute->name = $request->name;
+        $material_attribute->type = $request->type;
+        $material_attribute->updated_by = auth()->guard('admin')->user()->id;
 
-        $materialAttribute->update();
+        $material_attribute->update();
         session()->flash('success', 'Material Attribute updated successfully');
         return redirect()->route('am.material-attribute.index');
     }
@@ -89,8 +97,8 @@ class MaterialAttributeController extends Controller
      */
     public function destroy(string $id)
     {
-        $materialAttribute = MaterialAttribute::findOrFail(decrypt($id));
-        $materialAttribute->delete();
+        $material_attribute = MaterialAttribute::findOrFail(decrypt($id));
+        $material_attribute->delete();
 
         session()->flash('success', 'Material Attribute deleted successfully');
         return redirect()->route('am.material-attribute.index');
@@ -98,9 +106,9 @@ class MaterialAttributeController extends Controller
 
     public function status(string $id, string $status)
     {
-        $materialAttribute = MaterialAttribute::findOrFail(decrypt($id));
-        $materialAttribute->status = $status;
-        $materialAttribute->update();
+        $material_attribute = MaterialAttribute::findOrFail(decrypt($id));
+        $material_attribute->status = decrypt($status);
+        $material_attribute->save();
 
         session()->flash('success', 'Material Attribute status updated successfully');
         return redirect()->route('am.material-attribute.index');
@@ -108,21 +116,21 @@ class MaterialAttributeController extends Controller
 
     public function trash()
     {
-        $materialAttributes = MaterialAttribute::onlyTrashed()->get();
-        return view('backend.admin.materialManage.materialAttribute.trash', compact('materialAttributes'));
+        $material_attributes = MaterialAttribute::onlyTrashed()->get();
+        return view('backend.admin.materialManage.materialAttribute.trash', compact('material_attributes'));
     }
     public function restore(string $id)
     {
-        $materialAttribute = MaterialAttribute::onlyTrashed()->findOrFail(decrypt($id));
-        $materialAttribute->restore();
+        $material_attribute = MaterialAttribute::onlyTrashed()->findOrFail(decrypt($id));
+        $material_attribute->restore();
 
         session()->flash('success', 'Material Attribute restored successfully.');
         return redirect()->route('am.material-attribute.index');
     }
     public function forceDelete(string $id)
     {
-        $materialAttribute = MaterialAttribute::onlyTrashed()->findOrFail(decrypt($id));
-        $materialAttribute->forceDelete();
+        $material_attribute = MaterialAttribute::onlyTrashed()->findOrFail(decrypt($id));
+        $material_attribute->forceDelete();
 
         session()->flash('success', 'Material Attribute deleted permanently.');
         return redirect()->route('am.material-attribute.trash');

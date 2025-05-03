@@ -16,10 +16,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="sort_order" class="form-label">Sort Order</label>
-                                    <input type="text" class="form-control @error('sort_order') is-invalid @enderror"
-                                        id="sort_order" name="sort_order" value="{{ old('sort_order') }}">
-                                    @error('sort_order')
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        id="name" name="name" value="{{ old('name') }}">
+                                    @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -28,10 +28,14 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                        id="name" name="name" value="{{ old('name') }}">
-                                    @error('name')
+                                    <label for="type" class="form-label">Type</label>
+                                    <select name="type" class="form-control" id="type">
+                                        <option value="" selected hidden>Select Type</option>
+                                        @foreach (App\Models\MaterialAttribute::getType() as $key => $value)
+                                            <option value="{{ $key }}" {{ old('type') == $key ? 'selected' : '' }}>{{ $value }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('type')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

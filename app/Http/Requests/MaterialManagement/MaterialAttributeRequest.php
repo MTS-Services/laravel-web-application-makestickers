@@ -22,8 +22,7 @@ class MaterialAttributeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sort_order' => 'required|integer',
-            'name' => 'required|string',
+            'name' => 'required|string|min:3|max:30',
         ];
     }
 }

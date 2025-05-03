@@ -17,7 +17,6 @@
                             <thead class="table-secondary">
                                 <tr>
                                     <th>{{ __('#') }}</th>
-                                    <th>{{ __('Sort Order') }}</th>
                                     <th>{{ __('Name') }}</th>
                                     <th>{{ __('type') }}</th>
                                     <th>{{ __('Status') }}</th>
@@ -30,9 +29,8 @@
                                 @forelse ($material_attributes as $material_attribute)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $material_attribute->sort_order }}</td>
                                         <td>{{ $material_attribute->name }}</td>
-                                        <td>{{ $material_attribute->type }}</td>
+                                        <td>{{ $material_attribute->material_type }}</td>
                                         <td>
                                             <span class="badge badge-{{ $material_attribute->status_bg }}">
                                                 {{ $material_attribute->status_text }}
@@ -61,7 +59,7 @@
                                                         </li>
                                                         <li>
                                                             <a class="dropdown-item"
-                                                                href="{{ route('am.material.edit', encrypt($material_attribute->id)) }}">
+                                                                href="{{ route('am.material-attribute.edit', encrypt($material_attribute->id)) }}">
                                                                 {{ __('Edit') }}
                                                             </a>
                                                         </li>
@@ -74,7 +72,7 @@
                                                             <ul class="dropdown-menu" aria-labelledby="status">
                                                                 @foreach ($material_attribute->getStatusBtnText($material_attribute->status) as $status)
                                                                     <li class="dropdown-item">
-                                                                        <a href="{{ route('am.material.status', [encrypt($material_attribute->id), encrypt(array_search($status['text'], $material_attribute->getStatus()))]) }}"
+                                                                        <a href="{{ route('am.material-attribute.status', [encrypt($material_attribute->id), encrypt(array_search($status['text'], $material_attribute->getStatus()))]) }}"
                                                                             class="text-{{ $status['class'] }}">
                                                                             {{ $status['text'] }}
                                                                         </a>
@@ -89,7 +87,7 @@
                                                                 {{ __('Delete') }}
                                                             </a>
                                                             <form id="delete-form-{{ $material_attribute->id }}"
-                                                                action="{{ route('am.material.destroy', encrypt($material_attribute->id)) }}"
+                                                                action="{{ route('am.material-attribute.destroy', encrypt($material_attribute->id)) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')

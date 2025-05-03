@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StickerManagement\StickerCategoryRequest;
 use App\Http\Traits\FileManagementTrait;
 use App\Models\StickerCategory;
-use Dotenv\Util\Str;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class StickerCategoryController extends Controller
@@ -32,10 +30,10 @@ class StickerCategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    { {
+    {
             $categories = StickerCategory::orderBy('sort_order')->paginate(20);
             return view('backend.admin.stickerMangement.stickerCategory.index', compact('categories'));
-        }
+
     }
 
     /**
@@ -43,7 +41,7 @@ class StickerCategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.admin.stickerMangement.stickerCategory.create');
+        return view('backend.admin.stickerMangement.StickerCategory.create');
     }
 
     /**
@@ -95,16 +93,7 @@ class StickerCategoryController extends Controller
         $validated = $request->validated();
 
         $stickerCategory = StickerCategory::findOrFail($id);
-        // // Handle image upload
-        // if ($request->hasFile('image')) {
-        //     // Delete old image if exists
-        //     if ($stickerCategory->image && Storage::disk('public')->exists($stickerCategory->image)) {
-        //         Storage::disk('public')->delete($stickerCategory->image);
-        //     }
-
-        //     // Store new image
-        //     $validated['image'] = $request->file('image')->store('sticker-categories', 'public');
-        // }
+        
 
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $stickerCategory, 'image', 'image');

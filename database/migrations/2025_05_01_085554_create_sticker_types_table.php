@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Http\Traits\AuditColumnTraits;
+use App\Models\StickerType;
 
 return new class extends Migration
 {
@@ -16,19 +17,18 @@ return new class extends Migration
     {
         Schema::create('sticker_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('sort_order');
+            $table->integer('sort_order')->default(0);
             $table->unsignedBigInteger('category_id');
-            $table->string('name', 255);
-            $table->string('slug', 255)->unique();
+            $table->string('name');
+            $table->string('slug')->unique();
             $table->text('description')->nullable();
-            // Note: base_price was marked as XX, so it's removed
             $table->decimal('base_price', 10, 2)->nullable();
-            $table->string('thumbnail', 255);
-            $table->boolean('status')->default(true);
+            $table->string('thumbnail');
+            $table->boolean('status')->default(StickerType::STATUS_ACTIVE)->comment(StickerType::STATUS_ACTIVE . ' = Active, ' . StickerType::STATUS_INACTIVE . ' = Inactive');
             $table->boolean('is_featured')->default(false);
             $table->timestamps();
             $table->softDeletes();
-            
+
             $this->addAdminAuditColumns($table);
             $table->foreign('category_id')->references('id')->on('sticker_categories')->onDelete('cascade')->onUpdate('cascade');
         });

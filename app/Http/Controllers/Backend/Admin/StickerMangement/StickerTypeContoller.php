@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Backend\Admin\StickerMangement;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StickerManagement\StickerTypeRequest;
+use App\Http\Traits\FileManagementTrait;
+use App\Models\StickerCategory;
+use App\Models\StickerType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class StickerTypeContoller extends Controller
 {
-
+    use FileManagementTrait;
     public function __construct()
     {
         $this->middleware('auth:admin');
@@ -27,7 +32,8 @@ class StickerTypeContoller extends Controller
      */
     public function index()
     {
-        return view('backend.admin.stickerMangement.stickerType.index');
+        $stickerTypes = StickerType::orderBy('sort_order')->paginate(20);
+        return view('backend.admin.stickerMangement.stickerType.index', compact('stickerTypes'));
     }
 
     /**
@@ -35,15 +41,33 @@ class StickerTypeContoller extends Controller
      */
     public function create()
     {
-        //
+
+        $categories = StickerCategory::where('status', true)->orderBy('sort_order')->pluck('name', 'id');
+        return view('backend.admin.stickerMangement.stickerType.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StickerTypeRequest $request)
     {
-        //
+        $stickerType = new StickerType();
+        // if ($request->hasFile('image')) {
+        //     $validated['image'] = $request->file('image')->store('sticker-types', 'public');
+        // }
+
+        if ($request->hasFile('thumbnail')) {
+            $this->handleFileUpload($request, $stickerType, 'thumbnail', 'thumbnail');
+        }
+
+        $validated = $request->validated();
+        $validated['thumbnail'] = $stickerType['thumbnail'];
+
+        $validated['created_by'] = admin()->id;
+        StickerType::create($validated);
+
+        session()->flash('success', 'Sticker Type Created Successfully');
+        return redirect()->route('am.sticker-types.index');
     }
 
     /**
@@ -51,23 +75,46 @@ class StickerTypeContoller extends Controller
      */
     public function show(string $id)
     {
-        //
+        $stickerType = StickerType::findOrFail(decrypt($id));
+      return view('backend.admin.stickerMangement.stickerType.show', compact('stickerType'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+     */public function edit(string $id)
+{
+    $stickerType = StickerType::findOrFail(decrypt($id));
+
+    $categories = StickerCategory::where('status', true)
+        ->orderBy('sort_order')
+        ->pluck('name', 'id');
+
+    return view('backend.admin.stickerMangement.stickerType.edit', compact('stickerType', 'categories'));
+}
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StickerTypeRequest $request, string $id)
     {
-        //
+        $stickerType = StickerType::findOrFail(decrypt($id));
+        // if ($request->hasFile('image')) {
+        //     $validated['image'] = $request->file('image')->store('sticker-types', 'public');
+        // }
+
+        if ($request->hasFile('thumbnail')) {
+            $this->handleFileUpload($request, $stickerType, 'thumbnail', 'thumbnail');
+        }
+
+        $validated = $request->validated();
+        $validated['thumbnail'] = $stickerType['thumbnail'];
+
+        $validated['updated_by'] = admin()->id;
+        $stickerType->update($validated);
+
+        session()->flash('success', 'Sticker Type Updated Successfully');
+        return redirect()->route('am.sticker-types.index');
     }
 
     /**
@@ -75,12 +122,14 @@ class StickerTypeContoller extends Controller
      */
     public function destroy(string $id)
     {
-        //
-    }
+        $stickerType = StickerType::findOrFail(decrypt($id));
+        if ($stickerType->thumbnail) {
+            Storage::disk('public')->delete($stickerType->thumbnail);
+        }
 
-    public function status(string $id, string $status)
-    {
-        //
+        $stickerType->delete();
+
+        return redirect()->route('am.sticker-types.index')->with('success', 'Type deleted successfully.');
     }
 
     public function trash()
@@ -94,5 +143,13 @@ class StickerTypeContoller extends Controller
     public function forceDelete(string $id)
     {
         //
+    }
+    public function status(string $id, string $status)
+    {
+        $stickerType = StickerType::findOrFail(decrypt($id));
+        $stickerType->status = decrypt($status);
+        $stickerType->save();
+        session()->flash('success', 'StickerType Attribute status updated successfully');
+        return redirect()->route('am.sticker-types.index');
     }
 }

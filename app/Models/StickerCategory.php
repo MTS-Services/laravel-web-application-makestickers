@@ -1,15 +1,12 @@
 <?php
 
 namespace App\Models;
-
-use App\Http\Controllers\Backend\Admin\StickerMangement\StickerType;
 use App\Models\BaseModel;
 
 class StickerCategory extends BaseModel
 {
 
     protected $fillable = [
-        'sort_order',
         'name',
         'slug',
         'description',

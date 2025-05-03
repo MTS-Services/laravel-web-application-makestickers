@@ -8,7 +8,6 @@ class StickerType extends BaseModel
 {
 
     protected $fillable = [
-        'sort_order',
         'category_id',
         'name',
         'slug',
@@ -16,7 +15,7 @@ class StickerType extends BaseModel
         'thumbnail',
         'status',
         'is_featured',
-        
+
         'created_by',
         'updated_by',
         'deleted_by',

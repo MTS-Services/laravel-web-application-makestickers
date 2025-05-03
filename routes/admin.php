@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
 
         // Sticker Management
         Route::resource('sticker-category',StickerCategoryController::class);
-        Route::resource('sticker-type', StickerTypeContoller::class);
+        Route::get('sticker-types/{id}/status/{status}', [StickerTypeContoller::class, 'status'])->name('sticker-types.status');
+        Route::resource('sticker-types', StickerTypeContoller::class);
     });
 });

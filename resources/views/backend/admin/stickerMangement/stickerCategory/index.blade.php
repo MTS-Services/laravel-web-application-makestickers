@@ -27,7 +27,6 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $category->name }}</td>
-                                <td>{{ $category->slug }}</td>
                                 <td>
                                      <img src="{{ storage_url($category->image)}}" alt="{{ $category->name }}" width="50">
 

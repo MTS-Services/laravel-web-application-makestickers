@@ -82,7 +82,7 @@
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'v') active @endif">
-                                <a href="{{route('am.sticker-type.index')}}">
+                                <a href="{{route('am.sticker-types.index')}}">
                                     <span class="sub-item">{{ __('Sticker Type') }}</span>
                                 </a>
                             </li>

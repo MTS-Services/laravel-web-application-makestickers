@@ -11,7 +11,7 @@ class StickerTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,25 @@ class StickerTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'category_id'  => 'required|exists:sticker_categories,id',
+            'name'         => 'required|string|max:255',
+            'description'  => 'nullable|string',
+            'thumbnail'    => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'status'       => 'sometimes|boolean',
+            'is_featured'  => 'sometimes|boolean',
+        ] + ($this->isMethod('POST') ? $this->store() : $this->update());
+    }
+
+    protected function store(): array
+    {
+        return [
+            'slug' => 'required|string|max:255|unique:sticker_types,slug',
+        ];
+    }
+    protected function update(): array
+    {
+        return [
+            'slug' => 'required|string|max:255|unique:sticker_types,slug,' . $this->route('sticker_type'),
         ];
     }
 }

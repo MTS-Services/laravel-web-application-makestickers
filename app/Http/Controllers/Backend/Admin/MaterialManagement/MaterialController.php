@@ -53,6 +53,7 @@ class MaterialController extends Controller
         $material->description = $request->description;
         $material->icons = $request->icons;
         $material->price_modifier = $request->price_modifier;
+        $material->created_by = auth()->guard('admin')->user()->id;
 
 
         $material->save();
@@ -81,14 +82,14 @@ class MaterialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(MaterialRequest $request, string $id)
     {
         $material = Material::findOrFail(decrypt($id));
-        $material->sort_order = $request->sort_order;
         $material->name = $request->name;
         $material->description = $request->description;
         $material->icons = $request->icons;
         $material->price_modifier = $request->price_modifier;
+        $material->updated_by = auth()->guard('admin')->user()->id;
 
         $material->save();
         session()->flash('success', 'Material updated successfully');

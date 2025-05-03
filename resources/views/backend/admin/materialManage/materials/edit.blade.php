@@ -18,18 +18,6 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="sort_order" class="form-label">Sort Order</label>
-                                    <input type="text" class="form-control @error('sort_order') is-invalid @enderror"
-                                        id="sort_order" name="sort_order" value="{{ $material->sort_order }}">
-                                    @error('sort_order')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
                                     <label for="name" class="form-label">Name</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
                                         id="name" name="name" value="{{ $material->name }}">

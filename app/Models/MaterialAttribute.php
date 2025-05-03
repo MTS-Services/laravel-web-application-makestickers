@@ -11,6 +11,14 @@ class MaterialAttribute extends BaseModel
     protected $fillable = [
         'name',
         'type',
+
+        'created_by',
+        'updated_by',
+        'deleted_by',
+
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     public function __construct(array $attributes = [])

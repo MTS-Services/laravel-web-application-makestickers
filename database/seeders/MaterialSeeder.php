@@ -14,14 +14,12 @@ class MaterialSeeder extends Seeder
     public function run(): void
     {
         Material::create([
-            'sort_order' => 1,
             'name' => 'Cotton',
             'description' => 'Cotton',
             'icons' => 'cotton',
             'price_modifier' => 120,
         ]);
         Material::create([
-            'sort_order' => 2,
             'name' => 'Polyester',
             'description' => 'Polyester',
             'icons' => 'polyester',
@@ -29,7 +27,6 @@ class MaterialSeeder extends Seeder
         ]);
 
         Material::create([
-            'sort_order' => 3,
             'name' => 'Silk',
             'description' => 'Silk',
             'icons' => 'silk',

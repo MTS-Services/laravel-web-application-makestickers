@@ -22,7 +22,6 @@ class MaterialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sort_order' => 'required|integer',
             'name' => 'required|string|min:3|max:255',
             'description' => 'nullable|string|min:3|max:255',
             'icons' => 'nullable|string',

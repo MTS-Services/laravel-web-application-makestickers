@@ -17,7 +17,6 @@
                             <thead class="table-secondary">
                                 <tr>
                                     <th>{{ __('#') }}</th>
-                                    <th>{{ __('Sort Order') }}</th>
                                     <th>{{ __('Name') }}</th>
                                     <th>{{ __('Descripiton') }}</th>
                                     <th>{{ __('Icon') }}</th>
@@ -32,7 +31,6 @@
                                 @forelse ($materials as $material)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $material->sort_order }}</td>
                                         <td>{{ $material->name }}</td>
                                         <td>{{ $material->description }}</td>
                                         <td>{{ $material->icons }}</td>

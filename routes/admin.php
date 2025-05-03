@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\Admin\MaterialManagement\StickerTypeMaterialCon
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerCategoryController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapesController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerTypeContoller;
+use App\Http\Controllers\Backend\Admin\TemplateManagement\TemplateCategoryController;
+use App\Models\TemplateCategory;
 use Illuminate\Support\Facades\Route;
 
 // Admin Auth Routes
@@ -96,6 +98,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
             Route::get('/trash', [StickerTypeMaterialController::class, 'trash'])->name('trash');
             Route::get('/restore/{id}', [StickerTypeMaterialController::class, 'restore'])->name('restore');
             Route::get('/force-delete/{id}', [StickerTypeMaterialController::class, 'forceDelete'])->name('force-delete');
+        });
+
+        //Template Category Management
+        Route::resource('template-category', TemplateCategoryController::class);
+        Route::group(['as' => 'template-category.', 'prefix' => 'template-category-restore'], function () {
+            Route::get('/status/{id}/{status}', [TemplateCategoryController::class, 'status'])->name('status');
+            Route::get('/trash', [TemplateCategoryController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [TemplateCategoryController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [TemplateCategoryController::class, 'forceDelete'])->name('force-delete');
         });
     });
 });

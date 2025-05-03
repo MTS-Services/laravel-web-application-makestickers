@@ -106,6 +106,9 @@ class MaterialAttributeValueController extends Controller
     public function destroy(string $id)
     {
         $material_attribute_value = MaterialAttributeValue::findOrFail(decrypt($id));
+        $material_attribute_value->update([
+            'deleted_by' => admin()->id
+        ]);
 
         $material_attribute_value->delete();
         session()->flash('success', 'Material Attribute Value deleted successfully');

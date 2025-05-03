@@ -10,6 +10,14 @@ class StickerTypeMaterial extends BaseModel
         'sticker_type_id',
          'material_id',
          'sort_order',
+
+         'created_by',
+         'updated_by',
+         'deleted_by',
+
+         'created_at',
+         'updated_at',
+         'deleted_at',
         ];
 
         public function scopeActive($query)

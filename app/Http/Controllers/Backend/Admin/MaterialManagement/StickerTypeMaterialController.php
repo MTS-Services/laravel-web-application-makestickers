@@ -103,7 +103,9 @@ class StickerTypeMaterialController extends Controller
     public function destroy(string $id)
     {
         $sticker_type_material = StickerTypeMaterial::findOrFail(decrypt($id));
-        $sticker_type_material->deleted_by = auth()->guard('admin')->user()->id;
+        $sticker_type_material->update([
+            'deleted_by' => admin()->id
+        ]);
 
         $sticker_type_material->delete();
         session()->flash('success', 'Sticker Type Material deleted successfully');

@@ -99,10 +99,10 @@
                         </ul>
                     </div>
                 </li>
-                {{-- Dropdown --}}
+                {{-- Sticker Management --}}
                 <li class="nav-item  @if (isset($page_slug) &&
                         ($page_slug == 'stickerCategory' || $page_slug == 'stickerType' || $page_slug == 'stickerShapes')) active submenu @endif">
-                    <a data-bs-toggle="collapse" href="#dropdown2"
+                    <a data-bs-toggle="collapse" href="#dropdown3"
                         @if (isset($page_slug) &&
                                 ($page_slug == 'stickerCategory' || $page_slug == 'stickerType' || $page_slug == 'stickerShapes')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
@@ -110,7 +110,7 @@
                         <span class="caret"></span>
                     </a>
                     <div class="collapse @if (isset($page_slug) &&
-                            ($page_slug == 'stickerCategory' || $page_slug == 'stickerType' || $page_slug == 'stickerShapes')) show @endif" id="dropdown2">
+                            ($page_slug == 'stickerCategory' || $page_slug == 'stickerType' || $page_slug == 'stickerShapes')) show @endif" id="dropdown3">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'stickerCategory') active @endif">
                                 <a href="{{ route('am.sticker-category.index') }}">
@@ -125,6 +125,25 @@
                             <li class="@if (isset($page_slug) && $page_slug == 'stickerShapes') active @endif">
                                 <a href="{{ route('am.sticker-shapes.index') }}">
                                     <span class="sub-item">{{ __('Sticker Shapes') }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- Tempalate Management --}}
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'template_category')) active submenu @endif">
+                    <a data-bs-toggle="collapse" href="#dropdown4"
+                        @if (isset($page_slug) && ($page_slug == 'template_category' )) aria-expanded="true" @endif>
+                        <i class="icon-people"></i>
+                        <p>{{ __('Template Management') }}</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'template_category' )) show @endif" id="dropdown4">
+                        <ul class="nav nav-collapse">
+                            <li class="@if (isset($page_slug) && $page_slug == 'template_category') active @endif">
+                                <a href="{{ route('am.template-category.index') }}">
+                                    <span class="sub-item">{{ __('Template Category') }}</span>
                                 </a>
                             </li>
                         </ul>

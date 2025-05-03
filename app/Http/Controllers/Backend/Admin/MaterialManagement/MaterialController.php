@@ -102,6 +102,10 @@ class MaterialController extends Controller
     public function destroy(string $id)
     {
         $material = Material::findOrFail(decrypt($id));
+        $material->update([
+            'deleted_by' => admin()->id
+        ]);
+        
         $material->delete();
         session()->flash('success', 'Material deleted successfully');
         return redirect()->route('am.material.index');

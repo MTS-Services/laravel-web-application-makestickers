@@ -8,6 +8,9 @@ use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeValueController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialController;
+use App\Http\Controllers\Backend\Admin\StickerMangement\StickerCategoryController;
+use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapesController;
+use App\Http\Controllers\Backend\Admin\StickerMangement\StickerTypeContoller;
 use Illuminate\Support\Facades\Route;
 
 // Admin Auth Routes
@@ -79,5 +82,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
             Route::get('/restore/{id}', [MaterialAttributeValueController::class, 'restore'])->name('restore');
             Route::get('/force-delete/{id}', [MaterialAttributeValueController::class, 'forceDelete'])->name('force-delete');
         });
+        // Sticker Management
+        Route::resource('sticker-category',StickerCategoryController::class);
+        Route::get('sticker-types/{id}/status/{status}', [StickerTypeContoller::class, 'status'])->name('sticker-types.status');
+        Route::resource('sticker-types', StickerTypeContoller::class);
+        Route::resource('sticker-shapes', StickerShapesController::class);
     });
 });

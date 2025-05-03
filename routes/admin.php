@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeController;
+use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeValueController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
             Route::get('/trash', [MaterialAttributeController::class, 'trash'])->name('trash');
             Route::get('/restore/{id}', [MaterialAttributeController::class, 'restore'])->name('restore');
             Route::get('/force-delete/{id}', [MaterialAttributeController::class, 'forceDelete'])->name('force-delete');
+        });
+
+        //Material Attribute Value Management
+        Route::resource('/material-attribute-value', MaterialAttributeValueController::class);
+        Route::group(['as' => 'material-attribute-value.', 'prefix' => 'material-attribute-value-restore'], function () {
+            Route::get('/status/{id}/{status}', [MaterialAttributeValueController::class, 'status'])->name('status');
+            Route::get('/trash', [MaterialAttributeValueController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [MaterialAttributeValueController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [MaterialAttributeValueController::class, 'forceDelete'])->name('force-delete');
         });
     });
 });

@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="card-title">Create Material</h4>
+                    <h4 class="card-title">Create Material Attribute</h4>
                     <div>
                         <a href="{{ route('am.material-attribute.index') }}" class="btn btn-primary">Back</a>
                     </div>

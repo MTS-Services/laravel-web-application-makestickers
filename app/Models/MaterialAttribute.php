@@ -46,4 +46,19 @@ class MaterialAttribute extends BaseModel
     {
         return $this->getType()[$this->type] ?? 'Unknown';
     }
+
+    public function materialAttributeValues()
+    {
+        return $this->hasMany(MaterialAttributeValue::class);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', self::STATUS_ACTIVE);
+    }
+
+    public function scopeInactive($query)
+    {
+        return $query->where('status', self::STATUS_INACTIVE);
+    }
 }

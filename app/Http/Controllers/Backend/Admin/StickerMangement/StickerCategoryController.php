@@ -31,7 +31,7 @@ class StickerCategoryController extends Controller
      */
     public function index()
     {
-            $categories = StickerCategory::orderBy('sort_order')->paginate(20);
+            $categories = StickerCategory::orderBy('sort_order')->paginate(10);
             return view('backend.admin.stickerMangement.stickerCategory.index', compact('categories'));
 
     }

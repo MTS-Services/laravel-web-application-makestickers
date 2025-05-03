@@ -107,7 +107,10 @@
                     </tbody>
                 </table>
             </div>
-            {{ $stickerTypes->links() }}
+            <div class="mt-3">
+                {{ $stickerTypes->links() }}
+            </div>
+
         </div>
     </div>
 @endsection

@@ -65,6 +65,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="mt-3">
+                {{ $$typeshapes->links() }}
+            </div>
         </div>
     </div>
 </div>

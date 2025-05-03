@@ -32,7 +32,7 @@ class StickerTypeContoller extends Controller
      */
     public function index()
     {
-        $stickerTypes = StickerType::orderBy('sort_order')->paginate(20);
+        $stickerTypes = StickerType::orderBy('sort_order')->paginate(10);
         return view('backend.admin.stickerMangement.stickerType.index', compact('stickerTypes'));
     }
 

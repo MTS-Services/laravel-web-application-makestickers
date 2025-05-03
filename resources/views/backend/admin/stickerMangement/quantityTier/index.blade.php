@@ -72,6 +72,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="mt-3">
+                    {{ $quantityTiers->links() }}
+                </div>
             </div>
         </div>
     </div>

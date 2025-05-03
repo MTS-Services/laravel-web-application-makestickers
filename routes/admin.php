@@ -5,6 +5,9 @@ use App\Http\Controllers\Backend\Admin\DashboardController as AdminDashboardCont
 use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
+use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeController;
+use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeValueController;
+use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerCategoryController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapesController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerTypeContoller;
@@ -53,6 +56,32 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
             Route::get('/force-delete/{id}', [PermissionController::class, 'forceDelete'])->name('force-delete');
         });
 
+        //Material Management
+        Route::resource('/material', MaterialController::class);
+        Route::group(['as' => 'material.', 'prefix' => 'material-restore'], function () {
+            Route::get('/status/{id}/{status}', [MaterialController::class, 'status'])->name('status');
+            Route::get('/trash', [MaterialController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [MaterialController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [MaterialController::class, 'forceDelete'])->name('force-delete');
+        });
+
+        //Material Attribute Management
+        Route::resource('/material-attribute', MaterialAttributeController::class);
+        Route::group(['as' => 'material-attribute.', 'prefix' => 'material-attribute-restore'], function () {
+            Route::get('/status/{id}/{status}', [MaterialAttributeController::class, 'status'])->name('status');
+            Route::get('/trash', [MaterialAttributeController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [MaterialAttributeController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [MaterialAttributeController::class, 'forceDelete'])->name('force-delete');
+        });
+
+        //Material Attribute Value Management
+        Route::resource('/material-attribute-value', MaterialAttributeValueController::class);
+        Route::group(['as' => 'material-attribute-value.', 'prefix' => 'material-attribute-value-restore'], function () {
+            Route::get('/status/{id}/{status}', [MaterialAttributeValueController::class, 'status'])->name('status');
+            Route::get('/trash', [MaterialAttributeValueController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [MaterialAttributeValueController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [MaterialAttributeValueController::class, 'forceDelete'])->name('force-delete');
+        });
         // Sticker Management
         Route::resource('sticker-category',StickerCategoryController::class);
         Route::get('sticker-types/{id}/status/{status}', [StickerTypeContoller::class, 'status'])->name('sticker-types.status');

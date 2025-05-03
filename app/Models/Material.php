@@ -38,4 +38,8 @@ class Material extends BaseModel
     {
         return $query->where('status', self::STATUS_INACTIVE);
     }
+    public function stickerTypeMaterial()
+    {
+        return $this->hasMany(StickerTypeMaterial::class);
+    }
 }

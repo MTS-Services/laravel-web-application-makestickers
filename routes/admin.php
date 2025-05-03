@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeValueController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialController;
+use App\Http\Controllers\Backend\Admin\MaterialManagement\StickerTypeMaterialController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerCategoryController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapesController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerTypeContoller;
@@ -87,5 +88,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::get('sticker-types/{id}/status/{status}', [StickerTypeContoller::class, 'status'])->name('sticker-types.status');
         Route::resource('sticker-types', StickerTypeContoller::class);
         Route::resource('sticker-shapes', StickerShapesController::class);
+
+        // Sticker Type Material Management
+        Route::resource('sticker-type-material', StickerTypeMaterialController::class);
+        Route::group(['as' => 'sticker-type-material.', 'prefix' => 'sticker-type-material-restore'], function () {
+            Route::get('/status/{id}/{status}', [StickerTypeMaterialController::class, 'status'])->name('status');
+            Route::get('/trash', [StickerTypeMaterialController::class, 'trash'])->name('trash');
+            Route::get('/restore/{id}', [StickerTypeMaterialController::class, 'restore'])->name('restore');
+            Route::get('/force-delete/{id}', [StickerTypeMaterialController::class, 'forceDelete'])->name('force-delete');
+        });
     });
 });

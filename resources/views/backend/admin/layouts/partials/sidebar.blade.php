@@ -67,14 +67,14 @@
 
 
                 {{-- Material Management --}}
-                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) active submenu @endif">
+                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value' || $page_slug == 'sticker_type_material')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#dropdown2"
-                        @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) aria-expanded="true" @endif>
+                        @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value'|| $page_slug == 'sticker_type_material')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Material Management') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) show @endif" id="dropdown2">
+                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value' || $page_slug == 'sticker_type_material')) show @endif" id="dropdown2">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'material') active @endif">
                                 <a href="{{ route('am.material.index') }}">
@@ -89,6 +89,11 @@
                             <li class="@if (isset($page_slug) && $page_slug == 'material_attribute_value') active @endif">
                                 <a href="{{ route('am.material-attribute-value.index') }}">
                                     <span class="sub-item">{{ __('Material Attribute Value') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'sticker_type_material') active @endif">
+                                <a href="{{ route('am.sticker-type-material.index') }}">
+                                    <span class="sub-item">{{ __('Sticker Type Material') }}</span>
                                 </a>
                             </li>
                         </ul>

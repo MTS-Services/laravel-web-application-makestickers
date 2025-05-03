@@ -11,13 +11,15 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Image</th>
                             <th>Status</th>
+                            <th>Created By</th>
+                            <th>Created At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -35,6 +37,8 @@
                                         {{ $category->status ? 'Active' : 'Inactive' }}
                                     </span>
                                 </td>
+                                <td>{{ optional($category->createdBy)->name ?? 'System'}}</td>
+                                <td>{{ timeFormat($category->created_at) }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('am.sticker-category.show', $category) }}" class="btn btn-sm btn-info">

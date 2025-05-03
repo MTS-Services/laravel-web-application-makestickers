@@ -24,14 +24,16 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                <table class="table  table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="table-dark">
                         <tr>
                             <th width="5%">ID</th>
                             <th width="10%">Image</th>
                             <th width="25%">Name</th>
                             <th width="15%">Price Modifier</th>
                             <th width="10%">Status</th>
+                            <th width="15%">Created At</th>
+                            <th width="15%">Created By</th>
                             <th width="20%">Actions</th>
                         </tr>
                     </thead>
@@ -49,6 +51,9 @@
                                         {{ $shape->status ? 'Active' : 'Inactive' }}
                                     </span>
                                 </td>
+
+                                <td>{{ optional($shape->createdBy)->name ?? 'System'}}</td>
+                                <td>{{ timeFormat($shape->created_at) }}</td>
                                 <td>
                                     <a href="{{ route('am.sticker-shape.edit', $shape) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-edit"></i>

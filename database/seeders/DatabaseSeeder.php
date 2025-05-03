@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
             StickerCategorySeeder::class,
             StickerTypeSeeder::class,
             StickerShapeSeeder::class,
-            StickerTypeShapeSeeder::class
+            StickerTypeShapeSeeder::class,
+            QuantityTierSeeder::class
         ]);
     }
 }

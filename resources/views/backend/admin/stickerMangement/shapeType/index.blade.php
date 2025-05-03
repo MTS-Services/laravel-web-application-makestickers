@@ -16,12 +16,14 @@
     <div class="card shadow-lg mb-4 border-left-primary">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="thead-light">
+                <table class="table table-hover table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="table-dark">
                         <tr>
                             <th>ID</th>
                             <th>Sticker Type</th>
                             <th>Sticker Shape</th>
+                            <th>Created By</th>
+                            <th>Created At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -31,6 +33,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $typeShape->stickerType->name ?? 'N/A' }}</td>
                                 <td>{{ $typeShape->stickerShape->name ?? 'N/A' }}</td>
+                                <td>{{ optional($typeShape->createdBy)->name ?? 'System'}}</td>
+                                <td>{{ timeFormat($typeShape->created_at) }}</td>
 
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Actions">

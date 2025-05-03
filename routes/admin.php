@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeValueController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialController;
+use App\Http\Controllers\Backend\Admin\StickerMangement\QuantityTierController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerCategoryController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapeController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerTypeContoller;
@@ -90,5 +91,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('sticker-type', StickerTypeContoller::class);
         Route::resource('sticker-shape', StickerShapeController::class);
         Route::resource('type-shape', TypeShapeController::class);
+        Route::resource('quantity-tier', QuantityTierController::class);
     });
 });

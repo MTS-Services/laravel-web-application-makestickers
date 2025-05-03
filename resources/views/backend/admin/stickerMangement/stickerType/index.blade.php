@@ -12,15 +12,17 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive overflow-visible">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr >
                             <th>ID</th>
                             <th>Category</th>
                             <th>Name</th>
                             <th>Thumbnail</th>
                             <th>Status</th>
                             <th>Featured</th>
+                            <th>Created At</th>
+                            <th>Created By</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -43,6 +45,8 @@
                                         {{ $type->is_featured ? 'Featured' : 'Not Featured' }}
                                     </span>
                                 </td>
+                                <td>{{ optional($type->createdBy)->name ?? 'System'}}</td>
+                                <td>{{ timeFormat($type->created_at) }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"

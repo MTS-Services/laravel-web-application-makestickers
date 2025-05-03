@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\Admin\AdminManage\AdminController;
 use App\Http\Controllers\Backend\Admin\AdminManage\PermissionController;
 use App\Http\Controllers\Backend\Admin\AdminManage\RoleController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerCategoryController;
+use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapesController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerTypeContoller;
 use Illuminate\Support\Facades\Route;
 
@@ -56,5 +57,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
         Route::resource('sticker-category',StickerCategoryController::class);
         Route::get('sticker-types/{id}/status/{status}', [StickerTypeContoller::class, 'status'])->name('sticker-types.status');
         Route::resource('sticker-types', StickerTypeContoller::class);
+        Route::resource('sticker-shapes', StickerShapesController::class);
     });
 });

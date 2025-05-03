@@ -18,13 +18,13 @@ class StickerTypeContoller extends Controller
         $this->middleware('auth:admin');
 
         // Define permissions for each method
-        // $this->middleware('permission:sticker-type-list', ['only' => ['index', 'show']]);
-        // $this->middleware('permission:sticker-type-create', ['only' => ['create', 'store']]);
-        // $this->middleware('permission:sticker-type-edit', ['only' => ['edit', 'update', 'status']]);
-        // $this->middleware('permission:sticker-type-delete', ['only' => ['destroy']]);
-        // $this->middleware('permission:sticker-type-trash', ['only' => ['trash', 'restore']]);
-        // $this->middleware('permission:sticker-type-restore', ['only' => ['restore']]);
-        // $this->middleware('permission:sticker-type-force-delete', ['only' => ['forceDelete']]);
+        // $this->middleware('permission:sticker-types-list', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:sticker-types-create', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:sticker-types-edit', ['only' => ['edit', 'update', 'status']]);
+        // $this->middleware('permission:sticker-types-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:sticker-types-trash', ['only' => ['trash', 'restore']]);
+        // $this->middleware('permission:sticker-types-restore', ['only' => ['restore']]);
+        // $this->middleware('permission:sticker-types-force-delete', ['only' => ['forceDelete']]);
     }
 
     /**

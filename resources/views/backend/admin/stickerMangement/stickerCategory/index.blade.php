@@ -16,7 +16,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Slug</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th>Actions</th>

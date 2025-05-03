@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\SizeCategory;
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Material;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleHasPermissionSeeder::class,
             UserSeeder::class,
+            MaterialSeeder::class,
+            MaterialAttributeSeeder::class,
+            MaterialAttributeValueSeeder::class,
 
             StickerCategorySeeder::class,
             StickerTypeSeeder::class,

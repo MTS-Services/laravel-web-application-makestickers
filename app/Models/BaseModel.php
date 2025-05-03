@@ -97,4 +97,40 @@ class BaseModel extends Model
 
         return $statusBtnText;
     }
+
+   
+
+
+    // public function getTypeBg()
+    // {
+    //     return [
+    //         self::TYPE_TEXT => 'success',
+    //         self::TYPE_NUMBER => 'warning',
+    //     ];
+    // }
+
+    // public function getTypeBgAttribute()
+    // {
+    //     return $this->getTypeBg()[$this->type] ?? 'secondary';
+    // }
+
+    // public function getTypeBtnText($currentStauts)
+    // {
+    //     $statusBtnText = [];
+
+    //     foreach ($this->getType() as $key => $value) {
+
+    //         if ($key == $currentStauts) {
+    //             continue;
+    //         }
+
+    //         $statusBtnText[$key] = [
+    //             'text' => $value,
+    //             'class' => $this->getTypeBg()[$key] ?? 'secondary',
+    //         ];
+    //     }
+
+    //     return $statusBtnText;
+    // }
+
 }

@@ -72,7 +72,7 @@ class StickerShapeController extends Controller
      */
     public function show(string $id)
     {
-        $stickershape = StickerShape::findOrFail($id);
+        $stickershape = StickerShape::findOrFail(decrypt($id));
         return view('backend.admin.stickerMangement.stickerShapes.show', compact('stickershape'));
     }
 
@@ -90,7 +90,7 @@ class StickerShapeController extends Controller
      */
     public function update(StickerShapesRequest $request, string $id)
     {
-        $stickershape = StickerShape::findOrFail($id);
+        $stickershape = StickerShape::findOrFail(decrypt($id));
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $stickershape, 'image', 'image');
         }
@@ -113,7 +113,7 @@ class StickerShapeController extends Controller
      */
     public function destroy(string $id)
     {
-        $stickershape = StickerShape::findOrFail($id);
+        $stickershape = StickerShape::findOrFail(decrypt($id));
         if ($stickershape->image) {
             FacadesStorage::disk('public')->delete($stickershape->image);
         }

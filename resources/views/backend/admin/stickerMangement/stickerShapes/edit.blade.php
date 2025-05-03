@@ -16,7 +16,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Sticker Shape Details</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('am.sticker-shape.update', $stickershape->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('am.sticker-shape.update', encrypt($stickershape->id)) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 

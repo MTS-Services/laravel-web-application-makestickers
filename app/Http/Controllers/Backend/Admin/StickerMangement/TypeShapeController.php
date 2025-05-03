@@ -67,7 +67,7 @@ class TypeShapeController extends Controller
      */
     public function show(string $id)
     {
-       $typeShape=StickerTypeShape::with('stickerType', 'stickerShape')->findOrFail($id);
+       $typeShape=StickerTypeShape::with('stickerType', 'stickerShape')->findOrFail(decrypt($id));
         return view('backend.admin.stickerMangement.shapeType.show', compact('typeShape'));
 
     }
@@ -90,7 +90,7 @@ class TypeShapeController extends Controller
 {
     $data = $request->validated();
     $data['updated_by'] = admin()->id;
-    $typeShape = StickerTypeShape::findOrFail($id);
+    $typeShape = StickerTypeShape::findOrFail(decrypt($id));
     $typeShape->update($data);
 
     // Flash success message and redirect
@@ -104,7 +104,7 @@ class TypeShapeController extends Controller
      */
     public function destroy(string $id)
     {
-       $typeShape = StickerTypeShape::findOrFail($id);
+       $typeShape = StickerTypeShape::findOrFail(decrypt($id));
         $typeShape->delete();
         session()->flash('success', 'Sticker type-shape relationship deleted successfully.');
         return redirect()->route('am.type-shape.index');

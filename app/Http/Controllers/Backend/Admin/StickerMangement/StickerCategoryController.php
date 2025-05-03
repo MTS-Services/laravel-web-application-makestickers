@@ -72,7 +72,7 @@ class StickerCategoryController extends Controller
      */
     public function show(String $id)
     {
-        $stickerCategory = StickerCategory::findOrFail($id);
+        $stickerCategory = StickerCategory::findOrFail(decrypt($id));
         return view('backend.admin.stickerMangement.stickerCategory.show', compact('stickerCategory'));
     }
 
@@ -81,7 +81,7 @@ class StickerCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $stickerCategory = StickerCategory::findOrFail($id);
+        $stickerCategory = StickerCategory::findOrFail(decrypt($id));
         return view('backend.admin.stickerMangement.stickerCategory.edit', compact('stickerCategory'));
     }
 
@@ -92,8 +92,8 @@ class StickerCategoryController extends Controller
     {
         $validated = $request->validated();
 
-        $stickerCategory = StickerCategory::findOrFail($id);
-        
+        $stickerCategory = StickerCategory::findOrFail(decrypt($id));
+
 
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $stickerCategory, 'image', 'image');
@@ -116,7 +116,7 @@ class StickerCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $stickerCategory = StickerCategory::findOrFail($id);
+        $stickerCategory = StickerCategory::findOrFail(decrypt($id));
         if ($stickerCategory->image) {
             Storage::disk('public')->delete($stickerCategory->image);
         }

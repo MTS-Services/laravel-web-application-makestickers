@@ -44,14 +44,14 @@
                                         <a href="{{ route('am.sticker-category.show', $category) }}" class="btn btn-sm btn-info">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('am.sticker-category.edit', $category) }}" class="btn btn-sm btn-warning">
+                                        <a href="{{ route('am.sticker-category.edit', encrypt($category->id)) }}" class="btn btn-sm btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <button type="button" class="btn btn-sm btn-danger"
-                                                onclick="document.getElementById('delete-form-{{ $category->id }}').submit();">
+                                                onclick="document.getElementById('delete-form-{{ encrypt($category->id) }}').submit();">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                        <form id="delete-form-{{ $category->id }}"
+                                        <form id="delete-form-{{ encrypt($category->id) }}"
                                               action="{{ route('am.sticker-category.destroy', $category) }}"
                                               method="POST" style="display: none;">
                                             @csrf

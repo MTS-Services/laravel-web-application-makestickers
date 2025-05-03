@@ -55,13 +55,13 @@
                                 <td>{{ optional($shape->createdBy)->name ?? 'System'}}</td>
                                 <td>{{ timeFormat($shape->created_at) }}</td>
                                 <td>
-                                    <a href="{{ route('am.sticker-shape.edit', $shape) }}" class="btn btn-sm btn-info">
+                                    <a href="{{ route('am.sticker-shape.edit', encrypt($shape->id)) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="{{ route('am.sticker-shape.show', $shape) }}" class="btn btn-sm btn-primary">
+                                    <a href="{{ route('am.sticker-shape.show', encrypt($shape->id)) }}" class="btn btn-sm btn-primary">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <form action="{{ route('am.sticker-shape.destroy', $shape) }}" method="POST" class="d-inline delete-form">
+                                    <form action="{{ route('am.sticker-shape.destroy', encrypt($shape->id)) }}" method="POST" class="d-inline delete-form">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">

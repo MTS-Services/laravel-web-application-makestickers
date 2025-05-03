@@ -38,15 +38,15 @@
 
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Actions">
-                                        <a href="{{ route('am.type-shape.show', $typeShape->id) }}"
+                                        <a href="{{ route('am.type-shape.show', encrypt($typeShape->id)) }}"
                                            class="btn btn-primary" title="View">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('am.type-shape.edit', $typeShape->id) }}"
+                                        <a href="{{ route('am.type-shape.edit', encrypt($typeShape->id)) }}"
                                            class="btn btn-info" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('am.type-shape.destroy', $typeShape->id) }}"
+                                        <form action="{{ route('am.type-shape.destroy', encrypt($typeShape->id)) }}"
                                               method="POST" class="d-inline delete-form">
                                             @csrf
                                             @method('DELETE')

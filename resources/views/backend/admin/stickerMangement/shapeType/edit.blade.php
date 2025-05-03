@@ -18,7 +18,7 @@
         </div>
 
         <div class="card-body">
-            <form action="{{ route('am.type-shape.update', $typeshape->id) }}" method="POST">
+            <form action="{{ route('am.type-shape.update', encrypt($typeshape->id)) }}" method="POST">
                 @csrf
                 @method('PUT')
 

@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleHasPermissionSeeder::class,
             UserSeeder::class,
+
+            StickerCategorySeeder::class,
+            StickerTypeSeeder::class,
         ]);
     }
 }

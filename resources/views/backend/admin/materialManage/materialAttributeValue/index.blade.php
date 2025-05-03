@@ -30,9 +30,8 @@
                                 @forelse ($material_attribute_values as $material_attribute_value)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $material_attribute_value->material->name }}</td>
-                                        {{-- <td>{{ $material_attribute_value->material->name }}</td>     --}}
-                                        {{-- <td>{{ $material_attribute_value->materialAttribute->name }}</td> --}}
+                                        <td>{{ optional($material_attribute_value->material)->name }}</td>    
+                                        <td>{{ optional($material_attribute_value->materialAttribute)->name }}</td>
                                         <td>{{ $material_attribute_value->value }}</td>
                                         <td>
                                             <span class="badge badge-{{ $material_attribute_value->status_bg }}">

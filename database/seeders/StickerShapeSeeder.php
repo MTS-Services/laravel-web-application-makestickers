@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\StickerShapes;
+use App\Models\StickerShape;
 use Illuminate\Database\Seeder;
 
-class StickerShapesSeeder extends Seeder
+class StickerShapeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-         StickerShapes::factory()->count(10)->create();
+         StickerShape::factory()->count(10)->create();
     }
 }

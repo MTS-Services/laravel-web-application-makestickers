@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Edit Sticker Shape</h1>
-            <a href="{{ route('am.sticker-shapes.index') }}"
+            <a href="{{ route('am.sticker-shape.index') }}"
                 class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm">
                 <i class="fas fa-arrow-left fa-sm text-white-50"></i> Back to List
             </a>
@@ -16,7 +16,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Sticker Shape Details</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('am.sticker-shapes.update', $stickershape->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('am.sticker-shape.update', $stickershape->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -68,7 +68,7 @@
                     <div class="form-group row">
                         <div class="col-sm-10 offset-sm-2">
                             <button type="submit" class="btn btn-primary">Update Sticker Shape</button>
-                            <a href="{{ route('am.sticker-shapes.index') }}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{ route('am.sticker-shape.index') }}" class="btn btn-secondary">Cancel</a>
                         </div>
                     </div>
                 </form>

@@ -51,7 +51,8 @@
                 <strong class="text-muted">Thumbnail:</strong>
                 <div class="d-flex align-items-center">
                     @if ($stickerType->thumbnail)
-                        <img src="{{ storage_url($stickerType->thumbnail) }}" alt="{{ $stickerType->name }}" class="img-fluid rounded" style="max-width: 200px;">
+                        <img src="{{ storage_url($stickerType->thumbnail) }}" alt="{{ $stickerType->name }}"
+                            class="img-fluid rounded" style="max-width: 200px;">
                     @else
                         <span>No thumbnail available</span>
                     @endif
@@ -59,7 +60,7 @@
             </div>
 
             <div class="mt-4 text-center">
-                <a href="{{ route('am.sticker-types.index') }}" class="btn btn-secondary">
+                <a href="{{ route('am.sticker-type.index') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Back to List
                 </a>
             </div>
@@ -68,28 +69,31 @@
 @endsection
 
 @push('styles')
-<style>
-    .page-title {
-        font-size: 2rem;
-        font-weight: 600;
-        color: #333;
-    }
-    .card {
-        border-radius: 10px;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .card-header {
-        border-radius: 10px 10px 0 0;
-        padding: 20px;
-    }
-    .badge {
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-    .btn {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-</style>
-@endpush
+    <style>
+        .page-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+        }
 
+        .card {
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            border-radius: 10px 10px 0 0;
+            padding: 20px;
+        }
+
+        .badge {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+    </style>
+@endpush

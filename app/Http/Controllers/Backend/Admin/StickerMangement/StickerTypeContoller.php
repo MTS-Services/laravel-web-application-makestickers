@@ -18,13 +18,13 @@ class StickerTypeContoller extends Controller
         $this->middleware('auth:admin');
 
         // Define permissions for each method
-        // $this->middleware('permission:sticker-types-list', ['only' => ['index', 'show']]);
-        // $this->middleware('permission:sticker-types-create', ['only' => ['create', 'store']]);
-        // $this->middleware('permission:sticker-types-edit', ['only' => ['edit', 'update', 'status']]);
-        // $this->middleware('permission:sticker-types-delete', ['only' => ['destroy']]);
-        // $this->middleware('permission:sticker-types-trash', ['only' => ['trash', 'restore']]);
-        // $this->middleware('permission:sticker-types-restore', ['only' => ['restore']]);
-        // $this->middleware('permission:sticker-types-force-delete', ['only' => ['forceDelete']]);
+        // $this->middleware('permission:sticker-type-list', ['only' => ['index', 'show']]);
+        // $this->middleware('permission:sticker-type-create', ['only' => ['create', 'store']]);
+        // $this->middleware('permission:sticker-type-edit', ['only' => ['edit', 'update', 'status']]);
+        // $this->middleware('permission:sticker-type-delete', ['only' => ['destroy']]);
+        // $this->middleware('permission:sticker-type-trash', ['only' => ['trash', 'restore']]);
+        // $this->middleware('permission:sticker-type-restore', ['only' => ['restore']]);
+        // $this->middleware('permission:sticker-type-force-delete', ['only' => ['forceDelete']]);
     }
 
     /**
@@ -53,7 +53,7 @@ class StickerTypeContoller extends Controller
     {
         $stickerType = new StickerType();
         // if ($request->hasFile('image')) {
-        //     $validated['image'] = $request->file('image')->store('sticker-types', 'public');
+        //     $validated['image'] = $request->file('image')->store('sticker-type', 'public');
         // }
 
         if ($request->hasFile('thumbnail')) {
@@ -67,7 +67,7 @@ class StickerTypeContoller extends Controller
         StickerType::create($validated);
 
         session()->flash('success', 'Sticker Type Created Successfully');
-        return redirect()->route('am.sticker-types.index');
+        return redirect()->route('am.sticker-type.index');
     }
 
     /**
@@ -76,21 +76,21 @@ class StickerTypeContoller extends Controller
     public function show(string $id)
     {
         $stickerType = StickerType::findOrFail(decrypt($id));
-      return view('backend.admin.stickerMangement.stickerType.show', compact('stickerType'));
+        return view('backend.admin.stickerMangement.stickerType.show', compact('stickerType'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     */public function edit(string $id)
-{
-    $stickerType = StickerType::findOrFail(decrypt($id));
+     */ public function edit(string $id)
+    {
+        $stickerType = StickerType::findOrFail(decrypt($id));
 
-    $categories = StickerCategory::where('status', true)
-        ->orderBy('sort_order')
-        ->pluck('name', 'id');
+        $categories = StickerCategory::where('status', true)
+            ->orderBy('sort_order')
+            ->pluck('name', 'id');
 
-    return view('backend.admin.stickerMangement.stickerType.edit', compact('stickerType', 'categories'));
-}
+        return view('backend.admin.stickerMangement.stickerType.edit', compact('stickerType', 'categories'));
+    }
 
 
     /**
@@ -100,7 +100,7 @@ class StickerTypeContoller extends Controller
     {
         $stickerType = StickerType::findOrFail(decrypt($id));
         // if ($request->hasFile('image')) {
-        //     $validated['image'] = $request->file('image')->store('sticker-types', 'public');
+        //     $validated['image'] = $request->file('image')->store('sticker-type', 'public');
         // }
 
         if ($request->hasFile('thumbnail')) {
@@ -114,7 +114,7 @@ class StickerTypeContoller extends Controller
         $stickerType->update($validated);
 
         session()->flash('success', 'Sticker Type Updated Successfully');
-        return redirect()->route('am.sticker-types.index');
+        return redirect()->route('am.sticker-type.index');
     }
 
     /**
@@ -129,7 +129,7 @@ class StickerTypeContoller extends Controller
 
         $stickerType->delete();
 
-        return redirect()->route('am.sticker-types.index')->with('success', 'Type deleted successfully.');
+        return redirect()->route('am.sticker-type.index')->with('success', 'Type deleted successfully.');
     }
 
     public function trash()
@@ -150,6 +150,6 @@ class StickerTypeContoller extends Controller
         $stickerType->status = decrypt($status);
         $stickerType->save();
         session()->flash('success', 'StickerType Attribute status updated successfully');
-        return redirect()->route('am.sticker-types.index');
+        return redirect()->route('am.sticker-type.index');
     }
 }

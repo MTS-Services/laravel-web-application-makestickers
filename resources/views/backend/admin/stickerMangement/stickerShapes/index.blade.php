@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Sticker Shapes</h1>
-        <a href="{{ route('am.sticker-shapes.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <a href="{{ route('am.sticker-shape.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
             <i class="fas fa-plus fa-sm text-white-50"></i> Add New
         </a>
     </div>
@@ -50,13 +50,13 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="{{ route('am.sticker-shapes.edit', $shape) }}" class="btn btn-sm btn-info">
+                                    <a href="{{ route('am.sticker-shape.edit', $shape) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="{{ route('am.sticker-shapes.show', $shape) }}" class="btn btn-sm btn-primary">
+                                    <a href="{{ route('am.sticker-shape.show', $shape) }}" class="btn btn-sm btn-primary">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <form action="{{ route('am.sticker-shapes.destroy', $shape) }}" method="POST" class="d-inline delete-form">
+                                    <form action="{{ route('am.sticker-shape.destroy', $shape) }}" method="POST" class="d-inline delete-form">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">

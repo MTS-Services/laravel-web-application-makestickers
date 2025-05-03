@@ -32,5 +32,10 @@ class StickerType extends BaseModel
         return $this->belongsTo(StickerCategory::class, 'category_id');
     }
 
-    // Admin audit columns are handled automatically in boot method of a trait
+    // Relationship with StickerTypeShape
+    public function stickerTypeShapes()
+    {
+        return $this->hasMany(StickerTypeShape::class, 'sticker_type_id', 'id');
+    }
+
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\BaseModel;
 
-class StickerShapes extends BaseModel
+class StickerShape extends BaseModel
 {
     protected $fillable = [
         'name',
@@ -19,4 +19,10 @@ class StickerShapes extends BaseModel
     protected $casts = [
         'status' => 'boolean',
     ];
+
+    public function stickerTypeShapes()
+    {
+        return $this->hasMany(StickerTypeShape::class, 'sticker_shape_id', 'id');
+    }
+
 }

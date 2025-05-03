@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
             StickerCategorySeeder::class,
             StickerTypeSeeder::class,
-            StickerShapesSeeder::class,
+            StickerShapeSeeder::class,
         ]);
     }
 }

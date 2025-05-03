@@ -67,14 +67,17 @@
 
 
                 {{-- Material Management --}}
-                <li class="nav-item  @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) active submenu @endif">
+                <li class="nav-item  @if (isset($page_slug) &&
+                        ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#dropdown2"
-                        @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) aria-expanded="true" @endif>
+                        @if (isset($page_slug) &&
+                                ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Material Management') }}</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse @if (isset($page_slug) && ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) show @endif" id="dropdown2">
+                    <div class="collapse @if (isset($page_slug) &&
+                            ($page_slug == 'material' || $page_slug == 'material_attribute' || $page_slug == 'material_attribute_value')) show @endif" id="dropdown2">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'material') active @endif">
                                 <a href="{{ route('am.material.index') }}">
@@ -96,16 +99,25 @@
                 </li>
                 {{-- Dropdown --}}
                 <li class="nav-item  @if (isset($page_slug) &&
-                        ($page_slug == 'stickerCategory' || $page_slug == 'stickerType' || $page_slug == 'stickerShapes')) active submenu @endif">
+                        ($page_slug == 'stickerCategory' ||
+                            $page_slug == 'stickerType' ||
+                            $page_slug == 'stickerShapes' ||
+                            $page_slug == 'typeshape')) active submenu @endif">
                     <a data-bs-toggle="collapse" href="#dropdown2"
                         @if (isset($page_slug) &&
-                                ($page_slug == 'stickerCategory' || $page_slug == 'stickerType' || $page_slug == 'stickerShapes')) aria-expanded="true" @endif>
+                                ($page_slug == 'stickerCategory' ||
+                                    $page_slug == 'stickerType' ||
+                                    $page_slug == 'stickerShapes' ||
+                                    $page_slug == 'typeshape')) aria-expanded="true" @endif>
                         <i class="icon-people"></i>
                         <p>{{ __('Sticker Management') }}</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse @if (isset($page_slug) &&
-                            ($page_slug == 'stickerCategory' || $page_slug == 'stickerType' || $page_slug == 'stickerShapes')) show @endif" id="dropdown2">
+                            ($page_slug == 'stickerCategory' ||
+                                $page_slug == 'stickerType' ||
+                                $page_slug == 'stickerShapes' ||
+                                $page_slug == 'typeshape')) show @endif" id="dropdown2">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'stickerCategory') active @endif">
                                 <a href="{{ route('am.sticker-category.index') }}">
@@ -113,13 +125,18 @@
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'stickerType') active @endif">
-                                <a href="{{ route('am.sticker-types.index') }}">
+                                <a href="{{ route('am.sticker-type.index') }}">
                                     <span class="sub-item">{{ __('Sticker Type') }}</span>
                                 </a>
                             </li>
                             <li class="@if (isset($page_slug) && $page_slug == 'stickerShapes') active @endif">
-                                <a href="{{ route('am.sticker-shapes.index') }}">
+                                <a href="{{ route('am.sticker-shape.index') }}">
                                     <span class="sub-item">{{ __('Sticker Shapes') }}</span>
+                                </a>
+                            </li>
+                            <li class="@if (isset($page_slug) && $page_slug == 'typeshape') active @endif">
+                                <a href="{{ route('am.type-shape.index') }}">
+                                    <span class="sub-item">{{ __('Type Shape') }}</span>
                                 </a>
                             </li>
                         </ul>

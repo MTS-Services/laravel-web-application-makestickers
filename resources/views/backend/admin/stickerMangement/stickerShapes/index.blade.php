@@ -25,7 +25,7 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
-                    <thead class="table-dark">
+                    <thead class="">
                         <tr>
                             <th width="5%">#</th>
                             <th width="10%">Image</th>

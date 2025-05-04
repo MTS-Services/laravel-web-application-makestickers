@@ -13,7 +13,7 @@
         <div class="card-body">
             <div class="table-responsive overflow-visible">
                 <table class="table table-striped table-hover">
-                    <thead class="table-dark">
+                    <thead class="">
                         <tr >
                             <th>ID</th>
                             <th>Category</th>

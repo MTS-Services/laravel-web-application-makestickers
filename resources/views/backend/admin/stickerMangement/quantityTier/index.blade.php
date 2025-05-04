@@ -22,7 +22,7 @@
                     @endif
 
                     <table class="table table-striped table-hover">
-                        <thead class="table-dark">
+                        <thead class="">
                             <tr>
                                 <th>ID</th>
                                 <th>Min Quantity</th>

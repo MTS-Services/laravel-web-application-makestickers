@@ -106,7 +106,7 @@
                             $page_slug == 'stickerShapes' ||
                             $page_slug == 'typeshape'||
                             $page_slug == 'quantityTier')) active submenu @endif">
-                    <a data-bs-toggle="collapse" href="#dropdown2"
+                    <a data-bs-toggle="collapse" href="#dropdown3"
                         @if (isset($page_slug) &&
                                 ($page_slug == 'stickerCategory' ||
                                     $page_slug == 'stickerType' ||
@@ -122,7 +122,7 @@
                                 $page_slug == 'stickerType' ||
                                 $page_slug == 'stickerShapes' ||
                                 $page_slug == 'typeshape'||
-                            $page_slug == 'quantityTier')) show @endif" id="dropdown2">
+                            $page_slug == 'quantityTier')) show @endif" id="dropdown3">
                         <ul class="nav nav-collapse">
                             <li class="@if (isset($page_slug) && $page_slug == 'stickerCategory') active @endif">
                                 <a href="{{ route('am.sticker-category.index') }}">

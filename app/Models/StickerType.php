@@ -19,6 +19,9 @@ class StickerType extends BaseModel
         'created_by',
         'updated_by',
         'deleted_by',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     protected $casts = [
@@ -32,5 +35,10 @@ class StickerType extends BaseModel
         return $this->belongsTo(StickerCategory::class, 'category_id');
     }
 
-    // Admin audit columns are handled automatically in boot method of a trait
+    // Relationship with StickerTypeShape
+    public function stickerTypeShapes()
+    {
+        return $this->hasMany(StickerTypeShape::class, 'sticker_type_id', 'id');
+    }
+
 }

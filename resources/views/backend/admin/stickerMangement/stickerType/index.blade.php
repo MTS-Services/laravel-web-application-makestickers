@@ -4,7 +4,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1>Sticker Types</h1>
-        <a href="{{ route('am.sticker-types.create') }}" class="btn btn-primary">
+        <a href="{{ route('am.sticker-type.create') }}" class="btn btn-primary">
             <i class="fas fa-plus"></i> Add new
         </a>
     </div>
@@ -12,15 +12,17 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive overflow-visible">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr >
                             <th>ID</th>
                             <th>Category</th>
                             <th>Name</th>
                             <th>Thumbnail</th>
                             <th>Status</th>
                             <th>Featured</th>
+                            <th>Created At</th>
+                            <th>Created By</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -31,8 +33,7 @@
                                 <td>{{ $type->category->name }}</td>
                                 <td>{{ $type->name }}</td>
                                 <td>
-                                    <img src="{{ storage_url($type->thumbnail) }}"
-                                         alt="{{ $type->name }}" width="50">
+                                    <img src="{{ storage_url($type->thumbnail) }}" alt="{{ $type->name }}" width="50">
                                 </td>
                                 <td>
                                     <span class="badge bg-{{ $type->status ? 'success' : 'danger' }}">
@@ -44,36 +45,36 @@
                                         {{ $type->is_featured ? 'Featured' : 'Not Featured' }}
                                     </span>
                                 </td>
+                                <td>{{ optional($type->createdBy)->name ?? 'System'}}</td>
+                                <td>{{ timeFormat($type->created_at) }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a href="javascript:void(0)" type="button" id="dropdownMenuButton1"
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="icon-settings fs-3 setting"></i>
                                         </a>
-                                        <ul class="dropdown-menu dropdown-menu-end "
-                                            aria-labelledby="dropdownMenuButton1">
+                                        <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="dropdownMenuButton1">
                                             <li>
                                                 <a class="dropdown-item"
-                                                    href="{{ route('am.sticker-types.show', encrypt($type->id)) }}">
+                                                    href="{{ route('am.sticker-type.show', encrypt($type->id)) }}">
                                                     {{ __('Details') }}
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item"
-                                                    href="{{ route('am.sticker-types.edit', encrypt($type->id)) }}">
+                                                    href="{{ route('am.sticker-type.edit', encrypt($type->id)) }}">
                                                     {{ __('Edit') }}
                                                 </a>
                                             </li>
                                             <li class="dropdown">
-                                                <a class="dropdown-item dropdown-toggle"
-                                                    href="javascript:void(0)" id="status" role="button"
-                                                    aria-expanded="false">
+                                                <a class="dropdown-item dropdown-toggle" href="javascript:void(0)"
+                                                    id="status" role="button" aria-expanded="false">
                                                     {{ __('Status') }}
                                                 </a>
                                                 <ul class="dropdown-menu" aria-labelledby="status">
                                                     @foreach ($type->getStatusBtnText($type->status) as $status)
                                                         <li class="dropdown-item">
-                                                            <a href="{{ route('am.sticker-types.status', [encrypt($type->id), encrypt(array_search($status['text'], $type->getStatus()))]) }}"
+                                                            <a href="{{ route('am.sticker-type.status', [encrypt($type->id), encrypt(array_search($status['text'], $type->getStatus()))]) }}"
                                                                 class="text-{{ $status['class'] }}">
                                                                 {{ $status['text'] }}
                                                             </a>
@@ -88,7 +89,7 @@
                                                     {{ __('Delete') }}
                                                 </a>
                                                 <form id="delete-form-{{ $type->id }}"
-                                                    action="{{ route('am.sticker-types.destroy', encrypt($type->id)) }}"
+                                                    action="{{ route('am.sticker-type.destroy', encrypt($type->id)) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -106,7 +107,10 @@
                     </tbody>
                 </table>
             </div>
-            {{ $stickerTypes->links() }}
+            <div class="mt-3">
+                {{ $stickerTypes->links() }}
+            </div>
+
         </div>
     </div>
 @endsection

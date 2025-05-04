@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Create Sticker Shape</h1>
-            <a href="{{ route('am.sticker-shapes.index') }}"
+            <a href="{{ route('am.sticker-shape.index') }}"
                 class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm">
                 <i class="fas fa-arrow-left fa-sm text-white-50"></i> Back to List
             </a>
@@ -16,7 +16,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Sticker Shape Details</h6>
             </div>
             <div class="card-body">
-                <form action="{{ route('am.sticker-shapes.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('am.sticker-shape.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group row">
@@ -69,7 +69,7 @@
                     <div class="form-group row">
                         <div class="col-sm-10 offset-sm-2">
                             <button type="submit" class="btn btn-primary">Create Sticker Shape</button>
-                            <a href="{{ route('am.sticker-shapes.index') }}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{ route('am.sticker-shape.index') }}" class="btn btn-secondary">Cancel</a>
                         </div>
                     </div>
                 </form>
@@ -83,7 +83,7 @@
 <div class="container-fluid">
     <h1 class="h3 mb-4 text-gray-800">Add New Sticker Shape</h1>
 
-    <form action="{{ route('am.sticker-shapes.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('am.sticker-shape.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -105,7 +105,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Create Shape</button>
-        <a href="{{ route('am.sticker-shapes.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route('am.sticker-shape.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection --}}

@@ -13,6 +13,20 @@ class StickerCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        StickerCategory::factory()->count(10)->create();
+        StickerCategory::create([
+            'name' => 'Custom Stickers',
+            'slug' => 'custom-stickers',
+            'description' => 'Individually cut stickers'
+        ]);
+        StickerCategory::create([
+            'name' => 'Custom Labels',
+            'slug' => 'custom-labels',
+            'description' => 'Labels on a roll',
+        ]);
+        StickerCategory::create([
+            'name' => 'POUCHES',
+            'slug' => 'pouches',
+            'description' => 'Stand-up zipper pouches',
+        ]);
     }
 }

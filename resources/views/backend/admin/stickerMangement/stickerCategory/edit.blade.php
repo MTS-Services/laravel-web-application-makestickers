@@ -13,7 +13,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('am.sticker-category.update', $stickerCategory->id) }}" method="POST"
+            <form action="{{ route('am.sticker-category.update',encrypt($stickerCategory->id)) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

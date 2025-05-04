@@ -11,13 +11,15 @@
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Image</th>
                             <th>Status</th>
+                            <th>Created By</th>
+                            <th>Created At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -35,19 +37,21 @@
                                         {{ $category->status ? 'Active' : 'Inactive' }}
                                     </span>
                                 </td>
+                                <td>{{ optional($category->createdBy)->name ?? 'System'}}</td>
+                                <td>{{ timeFormat($category->created_at) }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('am.sticker-category.show', $category) }}" class="btn btn-sm btn-info">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('am.sticker-category.edit', $category) }}" class="btn btn-sm btn-warning">
+                                        <a href="{{ route('am.sticker-category.edit', encrypt($category->id)) }}" class="btn btn-sm btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <button type="button" class="btn btn-sm btn-danger"
-                                                onclick="document.getElementById('delete-form-{{ $category->id }}').submit();">
+                                                onclick="document.getElementById('delete-form-{{ encrypt($category->id) }}').submit();">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                        <form id="delete-form-{{ $category->id }}"
+                                        <form id="delete-form-{{ encrypt($category->id) }}"
                                               action="{{ route('am.sticker-category.destroy', $category) }}"
                                               method="POST" style="display: none;">
                                             @csrf

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Backend\Admin\StickerMangement;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StickerManagement\StickerShapesRequest;
 use App\Http\Traits\FileManagementTrait;
-use App\Models\StickerShapes;
+use App\Models\StickerShape;
 use Illuminate\Support\Facades\Storage as FacadesStorage;
 
-class StickerShapesController extends Controller
+class StickerShapeController extends Controller
 {
     use FileManagementTrait;
 
@@ -31,7 +31,7 @@ class StickerShapesController extends Controller
      */
     public function index()
     {
-        $stickerShapes = StickerShapes::orderBy('sort_order')->paginate(10);
+        $stickerShapes = StickerShape::orderBy('sort_order')->paginate(10);
         return view('backend.admin.stickerMangement.stickerShapes.index', compact('stickerShapes'));
     }
 
@@ -48,9 +48,9 @@ class StickerShapesController extends Controller
      */
     public function store(StickerShapesRequest $request)
     {
-        $stickershapes = new StickerShapes();
+        $stickershapes = new StickerShape();
         // if ($request->hasFile('image')) {
-        //     $validated['image'] = $request->file('image')->store('sticker-shapes', 'public');
+        //     $validated['image'] = $request->file('image')->store('sticker-shape', 'public');
         // }
 
         if ($request->hasFile('image')) {
@@ -61,10 +61,10 @@ class StickerShapesController extends Controller
         $validated['image'] = $stickershapes['image'];
 
         $validated['created_by'] = admin()->id;
-        StickerShapes::create($validated);
+        StickerShape::create($validated);
 
         session()->flash('success', 'Sticker Shapes Created Successfully');
-        return redirect()->route('am.sticker-shapes.index');
+        return redirect()->route('am.sticker-shape.index');
     }
 
     /**
@@ -72,7 +72,7 @@ class StickerShapesController extends Controller
      */
     public function show(string $id)
     {
-        $stickershape = StickerShapes::findOrFail($id);
+        $stickershape = StickerShape::findOrFail(decrypt($id));
         return view('backend.admin.stickerMangement.stickerShapes.show', compact('stickershape'));
     }
 
@@ -81,7 +81,7 @@ class StickerShapesController extends Controller
      */
     public function edit(string $id)
     {
-        $stickershape = StickerShapes::findOrFail($id);
+        $stickershape = StickerShape::findOrFail($id);
         return view('backend.admin.stickerMangement.stickerShapes.edit', compact('stickershape'));
     }
 
@@ -90,7 +90,7 @@ class StickerShapesController extends Controller
      */
     public function update(StickerShapesRequest $request, string $id)
     {
-        $stickershape = StickerShapes::findOrFail($id);
+        $stickershape = StickerShape::findOrFail(decrypt($id));
         if ($request->hasFile('image')) {
             $this->handleFileUpload($request, $stickershape, 'image', 'image');
         }
@@ -105,7 +105,7 @@ class StickerShapesController extends Controller
         $stickershape->update($validated);
 
         session()->flash('success', 'Sticker Shapes Created Successfully');
-        return redirect()->route('am.sticker-shapes.index');
+        return redirect()->route('am.sticker-shape.index');
     }
 
     /**
@@ -113,13 +113,13 @@ class StickerShapesController extends Controller
      */
     public function destroy(string $id)
     {
-        $stickershape = StickerShapes::findOrFail($id);
+        $stickershape = StickerShape::findOrFail(decrypt($id));
         if ($stickershape->image) {
             FacadesStorage::disk('public')->delete($stickershape->image);
         }
         $stickershape->delete();
         session()->flash('success', 'Sticker Shapes Deleted Successfully');
-        return redirect()->route('am.sticker-shapes.index');
+        return redirect()->route('am.sticker-shape.index');
     }
 
     public function status(string $id, string $status)

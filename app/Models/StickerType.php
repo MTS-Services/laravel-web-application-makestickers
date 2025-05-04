@@ -19,6 +19,9 @@ class StickerType extends BaseModel
         'created_by',
         'updated_by',
         'deleted_by',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     protected $casts = [
@@ -51,4 +54,10 @@ class StickerType extends BaseModel
     {
         return $query->where('status', self::STATUS_INACTIVE);
     }
+    // Relationship with StickerTypeShape
+    public function stickerTypeShapes()
+    {
+        return $this->hasMany(StickerTypeShape::class, 'sticker_type_id', 'id');
+    }
+
 }

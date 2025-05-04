@@ -9,11 +9,12 @@ use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeContr
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialAttributeValueController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\MaterialController;
 use App\Http\Controllers\Backend\Admin\MaterialManagement\StickerTypeMaterialController;
+use App\Http\Controllers\Backend\Admin\StickerMangement\QuantityTierController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerCategoryController;
-use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapesController;
+use App\Http\Controllers\Backend\Admin\StickerMangement\StickerShapeController;
 use App\Http\Controllers\Backend\Admin\StickerMangement\StickerTypeContoller;
 use App\Http\Controllers\Backend\Admin\TemplateManagement\TemplateCategoryController;
-use App\Models\TemplateCategory;
+use App\Http\Controllers\Backend\Admin\StickerMangement\TypeShapeController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Auth Routes
@@ -108,5 +109,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
             Route::get('/restore/{id}', [TemplateCategoryController::class, 'restore'])->name('restore');
             Route::get('/force-delete/{id}', [TemplateCategoryController::class, 'forceDelete'])->name('force-delete');
         });
+       
+        Route::resource('type-shape', TypeShapeController::class);
+        Route::resource('quantity-tier', QuantityTierController::class);
     });
 });

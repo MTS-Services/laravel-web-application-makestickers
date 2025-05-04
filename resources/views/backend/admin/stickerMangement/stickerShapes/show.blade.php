@@ -8,7 +8,7 @@
             <h1 class="h3 mb-0 text-gray-800">
                 <i class="fas fa-shapes mr-2"></i> Sticker Shape Details
             </h1>
-            <a href="{{ route('am.sticker-shapes.index') }}" class="btn btn-sm btn-outline-secondary shadow-sm">
+            <a href="{{ route('am.sticker-shape.index') }}" class="btn btn-sm btn-outline-secondary shadow-sm">
                 <i class="fas fa-arrow-left"></i> Back to List
             </a>
         </div>
@@ -52,7 +52,7 @@
                             <dd class="col-sm-9">{{ $stickershape->updated_at->format('d M Y, h:i A') }}</dd>
                         </dl>
                         <div class="mt-4 text-right">
-                            <a href="{{ route('am.sticker-shapes.index') }}" class="btn btn-outline-primary">
+                            <a href="{{ route('am.sticker-shape.index') }}" class="btn btn-outline-primary">
                                 <i class="fas fa-arrow-left"></i> Back to List
                             </a>
                         </div>
